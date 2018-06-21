@@ -1,0 +1,60 @@
+<div class="leve-menu-main" *ngIf="dataPresent">
+  <div fxFlex fxLayout="row" class="" fxFlex fxLayoutAlign="center center">
+    <label class="white-text" style="margin-right: 10px;">Level : {{gameDetails.atLevel+1}} </label>
+    <div fxLayout="row" fxFlex fxLayoutAlign="center center" style="z-index:5;">
+      <div fxLayout="row" *ngFor="let details of gameData;let i=index">
+        <button mat-icon-button *ngIf="i < gameDetails.atLevel" (click)="completedLevel(i)" [ngClass]="selectedLevel === i && showHide? 'active' : ''">
+          <mat-icon class="completed">check_circle_outline</mat-icon>
+        </button>
+        <div fxLayout="row" *ngIf="i == gameDetails.atLevel" class="level-box">
+          <div *ngFor="let mod of details.modules;let i = index" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon class="completed" *ngIf="i < gameDetails.atModule">fiber_manual_record</mat-icon>
+            <mat-icon class="Inprogress" *ngIf="i === gameDetails.atModule">fiber_manual_record</mat-icon>
+            <mat-icon class="unlock" *ngIf="i > gameDetails.atModule">fiber_manual_record</mat-icon>
+          </div>
+        </div>
+        <button mat-icon-button class="disabled" *ngIf="i > gameDetails.atLevel">
+          <mat-icon class="unlock">lock</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="drop-down-content" *ngIf="showHide">
+    <div fxLayout="row" fxLayoutAlign="start stretch">
+      <div fxFlex="30" class="grey-bg">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let level of levelData | ObjNgFor" (click)="summary(levelData[level])">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{level}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="p-0" *ngIf="levelData[level].topicsCovered">
+              <mat-list-item *ngFor="let sublevel of levelData[level].topicsCovered | ObjNgFor" (click)="subLevelSummary(levelData[level].topicsCovered[sublevel])">
+                <a matLine>{{sublevel}}</a>
+              </mat-list-item>
+            </mat-nav-list>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div fxFlex="70" class="p-30">
+        <div fxFlex="100" fxLayoutAlign="space-between start" class="level-main-content">
+          <div fxFlex="50">
+            <h1>{{levelObj.header}}</h1>
+            <p *ngFor="let step of levelObj.steps">{{step}}</p>
+          </div>
+          <div fxFlex="45">
+            <app-loading *ngIf="loading" class="image-load"></app-loading>
+            <div *ngIf="!loading" class="img-video-sec">
+              <img src="{{levelObj.image}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" *ngIf="showHide" (click)="hideModal()">
+  </div> -->
+
+</div>

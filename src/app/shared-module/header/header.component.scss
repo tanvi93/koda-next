@@ -1,0 +1,22 @@
+@import 'color';
+@import 'variables';
+@import 'mixins';
+  
+.logo {
+  width: 138.5px;
+  font-family: 'Quicksand', sans-serif;
+  margin-left: 1%;
+  font-size: 52.1px;
+  font-weight: bold;
+  text-align: left;
+  color: #e6e7e8;
+  text-decoration: none;
+}
+
+.toolbar {
+    height: 8vh;
+    background: $bodyBG;
+    & span {
+        color: $white;
+    }
+}

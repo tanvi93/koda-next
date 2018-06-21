@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'mixins';
+
+.header-content-div {   
+    width:100%;  
+    margin: 35px 0;
+    // Rounded img
+    
+    .mascot-div {
+        height: 137px;
+        width: 137px;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        border: 1px solid #fff;
+        margin-top: -4px;
+        @include border-radius(50%);
+         .mascot-head {
+            position: absolute;
+            bottom: 0;
+         }
+    }
+    // content
+    .content-div {
+        margin-left: 70px;
+        display:block;
+        position:relative;
+        height: calc(130px);
+        padding-left: 90px;
+        p {
+            padding: 10px;
+            font-size: 18.8px;
+            font-weight: 500;
+            color: $white;
+        }
+    }
+}

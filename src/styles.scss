@@ -1,0 +1,166 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+@import 'variables';
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/fonts/material-design-icons/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(assets/fonts/material-design-icons/MaterialIcons-Regular.woff2) format('woff2'), url(assets/fonts/material-design-icons/MaterialIcons-Regular.woff) format('woff'), url(assets/fonts/material-design-icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+// custom padding and margin mixins
+@include generate-pad-mar(120, bottom, b, 1);
+@include generate-pad-mar(120, top, t, 1);
+@include generate-pad-mar(120, right, r, 1);
+@include generate-pad-mar(120, left, l, 1);
+@include generate-pad-mar-all(120, 1);
+
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  background-color: $bodyBG;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+  height: auto !important;
+}
+
+.cdk-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+.c-pointer {
+  cursor: pointer !important;
+}
+.c-none {
+  cursor: inherit !important;
+}
+.transparent {
+  background-color: transparent;
+}
+.overflow_h {
+  overflow: hidden;
+}
+.overflow_a {
+  overflow: auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+  background: $theme;
+}
+
+router-outlet {
+  display: none;
+}
+
+app-nav {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  max-height: 100%;
+}
+
+.blocklyFlyoutBackground {
+    fill: #3e3a48 !important;
+    fill-opacity: 1 !important;
+}
+
+.blocklyToolboxDiv {
+    background-color: #3e3a48 !important;
+    color: #fff !important;
+    font-family: Quicksand !important;
+}
+
+.blocklyTreeRow :hover{
+    color: #000 !important;
+}
+
+.full-width-dialog {
+  max-width: 100vw !important;
+  width: 1810px;
+}
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.header-wrapper {
+  height: 20%;
+  overflow: hidden;
+}
+
+//30th may
+.radio-btn-grp .mat-radio-label {
+  white-space: normal!important;
+}
+// css changes 4th June
+.cdk-global-overlay-wrapper .mat-dialog-container {
+  overflow:inherit!important;
+}
+
+.green-pop-up-wrap .mat-dialog-actions {
+  padding:0;
+}
+
+.logo:focus {
+  outline: none;
+}
+
+.loading-comp-wrpper .mat-progress-spinner circle,.loading-comp-wrpper .mat-spinner circle {
+  stroke:#13bce4!important;
+}

@@ -1,0 +1,186 @@
+@import 'variables';
+@import 'mixins';
+.leve-menu-main {
+  & label {
+    font-size: 13px;
+    font-weight: normal;
+  }
+  & .level-box {
+    border: solid 1px #00bee5;
+    border-radius: 10px;
+    padding: 2px 5px;
+    height: 26px;
+    line-height: 40px;
+    margin: 7px 0;
+    & .mat-icon {
+      font-size: 10px;
+      line-height: 25px;
+      vertical-align: middle;
+      width: 20px;
+      text-align: center;
+      &.completed {
+        color: #41af56;
+      }
+      &.Inprogress {
+        color: #00a2ff;
+        font-size: 16px;
+      }
+      &.unlock {
+        color: #55515e;
+      }
+    }
+  }
+  & .mat-icon-button {
+    margin: 0 3px;
+    & .completed {
+      color: #41af56;
+    }
+    & .unlock {
+      color: #55515e;
+    }
+    & .level-status {
+      border: solid 1px #fff;
+      border-radius: 20px;
+      padding: 2px;
+      & .mat-icon {
+        margin: 0 5px;
+      }
+    }
+    &.active {
+      padding: 0 0 25px;
+      & .mat-icon {
+        color: green;
+        border-radius: 50%;
+        // z-index: 1;
+        position: relative;
+      }
+      &:before {
+        background: url('./../../../../assets/images/shape1.png') no-repeat;
+        width: 38px;
+        height: 62px;
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 1.5px;
+      }
+    }
+  }
+  & .drop-down-content {
+    min-height: 300px;
+    width: 95%;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    top: 64px;
+    left: 0; // padding: 20px;
+    margin: 0 auto;
+    background-color: $white;
+    white-space: normal;
+    & .grey-bg {
+      background-color: #3e3a48;
+    }
+    & label {
+      font-size: 14px;
+    }
+    & .mat-expansion-panel-spacing:first-child,
+    .mat-expansion-panel-spacing:last-child,
+    .mat-expansion-panel-spacing {
+      margin: 0 !important;
+    }
+    & .mat-expansion-panel::ng-deep {
+      box-shadow: none;
+      border-bottom: solid 1px #524f5b;
+      & .mat-expansion-panel-header {
+        background-color: #3e3a48;
+        height: 48px;
+        & .mat-expansion-indicator:after {
+          border-color: #fff;
+        }
+        & .mat-expansion-panel-header-title {
+          color: #fff;
+          text-transform: uppercase; // font-size: 22px;
+          font-weight: 500;
+        }
+      }
+      & .mat-expanded::ng-deep {
+        & .mat-expansion-panel-header-title {
+          color: green;
+        }
+        & .mat-expansion-indicator::after {
+          border-color: green;
+        }
+      }
+      &.mat-expansion-panel-body {
+        padding: 0;
+      }
+      &.mat-nav-list::ng-deep {
+        background-color: #22c369;
+        color: #000;
+        &.mat-list-item {
+          padding: 0 24px;
+          position: relative;
+          border-bottom: solid 1px #0db55b;
+          font-size: 14px;
+          &:hover {
+            color: #fff;
+            &::after {
+              content: "";
+              width: 0;
+              height: 2px;
+              position: absolute;
+              right: -8px;
+              top: 19px;
+              border-top: 5px solid transparent;
+              border-left: 8px solid #22c369;
+              border-bottom: 5px solid transparent;
+            }
+          }
+          &.active {
+            color: #fff;
+          }
+          & .mat-list-item-content {
+            padding: 0;
+          }
+        }
+      }
+    }
+    & .level-main-content {
+      font-size: 20px;
+      color: #3e3a48;
+      h1 {
+        font-size: 28px;
+        color: green;
+        margin-bottom: 20px;
+        font-weight: 600
+      }
+      p {
+        margin-bottom: 20px;
+        line-height: 20px;
+      }
+    }
+    & .img-video-sec img {
+      width: 100%;
+    }
+    & .mat-expansion-panel:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-load{
+  position: relative;
+  left: 140px;
+}
