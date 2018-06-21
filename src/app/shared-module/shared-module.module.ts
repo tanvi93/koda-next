@@ -9,13 +9,14 @@ import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
 import { ClickToContinueButtonComponent } from './click-to-continue-button/click-to-continue-button.component';
 import { NarrationContainerComponent } from './narration-container/narration-container.component';
 import { ContinueButtonComponent } from './continue-button/continue-button.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
@@ -23,7 +24,8 @@ import { ContinueButtonComponent } from './continue-button/continue-button.compo
     SpeechBubbleComponent,
     ClickToContinueButtonComponent,
     NarrationContainerComponent,
-    ContinueButtonComponent
+    ContinueButtonComponent,
+    LoadingComponent
   ]
 })
 export class SharedModuleModule { }
