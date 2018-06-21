@@ -5,13 +5,25 @@ import { HeaderComponent } from './header/header.component';
 import { LevelProgressComponent } from './header/level-progress/level-progress.component';
 import { ProfileStatusComponent } from './header/profile-status/profile-status.component';
 import { InstructionBarComponent } from './instruction-bar/instruction-bar.component';
+import { SpeechBubbleComponent } from './speech-bubble/speech-bubble.component';
+import { ClickToContinueButtonComponent } from './click-to-continue-button/click-to-continue-button.component';
+import { NarrationContainerComponent } from './narration-container/narration-container.component';
+import { ContinueButtonComponent } from './continue-button/continue-button.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent],
-  exports: [CommonModule, HeaderComponent]
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent],
+  exports: [
+    CommonModule, 
+    HeaderComponent,
+    InstructionBarComponent,
+    SpeechBubbleComponent,
+    ClickToContinueButtonComponent,
+    NarrationContainerComponent,
+    ContinueButtonComponent
+  ]
 })
 export class SharedModuleModule { }
