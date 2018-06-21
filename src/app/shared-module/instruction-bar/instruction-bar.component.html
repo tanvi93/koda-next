@@ -1,10 +1,10 @@
 <div class="header-content-div container-fluid" fxFlex fxLayoutAlign="center center">
   <div fxFlex="900px" fxFlex.md="80" fxFlex.sm="100">
     <div class="mascot-div" fxLayout="row" fxLayoutAlign="center center" [style.background-color]="mascotBgColor">
-      <img class="mascot-head" [src]="headerMascotImage" (click)='switchTest()' alt="" fxFlex="60">
+      <img class="mascot-head" [src]="mascotImage" (click)='switchTest()' alt="" fxFlex="60">
     </div>
-    <div class="content-div" [style.background-color]="headerBgColor" fxFlex fxLayoutAlign="space-around center">
-      <p [innerHTML]="headerContent"></p>
+    <div class="content-div" fxFlex fxLayoutAlign="space-around center">
+      <p [innerHTML]="instructions"></p>
     </div>
   </div>
 </div>
