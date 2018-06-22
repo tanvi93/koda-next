@@ -9,47 +9,47 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Landing Page',
-                        path: 'intro',
+                        path: 'level-1/intro',
                         order: 0,
                         type: 'narration',
                     }, {
                         name: 'Choose Avatar',
-                        path: 'choose-avatar',
+                        path: 'level-1/choose-avatar',
                         order: 1,
                         type: 'narration',
                     }, {
                         name: 'meerkat introduces MM',
-                        path: 'narration/intro_to_mm',
+                        path: 'level-1/mascot-talking/intro_to_mm',
                         order: 2,
                         type: 'narration',
                     }, {
                         name: 'MM0_play',
-                        path: 'game-play/mm_play',
+                        path: 'level-1/game-play/mm_play',
                         order: 3,
                         type: 'game',
                     }, {
                         name: 'Select game elements',
-                        path: 'game-elements',
+                        path: 'level-1/game-elements',
                         order: 4,
                         type: 'activity',
                     }, {
                         name: 'Summary game elements',
-                        path: 'game-element-summary',
+                        path: 'level-1/game-element-summary',
                         order: 5,
                         type: 'narration'
                     }, {
                         name: 'Show algo',
-                        path: 'narration/intro_to_algo',
+                        path: 'level-1/mascot-talking/intro_to_algo',
                         order: 6,
                         type: 'narration'
                     }, {
                         name: 'MM0_1_Q2 (MM algorithm)',
-                        path: 'drag-n-drop/mm0_1_q2',
+                        path: 'level-1/drag-n-drop/mm0_1_q2',
                         order: 7,
                         type: 'activity'
                     }, {
                         name: 'Architect badge',
-                        path: 'badge/architect',
+                        path: 'level-1/badge/architect',
                         order: 8,
                         type: 'badge'
                     }

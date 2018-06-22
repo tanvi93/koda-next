@@ -27,7 +27,7 @@ export class AppComponent {
         if (this.page.indexOf('badge') !== -1 || this.page.indexOf('challenge') !== -1 || (this.page.indexOf('game') !== -1 && this.page.indexOf('mm') === -1)) {
           audio.backgroundSound.pause();
         } else if (audio.backgroundSound.paused) {
-          audio.backgroundSound.play();
+          // audio.backgroundSound.play();
         }
         if (this.page === 'dashboard' || this.page === 'level-1/intro' || this.page === 'level-1/') {
           audio.backgroundSound.pause();
@@ -37,7 +37,7 @@ export class AppComponent {
         }
       }
     });
-    audio.backgroundSound.play();
+    // audio.backgroundSound.play();
   }
 
 }
