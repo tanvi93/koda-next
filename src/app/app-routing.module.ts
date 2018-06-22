@@ -8,6 +8,9 @@ const routes: Routes = [
   }, {
     path: 'quiz/:pageId',
     loadChildren: 'app/quiz-module/quiz-module.module#QuizModuleModule'
+  }, {
+    path: 'coding',
+    loadChildren: 'app/coding-module/coding-module.module#CodingModuleModule'
   }
 ];
 
