@@ -6,7 +6,7 @@ const routes: Routes = [
     path: 'level-1',
     loadChildren: 'app/level-0/level-0.module#Level0Module'
   }, {
-    path: 'quiz',
+    path: 'quiz/:pageId',
     loadChildren: 'app/quiz-module/quiz-module.module#QuizModuleModule'
   }
 ];

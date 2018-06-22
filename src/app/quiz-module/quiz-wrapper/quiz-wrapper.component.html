@@ -1,3 +1,12 @@
-<p style="color: white">
-  quiz-wrapper works!
-</p>
+<div fxLayout="column">
+  <app-instruction-bar></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
+      <img class="gameImage" [src]="quizObj.mediaLink" alt="game video">
+    </div>
+    <div fxFlex="40" class="quiz-zone">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+

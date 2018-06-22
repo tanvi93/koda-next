@@ -12,6 +12,6 @@ import { InstructionBarComponent } from './instruction-bar/instruction-bar.compo
     MaterialModule
   ],
   declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent],
-  exports: [CommonModule, HeaderComponent]
+  exports: [CommonModule, HeaderComponent, InstructionBarComponent, MaterialModule]
 })
 export class SharedModuleModule { }
