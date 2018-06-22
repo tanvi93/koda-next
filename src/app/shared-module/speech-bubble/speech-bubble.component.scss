@@ -1,0 +1,20 @@
+.speech-box {
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  font-family: Quicksand;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgb(62, 58, 72);
+  z-index: 300;
+}
+
+.speech-box .arrow {
+  border-style: solid;
+  position: absolute;
+}
+
+.bottom {
+  border-color: rgb(62, 58, 72) transparent transparent transparent;
+  border-width: 25px 25px 0px 25px;
+}
