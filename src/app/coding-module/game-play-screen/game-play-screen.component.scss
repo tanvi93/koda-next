@@ -1,0 +1,28 @@
+.build-game button{
+    background:#00bee5;
+    width: 290px;
+    height: 50px;
+    color: #fff;
+    font-size: 18px;
+    font-family: Quicksand;
+    border-radius: 50px;
+    border: none;
+    margin: 30px auto 0;
+    cursor: pointer;
+    position: relative;
+    padding: 0 0px 0 20px;
+}
+.build-game button:focus{
+    outline: none;
+}
+.build-game {
+    text-align: center;
+}
+
+.build-game img{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+

@@ -1,0 +1,11 @@
+<app-narration-container>
+  <div class="video-wrap">
+    <video style="width: 100%; height: 100%" controls controlsList="nodownload" autoplay>
+      <source src="./assets/videos/summary_mm_game_elements.mp4" type="video/mp4">
+    </video>
+  </div>
+  <figure class="mascot-img">
+    <img [src]='mascot'>
+  </figure>
+  <app-continue-button *ngIf="showButton"></app-continue-button>
+</app-narration-container>

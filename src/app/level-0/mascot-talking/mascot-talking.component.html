@@ -1,0 +1,14 @@
+<div (click)="goNext()">
+  <div class="avatar-wrap">
+    <div class="speechbubble-position">
+      <app-speech-bubble [arrow]="{left: '170px', bottom: '-24px'}">
+        {{speech[pageId][activeIndex]}}
+      </app-speech-bubble>
+    </div>
+
+    <figure class="img-div">
+      <img [src]="mascot">
+    </figure>
+  </div>
+  <app-click-to-continue-button *ngIf="audio.readyToGoNext"></app-click-to-continue-button>
+</div>
