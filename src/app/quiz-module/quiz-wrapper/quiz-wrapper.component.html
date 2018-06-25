@@ -1,12 +1,22 @@
 <div fxLayout="column">
-  <app-instruction-bar></app-instruction-bar>
-  <div fxLayout="row" fxLayoutGap="10px">
+  <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
+  <button mat-fab *ngIf="quizData.hint" (click)="hintModal($event)" class="button">
+    <img class="icon" src="./assets/icons/hint_open.svg" alt="">
+  </button>
+  <button mat-fab *ngIf="quizData.preview" (click)="previewModal($event)" class="button">
+    <img class="icon" src="./assets/icons/preview_open.svg" alt="">
+  </button>
+  <div *ngIf="quizData.mediaLink" fxLayout="row" fxLayoutGap="10px">
     <div class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
-      <img class="gameImage" [src]="quizObj.mediaLink" alt="game video">
+      <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
     </div>
     <div fxFlex="40" class="quiz-zone">
       <ng-content></ng-content>
     </div>
   </div>
+  <div *ngIf="!quizData.mediaLink" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
+    <div fxFlex="50" class="quiz-zone">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>
-

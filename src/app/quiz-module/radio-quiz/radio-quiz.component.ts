@@ -8,7 +8,7 @@ import { quiz } from './../../data/radioMcq';
   styleUrls: ['./radio-quiz.component.scss']
 })
 export class RadioQuizComponent implements OnInit {
-  private quizData: any;
+  private quizObj: any;
   private pageId: String;
 
   constructor(private route: ActivatedRoute) { }
@@ -16,7 +16,7 @@ export class RadioQuizComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.pageId = this.route.snapshot.paramMap.get('pageId');
-      this.quizData = quiz[`${this.pageId}`];
+      this.quizObj = quiz[`${this.pageId}`];
     });
   }
 }
