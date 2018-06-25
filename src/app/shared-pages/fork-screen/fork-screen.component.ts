@@ -14,11 +14,14 @@ export class ForkScreenComponent implements OnInit {
   private pageData: any;
   private leftButtonText: String;
   private rightButtonText: String;
+  private bgColor: String;
 
   constructor(private activateRoute: ActivatedRoute,
     private router: Router,
     private audio: AudioService
-  ) { }
+  ) {
+    this.bgColor = "#22c36a";
+  }
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params => {

@@ -6,6 +6,8 @@ import { DashboardComponent } from './shared-pages/dashboard/dashboard.component
 import { AlgoStepsComponent } from './shared-pages/algo-steps/algo-steps.component';
 import { LinearFlowScreenComponent } from './shared-pages/linear-flow-screen/linear-flow-screen.component';
 import { ForkScreenComponent } from './shared-pages/fork-screen/fork-screen.component';
+import { StorylineScreenComponent } from './shared-pages/storyline-screen/storyline-screen.component';
+import { VideoScreenComponent } from "./shared-pages/video-screen/video-screen.component";
 
 const routes: Routes = [
   {
@@ -32,6 +34,12 @@ const routes: Routes = [
   }, {
     path: 'fork/:pageId',
     component: ForkScreenComponent
+  }, {
+    path: 'storyline/:pageId',
+    component: StorylineScreenComponent
+  }, {
+    path: 'learning/:pageId',
+    component: VideoScreenComponent
   }
 ];
 
