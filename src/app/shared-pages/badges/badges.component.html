@@ -12,8 +12,5 @@
     <span class="badge-name">{{pageData.badge}}</span>
   </div>
   <img class="items right-item animated zoomInUp" [src]="avatarImg">
-  <button mat-raised-button class="badge-continue-button" (click)="buttonClicked()">
-    <img class="continue-icon" src="./assets/images/monkey_menace/group.png" alt="button">
-    <p class="button-text">Continue</p>
-  </button>
+  <app-continue-button (click)="buttonClicked()" [pageData]="pageData"></app-continue-button>
 </app-narration-container>

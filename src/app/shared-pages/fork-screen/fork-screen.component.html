@@ -1,3 +1,18 @@
-<p>
-  fork-screen works!
-</p>
+<app-narration-container>
+<div fxLayoutAlign="space-around center" fxLayout="column">
+  <div class="fork-mascot-img">
+    <img [src]="mascotImageSrc" width="20%">
+  </div>
+  <h3 class="heading">{{headingQuestion}}</h3>
+  <div>
+    <div class="fork-buttons" (click)="goLeft()">Practice with some
+      <br>
+      <span>ACTIVITIES</span>
+    </div>
+    <div class="fork-buttons" (click)="goRight()">Yes! I'm ready to
+      <br>
+      <span>TAKE THE CHALLENGE</span>
+    </div>
+  </div>
+</div>
+</app-narration-container>

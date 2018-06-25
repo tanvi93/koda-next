@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { BadgesComponent } from './shared-pages/badges/badges.component';
 import { DashboardComponent } from './shared-pages/dashboard/dashboard.component';
+import { AlgoStepsComponent } from './shared-pages/algo-steps/algo-steps.component';
+import { LinearFlowScreenComponent } from './shared-pages/linear-flow-screen/linear-flow-screen.component';
+import { ForkScreenComponent } from './shared-pages/fork-screen/fork-screen.component';
 
 const routes: Routes = [
   {
@@ -20,6 +23,15 @@ const routes: Routes = [
   }, {
     path: 'dashboard',
     component: DashboardComponent
+  }, {
+    path: 'algo-steps/:stepId',
+    component: AlgoStepsComponent
+  }, {
+    path: 'continue/:pageId',
+    component: LinearFlowScreenComponent
+  }, {
+    path: 'fork/:pageId',
+    component: ForkScreenComponent
   }
 ];
 

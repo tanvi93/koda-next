@@ -28,7 +28,7 @@ export class BadgesComponent {
 
   buttonClicked() {
     this.audio.badgeSound.pause();
-    this.utility.nextPage(this.router.url.substr(1), this.pageData);
+    // this.utility.nextPage(this.router.url.substr(1), this.pageData);
   }
 
 }
