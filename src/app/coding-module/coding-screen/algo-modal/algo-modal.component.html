@@ -1,0 +1,16 @@
+<div class="algorithm-model" fxLayout="column">
+  <div class="algoImg" mat-icon-button (click)="closeDialog()" alt="Close icon">
+    <img src="./assets/images/algorithm_closed.png">
+  </div>
+  <div class="algorithm-content" fxLayout="column" fxFlex>
+    <mat-list fxLayout="column" fxFlex>
+      <mat-list-item [ngClass]="{'highlighted-step': codingScreenData.icons[0].activeIndex == i}" fxLayout="row" fxLayoutAlign="start center"
+        *ngFor='let data of codingScreenData.icons[0].content;let i = index' fxFlex>
+        <span class="step-number" [ngClass]="{'highlighted-stepNumber': codingScreenData.icons[0].activeIndex == i}">{{i+1}}</span>
+        <p fxLayout="row" fxLayoutAlign="starts center">{{data}}</p>
+        <mat-icon class="material-icons tick" aria-label="tic" *ngIf="codingScreenData.icons[0].activeIndex > i;">&#xE5CA;</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>

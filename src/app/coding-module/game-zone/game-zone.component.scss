@@ -1,0 +1,89 @@
+/* css for actvitiy screen of mm page  */
+
+@import 'variables';
+@import 'mixins';
+
+.controls {
+  height: 82px;
+  padding: 0 15px;
+  background-color: rgb(62, 58, 72);
+  display: grid;
+  grid-template-columns: 20% 50% 10% 10% 10%;
+  .gridImg {
+    width: auto;
+    height: 35px;
+    cursor: pointer;
+  }
+  .mat-button {
+    background-color: #8bc63f;
+    color: $white;
+    @include border-radius(20px);
+    .material-icons {
+      font-size: 16px;
+      height: 20px;
+    }
+  }
+  .coordinates {
+    font-size: 15px;
+    font-weight: 500;
+    color: #a7a9ac;
+  }
+}
+
+.cell-wrapper {
+  position: relative;
+}
+
+.run-button {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  margin-top: -20px;
+}
+
+
+.controls img {
+  width: 100px;
+}
+
+.zoom {
+  width: 57%;
+}
+
+.coordinates span {
+  display:block;
+}
+.gridImg,.coordinates {
+  display: inline-flex!important;
+  vertical-align:middle;}
+.xy {
+  float: right;
+  width: 100%;
+  text-align: right;
+}
+
+@media only screen and (max-height:750px){
+  
+  .feedbackzone {
+      margin-top: 10px;
+  }
+  .controls {
+      height: 50px;
+  }
+  .controls .coordinates{
+    font-size: 12px;
+  }
+  .controls .gridImg{
+    height: 27px;
+  }
+  .controls img {
+    width: 100px;
+    margin:8px 0 5px 0;
+  }
+}
+
+@media only screen and (max-height:680px){
+  .controls img {
+    width: 85px;
+  }
+}
