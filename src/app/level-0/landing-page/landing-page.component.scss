@@ -50,7 +50,7 @@
     position: relative;
 }
 .mascot-img img {
-    width: 28%;
+    width: 100%;
     position: absolute;
     bottom: 0;
 }
@@ -90,6 +90,9 @@
     .intro-description p{
         font-size: 23px;
         line-height: 28px;
+    }
+    .mascot-img img {
+        width: 88%;
     }
 }
 @media screen and (max-width:1090px){

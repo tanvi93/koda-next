@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'mixins';
+.toolbar {
+  background: $dashboardBG;
+  & span {
+    color: $darkGrey;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  & .signbtn {
+    height: 30px; // width: 90px;
+    line-height: 30px;
+    background: $dashboardBG;
+    border: solid 1px #000;
+    overflow: hidden;
+    @include border-radius(20px);
+    @include box-shadow(none);
+    &.timespent {
+      background-color: $blue;
+      color: $white;
+      border: solid 1px transparent;
+      pointer-events: none;
+    }
+  }
+}

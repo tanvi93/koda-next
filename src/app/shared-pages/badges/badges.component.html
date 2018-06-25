@@ -1,3 +1,19 @@
-<p>
-  badges works!
-</p>
+<!-- <div class="badge-wrapper animated zoomIn"> -->
+  <app-narration-container [bgColor]="badgeBGColor" class="animated zoomIn">
+  <img class="confetti left" src="./assets/misc_images/confetti.gif">
+  <img class="confetti right" src="./assets/misc_images/confetti.gif">
+  <div class="heading-container">
+    <span class="heading">{{pageData.heading}}</span>
+  </div>
+  <img class="items left-item animated zoomInUp" [src]="pageData.mascotImg">
+  <div class="badge-container">
+    <img class="badge" src="./assets/misc_images/badge.png">
+    <img class="ribbion" src="./assets/misc_images/badge_name.png">
+    <span class="badge-name">{{pageData.badge}}</span>
+  </div>
+  <img class="items right-item animated zoomInUp" [src]="avatarImg">
+  <button mat-raised-button class="badge-continue-button" (click)="buttonClicked()">
+    <img class="continue-icon" src="./assets/images/monkey_menace/group.png" alt="button">
+    <p class="button-text">Continue</p>
+  </button>
+</app-narration-container>

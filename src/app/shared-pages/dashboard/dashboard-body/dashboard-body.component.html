@@ -1,0 +1,24 @@
+<div class="p-20 mainbody-section whitebg">
+  <div fxLayout="row" fxLayoutAlign="stretch start" fxFlex>
+    <div fxFlex="60" class="m-r-20 ">
+      <h4 class="m-b-10">My projects</h4>
+      <div fxLayout="row" fxLayoutAlign="start center" class="aqua-bg p-20">
+        <button mat-icon-button>
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <app-projects></app-projects>
+        <button mat-icon-button>
+          <a [routerLink]="'first'">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </a>
+        </button>
+      </div>
+    </div>
+    <div fxFlex="40">
+      <div class="carousel-main" fxlayout="column">
+        <h4 class="m-b-10">Activities</h4>
+        <app-custom-slider [items]="items" [rows]="2" [cols]="3"></app-custom-slider>
+      </div>
+    </div>
+  </div>
+</div>
