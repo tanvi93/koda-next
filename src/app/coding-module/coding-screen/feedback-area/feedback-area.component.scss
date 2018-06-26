@@ -1,0 +1,12 @@
+.feedbackzone {  
+  background-color: #3e3a48;
+    margin-top: 20px;
+  & .feedbackTxt {
+    margin: auto;
+    max-width: 85%;
+    font-family: Quicksand;
+    font-size: 18.8px;
+    font-weight: 500;
+    color: #ffff00;
+  }
+}
