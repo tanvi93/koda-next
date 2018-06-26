@@ -10,15 +10,14 @@ import { ClickToContinueButtonComponent } from './click-to-continue-button/click
 import { NarrationContainerComponent } from './narration-container/narration-container.component';
 import { ContinueButtonComponent } from './continue-button/continue-button.component';
 import { LoadingComponent } from './loading/loading.component';
-import { CheckboxComponentComponent } from './checkbox-component/checkbox-component.component';
-import { DropdownComponentComponent } from './dropdown-component/dropdown-component.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, CheckboxComponentComponent, DropdownComponentComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
