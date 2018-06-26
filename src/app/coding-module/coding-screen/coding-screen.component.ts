@@ -80,7 +80,7 @@ export class CodingScreenComponent implements OnInit {
     public dialog: MatDialog) {
     this.sprites = new SpriteService();
 
-    this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
+    // this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
     this.successModalAppeartime = 500;
     this.doRefresh = false;
     this.enableShadowLayer = false;

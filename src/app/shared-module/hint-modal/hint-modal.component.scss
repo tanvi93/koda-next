@@ -1,0 +1,36 @@
+.hint-container {
+  position: absolute;
+  width: 30%;
+  right: 3%;
+  height: auto;
+  background: transparent;
+  & .hint-header {
+    width: 50px;
+    height: auto;
+    float: right;
+    & .hint-closed-new {
+      height: 50px;
+      cursor: pointer;
+    }
+    & .hint-cap-new {
+      height: 30px;
+      margin-top: -5px;
+      width: 50px;
+      border-radius: 5px 5px 0px 0px;
+      background-color: white;
+    }
+  }
+  & .hint-content-new {
+    width: 100%;
+    position: absolute;
+    top: 78px;
+    background: white;
+    & ul {
+      margin-top: 5%;
+      & li {
+        margin: 10% 5%;
+        font-family: 'QuickSand';
+      }
+    }
+  }
+}
