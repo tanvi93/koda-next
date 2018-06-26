@@ -31,5 +31,14 @@ export const stories = {
             './assets/images/activities/packaging_milk/storyline-img2.jpg',
             './assets/images/activities/packaging_milk/Packaging-gif_2.gif'
         ]
+    }, identical_twins: {
+        backgroundImgs: [
+            './assets/images/activities/identical_twins/step1.png',
+            './assets/images/activities/identical_twins/step2.png',
+            './assets/images/activities/identical_twins/step3.png',
+            './assets/images/activities/identical_twins/step4.png',
+            './assets/images/activities/identical_twins/step5.png',
+            './assets/images/activities/identical_twins/step6.png'
+        ]
     }
 }
