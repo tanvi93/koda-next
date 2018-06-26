@@ -24,6 +24,7 @@ import { VideoScreenComponent } from './shared-pages/video-screen/video-screen.c
 import { AudioService } from './shared-services/audio.service';
 import { UtilitiesService } from './shared-services/utilities.service';
 import { ApiService } from './shared-services/api.service';
+import { SelectActivityComponent } from './shared-pages/select-activity/select-activity.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ApiService } from './shared-services/api.service';
     LinearFlowScreenComponent,
     ForkScreenComponent,
     StorylineScreenComponent,
-    VideoScreenComponent
+    VideoScreenComponent,
+    SelectActivityComponent
   ],
   imports: [
     BrowserModule,
