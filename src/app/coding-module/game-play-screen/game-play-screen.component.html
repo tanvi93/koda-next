@@ -1,5 +1,5 @@
-<!-- <app-loading *ngIf="loading"></app-loading> -->
-<div class="game-wrapper h100" fxLayoutAlign="space-around center">
+<app-loading *ngIf="loading"></app-loading>
+<div class="h100" fxLayoutAlign="space-around center">
   <div id="canvas-holder" class="game-canvas-container" fxLayout="column" fxFlex="65">
     <app-game-canvas></app-game-canvas>
     <div class="build-game" (click)="goNext()" *ngIf="show">

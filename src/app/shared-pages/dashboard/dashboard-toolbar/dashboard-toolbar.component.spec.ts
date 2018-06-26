@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RadioQuizComponent } from './radio-quiz.component';
+import { DashboardToolbarComponent } from './dashboard-toolbar.component';
 
-describe('RadioQuizComponent', () => {
-  let component: RadioQuizComponent;
-  let fixture: ComponentFixture<RadioQuizComponent>;
+describe('DashboardToolbarComponent', () => {
+  let component: DashboardToolbarComponent;
+  let fixture: ComponentFixture<DashboardToolbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RadioQuizComponent ]
+      declarations: [ DashboardToolbarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RadioQuizComponent);
+    fixture = TestBed.createComponent(DashboardToolbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,16 @@
+@import 'variables';
+.dashboard-body {
+  background: $dashboardBG;
+  font-family: 'Quicksand', sans-serif;
+  .whitebg {
+    background-color: $white;
+  }
+  .aqua-bg {
+    background-color: $aqua;
+    height: 380px;
+  }
+  .main-container {
+    height: calc(100vh - 274px);
+  }
+}
+

@@ -18,7 +18,7 @@ import { LoadingComponent } from './loading/loading.component';
   ],
   declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent],
   exports: [
-    CommonModule,
+    CommonModule, 
     HeaderComponent,
     InstructionBarComponent,
     SpeechBubbleComponent,
@@ -26,7 +26,7 @@ import { LoadingComponent } from './loading/loading.component';
     NarrationContainerComponent,
     ContinueButtonComponent,
     LoadingComponent,
-  MaterialModule
+    MaterialModule
   ]
 })
 export class SharedModuleModule { }

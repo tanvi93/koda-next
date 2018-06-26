@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CodingModuleRoutingModule } from './coding-module-routing.module';
+import { SharedModuleModule } from './../shared-module/shared-module.module';
+
 import { CodingScreenComponent } from './coding-screen/coding-screen.component';
 import { BlocklyZoneComponent } from './blockly-zone/blockly-zone.component';
 import { GameZoneComponent } from './game-zone/game-zone.component';
@@ -13,7 +15,8 @@ import { SpriteService } from './services/sprite.service';
 @NgModule({
   imports: [
     CommonModule,
-    CodingModuleRoutingModule
+    CodingModuleRoutingModule,
+    SharedModuleModule
   ],
   declarations: [CodingScreenComponent, BlocklyZoneComponent, GameZoneComponent, GamePlayScreenComponent, GameCanvasComponent],
   providers: [SpriteService]

@@ -22,7 +22,6 @@ import {
 
 @NgModule({
     imports: [
-        FlexLayoutModule,
         MatButtonModule,
         MatMenuModule,
         MatToolbarModule,
@@ -38,10 +37,10 @@ import {
         MatCheckboxModule,
         MatListModule,
         MatExpansionModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ],
     exports: [
-        FlexLayoutModule,
         MatButtonModule,
         MatMenuModule,
         MatToolbarModule,
@@ -57,7 +56,8 @@ import {
         MatCheckboxModule,
         MatListModule,
         MatExpansionModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ]
 })
 export class MaterialModule { }
