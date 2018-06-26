@@ -1,0 +1,47 @@
+<mat-dialog-content *ngIf="data.intermediateFlag" style="margin:0px;height: 132px;overflow: hidden;">
+  <div style="display: inline-flex;">
+    <div class="img-container" style="margin-left: -110px; margin-top: -13px" [style.background-color]="modalData.BackgroundColor">
+      <img [src]="modalData.popupMascotImage" alt="mascot" class="beaver-head">
+    </div>
+    <div style="display: inline-flex;">
+      <p class="success-msg" [ngStyle]="{'margin-left': '75px', 'text-align': 'left'}" [innerHTML]="modalData.successPopupText">{{modalData.successPopupText}}</p>
+      <button mat-raised-button class="continue-button" style="margin-top: 40px;" (click)="buttonClicked()">
+        <img class="continue-icon" src="../assets/images/continue_icon.png" alt="button">
+        <p class="button-text" style="margin-top: 6px;">{{modalData.actionButtonText}}</p>
+      </button>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<div *ngIf="!data.intermediateFlag" fxLayoutAlign="space-around center" class="success-popup">
+  <div class="green-pop-up-wrap" fxLayoutAlign="space-around center" fxLayout="column">
+    <div fxLayoutAlign="space-around center" fxLayout="row">
+      <div class="successmascot" fxFlex="160px" [style.background-color]="data.BackgroundColor">
+        <img [src]='data.popupMascotImage'>
+      </div>
+    </div>
+    <div id="profile-status" fxLayout="row" fxLayoutAlign="center center">
+      <div class="m-r-10 score-card" fxLayout="row" fxLayoutAlign="center center">
+        <img class="score" src="assets/images/Asset 2Points.svg" alt="">
+        <span>+{{ scoreValue }}</span>
+      </div>
+    </div>
+    <div *ngIf="modalData" fxLayoutAlign="space-around center" fxLayout="column">
+      <h4 mat-dialog-title [innerHTML]="modalData.successPopupHeading"></h4>
+      <mat-dialog-content fxLayoutAlign="center start" [innerHTML]="modalData.successPopupText"></mat-dialog-content>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="gameElementModalObj" class="middle-row">
+      <div fxFlex="50" fxLayoutAlign="space-around center">
+        <p class="onSuccessMsg">{{gameElementModalObj.successMsg}}</p>
+      </div>
+      <div class="vl"></div>
+      <div fxLayout="column" fxFlex="50" fxLayoutAlign="space-around center">
+        <img class="charactersPlacedImg" src="./assets/images/game_elements.png" alt="">
+      </div>
+    </div>
+    <mat-dialog-actions (click)="buttonClicked()">
+      <img class="continue-icon" src="./assets/images/green-arw.png" alt="button">
+      <p class="button-text">{{data.actionButtonText}}</p>
+    </mat-dialog-actions>
+  </div>
+</div>
