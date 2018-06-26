@@ -24,7 +24,7 @@ export const map: any = [
                         type: 'narration',
                     }, {
                         name: 'MM0_play',
-                        path: 'level-1/game-play/mm_play',
+                        path: 'coding/play/mm_play',
                         order: 3,
                         type: 'game',
                     }, {
@@ -49,7 +49,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Architect badge',
-                        path: 'level-1/badge/architect',
+                        path: 'badge/architect',
                         order: 8,
                         type: 'badge'
                     }
@@ -71,7 +71,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'MM1_1_Q1 (Selecting Characters)',
-                        path: 'select-character',
+                        path: 'level-2/select-character',
                         order: 1,
                         type: 'activity',
                     }, {
@@ -81,7 +81,7 @@ export const map: any = [
                         type: 'learning',
                     }, {
                         name: 'MM1_1_Q2 (Position Characters)',
-                        path: 'position-character',
+                        path: 'level-2/position-character',
                         order: 3,
                         type: 'activity'
                     }, {
@@ -101,6 +101,11 @@ export const map: any = [
                 name: 'Module2: Learn Coordinates',
                 resources: [
                     {
+                        name: "Coordinates_Learning (Kate & Aareev)",
+                        path: 'learning/kate_n_aareev',
+                        order: 0,
+                        type: 'learning'
+                    }, {
                         name: "Coordinates activities or challenge",
                         path: 'fork/mm1_2_activities',
                         order: 1,

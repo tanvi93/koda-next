@@ -1,3 +1,20 @@
-<p>
-  game-zone works!
-</p>
+<div id="canvas-holder" class="activityScreen" fxLayout="column" fxFlex="100">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <app-game-canvas></app-game-canvas>
+  <div class="controls" fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxFlex="50">
+      <img mat-button (click)="onButtonClick()" [src]="buttonSrcs[buttonStatus]">
+      <!-- <button mat-button (click)="tmpButton()">Get XML</button> -->
+    </div>
+    <div fxFlex="50" fxLayout="row">
+      <div class="xy">
+        <div class="coordinates" fxLayout="column" fxFlex="50px">
+          <span>X: {{xCoordinate}}</span>
+          <span>Y: {{yCoordinate}}</span>
+        </div>
+        <img class="gridImg m-r-10 m-l-10" [src]="gridSrc" alt="" (click)="stageService.drawGrid()">
+        <!-- <img class="gridImg" [src]="zoomtab" alt="" (click)="openDialog()"> -->
+      </div>
+    </div>
+  </div>
+</div>

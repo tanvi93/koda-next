@@ -1,0 +1,55 @@
+.image{
+    width:25%;
+    margin-top: 5%;
+}
+
+.heading {
+    margin: 20px 0px;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    color: #FFFFFF;
+}
+
+.fork-buttons {
+    width: 200px;
+    height: 50px;
+    line-height: 45px;
+    border: 2px solid #fff;
+    border-radius: 150px;
+    font-family: Quicksand;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 50px;
+    cursor: pointer;
+}
+.fork-buttons img {
+    display: inline-block;
+    vertical-align: sub;
+    margin: 0 5px 0px 0;
+}
+
+.fork-buttons span {
+    color: #FFFF00;
+}
+
+::ng-deep .mat-grid-tile .mat-figure {
+  flex-direction: column;
+}
+
+@media only screen and (max-height:830px){
+    .image {
+        width: 20%;
+    }    
+}
+
+@media only screen and (min-height:600px) and (max-height:720px){
+    .image {
+        width: 16%;
+    }    
+}

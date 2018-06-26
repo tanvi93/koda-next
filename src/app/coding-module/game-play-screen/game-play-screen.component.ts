@@ -48,6 +48,7 @@ export class GamePlayScreenComponent implements OnDestroy {
   }
 
   goNext() {
+    this.audio.stopForeverPlayingAudio();
     this.utility.nextPage(this.router.url.substr(1));
   }
 
