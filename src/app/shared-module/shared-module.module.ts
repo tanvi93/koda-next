@@ -26,7 +26,8 @@ import { CheckboxComponentComponent } from './checkbox-component/checkbox-compon
     ClickToContinueButtonComponent,
     NarrationContainerComponent,
     ContinueButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaterialModule
   ]
 })
 export class SharedModuleModule { }

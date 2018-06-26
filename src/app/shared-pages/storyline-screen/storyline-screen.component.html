@@ -1,3 +1,4 @@
-<p>
-  storyline-screen works!
-</p>
+<app-narration-container (click)="goNext()">
+  <img class="storyline-image" [src]="story.backgroundImgs[activeIndex]">
+  <app-click-to-continue-button></app-click-to-continue-button>
+</app-narration-container>
