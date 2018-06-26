@@ -12,6 +12,7 @@ import { GameCanvasComponent } from './game-canvas/game-canvas.component';
 
 import { SpriteService } from './services/sprite.service';
 import { AlgoModalComponent } from './coding-screen/algo-modal/algo-modal.component';
+import { FeedbackAreaComponent } from './coding-screen/feedback-area/feedback-area.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { AlgoModalComponent } from './coding-screen/algo-modal/algo-modal.compon
     CodingModuleRoutingModule,
     SharedModuleModule
   ],
-  declarations: [CodingScreenComponent, BlocklyZoneComponent, GameZoneComponent, GamePlayScreenComponent, GameCanvasComponent, AlgoModalComponent],
+  declarations: [CodingScreenComponent, BlocklyZoneComponent, GameZoneComponent, GamePlayScreenComponent, GameCanvasComponent, AlgoModalComponent, FeedbackAreaComponent],
   providers: [SpriteService]
 })
 export class CodingModuleModule { }
