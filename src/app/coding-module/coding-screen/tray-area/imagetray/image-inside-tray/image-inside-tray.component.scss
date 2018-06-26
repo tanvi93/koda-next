@@ -1,0 +1,23 @@
+@import 'breakpoints';
+.trayImage{
+    width: 80%;
+}
+.example-tooltip-host {
+    display: inline-flex;
+    align-items: center;
+    min-width: 100%;
+    padding: 0;
+    cursor: pointer;
+    & img {
+        width: auto;
+        height: 45px;
+        @include breakpoint(lgdesktop){
+            height: 65px;
+        }
+    }
+  }
+
+.my-tooltip {
+    white-space: pre-line;
+}
+// trayImage {}

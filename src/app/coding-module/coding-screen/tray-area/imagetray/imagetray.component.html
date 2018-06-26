@@ -1,0 +1,4 @@
+<div class="p-5 overflow_h" *ngFor="let img of images" fxLayout="row" fxLayoutAlign="center center" fxFlex="33">
+  <app-image-inside-tray [imagesInTray]="img.looks[img.initialLookIdx] || img.src" [tooltipContent]="img"></app-image-inside-tray>  
+</div>
+
