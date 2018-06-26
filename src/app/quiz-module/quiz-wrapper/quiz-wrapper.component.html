@@ -6,16 +6,11 @@
   <button mat-fab *ngIf="quizData.preview" (click)="previewDialog($event)" class="button">
     <img class="icon" src="./assets/icons/preview_open.svg" alt="">
   </button>
-  <div *ngIf="quizData.mediaLink" fxLayout="row" fxLayoutGap="10px">
-    <div class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div *ngIf="quizData.mediaLink" class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
       <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
     </div>
     <div fxFlex="40" class="quiz-zone">
-      <ng-content></ng-content>
-    </div>
-  </div>
-  <div *ngIf="!quizData.mediaLink" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around center">
-    <div fxFlex="50" class="quiz-zone">
       <ng-content></ng-content>
     </div>
   </div>
