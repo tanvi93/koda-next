@@ -22,8 +22,8 @@ export class VideoScreenComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.pageId = params['pageId'];
-      this.pageData = videoData[this.pageId];
+      const pageId = params['pageId'];
+      this.pageData = videoData[pageId];
       const video: HTMLVideoElement = <HTMLVideoElement>document.getElementById('videoPlayer');
       video.src = this.pageData.src;
       video.play();

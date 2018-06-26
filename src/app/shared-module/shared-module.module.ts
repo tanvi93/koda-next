@@ -12,6 +12,10 @@ import { ContinueButtonComponent } from './continue-button/continue-button.compo
 import { LoadingComponent } from './loading/loading.component';
 import { HintModalComponent } from './hint-modal/hint-modal.component';
 import { PreviewModalComponent } from './preview-modal/preview-modal.component';
+import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { SuccessModalComponent } from './success-modal/success-modal.component';
+
 
 
 @NgModule({
@@ -21,7 +25,7 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
@@ -31,8 +35,11 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
     NarrationContainerComponent,
     ContinueButtonComponent,
     LoadingComponent,
-    MaterialModule
+    MaterialModule,
+    QuizQuestionComponent,
+    ErrorMsgComponent,
+    SuccessModalComponent
   ],
-  entryComponents: [HintModalComponent, PreviewModalComponent]
+  entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent]
 })
 export class SharedModuleModule { }

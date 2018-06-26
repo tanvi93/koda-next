@@ -5,10 +5,12 @@ import { SharedModuleModule } from './../shared-module/shared-module.module';
 
 import { QuizModuleRoutingModule } from './quiz-module-routing.module';
 import { QuizWrapperComponent } from './quiz-wrapper/quiz-wrapper.component';
+
 import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
 
 import { DropdownComponentComponent } from './dropdown-component/dropdown-component.component';
 import { SelectComponentComponent } from './dropdown-component/select-component/select-component.component';
+import { DropdownQuizComponent } from './dropdown-quiz/dropdown-quiz.component';
 
 @NgModule({
   imports: [
@@ -16,6 +18,6 @@ import { SelectComponentComponent } from './dropdown-component/select-component/
     SharedModuleModule,
     QuizModuleRoutingModule
   ],
-  declarations: [QuizWrapperComponent, DropdownComponentComponent, SelectComponentComponent, RadioQuizComponent]
+  declarations: [QuizWrapperComponent, DropdownComponentComponent, SelectComponentComponent, RadioQuizComponent, DropdownQuizComponent]
 })
 export class QuizModuleModule { }

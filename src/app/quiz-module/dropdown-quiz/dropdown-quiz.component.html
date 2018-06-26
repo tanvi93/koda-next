@@ -1,0 +1,24 @@
+<app-quiz-wrapper [quizData]="quizObj">
+  <mat-card class="quiz-container">
+      <app-quiz-question [question]='quizObj.question'></app-quiz-question>
+    <mat-card-content>
+      <div class="dropdown" *ngFor="let data of quizObj.options; let i = index;">
+        <p class="option" [innerHTML]='data.question'></p>
+        <mat-form-field>
+          <mat-select [(value)]="selected[i]" (change)="clickOption(selected[i], data.options, $event, i)">
+            <mat-option value="Choose From" (click)="defaultValue($event, i)">Choose From</mat-option>
+            <mat-option [value]="selection.option" *ngFor="let selection of data.options" (click)="inputValue(selection, $event, i)">
+              {{selection.option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="submit-button" (click)="submitAnswer(quizObj.answer)">SUBMIT</button>
+    </mat-card-actions>
+    <mat-card-footer class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
+      <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg>
+    </mat-card-footer>
+  </mat-card>
+</app-quiz-wrapper>
