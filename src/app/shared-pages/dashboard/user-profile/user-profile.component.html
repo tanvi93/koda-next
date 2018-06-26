@@ -1,0 +1,34 @@
+<div class="p-20 userprofile-main" fxLayout="row" fxFlex>
+  <div fxFlex="40" class="p-10 whitebg">
+    <div fxFlex fxLayoutAlign="end center">
+      <button mat-icon-button>
+        <mat-icon>
+          <img src="./assets/images/dashboard/edit-profiel.png" />
+        </mat-icon>
+      </button>
+    </div>
+    <div class="profile-pic" fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+      <div fxFlex="40" fxLayout="row" fxLayoutAlign="center center" class="p-r-20">
+        <img [src]="userData.avatar" />
+      </div>
+      <div fxFlex="60">
+        <h1>{{userData.avatarName}}</h1>
+        <p>{{userData.titleEarned}}</p>
+      </div>
+    </div>
+  </div>
+  <div fxFlex="60" class="user-rankdetails">
+    <div fxLayout="row" fxFlex>
+      <div fxFlex="33" fxLayout="column" fxLayoutAlign="center center" class="border-right" *ngFor="let user of userrankdetails">
+        <div class="m-b-20 userImg">
+          <img src="{{user.image}}" />
+        </div>
+        <button class="statuslink">
+          <span>{{user.status}} </span>
+          <img src="{{user.link}}" />
+        </button>
+        <h1>{{user.count}}</h1>
+      </div>
+    </div>
+  </div>
+</div>

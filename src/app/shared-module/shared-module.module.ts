@@ -27,7 +27,8 @@ import { RadioComponentComponent } from './radio-component/radio-component.compo
     ClickToContinueButtonComponent,
     NarrationContainerComponent,
     ContinueButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaterialModule
   ]
 })
 export class SharedModuleModule { }

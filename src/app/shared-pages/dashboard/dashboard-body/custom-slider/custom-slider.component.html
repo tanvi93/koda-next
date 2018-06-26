@@ -1,0 +1,24 @@
+<div class="custom-slider" fxLayout="row" fxLayoutAlign="start center">
+  <button mat-icon-button (click)="leftNavigation()" [disabled]="this.start == 0">
+    <mat-icon class="material-icons">keyboard_arrow_left</mat-icon>
+  </button>
+  <div class="middle-block" fxLayout="row" fxLayoutAlign="start start" fxFlex fxLayoutWrap>
+    <div fxFlex="33" *ngFor="let item of items | slice: start : end" [ngStyle]="style" class="card" routerLink="/{{item.path}}">
+      <div fxLayout="column" fxLayoutAlign="center start" class="p-5">
+        <div class="pos-relative m-b-5">
+          <img [src]="item.image" [alt]="item.image" />
+          <span class="done-icon" *ngIf="!item.isLocked">
+            <mat-icon class="material-icons">done</mat-icon>
+          </span>
+          <span class="done-icon lock-icon" *ngIf="item.isLocked">
+            <mat-icon class="material-icons">lock</mat-icon>
+          </span>
+        </div>
+        <div style="margin: auto;" [innerHTML]="item.name"></div>
+      </div>
+    </div>
+  </div>
+  <button mat-icon-button (click)="rightNavigation()" [disabled]="this.end >= this.totalItems">
+    <mat-icon class="material-icons">keyboard_arrow_right</mat-icon>
+  </button>
+</div>
