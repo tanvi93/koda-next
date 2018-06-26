@@ -17,7 +17,6 @@ export class FeedbackAreaComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log('hola');
     if (this.feedback && this.feedback.length) {
       let element = document.getElementById("feedback-text");
       setTimeout(() => {

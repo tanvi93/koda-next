@@ -219,7 +219,6 @@ export class InterpreterService {
         collapse: true
       }
     );
-
     if (blocksData.initialCode && blocksData.initialCode.length > 20) {
       this.getInitialXMLToWorkspace(blocksData.activity_name, blocksData.initialCode);
     }  
