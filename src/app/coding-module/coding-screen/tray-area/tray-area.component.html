@@ -1,0 +1,70 @@
+<div class="image-try" fxLayout="row">
+  <div class="image-blocks" fxLayout="row" fxLayoutAlign="start center" *ngFor="let img of characters;let i = index;" fxFlex>
+    <app-imagetray class="m-r-10" [characters]="img" (click)="openMenu($event, img, characters, i)" fxLayout="row" fxLayoutAlign="start center"
+      fxFlex></app-imagetray>
+    <button mat-mini-fab class="transparent more-images" *ngIf = "img.length > 3" (click)="openMenuIcon($event, img, characters, i)">
+      <mat-icon class="material-icons" id="{{'tray' + i}}">&#xE315;</mat-icon>
+    </button>
+    <div class="more-trys" [ngClass]="{'open-trys':img.addClass}">
+      <mat-toolbar class="try-bar">
+        <h3 fxFlex>{{ characterTitle[i] }}</h3>
+        <mat-icon class="material-icons c-pointer" (click)="closeMenu($event, img, i)">&#xE313;</mat-icon>
+      </mat-toolbar>
+      <div fxFlex fxLayout="column">
+        <div class="charecters" fxLayout="row wrap" fxLayoutAlign="start stretch">
+          <div class="items c-pointer" *ngFor="let items of characters[i]; let index = index" (click)="isActive($event, index, items, i)"
+            [ngClass]="{'active': currentItem === index }" fxFlex="28" fxLayoutAlign="center center">
+            <img id="{{index}}" src="{{items.looks[items.currentLookIdx] || items.src}}" (click)="characIcon($event,img ,characters, index, i)"
+              alt="{{x}}">
+          </div>
+          <div class="items c-pointer" *ngIf="addCharacterIcon" fxLayoutAlign="center center" fxFlex="28">
+            <mat-icon class="material-icons">&#xE147;</mat-icon>
+          </div>
+        </div>
+        <div class="charector-details" *ngIf="!addIconClicked[i]">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <h3 fxFlex>
+              {{characterName[i]}}
+            </h3>
+          </div>
+          <div class="charector-position" *ngIf="i !== 0">
+            <h5>Position</h5>
+            <mat-list>
+              <mat-list-item>
+                <label fxFlex="28">Initial</label>
+                <div>
+                  <span class="m-r-10 m-l-5" [ngStyle]="{'font-size': '14px', 'font-weight': '400'}">x: {{initialPosition.x}}</span>
+                  <span [ngStyle]="{'font-size': '14px', 'font-weight': '400'}">y: {{initialPosition.y}}</span>
+                </div>
+              </mat-list-item>
+              <mat-list-item>
+                <label fxFlex="28">Current</label>
+                <div>
+                  <span class="m-r-10 m-l-5" [ngStyle]="{'font-size': '14px', 'font-weight': '400'}">x: {{finalPosition.x}}</span>
+                  <span [ngStyle]="{'font-size': '14px', 'font-weight': '400'}">y: {{finalPosition.y}}</span>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+          <h5>Looks</h5>
+          <div class="selected-trys" fxLayout="row">
+            <div fxFlex>
+              <button class="items" mat-button *ngFor="let thumbs of thumSrc[i]; let index = index" (click)="thumbActive($event, index, i)"
+                [ngClass]="{'active': currentItem2 == index }">
+                <img src="{{thumbs}}" (click)="lookImageClicked($event, img, characters, index, i)">
+              </button>
+            </div>
+            <button class="items" *ngIf="addLookIcon" mat-button>
+              <mat-icon class="material-icons">&#xE147;</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="charector-details" *ngIf="addIconClicked[i]">
+          <p>
+            Click on any character to see its properties
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

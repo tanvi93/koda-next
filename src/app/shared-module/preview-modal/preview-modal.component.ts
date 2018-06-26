@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-preview-modal',
@@ -19,12 +19,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export class PreviewModalComponent implements OnInit {
   @Input() quizPreview;
+  @Input() codingScreenData;
   private data;
 
   constructor(public previewDialog: MatDialogRef<PreviewModalComponent>) { }
 
   ngOnInit() {
-    if (this.quizPreview) {
+    if (this.codingScreenData) {
+      this.data = this.codingScreenData.icons[1].content;
+    } else if (this.quizPreview) {
       this.data = this.quizPreview;
     }
   }
