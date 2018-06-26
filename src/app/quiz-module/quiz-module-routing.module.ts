@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { QuizWrapperComponent } from './quiz-wrapper/quiz-wrapper.component';
+import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
+import { CheckboxQuizComponent } from './checkbox-quiz/checkbox-quiz.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: QuizWrapperComponent
+    path: 'radio/:pageId',
+    component: RadioQuizComponent,
+    
+  },
+  {
+    path: 'checkbox/:pageId',
+    component: CheckboxQuizComponent,
   }
 ];
 

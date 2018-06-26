@@ -1,0 +1,8 @@
+<div class="previewForCodingScreen" [ngClass]="{'previewForQuiz':quizPreview}" layout="column">
+  <div class="videoImg">
+    <img src="./assets/images/videoIcon.png" (click)="closeDialog()" alt="Close Video" fxFlex class="video-icon">
+  </div>
+  <mat-card fxFlex>
+    <img class="previewVideo" [src]="data" alt="">
+  </mat-card>
+</div>

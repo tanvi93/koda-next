@@ -4,10 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { blocksData } from './../../data/coding';
 import { SpriteService } from './../services/sprite.service';
 import { AlgoModalComponent } from './algo-modal/algo-modal.component';
-import { PreviewModalComponent } from '../../shared/preview-modal/preview-modal.component';
-import { WorkspaceEventModalComponent } from './modal/workspace-event-modal/workspace-event-modal.component';
-import { SuccessModalComponent } from './../../shared-services/success-modal/modal.component';
-import { HintIconModalComponent } from '../../shared-services/hint-icon-modal/hint-icon-modal.component';
+import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
+// import { SuccessModalComponent } from './../../shared-module/success-modal/modal.component';
+import { HintModalComponent } from '../../shared-module/hint-modal/hint-modal.component';
 import { AudioService } from './../../shared-services/audio.service';
 
 @Component({
@@ -71,9 +70,8 @@ export class CodingScreenComponent implements OnInit {
 
   algoDialog: MatDialogRef<AlgoModalComponent>;
   previewDialog: MatDialogRef<PreviewModalComponent>;
-  eventDialog: MatDialogRef<WorkspaceEventModalComponent>;
-  successValidationDialog: MatDialogRef<SuccessModalComponent>;
-  hintDialog: MatDialogRef<HintIconModalComponent>;
+  // successValidationDialog: MatDialogRef<SuccessModalComponent>;
+  hintDialog: MatDialogRef<HintModalComponent>;
 
 
   constructor(private route: ActivatedRoute,
@@ -92,9 +90,6 @@ export class CodingScreenComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (this.urlParam && this.urlParam === params.pageId) {
         return;
-      }
-      if (this.urlParam && this.urlParam !== params.pageId) {
-        this.doRefresh = true;
       }
       this.urlParam = params.pageId;
       this.pageData = blocksData[this.urlParam];
@@ -151,27 +146,18 @@ export class CodingScreenComponent implements OnInit {
       this.pageData['successPopupText'] = event.msg;
       this.pageData['popupMascotImage'] = event.mascotImage;
       this.pageData['BackgroundColor'] = event.backgroundColor;
-      setTimeout(() => {
-        this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
-          disableClose: true,
-          hasBackdrop: true
-        });
-        this.successValidationDialog.componentInstance.modalData = this.pageData;
-      }, this.successModalAppeartime);
+      // setTimeout(() => {
+      //   this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
+      //     disableClose: true,
+      //     hasBackdrop: true
+      //   });
+      //   this.successValidationDialog.componentInstance.modalData = this.pageData;
+      // }, this.successModalAppeartime);
       return;
     } else {
       this.feedback = event;
       if (event.length > 0) {
-        let element = document.getElementById("feedback-text");
         this.audio.errorSound.play();
-        setTimeout(() => {
-          element.classList.add("animated");
-          element.classList.add("pulse");
-          setTimeout(() => {
-            element.classList.remove("animated");
-            element.classList.remove("pulse");
-          }, 400);
-        }, 200);
       }
     }
   }
@@ -215,14 +201,14 @@ export class CodingScreenComponent implements OnInit {
   iconDialog(name, ev) {
     switch (name) {
       case 'algo':
-        this.openDialog(ev, AlgorithmModalComponent, 6);
+        this.openDialog(ev, AlgoModalComponent, 6);
         break;
       case 'preview':
         this.openDialog(ev, PreviewModalComponent, 57);
         break;
       case 'hint':
         this.hintDailogFlag = true;
-        this.openDialog(ev, HintIconModalComponent, 0, this.hintDailogFlag);
+        this.openDialog(ev, HintModalComponent, 0, this.hintDailogFlag);
         break;
     }
   }
