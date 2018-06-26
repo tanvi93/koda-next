@@ -343,7 +343,6 @@ export class InterpreterService {
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     const codes = rawCodes.split('\n\n');
     this.myInterpreter = {};
-    console.log('Its here: ', codes.length);
 
     const runner = (intrp, i) => {
       if (!this.myInterpreter) return;
@@ -384,7 +383,6 @@ export class InterpreterService {
   }
 
   stopExecution = () => {
-    console.log('popopop');
     this.myInterpreter = null;
     this.whenKeyPressed.unregister();
     this.whenCharacterClicked.unregister();

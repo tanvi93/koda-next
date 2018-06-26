@@ -1,3 +1,44 @@
-<p>
-  coding-screen works!
-</p>
+<div class="codding-wrapper h100" fxLayout="column">
+  <!-- main headding -->
+  <app-instruction-bar [mascotBgColor]="mascotBgColor" [mascotImage]="headerMascotImage" [instructions]="headerContentTxt"></app-instruction-bar>
+  <!-- Buttons -->
+  <div fxLayout="column" fxFlex>
+    <div class="modal-buttons" fxLayout="row">
+      <div *ngFor="let icon of pageData.icons;let i=index">
+        <button mat-fab *ngIf="icon.isVisible" (click)="iconDialog(icon.name, $event)" class="transparent">
+          <img [src]="iconImages[i]" alt="Icon">
+          <span class="hint-count" [hidden]="hintDailogFlag" *ngIf="icon.name === 'hint'">
+            <p>
+              {{icon.totalHintAvailable}}
+            </p>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="game-content" fxLayout="row" fxFlex>
+      <div class="p-r-10" fxFlex="60" fxLayout="column">
+        <div [ngStyle]="{'z-index': enableShadowLayer ? 71 : 1}" fxFlex fxLayout="column">
+          <app-blockly-area (popUpClose)="receivePopUpCloseFlag($event)" (showVariables)="receiveVariableToggle($event)" (showFeedback)="receiveWSChanges($event)"
+            fxLayout="column" [doRefresh]="doRefresh" [popUpActive]="popUpActive" [errorMsg]="errorMsg" fxFlex></app-blockly-area>
+        </div>
+
+        <app-tray-area class="image-tray" [characters]='characters'> </app-tray-area>
+
+      </div>
+      <div fxFlex="40" fxLayout="column" class="controls-bg">
+        <div fxLayout="column">
+          <app-game-area [blockInput]="inputForGame" (feedbackStatement)="receiveFeedback($event)" (compilerError)="receiveCompilerError($event)"
+            (updateSprite)="receiveUpdateFlag($event)" fxLayout="row" fxFlex></app-game-area>
+        </div>
+        <div class="feedback-zone" fxLayout="column" fxFlex>
+          <app-feedback-area [feedback]="feedback" fxLayout="column" fxFlex></app-feedback-area>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shadow-layer" [hidden]="!enableShadowLayer">
+
+  </div>
+</div>

@@ -1,0 +1,78 @@
+#blocklyArea {
+    overflow: hidden;
+    display: inline-flex;
+}
+
+.cover-screen {
+    height: 70%;
+    width: 61%;
+    position: absolute;
+    background-color: transparent;
+    z-index: 72;
+}
+
+.tooltip .tooltiptext {
+    visibility: visible;
+    height: 20%;
+    width: 30%;
+    background-color: rgb(239, 89, 100);
+    color: white;
+    font-family: 'QuickSand';
+    font-weight: 600;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 0px 10px;
+    position: absolute;
+    z-index: 1;
+    right: 9.5%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent rgb(239, 89, 100) transparent transparent;
+}
+
+.message-div {
+  height: 75%;
+  border-color: white;  
+}
+.action-button {
+    height: 35px;
+    width: 140px;
+    display: table;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 40px;
+    border: none;
+    position: absolute;
+    left: 35%;
+}
+
+.continue-icon{
+    display: inline-block;
+    vertical-align: sub;
+    margin-left: -10px;
+}
+
+.action-button > span {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'QuickSand';
+    font-weight: 600;
+    font-size: 18px;
+    color: #ef5964;
+}
+
+.action-div {
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+}

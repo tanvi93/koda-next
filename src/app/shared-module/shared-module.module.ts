@@ -21,7 +21,7 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
   // tslint:disable-next-line:max-line-length
   declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent],
   exports: [
-    CommonModule,
+    CommonModule, 
     HeaderComponent,
     InstructionBarComponent,
     SpeechBubbleComponent,
@@ -31,7 +31,6 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
     LoadingComponent,
     MaterialModule
   ],
-
   entryComponents: [HintModalComponent, PreviewModalComponent]
 })
 export class SharedModuleModule { }
