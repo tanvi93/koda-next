@@ -1,0 +1,14 @@
+.error-container {
+  color: #FFFFFF;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  padding:0 25px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .error-container {
+    font-size: 14px;
+  }
+}

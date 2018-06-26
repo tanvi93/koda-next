@@ -1,6 +1,6 @@
 <app-quiz-wrapper [quizData]="quizObj">
   <mat-card class="quiz-container">
-      <!-- <app-quiz-question [question]='quizObj.question'></app-quiz-question> -->
+      <app-quiz-question [question]='quizObj.question'></app-quiz-question>
     <mat-card-content>
       <div class="checkbox" *ngFor="let data of quizObj.answer; let i = index;">
         <mat-checkbox [value]="i" (input)="checkboxFunction($event, i)"></mat-checkbox>
@@ -11,7 +11,7 @@
       <button mat-raised-button class="submit-button" (click)="submitAnswer(quizObj.answer)">SUBMIT</button>
     </mat-card-actions>
     <mat-card-footer class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-      <!-- <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg> -->
+      <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg>
     </mat-card-footer>
   </mat-card>
 </app-quiz-wrapper>

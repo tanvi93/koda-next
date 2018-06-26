@@ -1,16 +1,16 @@
 .quiz-container {
-    // position: absolute;
-    // width: 100%;
-    // top: 0%;
-    // left: 0%;
-    height: 100%;
+    width: auto;
     padding: 0%;
+    height: 100%;
     background-color: white;
+    font-family: 'Quicksand';
+    text-align: left;
     & .checkbox {
         display: table;
         margin-top: 5%;
         margin-left: 5%;
         width: 100%;
+        font-size: 18px; 
          & mat-checkbox {
              display: table-cell;
          }
