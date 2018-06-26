@@ -1,0 +1,174 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+@import 'animations';
+
+  .image-try {
+    max-height: 90px;
+    z-index: 99;
+    position: relative;
+    & .image-blocks {
+      padding: 10px;
+      border: solid 3px #3e3a48;
+      position: relative;
+      & .more-images {
+        border: solid 1px $white;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        & .mat-icon {
+          margin-top: -13px;
+        }
+      }
+    } // More Images
+    .more-trys {
+      width: 100%; // min-height: 550px;
+      background-color: #3e3a48;
+      position: absolute;
+      bottom: -100vh;
+      left: 0;
+      color: $white;
+      transition: all ease-in-out 0.5s; // Open trys
+      &.open-trys {
+        bottom: 0;
+        animation: slideInUp 0.5s ease-in-out;
+      }
+      .try-bar {
+        height: 40px;
+        background: #3e3a48;
+        & h3 {
+          color: $white;
+          font-family: 'QuickSand';
+        }
+        & .mat-icon {
+          color: $white;
+        }
+      }
+      .charecters {
+        background-color: #231f2e;
+        padding: 15px 10px;
+        font-family: 'QuickSand';
+        font-weight: 600;
+        .items {
+          padding: 5px;
+          background-color: #afa6ba;
+          position: relative;
+          cursor: pointer;
+          margin: 0 2.5% 10px 2.5%;
+          height: 61px;
+          max-width: 61px !important;
+          min-width: 61px !important;   
+          @include breakpoint(lgdesktop) {
+            height: 65px;
+            max-width: 65px !important;
+            min-width: 65px !important;
+          }                      
+          span {
+            width: 15px;
+            height: 15px;
+            background: #FEFB16;
+            // font-size: 12px;
+            line-height: 15px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #271930;
+            position: absolute;
+            top: -5px;
+            right: -7px;
+            z-index: 1;
+            text-align: center;
+            @include border-radius(10px);
+          }
+          img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+          }
+        }
+      }
+      .charector-details {
+        padding: 10px;
+        color: $white;
+        font-family: 'QuickSand';
+        font-weight: 600;
+        h3 {
+          color: #FEFB16;
+          margin: 0 0 10px 0;
+          font-family: 'QuickSand';
+        }
+        h5 {
+          margin: 5px 0;
+          font-size: 16px;
+        }
+        p {
+          text-align: center;
+          font-family: 'QuickSand'
+        }
+        .mat-checkbox ::ng-deep {
+          text-align: center;
+          .mat-checkbox-frame {
+            border-color: $white;
+          }
+          .mat-checkbox-inner-container{
+            background-color: $white;
+          }
+        }
+        .charector-position {
+          border-top: solid #666666 1px;
+          border-bottom: solid #666666 1px;
+          .mat-list {
+            padding: 0;
+            .mat-list-item::ng-deep {
+              color: $white !important;
+              height: auto !important;
+              margin-bottom: 3px;
+              .mat-list-item-content {
+                padding: 0 5px;
+              }
+            }
+            label {
+              min-width: 75;
+              font-size: 14px;
+              font-weight: 400;
+              @include breakpoint(tab10) {
+                min-width: 75px;
+              }
+            }
+          }
+        }
+        .selected-trys {
+          padding: 8px 0;
+          .items {
+            min-width: 35px;
+            width: 35px;
+            height: 40px;
+            padding: 0 5px;
+            display: inline-block;
+            background-color: #afa6ba;
+            margin: 0 5px;
+            @include breakpoint(tab10) {
+              min-width: 50px;
+              width: 50px;
+              height: 50px;
+            }
+            img {
+              width: 100%;
+              height: auto;
+              max-height: 100%;
+            }
+            &:first-child {
+              margin-left: 0;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+.active {
+  outline: solid 1px #FEFB16;
+  outline-offset: -2px;
+} 
