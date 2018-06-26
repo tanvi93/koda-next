@@ -1,0 +1,39 @@
+
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+// .game-elements-component{
+//     width: 100%;
+//     // background-color: #2F2B3D;
+// }
+
+.game-elements {
+  height: 100%;
+}
+
+.algoIcon {
+  width: 50px;
+  height: 50px;
+  margin-top: -14px;
+}
+
+.algoButton {
+  position: absolute;
+  right: 55px;
+  top: 200px;
+  background-color: transparent;
+}
+
+
+::ng-deep mat-grid-tile .mat-grid-tile .mat-figure {
+
+ 
+  position: absolute;
+ 
+  z-index: 1;
+}
+
+.main {
+  background: $theme;
+}

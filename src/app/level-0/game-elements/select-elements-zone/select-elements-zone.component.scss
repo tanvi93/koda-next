@@ -1,0 +1,50 @@
+.game-elements-container {
+  width:100%;
+  padding: 0px;
+  margin: 0;
+  background-color: #2F2B3D;
+}
+
+.game-elements {
+  height: 495px;
+}
+
+.question-comp {
+  background-color: #13BCE4;
+  width: 100%;
+  height: 150px;
+}
+
+.rule-board {
+  background-color: white;
+  height: 460px;
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+}
+
+.img1 {
+  position: absolute;
+  z-index: 1;
+  top: 150px;
+  width: 20%;
+  left: 250px;
+}
+
+.img2 {
+  position: absolute;
+  z-index: 1;
+  top: 330px;
+  width: 3.5%;
+  left: 280px;
+}
+
+.img3 {
+  position: absolute;
+  z-index: 1;
+  top: 510px;
+  width: 10%;
+  left: 540px;
+}

@@ -1,6 +1,7 @@
 export const gameElements = {
     "instructionBarContent": "Now based on how the Monkey Menace game is played, try answering these questions.",
     "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+    "mascotBg": "#13BCE4",
     'images': {
         'img1': './../assets/images/monkey_menace/monkey3.png',
         'img2': './../assets/images/monkey_menace/fruit_demo.png',
