@@ -18,8 +18,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
  */
 
 export class HintModalComponent implements OnInit {
-  public activityHintData;
   @Input() quizHint;
+  public activityHintData;
 
   constructor(public hintDialog: MatDialogRef<HintModalComponent>) { }
 

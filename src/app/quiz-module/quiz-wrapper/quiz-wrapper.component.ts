@@ -18,10 +18,10 @@ import { PreviewModalComponent } from '../../shared-module/preview-modal/preview
  * @param {object} quizData input from quiz which will be used for instruction bar and image/video path.
  * @param { function } hintModal this function is called when the hint icon clicked.
  *  It contains the hints of following quiz, which are the bullet points.
- * The data of hint is passed to input of hint modal component that is quiz, throught the componentInstance.
+ * The data of hint is passed to input of hint modal component that is quizHint, throught the componentInstance.
  * @param { function } previewModal this function is called when the preview icon is clicked.
  * It contains the video of game on which the quiz questions are based.
- * The data of preview is passed to input of preview modal component that is quizObj, throught the componentInstance.
+ * The data of preview is passed to input of preview modal component that is quizPreview, throught the componentInstance.
  */
 
 export class QuizWrapperComponent {
