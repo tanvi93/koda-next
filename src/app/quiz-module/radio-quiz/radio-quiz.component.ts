@@ -5,7 +5,7 @@ import { quiz } from './../../data/radioMcq';
 @Component({
   selector: 'app-radio-quiz',
   templateUrl: './radio-quiz.component.html',
-  styleUrls: ['./radio-quiz.component.scss']
+  styleUrls: []
 })
 export class RadioQuizComponent implements OnInit {
   private quizObj: any;

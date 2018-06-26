@@ -4,10 +4,10 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { blocksData } from './../../data/coding';
 import { SpriteService } from './../services/sprite.service';
 import { AlgoModalComponent } from './algo-modal/algo-modal.component';
-import { PreviewModalComponent } from '../../shared/preview-modal/preview-modal.component';
-import { WorkspaceEventModalComponent } from './modal/workspace-event-modal/workspace-event-modal.component';
-import { SuccessModalComponent } from './../../shared-services/success-modal/modal.component';
-import { HintIconModalComponent } from '../../shared-services/hint-icon-modal/hint-icon-modal.component';
+// import { PreviewModalComponent } from '../../shared/preview-modal/preview-modal.component';
+// import { WorkspaceEventModalComponent } from './modal/workspace-event-modal/workspace-event-modal.component';
+// import { SuccessModalComponent } from './../../shared-services/success-modal/modal.component';
+// import { HintIconModalComponent } from '../../shared-services/hint-icon-modal/hint-icon-modal.component';
 import { AudioService } from './../../shared-services/audio.service';
 
 @Component({
@@ -70,10 +70,10 @@ export class CodingScreenComponent implements OnInit {
   private hintDailogFlag = false;
 
   algoDialog: MatDialogRef<AlgoModalComponent>;
-  previewDialog: MatDialogRef<PreviewModalComponent>;
-  eventDialog: MatDialogRef<WorkspaceEventModalComponent>;
-  successValidationDialog: MatDialogRef<SuccessModalComponent>;
-  hintDialog: MatDialogRef<HintIconModalComponent>;
+  // previewDialog: MatDialogRef<PreviewModalComponent>;
+  // eventDialog: MatDialogRef<WorkspaceEventModalComponent>;
+  // successValidationDialog: MatDialogRef<SuccessModalComponent>;
+  // hintDialog: MatDialogRef<HintIconModalComponent>;
 
 
   constructor(private route: ActivatedRoute,
@@ -82,7 +82,7 @@ export class CodingScreenComponent implements OnInit {
     public dialog: MatDialog) {
     this.sprites = new SpriteService();
 
-    this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
+    // this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
     this.successModalAppeartime = 500;
     this.doRefresh = false;
     this.enableShadowLayer = false;
@@ -152,11 +152,11 @@ export class CodingScreenComponent implements OnInit {
       this.pageData['popupMascotImage'] = event.mascotImage;
       this.pageData['BackgroundColor'] = event.backgroundColor;
       setTimeout(() => {
-        this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
-          disableClose: true,
-          hasBackdrop: true
-        });
-        this.successValidationDialog.componentInstance.modalData = this.pageData;
+        // this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
+        //   disableClose: true,
+        //   hasBackdrop: true
+        // });
+        // this.successValidationDialog.componentInstance.modalData = this.pageData;
       }, this.successModalAppeartime);
       return;
     } else {
@@ -212,19 +212,19 @@ export class CodingScreenComponent implements OnInit {
     dialog.componentInstance.codingScreenData = this.pageData;
   }
 
-  iconDialog(name, ev) {
-    switch (name) {
-      case 'algo':
-        this.openDialog(ev, AlgorithmModalComponent, 6);
-        break;
-      case 'preview':
-        this.openDialog(ev, PreviewModalComponent, 57);
-        break;
-      case 'hint':
-        this.hintDailogFlag = true;
-        this.openDialog(ev, HintIconModalComponent, 0, this.hintDailogFlag);
-        break;
-    }
-  }
+  // iconDialog(name, ev) {
+  //   switch (name) {
+  //     case 'algo':
+  //       this.openDialog(ev, AlgorithmModalComponent, 6);
+  //       break;
+  //     case 'preview':
+  //       this.openDialog(ev, PreviewModalComponent, 57);
+  //       break;
+  //     case 'hint':
+  //       this.hintDailogFlag = true;
+  //       this.openDialog(ev, HintIconModalComponent, 0, this.hintDailogFlag);
+  //       break;
+  //   }
+  // }
 
 }
