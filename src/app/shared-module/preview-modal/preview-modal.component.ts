@@ -13,7 +13,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
  * It consist of the open icon image and video of the game/activity on which the preview is called.
  * @param { string } quizPreview  video path of quiz component.
  * @param { string } data It contains the video link of either coding screen or quiz depending upon which page is called.
- * @param { function } closeDialog this function is called when the open dialog image is clicked.
+ * @method closeDialog this function is called when the open dialog image is clicked.
  * When clicked  it closes the open modal.
  */
 

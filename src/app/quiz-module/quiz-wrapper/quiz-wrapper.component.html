@@ -1,9 +1,9 @@
 <div fxLayout="column">
   <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
-  <button mat-fab *ngIf="quizData.hint" (click)="hintModal($event)" class="button">
+  <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">
     <img class="icon" src="./assets/icons/hint_open.svg" alt="">
   </button>
-  <button mat-fab *ngIf="quizData.preview" (click)="previewModal($event)" class="button">
+  <button mat-fab *ngIf="quizData.preview" (click)="previewDialog($event)" class="button">
     <img class="icon" src="./assets/icons/preview_open.svg" alt="">
   </button>
   <div *ngIf="quizData.mediaLink" fxLayout="row" fxLayoutGap="10px">

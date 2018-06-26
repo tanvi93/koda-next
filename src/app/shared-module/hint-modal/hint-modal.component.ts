@@ -13,7 +13,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
  * It consist of the open icon image and points which are in the form of list.
  * @param { Array} activityHintData  hint points from coding screen.
  * @param { Array } quizHint hint points from quiz component.
- * @param { function } closeDialog this function is called when the open dialog image is clicked.
+ * @method closeDialog this function is called when the open dialog image is clicked.
  * It closes these open modal.
  */
 
