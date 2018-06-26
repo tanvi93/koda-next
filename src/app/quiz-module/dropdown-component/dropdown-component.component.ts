@@ -2,6 +2,18 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 // import { SuccessModalComponent } from './../../../shared/success-modal/modal.component';
 
+
+/**
+ * @name DropdownComponentComponent
+ * @description This component will be injected wherever there is need of quiz related activity needed to be perform.
+ * @param {object} dataContent input from quiz which will be used for providing header for quiz section along with different quiz options.
+ * @param {string} error this variable is use to send error msg which will be use by showErrorMsg Fucntion.
+ * @param {boolean} showError this variable is set false initially false inorder to hide error msg and whenever error needed to be displayed * * than this will be set to true.
+ * @method submitAnswer this function is called inorder to validate whether user have done the task correctly and it will give respective feedback as per user have done the activity
+ * @method showErrorMsg this function is called when the user choose wrong answer from the given choices.
+ * @method clickOption this function is called whenever the select option is been changed.
+ */
+
 @Component({
   selector: 'app-dropdown-component',
   templateUrl: './dropdown-component.component.html',
