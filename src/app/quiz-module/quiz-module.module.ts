@@ -7,6 +7,7 @@ import { QuizModuleRoutingModule } from './quiz-module-routing.module';
 import { QuizWrapperComponent } from './quiz-wrapper/quiz-wrapper.component';
 
 import { DropdownComponentComponent } from './dropdown-component/dropdown-component.component';
+import { SelectComponentComponent } from './dropdown-component/select-component/select-component.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { DropdownComponentComponent } from './dropdown-component/dropdown-compon
     SharedModuleModule,
     QuizModuleRoutingModule
   ],
-  declarations: [QuizWrapperComponent, DropdownComponentComponent]
+  declarations: [QuizWrapperComponent, DropdownComponentComponent, SelectComponentComponent]
 })
 export class QuizModuleModule { }
