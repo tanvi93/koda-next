@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { quiz } from './../../data/radioMcq';
 
 @Component({
   selector: 'app-radio-quiz',
-  templateUrl: './radio-quiz.component.html',
-  styleUrls: []
+  templateUrl: './radio-quiz.component.html'
 })
 export class RadioQuizComponent implements OnInit {
   private quizObj: any;
