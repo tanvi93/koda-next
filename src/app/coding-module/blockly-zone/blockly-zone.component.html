@@ -1,3 +1,22 @@
-<p>
-  blockly-zone works!
-</p>
+<div id="blocklyArea" fxFlex>
+  <div id="blocklyDiv" fxFlex></div>
+
+  <!-- popup based code -->
+  <div class="cover-screen" [hidden]="!popUpActive" fxFlex></div>
+
+  <div class="tooltip" [hidden]="!popUpActive">
+    <div class="tooltiptext">
+      <div class="message-div">
+        <p [innerHTML]="errorMsg"></p>
+      </div>
+      <div class="action-div">
+        <div class="action-button" (click)="closePopUp()">
+          <span>
+            Got It!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

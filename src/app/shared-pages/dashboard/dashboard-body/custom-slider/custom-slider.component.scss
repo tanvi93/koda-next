@@ -1,0 +1,48 @@
+.custom-slider {
+  height: 380px;
+  background-color: #e5f0f1;
+  padding: 20px 0;
+  & .middle-block {
+    width: calc(100% - 100px); // height: 350px;
+    flex-wrap: wrap; // background-color: skyblue;
+    padding: 5px;
+    & .card {
+      font-size: 14px;
+      text-align: left !important;
+      margin-bottom: 10px;
+      max-height: 200px;
+      & img {
+        width: 100%;
+        display: block;
+      }
+      & .done-icon {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        & .material-icons {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin: -20px 0 0 -20px;
+          color: white;
+          background-color: green;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+        }
+        &.lock-icon {
+          background-color: rgba(0, 0, 0, 0.4);
+          & .material-icons {
+            color: #fff;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+

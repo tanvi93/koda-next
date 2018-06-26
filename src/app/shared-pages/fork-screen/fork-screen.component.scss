@@ -1,0 +1,67 @@
+
+.fork-mascot-img img{
+    width: 35%;
+    margin: 0 auto;
+    display: block;
+}
+
+.heading {
+    max-width: 47%;
+    margin: 20px 0px;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.fork-buttons {
+    width: 350px;
+    border: 2px solid #fff;
+    border-radius: 150px;
+    padding: 20px;
+    font-family: Quicksand;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+    margin: 20px 50px;
+    cursor: pointer;
+    
+}
+
+.fork-buttons span {
+    color: #FFFF00;
+}
+
+@media (max-height:790px) {
+    .heading {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .fork-buttons {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width:1140px){
+    .fork-buttons{
+        width: 320px;
+        margin: 20px 30px;
+    }
+    .heading {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (max-height:880px){
+    .fork-mascot-img img{
+        width: 22%;
+    }
+}

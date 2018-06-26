@@ -27,7 +27,8 @@ import { DropdownComponentComponent } from './dropdown-component/dropdown-compon
     ClickToContinueButtonComponent,
     NarrationContainerComponent,
     ContinueButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaterialModule
   ]
 })
 export class SharedModuleModule { }

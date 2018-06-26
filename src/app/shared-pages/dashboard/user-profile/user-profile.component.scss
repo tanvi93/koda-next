@@ -1,0 +1,55 @@
+@import 'variables';
+@import 'mixins';
+.userprofile-main {
+  max-height: 250px;
+  & .whitebg {
+    background-color: $white;
+    color: $darkGrey;
+    & .profile-pic {
+      img {
+        width: 130px;
+        height: 130px;
+      }
+      h1 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+  & .user-rankdetails {
+    background-color: #1fc26e;
+    padding: 25px;
+    & .border-right {
+      border-right: solid 1px $yellow;
+      &.border-right:last-child {
+        border-right: none;
+      }
+    }
+    & h1 {
+      margin: 10px 0;
+      color: $white;
+    }
+    & .statuslink {
+      color: $yellow;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      & span {
+        line-height: 36px;
+        font-family: 'Quicksand', sans-serif;
+        vertical-align: middle;
+        margin: 0 5px;
+      }
+      & img {
+        vertical-align: middle;
+      }
+    }
+    & .userImg img {
+      width: 40px;
+    }
+  }
+}
+

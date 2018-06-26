@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'mixins';
+.algorithm-model::ng-deep {
+  width: 500px;
+  height: 530px;
+  position: absolute;
+  & .algorithm-content {
+    background-color: $white;
+    padding: 10px  0;
+    & .mat-list {
+      overflow: auto;
+      padding: 0 20px 0 10%;
+      & .mat-list-item {        
+        height: auto;
+        margin: 10px 0;
+        padding: 0 10px 0 35px;
+        min-height: 65px;
+        border: 1px solid $grey;
+        position: relative;
+        & .mat-list-item-content {
+          position: static;
+        }
+        & p {
+          box-sizing: border-box;
+          color: $greyTextColor;
+          font-size: 17px;
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        & span {
+          width: 80px;
+          min-height: 80px;
+          background-color: $grey;
+          position: absolute;
+          top: 50%;
+          z-index: 1;
+          font-family: Quicksand;
+          font-size: 30px;
+          line-height: 80px;
+          font-weight: bold;
+          color: $white;
+          text-align: center;
+          margin-top: -40px;
+          left: -40px;
+          @include border-radius(100%);
+        }
+        &.highlighted-step {
+          background-color: $grey;
+          .highlighted-stepNumber {
+            background-color: $highlightedBg;
+          }
+          & p {
+            color: $white;
+          }
+        } // Right Icon
+        & .tick {
+          position: absolute;
+          right: -7px;
+          bottom: -7px;
+          background-color: $white;
+          border: solid 1px $success;
+          color: $success;
+          padding: 3px;
+          @include border-radius(100%);
+        }
+      }
+    }
+  }
+  // Close Icons
+  & .algoImg {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    & img {
+      width: auto;
+      height: 50px;
+     }
+  }
+}

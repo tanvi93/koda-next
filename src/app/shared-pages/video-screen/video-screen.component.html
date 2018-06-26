@@ -1,3 +1,6 @@
-<p>
-  video-screen works!
-</p>
+<app-narration-container [bgColor]="bgColor">
+  <video id="videoPlayer" style="width: 100%; height: 95%" controls controlsList="nodownload">
+    <source [src]="pageData.src" type="video/mp4">
+  </video>
+  <app-continue-button [bottom]="bottomPosition" *ngIf="showButton"></app-continue-button>
+</app-narration-container>
