@@ -10,6 +10,8 @@ import { ClickToContinueButtonComponent } from './click-to-continue-button/click
 import { NarrationContainerComponent } from './narration-container/narration-container.component';
 import { ContinueButtonComponent } from './continue-button/continue-button.component';
 import { LoadingComponent } from './loading/loading.component';
+import { HintModalComponent } from './hint-modal/hint-modal.component';
+import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { LoadingComponent } from './loading/loading.component';
     CommonModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent],
+  // tslint:disable-next-line:max-line-length
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
@@ -28,6 +31,7 @@ import { LoadingComponent } from './loading/loading.component';
     ContinueButtonComponent,
     LoadingComponent,
     MaterialModule
-  ]
+  ],
+  entryComponents: [HintModalComponent, PreviewModalComponent]
 })
 export class SharedModuleModule { }
