@@ -55,7 +55,6 @@ export class RadioQuizComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.pageId = params.pageId;
       this.quizObj = quiz[`${this.pageId}`];
-      console.log(this.quizObj);
     });
     
   }
