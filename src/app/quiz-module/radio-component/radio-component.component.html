@@ -1,7 +1,5 @@
 <mat-card class="quiz-container">
-  <div class="question-comp">
-    <app-quiz-question [question]='dataContent.question'></app-quiz-question>
-  </div>
+    <app-quiz-question [question]='dataContent.question' [style]="stylingObj"></app-quiz-question>
   <mat-card-content>
     <div class="checkbox" *ngFor="let data of dataContent.options; let i = index;">
       <mat-radio-button [value]="i" (input)="radioFunction(data)"></mat-radio-button>

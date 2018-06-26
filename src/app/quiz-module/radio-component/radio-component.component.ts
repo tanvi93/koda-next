@@ -23,8 +23,9 @@ export class RadioComponentComponent implements OnInit {
 @Input() dataContent;
 dialogRef: MatDialogRef<SuccessModalComponent>;
 
-showError: boolean = false;
-error: string;
+  showError: boolean = false;
+  error: string;
+  stylingObj: object;  
 constructor(public dialog: MatDialog) { }
 
 ngOnInit() {
