@@ -10,14 +10,21 @@ import { ClickToContinueButtonComponent } from './click-to-continue-button/click
 import { NarrationContainerComponent } from './narration-container/narration-container.component';
 import { ContinueButtonComponent } from './continue-button/continue-button.component';
 import { LoadingComponent } from './loading/loading.component';
-import { CheckboxComponentComponent } from './checkbox-component/checkbox-component.component';
+import { HintModalComponent } from './hint-modal/hint-modal.component';
+import { PreviewModalComponent } from './preview-modal/preview-modal.component';
+import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { SuccessModalComponent } from './success-modal/success-modal.component';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule
   ],
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, CheckboxComponentComponent],
+  // tslint:disable-next-line:max-line-length
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
@@ -27,7 +34,11 @@ import { CheckboxComponentComponent } from './checkbox-component/checkbox-compon
     NarrationContainerComponent,
     ContinueButtonComponent,
     LoadingComponent,
-    MaterialModule
-  ]
+    MaterialModule,
+    QuizQuestionComponent,
+    ErrorMsgComponent,
+    SuccessModalComponent
+  ],
+  entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent]
 })
 export class SharedModuleModule { }

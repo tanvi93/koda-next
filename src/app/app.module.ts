@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModuleModule } from './shared-module/shared-module.module';
 import { MaterialModule } from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { BadgesComponent } from './shared-pages/badges/badges.component';
@@ -50,7 +51,8 @@ import { SelectActivityComponent } from './shared-pages/select-activity/select-a
     MaterialModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [AudioService, UtilitiesService, ApiService],
   bootstrap: [AppComponent]

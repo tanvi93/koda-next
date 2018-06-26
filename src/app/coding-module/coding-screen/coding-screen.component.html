@@ -19,8 +19,8 @@
     <div class="game-content" fxLayout="row" fxFlex>
       <div class="p-r-10" fxFlex="60" fxLayout="column">
         <div [ngStyle]="{'z-index': enableShadowLayer ? 71 : 1}" fxFlex fxLayout="column">
-          <app-blockly-area (popUpClose)="receivePopUpCloseFlag($event)" (showVariables)="receiveVariableToggle($event)" (showFeedback)="receiveWSChanges($event)"
-            fxLayout="column" [doRefresh]="doRefresh" [popUpActive]="popUpActive" [errorMsg]="errorMsg" fxFlex></app-blockly-area>
+          <app-blockly-zone (popUpClose)="receivePopUpCloseFlag($event)" (showVariables)="receiveVariableToggle($event)" (showFeedback)="receiveWSChanges($event)"
+            fxLayout="column" [doRefresh]="doRefresh" [popUpActive]="popUpActive" [errorMsg]="errorMsg" fxFlex></app-blockly-zone>
         </div>
 
         <app-tray-area class="image-tray" [characters]='characters'> </app-tray-area>
@@ -28,8 +28,8 @@
       </div>
       <div fxFlex="40" fxLayout="column" class="controls-bg">
         <div fxLayout="column">
-          <app-game-area [blockInput]="inputForGame" (feedbackStatement)="receiveFeedback($event)" (compilerError)="receiveCompilerError($event)"
-            (updateSprite)="receiveUpdateFlag($event)" fxLayout="row" fxFlex></app-game-area>
+          <app-game-zone [blockInput]="inputForGame" (feedbackStatement)="receiveFeedback($event)" (compilerError)="receiveCompilerError($event)"
+            (updateSprite)="receiveUpdateFlag($event)" fxLayout="row" fxFlex></app-game-zone>
         </div>
         <div class="feedback-zone" fxLayout="column" fxFlex>
           <app-feedback-area [feedback]="feedback" fxLayout="column" fxFlex></app-feedback-area>

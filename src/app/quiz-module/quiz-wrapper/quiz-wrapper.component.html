@@ -1,3 +1,17 @@
-<p style="color: white">
-  quiz-wrapper works!
-</p>
+<div fxLayout="column">
+  <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
+  <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">
+    <img class="icon" src="./assets/icons/hint_open.svg" alt="">
+  </button>
+  <button mat-fab *ngIf="quizData.preview" (click)="previewDialog($event)" class="button">
+    <img class="icon" src="./assets/icons/preview_open.svg" alt="">
+  </button>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div *ngIf="quizData.mediaLink" class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
+      <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
+    </div>
+    <div fxFlex="40" class="quiz-zone">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

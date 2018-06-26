@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-// import { SuccessModalComponent } from './../../../shared/success-modal/modal.component';
+import { SuccessModalComponent } from './../../shared-module/success-modal/success-modal.component';
 
 
 
@@ -21,7 +21,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 })
 export class RadioComponentComponent implements OnInit {
 @Input() dataContent;
-// dialogRef: MatDialogRef<SuccessModalComponent>;
+dialogRef: MatDialogRef<SuccessModalComponent>;
 
 showError: boolean = false;
 error: string;
@@ -37,11 +37,11 @@ radioFunction = (data) => {
     this.showErrorMsg();
   } else {
     this.showError = false;
-    // this.dialogRef = this.dialog.open(SuccessModalComponent, {
-    //   hasBackdrop: true,
-    //   panelClass: 'app-full-bleed-dialog'
-    // });
-    // this.dialogRef.componentInstance.modalData = this.dataContent;
+    this.dialogRef = this.dialog.open(SuccessModalComponent, {
+      hasBackdrop: true,
+      panelClass: 'app-full-bleed-dialog'
+    });
+    this.dialogRef.componentInstance.modalData = this.dataContent;
   }
 }
 
