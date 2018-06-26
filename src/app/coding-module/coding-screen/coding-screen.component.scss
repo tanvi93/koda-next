@@ -1,0 +1,81 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+@import 'animations';
+.codding-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.modal-buttons {
+  position: absolute;
+  top: 190px;
+  img {
+    width: 50px;
+    height: 50px;
+    margin-top: -13px;
+  }
+}
+
+.videoIcon {
+  width: 32px;
+  height: 20px;
+  margin-top: -5px;
+}
+
+// Game Content
+.game-content {
+  color: $white; // image-try
+  .image-try {
+    max-height: 90px;
+    z-index: 99;
+    position: relative;
+  }
+  .feedback-zone {
+    min-height: 110px;   
+  }
+}
+
+.active {
+  outline: solid 1px #FEFB16;
+  outline-offset: -2px;
+}
+
+.shadow-layer {
+  position: absolute;
+  height: 93.5vh;
+  overflow: hidden;
+  left: 0%;
+  width: 100%;
+  z-index: 70;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.image-tray {
+  z-index: 1;
+}
+
+.hint-count {
+  width: 15px;
+  height: 15px;
+  background: #FEFB16;
+  line-height: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #271930;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  z-index: 1;
+  border: 1px solid black;
+  text-align: center;
+  & p {
+    margin-top: 1px;
+  }
+  @include border-radius(10px);
+}
+@media only screen and (min-height:662px){
+  .game-content .feedback-zone{
+    min-height: 0px;
+  }
+}

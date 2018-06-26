@@ -1,0 +1,98 @@
+@import 'variables';
+@import 'mixins';
+.myprojects-left {
+  & img {
+    width: 30%;
+  }
+}
+
+.myprojects-right {
+  background-color: $white;
+  max-width: 390px;
+  & h2 {
+    margin: 0;
+    padding: 20px;
+    color: $blue;
+  }
+  & .grey-bg {
+    background-color: $grey;
+    color: $white;
+    padding: 10px;
+    & .mat-icon-button {
+      margin: 0 3px;
+      & .completed {
+        color: #41af56;
+      }
+      & .inprogress {
+        color: #00bee5;
+      }
+      & .unlock {
+        color: #55515e;
+      }
+      &.active {
+        padding: 0 0 25px;
+        & .mat-icon {
+          background-color: #282431;
+          color: green;
+          border-radius: 50%;
+          z-index: 1;
+          position: relative;
+        }
+        &:before {
+          position: absolute;
+          right: -33px;
+          content: '';
+          width: 38px;
+          height: 34px;
+          bottom: -8px;
+          border-left: solid 22px black;
+          border-radius: 100%;
+          transform: rotate(-37deg);
+        }
+        &:after {
+          position: absolute;
+          left: -33px;
+          content: '';
+          width: 38px;
+          height: 34px;
+          bottom: -8px;
+          border-right: solid 22px black;
+          border-radius: 100%;
+          transform: rotate(37deg);
+        }
+      }
+    }
+  }
+  & .level-box {
+    width: 100%;
+    height: 57px;
+    margin-bottom: 5px;
+    background-color: #9f9ba2;
+  }
+  & .drop-down-content {
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    padding: 20px;
+    background-color: #000;
+    & .drop-block {
+      overflow-x: overlay;
+    }
+    & label {
+      font-size: 14px;
+    }
+  }
+  & .blue-btn {
+    height: 30px;
+    line-height: 30px;
+    background: $blue;
+    color: $white;
+    border: none;
+    overflow: hidden;
+    @include border-radius(20px);
+    @include box-shadow(none);
+  }
+}
+

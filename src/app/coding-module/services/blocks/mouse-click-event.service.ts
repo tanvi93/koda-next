@@ -64,7 +64,9 @@ export class MouseClickEventService {
 
   unregister = () => {
     this.myInterpreter = [];
-    document.getElementById('game').removeEventListener("click", this.mouseClickEvent);
+    if (document.getElementById('game')) {
+      document.getElementById('game').removeEventListener("click", this.mouseClickEvent);
+    }
   }
 
 }

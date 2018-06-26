@@ -25,7 +25,8 @@ import { LoadingComponent } from './loading/loading.component';
     ClickToContinueButtonComponent,
     NarrationContainerComponent,
     ContinueButtonComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaterialModule
   ]
 })
 export class SharedModuleModule { }

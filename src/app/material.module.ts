@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
     MatButtonModule,
@@ -36,7 +37,8 @@ import {
         MatCheckboxModule,
         MatListModule,
         MatExpansionModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ],
     exports: [
         MatButtonModule,
@@ -54,7 +56,8 @@ import {
         MatCheckboxModule,
         MatListModule,
         MatExpansionModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ]
 })
 export class MaterialModule { }
