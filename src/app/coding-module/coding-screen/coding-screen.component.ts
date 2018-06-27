@@ -4,9 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { blocksData } from './../../data/coding';
 import { SpriteService } from './../services/sprite.service';
 import { AlgoModalComponent } from './algo-modal/algo-modal.component';
-// import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
+import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
 // import { SuccessModalComponent } from './../../shared-module/success-modal/modal.component';
-// import { HintIconModalComponent } from '../../shared-module/hint-icon-modal/hint-icon-modal.component';
+import { HintModalComponent } from '../../shared-module/hint-modal/hint-modal.component';
 import { AudioService } from './../../shared-services/audio.service';
 
 @Component({
@@ -69,9 +69,9 @@ export class CodingScreenComponent implements OnInit {
   private hintDailogFlag = false;
 
   algoDialog: MatDialogRef<AlgoModalComponent>;
-  // previewDialog: MatDialogRef<PreviewModalComponent>;
+  previewDialog: MatDialogRef<PreviewModalComponent>;
   // successValidationDialog: MatDialogRef<SuccessModalComponent>;
-  // hintDialog: MatDialogRef<HintIconModalComponent>;
+  hintDialog: MatDialogRef<HintModalComponent>;
 
 
   constructor(private route: ActivatedRoute,
@@ -80,7 +80,7 @@ export class CodingScreenComponent implements OnInit {
     public dialog: MatDialog) {
     this.sprites = new SpriteService();
 
-    // this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
+    this.iconImages = ['./assets/icons/algorithm_open.svg', './assets/icons/preview_open.svg', './assets/icons/hint_open.svg', './assets/icons/checklist_open.svg'];
     this.successModalAppeartime = 500;
     this.doRefresh = false;
     this.enableShadowLayer = false;
@@ -90,9 +90,6 @@ export class CodingScreenComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (this.urlParam && this.urlParam === params.pageId) {
         return;
-      }
-      if (this.urlParam && this.urlParam !== params.pageId) {
-        this.doRefresh = true;
       }
       this.urlParam = params.pageId;
       this.pageData = blocksData[this.urlParam];
@@ -161,15 +158,6 @@ export class CodingScreenComponent implements OnInit {
       this.feedback = event;
       if (event.length > 0) {
         this.audio.errorSound.play();
-        // let element = document.getElementById("feedback-text");
-        // setTimeout(() => {
-        //   element.classList.add("animated");
-        //   element.classList.add("pulse");
-        //   setTimeout(() => {
-        //     element.classList.remove("animated");
-        //     element.classList.remove("pulse");
-        //   }, 400);
-        // }, 200);
       }
     }
   }
@@ -210,19 +198,19 @@ export class CodingScreenComponent implements OnInit {
     dialog.componentInstance.codingScreenData = this.pageData;
   }
 
-  // iconDialog(name, ev) {
-  //   switch (name) {
-  //     case 'algo':
-  //       this.openDialog(ev, AlgorithmModalComponent, 6);
-  //       break;
-  //     case 'preview':
-  //       this.openDialog(ev, PreviewModalComponent, 57);
-  //       break;
-  //     case 'hint':
-  //       this.hintDailogFlag = true;
-  //       this.openDialog(ev, HintIconModalComponent, 0, this.hintDailogFlag);
-  //       break;
-  //   }
-  // }
+  iconDialog(name, ev) {
+    switch (name) {
+      case 'algo':
+        this.openDialog(ev, AlgoModalComponent, 6);
+        break;
+      case 'preview':
+        this.openDialog(ev, PreviewModalComponent, 57);
+        break;
+      case 'hint':
+        this.hintDailogFlag = true;
+        this.openDialog(ev, HintModalComponent, 0, this.hintDailogFlag);
+        break;
+    }
+  }
 
 }

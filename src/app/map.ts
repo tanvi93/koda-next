@@ -123,7 +123,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Fox & Grapes_Storyline',
-                        path: 'fox-grape-storyline',
+                        path: 'storyline/fox-grape',
                         order: 1,
                         image: './assets/images/activities/fox_and_grapes/setting_reference.jpg',
                         type: 'activity-narration'
@@ -139,7 +139,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Treasure Hunt_Storyline',
-                        path: 'treasure-hunt-storyline',
+                        path: 'storyline/treasure-hunt',
                         order: 3,
                         image: './assets/images/activities/treasure_hunt/bg_island.jpg',
                         type: 'activity-narration'
@@ -155,7 +155,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Mars Rover_Storyline',
-                        path: 'mars-rover-storyline',
+                        path: 'storyline/mars-rover',
                         order: 5,
                         image: './assets/images/activities/mars_rover/bg_mars.jpg',
                         type: 'activity-narration'
@@ -178,7 +178,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Dragon Capture_Storyline',
-                        path: 'challenge-dragon-storyline',
+                        path: 'storyline/challenge-dragon',
                         order: 0,
                         image: './assets/images/activities/dragon_capture/bg_intro1.jpg',
                         type: 'activity-narration'
@@ -217,7 +217,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_1_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q1',
+                        path: 'quiz/radio/mm2_1_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -237,32 +237,32 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q2',
+                        path: 'quiz/radio/mm2_1_q2',
                         order: 4,
                         type: 'activity',
                     }, {
                         name: 'mm2_1_c1 (Move the Monkey)',
-                        path: 'game/mm2_1_c1',
+                        path: 'coding/game/mm2_1_c1',
                         order: 5,
                         type: 'game_coding'
                     }, {
                         name: 'mm2_1_q3 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q3',
+                        path: 'quiz/radio/mm2_1_q3',
                         order: 6,
                         type: 'activity'
                     }, {
                         name: 'mm2_1_c2 (Move fruit to Hand)',
-                        path: 'game/mm2_1_c2',
+                        path: 'coding/game/mm2_1_c2',
                         order: 7,
                         type: 'game_coding'
                     }, {
                         name: 'mm2_1_q4 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q4',
+                        path: 'quiz/radio/mm2_1_q4',
                         order: 8,
                         type: 'activity'
                     }, {
                         name: 'mm2_1_c3 (Drop the fruit)',
-                        path: 'game/mm2_1_c3',
+                        path: 'coding/game/mm2_1_c3',
                         order: 9,
                         type: 'game_coding'
                     }, {
@@ -279,22 +279,22 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm2_2_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_2_q1',
+                        path: 'quiz/radio/mm2_2_q1',
                         order: 0,
                         type: 'activity'
                     }, {
                         name: "mm2_2_c1 (Monkey's left end)",
-                        path: 'game/mm2_2_c1',
+                        path: 'coding/game/mm2_2_c1',
                         order: 1,
                         type: 'game_coding'
                     }, {
                         name: "mm2_2_c2 (Monkey's right end)",
-                        path: 'game/mm2_2_c2',
+                        path: 'coding/game/mm2_2_c2',
                         order: 2,
                         type: 'game_coding'
                     }, {
                         name: 'mm2_2_c3 (Move monkey to random position)',
-                        path: 'game/mm2_2_c3',
+                        path: 'coding/game/mm2_2_c3',
                         order: 3,
                         type: 'game_coding'
                     }, {
@@ -309,7 +309,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm2_2_c4 (Throw fruit from random position)',
-                        path: 'game/mm2_2_c4',
+                        path: 'coding/game/mm2_2_c4',
                         order: 6,
                         type: 'game_coding'
                     }, {
@@ -330,11 +330,11 @@ export const map: any = [
                 name: 'Module2: Learn Sequencing',
                 resources: [
                     {
-                    //     name: 'Sequencing_Learning (BODMAS) (Not ready yet)',
-                    //     path: 'video/sequencing_learning',
-                    //     order: 0,
-                    //     type: 'narration'
-                    // }, {
+                        name: 'Sequencing_Learning (BODMAS)',
+                        path: 'learning/sequencing_learning',
+                        order: 0,
+                        type: 'narration'
+                    }, {
                         name: "Sequencing activities or challenge",
                         path: 'fork/mm2_3_activities',
                         order: 1,
@@ -375,7 +375,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Venus flytrap coding',
-                        path: 'game/venus_flytrap_coding',
+                        path: 'coding/game/venus_flytrap_coding',
                         order: 4,
                         type: 'activity_coding'
                     }, {
@@ -391,7 +391,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Magical cave coding',
-                        path: 'game/magical_cave_coding',
+                        path: 'coding/game/magical_cave_coding',
                         order: 6,
                         type: 'activity_coding',
                     }, {
@@ -399,7 +399,7 @@ export const map: any = [
                         path: 'badge/sequence_path_a',
                         order: 7,
                         type: 'badge',
-                        nextPage: 'quiz/mm2_6_q1'
+                        nextPage: 'quiz/radio/mm2_6_q1'
                     }
                 ]
             }, // End of Module 2.4
@@ -415,12 +415,12 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Code1',
-                        path: 'game/landmine_detonator_coding1_challenge',
+                        path: 'coding/game/landmine_detonator_coding1_challenge',
                         order: 1,
                         type: 'challenge_coding'
                     }, {
                         name: 'Code2',
-                        path: 'game/landmine_detonator_coding2_challenge',
+                        path: 'coding/game/landmine_detonator_coding2_challenge',
                         order: 2,
                         type: 'challenge_coding'
                     }, {
@@ -437,7 +437,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm2_6_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_6_q1',
+                        path: 'quiz/radio/mm2_6_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -447,17 +447,17 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_6_q2 (Radio button MCQ)',
-                        path: 'quiz/mm2_6_q2',
+                        path: 'quiz/radio/mm2_6_q2',
                         order: 2,
                         type: 'activity'
                     }, {
                         name: "mm2_6_c1 (Throw 5 fruits)",
-                        path: 'game/mm2_6_c1',
+                        path: 'coding/game/mm2_6_c1',
                         order: 3,
                         type: 'game_coding'
                     }, {
                         name: "mm2_6_c2 (Throw fruits forever)",
-                        path: 'game/mm2_6_c2',
+                        path: 'coding/game/mm2_6_c2',
                         order: 4,
                         type: 'game_coding'
                     }, {
@@ -478,11 +478,11 @@ export const map: any = [
                 name: 'Module2: Learn Loops',
                 resources: [
                     {
-                    //     name: 'Loops_Learning (The Band) (Not ready yet)',
-                    //     path: 'video/loops_learning',
-                    //     order: 0,
-                    //     type: 'narration'
-                    // }, {
+                        name: 'Loops_Learning (The Band) (Not ready yet)',
+                        path: 'learning/loops_learning',
+                        order: 0,
+                        type: 'narration'
+                    }, {
                         name: "Loops activities or challenge",
                         path: 'fork/mm2_7_activities',
                         order: 1,
@@ -528,7 +528,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Disco lights coding',
-                        path: 'game/disco_lights_coding',
+                        path: 'coding/game/disco_lights_coding',
                         order: 5,
                         type: 'activity_coding'
                     }, {
@@ -544,7 +544,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Naptime coding',
-                        path: 'game/naptime_coding',
+                        path: 'coding/game/naptime_coding',
                         order: 7,
                         type: 'activity_coding',
                     }, {
@@ -566,12 +566,12 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Code1',
-                        path: 'game/packaging_milk_coding1_challenge',
+                        path: 'coding/game/packaging_milk_coding1_challenge',
                         order: 1,
                         type: 'challenge_coding'
                     }, {
                         name: 'Code2',
-                        path: 'game/packaging_milk_coding2_challenge',
+                        path: 'coding/game/packaging_milk_coding2_challenge',
                         order: 2,
                         type: 'challenge_coding'
                     }, {
@@ -618,12 +618,12 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm3_1_c1 (Move the cap left)',
-                        path: 'game/mm3_1_c1',
+                        path: 'coding/game/mm3_1_c1',
                         order: 2,
                         type: 'coding'
                     }, {
                         name: 'mm3_1_c2 (Move the cap right)',
-                        path: 'game/mm3_1_c2',
+                        path: 'coding/game/mm3_1_c2',
                         order: 3,
                         type: 'coding'
                     }, {
@@ -633,12 +633,12 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm3_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm3_1_q2',
+                        path: 'quiz/radio/mm3_1_q2',
                         order: 5,
                         type: 'activity'
                     }, {
                         name: 'mm3_1_q3 (Radio button MCQ)',
-                        path: 'quiz/mm3_1_q3',
+                        path: 'quiz/radio/mm3_1_q3',
                         order: 6,
                         type: 'activity'
                     }, {
@@ -717,7 +717,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Lambent app coding',
-                        path: 'game/lambent_app_coding',
+                        path: 'coding/game/lambent_app_coding',
                         order: 7,
                         type: 'coding'
                     }, {
@@ -727,7 +727,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Eclipse coding',
-                        path: 'game/eclipse_coding',
+                        path: 'coding/game/eclipse_coding',
                         order: 9,
                         type: 'coding',
                     }, {
@@ -749,7 +749,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Code1',
-                        path: 'game/fire_extinguisher_coding1',
+                        path: 'coding/game/fire_extinguisher_coding1',
                         order: 1,
                         type: 'coding'
                     }, {
@@ -759,7 +759,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Code2',
-                        path: 'game/fire_extinguisher_coding2',
+                        path: 'coding/game/fire_extinguisher_coding2',
                         order: 3,
                         type: 'coding'
                     }, {
@@ -791,17 +791,17 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Add condition for left limit (mm3_5_c1)',
-                        path: 'game/mm3_5_c1',
+                        path: 'coding/game/mm3_5_c1',
                         order: 3,
                         type: 'coding'
                     }, {
                         name: 'mm3_5_c2 (Add condition for right limit)',
-                        path: 'game/mm3_5_c2',
+                        path: 'coding/game/mm3_5_c2',
                         order: 4,
                         type: 'coding'
                     }, {
                         name: 'mm3_5_c3 (Test the code)',
-                        path: 'game/mm3_5_c3',
+                        path: 'coding/game/mm3_5_c3',
                         order: 5,
                         type: 'coding'
                     }, {
@@ -865,7 +865,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Talking parrot coding',
-                        path: 'game/talking_parrot_coding',
+                        path: 'coding/game/talking_parrot_coding',
                         order: 4,
                         type: 'coding'
                     }, {
@@ -875,7 +875,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Seasons coding',
-                        path: 'game/seasons_coding',
+                        path: 'coding/game/seasons_coding',
                         order: 6,
                         type: 'coding',
                     }, {
@@ -897,12 +897,12 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Code1',
-                        path: 'game/medicine_box_coding1',
+                        path: 'coding/game/medicine_box_coding1',
                         order: 1,
                         type: 'coding'
                     }, {
                         name: 'Code2',
-                        path: 'game/medicine_box_coding2',
+                        path: 'coding/game/medicine_box_coding2',
                         order: 2,
                         type: 'coding'
                     }, {
@@ -940,22 +940,22 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm4_1_q1 (radio button MCQ)',
-                        path: 'quiz/mm4_1_q1',
+                        path: 'quiz/radio/mm4_1_q1',
                         order: 1,
                         type: 'activity'
                     }, {
                         name: 'mm4_1_c1 (Create variable score)',
-                        path: 'game/mm4_1_c1',
+                        path: 'coding/game/mm4_1_c1',
                         order: 2,
                         type: 'coding'
                     }, {
                         name: 'mm4_1_c2 (Add condition to update score)',
-                        path: 'game/mm4_1_c2',
+                        path: 'coding/game/mm4_1_c2',
                         order: 3,
                         type: 'coding'
                     }, {
                         name: 'mm4_1_c3 (Attach score updation)',
-                        path: 'game/mm4_1_c3',
+                        path: 'coding/game/mm4_1_c3',
                         order: 4,
                         type: 'coding'
                     }, {
@@ -1014,7 +1014,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Bear count coding',
-                        path: 'game/bear_count_coding',
+                        path: 'coding/game/bear_count_coding',
                         order: 4,
                         type: 'coding'
                     }, {
@@ -1024,7 +1024,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Concert tickets coding',
-                        path: 'game/concert_tickets_coding',
+                        path: 'coding/game/concert_tickets_coding',
                         order: 6,
                         type: 'coding',
                     }, {
@@ -1066,7 +1066,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Code1',
-                        path: 'game/air_conditioner_coding1',
+                        path: 'coding/game/air_conditioner_coding1',
                         order: 4,
                         type: 'activity'
                     }, {
@@ -1094,27 +1094,27 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm5_1_q1 (Radio button MCQ)',
-                        path: 'quiz/mm5_1_q1',
+                        path: 'quiz/radio/mm5_1_q1',
                         order: 1,
                         type: 'activity'
                     }, {
                         name: 'mm5_1_c1 (Create and update missed fruits variable)',
-                        path: 'game/mm5_1_c1',
+                        path: 'coding/game/mm5_1_c1',
                         order: 2,
                         type: 'coding'
                     }, {
                         name: 'mm5_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm5_1_q2',
+                        path: 'quiz/radio/mm5_1_q2',
                         order: 3,
                         type: 'activity'
                     }, {
                         name: 'mm5_1_c2 (Add condition for missing a fruit)',
-                        path: 'game/mm5_1_c2',
+                        path: 'coding/game/mm5_1_c2',
                         order: 4,
                         type: 'coding'
                     }, {
                         name: 'mm5_1_c3 (Attach condition to rest of the code)',
-                        path: 'game/mm5_1_c3',
+                        path: 'coding/game/mm5_1_c3',
                         order: 5,
                         type: 'coding'
                     }, {
@@ -1131,7 +1131,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm5_2_q1 (Radio button MCQ)',
-                        path: 'quiz/mm5_2_q1',
+                        path: 'quiz/radio/mm5_2_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -1141,7 +1141,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm5_2_c1 (Replace two ifs by if-else)',
-                        path: 'game/mm5_2_c1',
+                        path: 'coding/game/mm5_2_c1',
                         order: 2,
                         type: 'coding'
                     }, {
@@ -1163,22 +1163,22 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm5_3_c1 (Add game over BG to tray)',
-                        path: 'game/mm5_3_c1',
+                        path: 'coding/game/mm5_3_c1',
                         order: 1,
                         type: 'coding'
                     }, {
                         name: 'mm5_3_c2 (Add block to hide all characters)',
-                        path: 'game/mm5_3_c2',
+                        path: 'coding/game/mm5_3_c2',
                         order: 2,
                         type: 'coding'
                     }, {
                         name: 'mm5_3_c3 (Add condition)',
-                        path: 'game/mm5_3_c3',
+                        path: 'coding/game/mm5_3_c3',
                         order: 3,
                         type: 'coding'
                     }, {
                         name: 'mm5_3_c4 (Attach condition)',
-                        path: 'game/mm5_3_c4',
+                        path: 'coding/game/mm5_3_c4',
                         order: 4,
                         type: 'coding'
                     }, {
@@ -1206,7 +1206,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm6_1_c1 (Add and position Play button)',
-                        path: 'game/mm6_1_c1',
+                        path: 'coding/game/mm6_1_c1',
                         order: 1,
                         type: 'coding'
                     }, {
@@ -1216,7 +1216,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm6_1_c2 (Logic for Play)',
-                        path: 'game/mm6_1_c2',
+                        path: 'coding/game/mm6_1_c2',
                         order: 3,
                         type: 'coding'
                     }, {
@@ -1243,7 +1243,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm6_2_c1 (Logic for Replay)',
-                        path: 'game/mm6_2_c1',
+                        path: 'coding/game/mm6_2_c1',
                         order: 2,
                         type: 'coding'
                     }, {

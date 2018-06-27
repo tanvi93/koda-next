@@ -10,5 +10,14 @@ export const videoData = {
     },
     intro_to_coordinates: {
         src: './assets/videos/introduction_to_coordinates.mp4'
+    },
+    kate_n_aareev: {
+        src: './assets/videos/Comp-main.mp4'
+    },
+    sequencing_learning: {
+        src: './assets/videos/Bodmas.mp4'
+    },
+    loops_learning: {
+        src: './assets/videos/Loop.mp4'
     }
 }
