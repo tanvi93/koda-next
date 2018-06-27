@@ -13,14 +13,14 @@ export const dragonCaptureContent = {
     },
     inputParaContent1: 'Change X by',
     inputParaContent2: 'Change Y by',
-    mascotImage: 'assets/images/activities/dragon_capture/mascot_head.png',
+    mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     actionbutton: 'assets/images/move_button.png',
     BackgroundColor: '#ecd45c',
     defaultTransitionTime: '0s',
     actualTransitionTime: '1s',
     gemsImage: [
-        'assets/images/activities/dragon_capture/to_explore.png',
-        'assets/images/activities/dragon_capture/explored.png'
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/to_explore.png',
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/explored.png'
     ],  
     gemsCoordData: [
         {
@@ -45,7 +45,7 @@ export const dragonCaptureContent = {
     coordinates: [
         {
             id: 0,
-            image: 'assets/images/activities/dragon_capture/compass.png',
+            image: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/compass.png',
             message: 'Ah! A compass! It\'ll help me find my way in this forest.',
             x: 2,
             y: -1,
@@ -53,7 +53,7 @@ export const dragonCaptureContent = {
         },
         {
             id: 1,
-            image: 'assets/images/activities/dragon_capture/dragon_tooth.png',
+            image: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/dragon_tooth.png',
             message: 'A dragon tooth - a most rare find! Let me keep it safely. I\'m sure it\'ll come in handy during my journey.',
             x: 3,
             y: 2,
@@ -61,7 +61,7 @@ export const dragonCaptureContent = {
         },
         {
             id: 2,
-            image: 'assets/images/activities/dragon_capture/wand.png',
+            image: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/wand.png',
             message: 'A magic wand! Show me where the flask is, please!',
             x: -2,
             y: 0,
@@ -72,15 +72,15 @@ export const dragonCaptureContent = {
     yInitialValue: 2, // mascot y value
     correctMark: 'assets/images/done_icon.png',
     correctMarkChecklist: [false, false, false],
-    mascotTopView: 'assets/images/activities/dragon_capture/mascot_top_view.png',
+    mascotTopView: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_top_view.png',
     backgroundImage: [
-        'assets/images/activities/dragon_capture/bg_activity1.jpg',
-        'assets/images/activities/dragon_capture/bg_activity1_labelled.jpg',
-        'assets/images/activities/dragon_capture/bg_activity2.jpg',
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity1.jpg',
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity1_labelled.jpg',
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity2.jpg',
     ],
-    // gridImage: 'assets/images/activities/dragon_capture/grid.png',
-    dragonImage: 'assets/images/activities/dragon_capture/dragon.png',
-    flaskImage: 'assets/images/activities/dragon_capture/flask_large.png',
+    // gridImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/grid.png',
+    dragonImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/dragon.png',
+    flaskImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/flask_large.png',
     contentElementFlag: [false, true, false, true],
     errorMsg: {
         'activity1': 'That\'s not right. Try again.',
@@ -112,14 +112,14 @@ export const dragonCaptureContent = {
                     'successPopupHeading': 'Excellent!',
                     'successPopupText': 'We have narrowed down our search for the flask to three locations! But we don’t know which location is THE location yet.',
                     'BackgroundColor': '#ecd45c',
-                    'popupMascotImage': 'assets/images/activities/dragon_capture/mascot_head.png',
+                    'popupMascotImage': 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
                     'actionButtonText': 'Let\'s find out!'
                 },
                 {
                     'successPopupHeading': 'You did what no one else could do.',
                     'successPopupText': 'You saved the world from the dragon!',
                     'BackgroundColor': '#ecd45c',
-                    'popupMascotImage': 'assets/images/activities/dragon_capture/mascot_head.png',
+                    'popupMascotImage': 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
                     'actionButtonText': 'Continue'
                 }
     ]

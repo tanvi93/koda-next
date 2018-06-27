@@ -1,7 +1,7 @@
 export const selectActivityContent = {
     coordinates: {
         instructions: 'Complete all activities to earn your badge.',
-        mascotImage: './assets/images/monkey_menace/mascot_arms_folded_head.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
         mascotBgColor: '#ffe655',
         activities: [
             {
@@ -71,7 +71,7 @@ export const selectActivityContent = {
     },
     sequencing: {
         instructions: 'Complete all activities to earn your badge.',
-        mascotImage: './assets/images/monkey_menace/mascot_arms_folded_head.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
         mascotBgColor: '#ffe655',
         activities: [{
             id: 0,
@@ -139,13 +139,13 @@ export const selectActivityContent = {
     },
     loops: {
         instructions: 'Complete all activities to earn your badge.',
-        mascotImage: './assets/images/monkey_menace/mascot_arms_folded_head.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
         mascotBgColor: '#ffe655',
         activities: [{
             id: 0,
             name: 'storyline/captcha',
             title: 'Captcha',
-            activityImage: './assets/images/activities/captcha/captcha-with-pattern.png',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/captcha-with-pattern.png',
             status: {
                 lock: {
                     imageStatus: false,
@@ -166,7 +166,7 @@ export const selectActivityContent = {
             id: 1,
             name: 'storyline/disco_light',
             title: 'Disco Lights',
-            activityImage: './assets/images/activities/disco_lights/disco_lights_bg.png',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_lights_bg.png',
             status: {
                 lock: {
                     imageStatus: true,

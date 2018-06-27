@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilitiesService } from './../../shared-services/utilities.service';
 import { AudioService } from './../../shared-services/audio.service';
+import { assetsLink } from './../../shared-services/config';
 
 @Component({
   selector: 'app-mascot-talking',
@@ -21,7 +22,7 @@ export class MascotTalkingComponent implements OnInit {
     private router: Router,
     private utility: UtilitiesService,
     private audio: AudioService) { 
-    this.mascot = './assets/images/monkey_menace/mascot_arms_folded_full.png';
+    this.mascot = `${assetsLink}monkey_menace/mascot_arms_folded_full.png`;
     this.activeIndex = 0;
     this.speech = {
       intro_to_mm: [

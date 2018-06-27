@@ -8,6 +8,10 @@ import { SharedModuleModule } from './shared-module/shared-module.module';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AudioService } from './shared-services/audio.service';
+import { UtilitiesService } from './shared-services/utilities.service';
+import { ApiService } from './shared-services/api.service';
+
 import { AppComponent } from './app.component';
 import { BadgesComponent } from './shared-pages/badges/badges.component';
 import { DashboardComponent } from './shared-pages/dashboard/dashboard.component';
@@ -21,10 +25,6 @@ import { LinearFlowScreenComponent } from './shared-pages/linear-flow-screen/lin
 import { ForkScreenComponent } from './shared-pages/fork-screen/fork-screen.component';
 import { StorylineScreenComponent } from './shared-pages/storyline-screen/storyline-screen.component';
 import { VideoScreenComponent } from './shared-pages/video-screen/video-screen.component';
-
-import { AudioService } from './shared-services/audio.service';
-import { UtilitiesService } from './shared-services/utilities.service';
-import { ApiService } from './shared-services/api.service';
 import { SelectActivityComponent } from './shared-pages/select-activity/select-activity.component';
 import { ActivityThumbnailComponent } from './shared-pages/select-activity/activity-thumbnail/activity-thumbnail.component';
 

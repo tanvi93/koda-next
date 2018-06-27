@@ -1,9 +1,9 @@
 export const checklistMCQ = {
     "mm3_1_q4": {
     "instructionBarContent": "Here's another one for you.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "stage and code zone",
-    "mediaLink": "./../assets/images/monkey_menace/mm_image.png",
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
 
     "question": 'Run your code again and then keep the right arrow key pressed. Which of the following happens? Select all the correct options.',
     "mascotBg": '#13BCE4',
@@ -92,14 +92,14 @@ export const checklistMCQ = {
     
     "mm5_3_q1": {
     "instructionBarContent": "So now you have a way to track missed fruits. The game ends when the player misses 5 fruits.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "gif",
-    "mediaLink": "./../assets/images/monkey_menace/preview_end_game.gif",
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_end_game.gif",
     "mascotBg": '#13BCE4',
     'question': 'How does the player know that the game has ended? Select all the valid options.',
     'answer': [
         {
-            'option': "The background changes to <img width='50px' src='./assets/images/monkey_menace/bg_game_over.png'>",
+            'option': "The background changes to <img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png'>",
             // Message for the case when only this option is selected.
             'only_this_selected_msg': "You're right. Is there anything else that happens when the game ends?",
             'isCorrect': true
@@ -122,7 +122,7 @@ export const checklistMCQ = {
             'isCorrect': true
         },
         {
-            'option': "<img width='50px' src='./assets/images/monkey_menace/replay.png'> appears.",
+            'option': "<img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png'> appears.",
             'only_this_selected_msg': "You're right. Is there anything else that happens when the game ends?",
             'isCorrect': true
         }
@@ -137,15 +137,15 @@ export const checklistMCQ = {
     "correct_but_not_all_msg": "You're right. Is there anything else that happens when the game ends?",
     
     'successPopupHeading': "That's perfect! Let's code for all these things.",
-        "successPopupText": "<ul><li>The background changes to <img width='50px' src='./assets/images/monkey_menace/bg_game_over.png'></li> <li>All the characters disappear.</li> <li><img width='50px' src='./assets/images/monkey_menace/replay.png'> appears.</li></ul>",
+        "successPopupText": "<ul><li>The background changes to <img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png'></li> <li>All the characters disappear.</li> <li><img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png'> appears.</li></ul>",
         "actionButtonText": 'Continue'
     }, // end of mm5_3_q1
     
     "mm6_1_q1": {
     "instructionBarContent": "Now that we have the PLAY button on Stage, let's see what it needs to do.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "game",
-    "mediaLink": "./assets/images/monkey_menace/preview_with_play.gif",
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
     "mascotBg": '#13BCE4',
     'question': 'What should happen on click of the PLAY button?',
     'answer': [
@@ -210,9 +210,9 @@ export const checklistMCQ = {
     
     "mm6_2_q1": {
     "instructionBarContent": "Finally, let's take care of that Replay button that we had been avoiding!",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "gif",
-    "mediaLink": "./assets/images/monkey_menace/preview_end_game.gif",
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_end_game.gif",
     "mascotBg": '#13BCE4',
     'question': 'We know that when the game ends, a REPLAY appears. What should happen on clicking it?',
      'answer': [

@@ -3,9 +3,9 @@ export const quiz = {
     mm0_1_q1: {
         "instructionBarContent": "Let's begin by getting to know the characters of this game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
-        "mediaLink": "/assets/images/monkey_menace/mm_image.png",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
         "mascotBg": "#13BCE4",
         "question": "Select the type of character that each of these is.",
         "options": [
@@ -69,10 +69,10 @@ export const quiz = {
      mm3_1_q1: {
         "instructionBarContent": "To make the cap move when the player presses a key, you have to know the actions performed by each of the keys used in the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
-         "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
          "mascotBg": "#13BCE4",
-         "mediaLink": "assets/images/monkey_menace/mm_image.png",
+         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
         "question": "Play Monkey Menace again on your left and select what happens when each of the keys below is pressed.",
         "options": [
             {
@@ -150,7 +150,7 @@ export const quiz = {
      mm3_5_q2: {
         "instructionBarContent": "You discovered that the cap's X coordinate should stay between -38 and 38 for it to remain visible on Stage. Let's use these to keep the cap on Stage throughout the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
-         "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "image",
         "mediaLink": "",
          "mascotBg": "#13BCE4",

@@ -72,7 +72,7 @@ export const blocksData: any = {
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -119,16 +119,16 @@ export const blocksData: any = {
     mm_play: {
         "activity_name": "monkey_menace_final_code",
         "instructionBarContent": "Write the complete code for Monkey Menace here!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBgColor": '#00bae2',
         "backgrounds": [
             {
                 "name": "Instructions",
-                "src": "./../assets/images/monkey_menace/bg_instructions.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_instructions.jpg"
             },
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -136,7 +136,7 @@ export const blocksData: any = {
             },
             {
                 "name": "Game Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.jpg"
             }
         ],
         "gameScript": `var score, missed_fruits;
@@ -152,7 +152,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "currentBackgroundIdx": 0,
         "buttons": [{
             "name": "Play",
-            "looks": ["./../assets/images/monkey_menace/play.png"],
+            "looks": ["http://dqfevutdn6sxd.cloudfront.net/monkey_menace/play.png"],
             "buttonLookIdx": 0,
             "offset": {
                 "x": 0,
@@ -163,7 +163,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             "initialVisibility": true
         }, {
                 "name": "Replay",
-                "looks": ["./../assets/images/monkey_menace/replay.png"],
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png"],
                 "buttonLookIdx": 0,
                 "offset": {
                     "x": 0,
@@ -179,7 +179,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "monkey_menace_final_code",
         "instructionBarContent": "Write the complete code for Monkey Menace here!",
         "mascotBgColor": '#00bae2',
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -607,7 +607,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -621,11 +621,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Instructions",
-                "src": "./../assets/images/monkey_menace/bg_instructions.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_instructions.jpg"
             },
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -633,15 +633,15 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
         "buttons": [{
             "name": "Play",
-            "looks": ["./../assets/images/monkey_menace/play.png",
-                "./../assets/images/monkey_menace/replay.png"
+            "looks": ["http://dqfevutdn6sxd.cloudfront.net/monkey_menace/play.png",
+                "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png"
             ],
             "buttonLookIdx": 0,
             "offset": {
@@ -653,7 +653,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             "initialVisibility": true
         }, {
                 "name": "Replay",
-                "looks": ["./../assets/images/monkey_menace/replay.png"],
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png"],
                 "buttonLookIdx": 0,
                 "offset": {
                     "x": 0,
@@ -670,7 +670,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Write any code here!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -752,7 +752,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -766,7 +766,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -774,11 +774,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.jpg"
             },
             {
                 "name": "Instruction_MM",
-                "src": "./../assets/images/monkey_menace/bg_instructions.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_instructions.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -786,8 +786,8 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "buttons": [{
             "name": "Play",
             "looks": [
-                        "./../assets/images/monkey_menace/play.png",
-                        "./../assets/images/monkey_menace/replay.png"
+                        "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/play.png",
+                        "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png"
             ],
             "buttonLookIdx": 0,
             "offset": {
@@ -800,7 +800,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
                 "name": "Replay",
                 "looks": [
-                    "./../assets/images/monkey_menace/replay.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png"
                 ],
                 "buttonLookIdx": 0,
                 "offset": {
@@ -818,7 +818,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Do you see any block that can be used to make the monkey go to a new X coordinate? Drag it to the Code Zone, give it suitable values, and click Run.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -837,7 +837,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -850,7 +850,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -868,7 +868,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Just like you moved the monkey, add a block to move the fruit to monkey's hand.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -887,7 +887,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -900,7 +900,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -917,7 +917,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Do you see any block that can be used to make the fruit fall on the ground? Add it to your code and hit Run. Don’t change the existing blocks in your Code Zone!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -949,7 +949,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -962,7 +962,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -979,7 +979,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Let's first make the monkey throw a fruit from the left end of the Stage (such that it still remains completely visible). No need to add any new blocks. Just change the inputs to the existing blocks.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1011,7 +1011,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1024,7 +1024,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1041,7 +1041,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Similarly, now change your code to make the monkey throw the fruit from the right end of the Stage. Don't add any new blocks!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1071,7 +1071,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1084,7 +1084,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1101,7 +1101,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Look for a block that randomly picks a different x-coordinate for the monkey to move to every time. Drag it to the Code Zone.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1131,7 +1131,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1144,7 +1144,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1161,7 +1161,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Now use this logic to move the fruit back to monkey's hand irrespective of the monkey's position.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1197,7 +1197,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1210,7 +1210,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1600,7 +1600,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Here's your Monkey Menace code for throwing one fruit from a random position. Use your new knowledge to make the monkey throw 5 fruits from 5 random positions.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1652,7 +1652,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1665,7 +1665,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1682,7 +1682,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Try replacing <img src='assets/images/block_images/repeat_n_times_block.png' style='height: 12px!important'> with something that can be used to throw fruits forever.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1747,7 +1747,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -1760,7 +1760,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -1777,7 +1777,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "disco_lights",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "Could you help me code a light just like the disco light I saw at the party? Here's some code to get you started with.",
-        "mascotImage": "./../assets/images/activities/disco_lights/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1801,37 +1801,37 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/disco_lights/disco_lights_preview.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_lights_preview.gif"
             }, {
                 "name": "hint",
                 "isVisible": true,
                 "content": [
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/disco_lights/hint1.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/hint1.png',
                         "hintActive": false,
                         "hintDisable": false
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/disco_lights/hint2.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/hint2.png',
                         "hintActive": false,
                         "hintDisable": true
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/disco_lights/hint3.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/hint3.png',
                         "hintActive": false,
                         "hintDisable": true
                     }
                 ],
                 "totalHintAvailable": 3,
-                "currentHintValue": "assets/images/activities/disco_lights/hint1.png"
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/hint1.png"
         }],
         "backgrounds": [
             {
                 "name": "Club",
-                "src": "./../assets/images/activities/disco_lights/bg_coding.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/bg_coding.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2089,7 +2089,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Can you find a block that can detect when the left arrow key is pressed?",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2107,7 +2107,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2120,7 +2120,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2136,7 +2136,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Great! Now, make the cap move 2 steps to the right when the player presses the right arrow key.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2154,7 +2154,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2167,7 +2167,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2388,7 +2388,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Look for a block that helps you in doing something only if a condition happens. Drag it to the Code Zone.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2437,7 +2437,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2450,7 +2450,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2466,7 +2466,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Similarly, add code that lets the cap move 2 steps right only if cap’s X coordinate <= 32.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2500,7 +2500,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2513,7 +2513,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2529,7 +2529,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Now test your code to ensure that the cap never moves out of the Stage.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2563,7 +2563,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2576,7 +2576,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2812,7 +2812,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "To keep track of score, we will be using a variable. A variable is something whose value can change. Look for a way to create a variable and name it ‘Score’.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2851,7 +2851,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2864,7 +2864,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2881,7 +2881,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Now add a condition such that the score gets updated only if the fruit has been caught by the cap. You know how to do this. Go ahead!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2919,7 +2919,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -2932,7 +2932,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -2948,7 +2948,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Finally, attach this score updation condition at the correct place in your code and run it to check if the score gets updated correctly.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2986,7 +2986,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -2999,7 +2999,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3192,7 +3192,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "How will you keep track of missed fruits? (Pssst… remember what you did to keep track of score?)",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3230,7 +3230,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -3243,7 +3243,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3259,7 +3259,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Write code to update the Missed fruit variable only \"If the fruit doesn't touch the cap after it falls down\".",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3297,7 +3297,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -3310,7 +3310,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3326,7 +3326,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Now let's attach this condition for updating the missed fruits at the correct place in your code. Click Run to see the result.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3364,7 +3364,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -3377,7 +3377,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3393,7 +3393,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Replace the two if blocks with an if-else block now.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3431,7 +3431,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3444,7 +3444,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3460,7 +3460,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "According to our checklist, we first need to change the background.To do that, a new background first needs to be added to the Background Tray. Go ahead and do that..",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3498,7 +3498,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3514,7 +3514,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3530,7 +3530,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Super! Now the second thing - add a block to hide all the characters from Stage.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3568,7 +3568,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3583,7 +3583,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3591,7 +3591,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -3603,7 +3603,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "We’ll take care of the Replay button just a tiny bit later.For now add the condition such that these two things happen only when 5 fruits are missed.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3641,7 +3641,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": true,
@@ -3655,7 +3655,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3663,7 +3663,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -3675,7 +3675,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Now attach this code snippet at the right place in the code.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3713,7 +3713,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3727,7 +3727,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3735,7 +3735,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -3747,7 +3747,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "The instructions can be treated as part of the background since they don't move and the player doesn't interact with them. You know how to add a new background. Go ahead and add it.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3785,7 +3785,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3799,7 +3799,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3807,7 +3807,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -3819,7 +3819,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Find a block to detect when the player clicks <PLAY image> Then add code such that the highlighted points in the checklist happen only when <PLAY image> is clicked.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3857,7 +3857,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3871,7 +3871,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3879,11 +3879,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.jpg"
             },
             {
                 "name": "Instruction_MM",
-                "src": "./../assets/images/monkey_menace/bg_instructions.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_instructions.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -3898,7 +3898,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
         "instructionBarContent": "Instead of adding a new button to our game, let's simply change the look of the PLAY button to REPLAY. Add a new look by clicking on PLAY in the Button Tray.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -3936,7 +3936,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/monkey_menace/MM_With Play.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -3950,7 +3950,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Jungle",
-                "src": "./../assets/images/monkey_menace/bg_jungle1.jpg",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
                 "groundLevel": {
                     "lowerLimit": -20,
                     "upperLimit": -5
@@ -3958,11 +3958,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             },
             {
                 "name": "Game_Over",
-                "src": "./../assets/images/monkey_menace/bg_game_over.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.jpg"
             },
             {
                 "name": "Instruction_MM",
-                "src": "./../assets/images/monkey_menace/bg_instructions.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_instructions.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
