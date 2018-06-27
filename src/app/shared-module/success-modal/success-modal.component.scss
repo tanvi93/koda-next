@@ -1,0 +1,238 @@
+.green-pop-up-wrap{
+  background: #22c36a;
+  position: relative;
+  padding: 50px 0 60px 0;
+  width: 100%;
+}
+
+.success-popup{
+height: 100%;
+}
+
+.mat-dialog-content {
+  background-color: #22c36a;
+  width: 743px;
+  height: 100%;
+  text-align: center;
+}
+
+.img-container {
+  width: 155px;
+  height: 155px;
+  background-color: #13bce4;
+  border-radius: 90px;
+  border: 2px solid white;
+  margin-left: 290px;
+  text-align: center;
+  margin-top: -80px;
+  position: absolute;
+  z-index: 1;
+}
+
+.beaver-head {
+  width: 125px;
+  height: 125px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.success {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 38px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.success-msg {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20.8px;
+  color: #ffff49;
+  text-align: center;
+  margin-left: 130px;
+  margin-top: 30px;
+  width: 470px;
+  height: 130px;
+}
+
+.success-msg2{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0px;
+   margin-left: 110px;
+   width: 530px;
+   height: 80px;
+
+}
+
+.continue-button {
+  border-radius: 150px;
+  width: 180px;
+  height: 52px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 22px;
+  color: #22c36a;
+}
+
+.continue-icon {
+  position: absolute;
+  width: 23.5px;
+  height: 23.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  left:18px;
+}
+
+.button-div {
+  text-align: center;
+  margin-top:50px; 
+}
+
+.button-text {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0px 0 35px;
+  line-height: normal;
+  padding: 10px 20px;
+}
+
+.successmascot {
+    height: 160px;
+    background: #0bbde5;
+    border-radius: 100px;
+    position: absolute;
+    text-align: center;
+    border: 1px solid #fff;
+    top: -19%;
+}
+.successmascot img {
+    width: 63%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+}
+.green-pop-up-wrap .mat-dialog-title {
+    font-family: Quicksand;
+    font-size: 41.7px;
+    font-weight: 500;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 40px;
+}
+.green-pop-up-wrap  .mat-dialog-content{
+    width: 500px;
+    height: auto;
+    font-family: Quicksand;
+    font-size: 20.8px;
+    font-weight: 500;
+    text-align: center;
+    color: #ffff49;
+    background: transparent;
+    margin: 50px 80px;
+}
+.mat-dialog-actions {
+    width: auto;
+    height: 45px;
+    background: #fff;
+    text-transform: capitalize;
+    line-height: 51px; 
+    font-family: Quicksand;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: #22c36a;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+// css changes 4th June
+.cdk-global-overlay-wrapper .mat-dialog-container {
+  overflow:inherit!important;
+}
+.mat-dialog-actions {
+  position: relative;
+}
+
+#profile-status {
+  // margin-left: 580px;
+  position: absolute;
+  right:10px;
+  top:20px;
+& .score {
+      width: 55px;
+      height: 55px;
+    }
+  & span {
+    border: 2px solid #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    margin: 0 0 0 -12px;
+    padding: 6px 10px 6px 15px;
+    width: 60px;
+  }
+}
+
+.vl {
+  border-left: 2px solid #666666;
+  height: 350px;
+}
+
+.onSuccessMsg {
+  width: 395px;
+  margin: 0 auto;
+  font-family: Quicksand;
+  font-size: 41.8px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  // padding: 0 150px;
+}
+
+.charactersPlacedImg {
+  width: 100%;
+}
+
+.middle-row{
+margin-top: 70px;
+}
+
+@media only screen and (max-height: 830px) {
+.vl {
+  border-left: 2px solid #666666;
+  height: 300px;
+}
+
+
+.charactersPlacedImg {
+  width: 70%;
+}
+
+.middle-row {
+  margin-top: 70px;
+}
+
+.success-popup {
+  height: 100%;
+  margin-top: 50px;
+}
+
+}

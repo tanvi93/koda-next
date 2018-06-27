@@ -123,7 +123,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Fox & Grapes_Storyline',
-                        path: 'fox-grape-storyline',
+                        path: 'storyline/fox-grape',
                         order: 1,
                         image: './assets/images/activities/fox_and_grapes/setting_reference.jpg',
                         type: 'activity-narration'
@@ -139,7 +139,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Treasure Hunt_Storyline',
-                        path: 'treasure-hunt-storyline',
+                        path: 'storyline/treasure-hunt',
                         order: 3,
                         image: './assets/images/activities/treasure_hunt/bg_island.jpg',
                         type: 'activity-narration'
@@ -155,7 +155,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Mars Rover_Storyline',
-                        path: 'mars-rover-storyline',
+                        path: 'storyline/mars-rover',
                         order: 5,
                         image: './assets/images/activities/mars_rover/bg_mars.jpg',
                         type: 'activity-narration'
@@ -178,7 +178,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Dragon Capture_Storyline',
-                        path: 'challenge-dragon-storyline',
+                        path: 'storyline/challenge-dragon',
                         order: 0,
                         image: './assets/images/activities/dragon_capture/bg_intro1.jpg',
                         type: 'activity-narration'
@@ -217,7 +217,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_1_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q1',
+                        path: 'quiz/radio/mm2_1_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -237,7 +237,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q2',
+                        path: 'quiz/radio/mm2_1_q2',
                         order: 4,
                         type: 'activity',
                     }, {
@@ -247,7 +247,7 @@ export const map: any = [
                         type: 'game_coding'
                     }, {
                         name: 'mm2_1_q3 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q3',
+                        path: 'quiz/radio/mm2_1_q3',
                         order: 6,
                         type: 'activity'
                     }, {
@@ -257,7 +257,7 @@ export const map: any = [
                         type: 'game_coding'
                     }, {
                         name: 'mm2_1_q4 (Radio button MCQ)',
-                        path: 'quiz/mm2_1_q4',
+                        path: 'quiz/radio/mm2_1_q4',
                         order: 8,
                         type: 'activity'
                     }, {
@@ -279,7 +279,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm2_2_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_2_q1',
+                        path: 'quiz/radio/mm2_2_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -399,7 +399,7 @@ export const map: any = [
                         path: 'badge/sequence_path_a',
                         order: 7,
                         type: 'badge',
-                        nextPage: 'quiz/mm2_6_q1'
+                        nextPage: 'quiz/radio/mm2_6_q1'
                     }
                 ]
             }, // End of Module 2.4
@@ -437,7 +437,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm2_6_q1 (Radio button MCQ)',
-                        path: 'quiz/mm2_6_q1',
+                        path: 'quiz/radio/mm2_6_q1',
                         order: 0,
                         type: 'activity'
                     }, {
@@ -447,7 +447,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_6_q2 (Radio button MCQ)',
-                        path: 'quiz/mm2_6_q2',
+                        path: 'quiz/radio/mm2_6_q2',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -633,12 +633,12 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm3_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm3_1_q2',
+                        path: 'quiz/radio/mm3_1_q2',
                         order: 5,
                         type: 'activity'
                     }, {
                         name: 'mm3_1_q3 (Radio button MCQ)',
-                        path: 'quiz/mm3_1_q3',
+                        path: 'quiz/radio/mm3_1_q3',
                         order: 6,
                         type: 'activity'
                     }, {
@@ -940,7 +940,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm4_1_q1 (radio button MCQ)',
-                        path: 'quiz/mm4_1_q1',
+                        path: 'quiz/radio/mm4_1_q1',
                         order: 1,
                         type: 'activity'
                     }, {
@@ -1094,7 +1094,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm5_1_q1 (Radio button MCQ)',
-                        path: 'quiz/mm5_1_q1',
+                        path: 'quiz/radio/mm5_1_q1',
                         order: 1,
                         type: 'activity'
                     }, {
@@ -1104,7 +1104,7 @@ export const map: any = [
                         type: 'coding'
                     }, {
                         name: 'mm5_1_q2 (Radio button MCQ)',
-                        path: 'quiz/mm5_1_q2',
+                        path: 'quiz/radio/mm5_1_q2',
                         order: 3,
                         type: 'activity'
                     }, {
@@ -1131,7 +1131,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'mm5_2_q1 (Radio button MCQ)',
-                        path: 'quiz/mm5_2_q1',
+                        path: 'quiz/radio/mm5_2_q1',
                         order: 0,
                         type: 'activity'
                     }, {
