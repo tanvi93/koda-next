@@ -1,42 +1,40 @@
 <div class="game-elements-div">
   <h2 class="heading">Game Elements</h2>
   <div fxLayout="row" fxLayoutGap="20px">
-    <!-- <div fxLayout="column" fxFlex="50"> -->
-      <div class="character-div" fxFlex="50">
-        <h4 class="category">Characters</h4>
-        <span class="elements-container">
-          <div fxLayout="row" fxLayoutAlign="center start">
-            <div class="char-div" id="control-char" fxLayoutAlign="center center">
-              <img class="img3" id="thirdImg" [src]="gameInfo.images.img3" alt="">
-            </div>
-          </div>
+    <div class="character-div" fxFlex="50">
+      <h4 class="category">Characters</h4>
+      <span class="elements-container">
 
-          <div fxLayout="row" fxLayoutAlign="center center">
-            <span  class="char-div" id="uncontrolled-char" style="margin-right:10px;">
-              <img class="img1" id="firstImg" [src]="gameInfo.images.img1" alt="">
-            </span>
-            <span  class="char-div" id="uncontrolled-char" style="margin-left:10px;">
-              <img class="img2" id="secondImg" [src]="gameInfo.images.img2" alt="">
-            </span>
+        <div fxLayout="row" fxLayoutAlign="center start">
+          <div class="char-div" id="control-char" fxLayoutAlign="center center">
+            <img class="img3" id="thirdImg" [src]="gameInfo.images.img3" alt="">
           </div>
-        </span>
-      </div>
-    <!-- </div> -->
+        </div>
 
-    <!-- <div > -->
-      <div class="character-div" fxFlex="50">
-        <h4 class="category">Background</h4>
-        <span class="elements-container1" fxLayoutAlign="center center">
-          <div class="bg-div" fxLayoutAlign="center center">
-            <img class="img4" id="fourthImg" [src]="gameInfo.images.background" alt="">
-          </div>
-        </span>
-      </div>
-    <!-- </div> -->
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <span class="char-div" id="uncontrolled-char" style="margin-right:10px;">
+            <img class="img1" id="firstImg" [src]="gameInfo.images.img1" alt="">
+          </span>
+          <span class="char-div" id="uncontrolled-char" style="margin-left:10px;">
+            <img class="img2" id="secondImg" [src]="gameInfo.images.img2" alt="">
+          </span>
+        </div>
+      </span>
+    </div>
+
+    <div class="character-div" fxFlex="50">
+      <h4 class="category">Background</h4>
+      <span class="elements-container1" fxLayoutAlign="center center">
+        <div class="bg-div" fxLayoutAlign="center center">
+          <img class="img4" id="fourthImg" [src]="gameInfo.images.background" alt="">
+        </div>
+      </span>
+    </div>
   </div>
+
   <div fxLayout="row" class="rules-board">
-    <h4  fxFlex="20" fxLayoutAlign="center center" class="rules" >Rules</h4>
-    <span class="rules-container"  fxFlex="80" fxLayoutAlign="center center">
+    <h4 fxFlex="20" fxLayoutAlign="center center" class="rules">Rules</h4>
+    <span class="rules-container" fxFlex="80" fxLayoutAlign="center center">
       <div class="scoring-rules" fxLayoutAlign="center center" [style.background-color]="showRule1?'white':'#231f2e'">
         <p *ngIf="!showRule1">Scoring Rules</p>
         <p id="fifthImg">+10 points for catching a fruit</p>
@@ -47,7 +45,4 @@
       </div>
     </span>
   </div>
-
-
 </div>
-

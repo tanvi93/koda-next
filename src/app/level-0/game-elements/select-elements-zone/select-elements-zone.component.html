@@ -1,20 +1,20 @@
 <mat-card class="game-elements-container">
-  <div  class="question-comp" fxLayoutAlign="start center"></div>
+  <div  class="question-comp" fxLayoutAlign="start center">
+    <app-quiz-question [question]="presentQuestionData.Question"></app-quiz-question>
+  </div>
   <mat-card-content>
-    <div class="game-elements">
+    <div class="game-elements" (click)="elementClicked($event)" *ngIf="!showRules">
       <img id="background" [src]="gameInfo.images.background" alt="">
       <img class="img1" id="img1" [src]="gameInfo.images.img1" alt="">
-      
       <img class="img2" id="img2" [src]="gameInfo.images.img2" alt="">
-      
       <img class="img3" id="img3" [src]="gameInfo.images.img3" alt="">
     </div>
-    <!-- <div class="rule-board">
+    <div class="rule-board" *ngIf="showRules">
       <div class="radio-btn-grp" *ngFor="let option of rules.options;let i = index">
         <mat-radio-button name="radioButton" [value]="val" (change)="selectedOption(option,val)" class="radio-button">
           <p class="option" [innerHTML]='option.option'></p>
         </mat-radio-button>
       </div>
-    </div> -->
+    </div>
   </mat-card-content>
 </mat-card>
