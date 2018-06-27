@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-select [formControl]="data" pattern="{{ correctAnswer }}">
+    <mat-option value="Choose From" (click)="defaultValue()">Choose From</mat-option>
+    <mat-option [value]="selection.option" *ngFor="let selection of dataOption"(click)="inputValue(selection)">
+      {{selection.option}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

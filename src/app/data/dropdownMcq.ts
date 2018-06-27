@@ -5,7 +5,7 @@ export const quiz = {
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
         "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
-        "mediaLink": "",
+        "mediaLink": "/assets/images/monkey_menace/mm_image.png",
         "mascotBg": "#13BCE4",
         "question": "Select the type of character that each of these is.",
         "options": [
@@ -72,7 +72,7 @@ export const quiz = {
          "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
          "mascotBg": "#13BCE4",
-        "mediaLink": "",
+         "mediaLink": "assets/images/monkey_menace/mm_image.png",
         "question": "Play Monkey Menace again on your left and select what happens when each of the keys below is pressed.",
         "options": [
             {

@@ -8,16 +8,18 @@ import { QuizWrapperComponent } from './quiz-wrapper/quiz-wrapper.component';
 
 import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
 
-import { DropdownComponentComponent } from './dropdown-component/dropdown-component.component';
-import { SelectComponentComponent } from './dropdown-component/select-component/select-component.component';
 import { DropdownQuizComponent } from './dropdown-quiz/dropdown-quiz.component';
+import { SelectOptionComponent } from './dropdown-quiz/select-option/select-option.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModuleModule,
-    QuizModuleRoutingModule
+    QuizModuleRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [QuizWrapperComponent, DropdownComponentComponent, SelectComponentComponent, RadioQuizComponent, DropdownQuizComponent]
+  declarations: [QuizWrapperComponent,  RadioQuizComponent, DropdownQuizComponent, SelectOptionComponent]
 })
 export class QuizModuleModule { }
