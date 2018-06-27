@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
 import { UtilitiesService } from './../../shared-services/utilities.service';
 import { AudioService } from './../../shared-services/audio.service';
+import { assetsLink } from './../../shared-services/config';
 
 @Component({
   selector: 'app-success-modal',
@@ -30,7 +31,7 @@ export class SuccessModalComponent implements OnInit {
     if (this.modalData) {
       this.data = this.modalData;
       if (!this.modalData.popupMascotImage) {
-        this.modalData.popupMascotImage = './assets/images/monkey_menace/mascot_thumbs_up_head.png';
+        this.modalData.popupMascotImage = `${assetsLink}monkey_menace/mascot_thumbs_up_head.png`;
       }
     } else {
       this.data = this.gameElementModalObj;

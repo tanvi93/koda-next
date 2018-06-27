@@ -23,7 +23,13 @@ export class FormulaQuizComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.pageId = params.pageId;
       this.quizObj = quiz[`${this.pageId}`];
+      console.log(this.quizObj);
+      
     });
+  }
+
+  submitAnswer = () => {
+    this.showError = true;
   }
 
 }

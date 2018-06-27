@@ -1,11 +1,12 @@
 export const checklistMCQ = {
     "mm3_1_q4": {
     "instructionBarContent": "Here's another one for you.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "stage and code zone",
-    "mediaLink": "./../assets/images/monkey_menace/preview_with_play.gif",
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
 
     "question": 'Run your code again and then keep the right arrow key pressed. Which of the following happens? Select all the correct options.',
+    "mascotBg": '#13BCE4',
     "answer": [
         {
             "option": 'The cap keeps moving right and the monkey keeps throwing fruits.',
@@ -41,7 +42,8 @@ export const checklistMCQ = {
     "all_wrong_msg": "That doesn't seem right. Observe carefully what happens when you run your code and keep the right arrow key pressed.",
     "correct_but_not_all_msg": "You're right. Is there anything else that happens?",
     "successPopupHeading": "You're right!",
-    "successPopupText": "The cap's movement does not get affected by the monkey's position or code at all. The cap moves whenever the left or right arrow keys are pressed."
+        "successPopupText": "The cap's movement does not get affected by the monkey's position or code at all. The cap moves whenever the left or right arrow keys are pressed.",
+        "actionButtonText": 'Continue'
     }, // end of mm3_1_q4
     
     "air_conditioner_q1": {
@@ -84,19 +86,20 @@ export const checklistMCQ = {
     "all_wrong_msg": "That doesn't look right. For a given air conditioner, its size and brand name are fixed and not variables.",
     "correct_but_not_all_msg": "You're right. Do we need any more variables?",
     "successPopupHeading": "That's right!",
-    "successPopupText": "We need just two variables for our setup: 'The temperature of the room at the moment' and 'The temperature at which the room should be'."
+        "successPopupText": "We need just two variables for our setup: 'The temperature of the room at the moment' and 'The temperature at which the room should be'.",
+        "actionButtonText": 'Continue'
     }, // end of air_conditioner_q1
     
     "mm5_3_q1": {
     "instructionBarContent": "So now you have a way to track missed fruits. The game ends when the player misses 5 fruits.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "gif",
-    "mediaLink": "./../assets/images/monkey_menace/preview_end_game.gif",
-
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_end_game.gif",
+    "mascotBg": '#13BCE4',
     'question': 'How does the player know that the game has ended? Select all the valid options.',
     'answer': [
         {
-            'option': "The background changes to <img width='50px' src='./assets/images/monkey_menace/bg_game_over.png'>",
+            'option': "The background changes to <img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png'>",
             // Message for the case when only this option is selected.
             'only_this_selected_msg': "You're right. Is there anything else that happens when the game ends?",
             'isCorrect': true
@@ -119,7 +122,7 @@ export const checklistMCQ = {
             'isCorrect': true
         },
         {
-            'option': "<img width='50px' src='./assets/images/monkey_menace/replay.png'> appears.",
+            'option': "<img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png'> appears.",
             'only_this_selected_msg': "You're right. Is there anything else that happens when the game ends?",
             'isCorrect': true
         }
@@ -134,15 +137,16 @@ export const checklistMCQ = {
     "correct_but_not_all_msg": "You're right. Is there anything else that happens when the game ends?",
     
     'successPopupHeading': "That's perfect! Let's code for all these things.",
-        "successPopupText": "<ul><li>The background changes to <img width='50px' src='./assets/images/monkey_menace/bg_game_over.png'></li> <li>All the characters disappear.</li> <li><img width='50px' src='./assets/images/monkey_menace/replay.png'> appears.</li></ul>"
+        "successPopupText": "<ul><li>The background changes to <img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_game_over.png'></li> <li>All the characters disappear.</li> <li><img width='50px' src='http://dqfevutdn6sxd.cloudfront.net/monkey_menace/replay.png'> appears.</li></ul>",
+        "actionButtonText": 'Continue'
     }, // end of mm5_3_q1
     
     "mm6_1_q1": {
     "instructionBarContent": "Now that we have the PLAY button on Stage, let's see what it needs to do.",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "game",
-    "mediaLink": "./assets/images/monkey_menace/preview_with_play.gif",
-
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
+    "mascotBg": '#13BCE4',
     'question': 'What should happen on click of the PLAY button?',
     'answer': [
         {
@@ -200,15 +204,16 @@ export const checklistMCQ = {
     
     "successPopupHeading": "That's right!",
     "successPopupText": "<ul><li>The score and missed fruits should be set to 0.</li><li>The missed fruits variable should become visible on Stage.</li><li>All characters should show up on the Stage.</li><li>PLAY button should disappear from Stage.</li><li>The background should change to the jungle background.</li><li>The monkey should start throwing fruits.</li></ul>",
-    "expandedSuccessPopupText": "In short, the whole game should run from the beginning when the PLAY button is clicked.<br><br>You will find it simple to code these. Let's do it!"
+        "expandedSuccessPopupText": "In short, the whole game should run from the beginning when the PLAY button is clicked.<br><br>You will find it simple to code these. Let's do it!",
+        "actionButtonText": 'Continue'
     }, // end of mm6_1_q1
     
     "mm6_2_q1": {
     "instructionBarContent": "Finally, let's take care of that Replay button that we had been avoiding!",
-    'mascotImage': './assets/images/monkey_menace/mascot_arms_folded_head.png',
+    'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
     "mediaType": "gif",
-    "mediaLink": "./assets/images/monkey_menace/preview_end_game.gif",
-
+    "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_end_game.gif",
+    "mascotBg": '#13BCE4',
     'question': 'We know that when the game ends, a REPLAY appears. What should happen on clicking it?',
      'answer': [
         {
@@ -266,6 +271,7 @@ export const checklistMCQ = {
     
     "successPopupHeading": "You're right!",
     "successPopupText": "<ul><li>The score and missed fruits should be set to 0.</li><li>The missed fruits variable should become visible on Stage.</li><li>All characters should show up on the Stage.</li><li>PLAY button should disappear from Stage.</li><li>The background should change to the jungle background.</li><li>The monkey should start throwing fruits.</li></ul>",
-    "expandedSuccessPopupText": "Did you notice? The Replay button behaves exactly like the Play button!"
+        "expandedSuccessPopupText": "Did you notice? The Replay button behaves exactly like the Play button!",
+        "actionButtonText": 'Continue'
     } // end of mm6_2_q1
 };

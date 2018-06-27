@@ -6,6 +6,7 @@ import { blocksData } from './../../data/coding';
 import { GameStageService } from './../services/game-stage.service';
 import { UtilitiesService } from './../../shared-services/utilities.service'
 import { AudioService } from './../../shared-services/audio.service';
+import { assetsLink } from './../../shared-services/config';
 
 @Component({
   selector: 'app-game-play-screen',
@@ -42,7 +43,7 @@ export class GamePlayScreenComponent implements OnDestroy {
         this.gameOver();
       }
     });
-    this.arrow = './../../../assets/images/monkey_menace/continue_icon.png';
+    this.arrow = `${assetsLink}monkey_menace/continue_icon.png`;
     let image = new Image();
     image.src = this.arrow;
   }
