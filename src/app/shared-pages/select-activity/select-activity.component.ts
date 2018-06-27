@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { selectActivityContent } from './../../data/selectActivities';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-select-activity',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectActivityComponent implements OnInit {
 
-  constructor() { }
+  private activityContent;
+  private pageId: string;
 
+  constructor(private route: ActivatedRoute) { }
+  
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.pageId = params.pageId;
+      this.activityContent = selectActivityContent[params.pageId];
+    });
   }
 
 }

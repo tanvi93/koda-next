@@ -23,6 +23,7 @@ import { SuccessModalComponent } from './success-modal/success-modal.component';
     CommonModule,
     MaterialModule
   ],
+
   // tslint:disable-next-line:max-line-length
   declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent],
   exports: [

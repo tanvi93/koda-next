@@ -12,12 +12,12 @@ export const stories = {
         ]
     }, captcha: {
         backgroundImgs: [
-            './assets/images/activities/captcha/storyline-img1.jpg',
-            './assets/images/activities/captcha/storyline-img2.jpg'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/storyline-img1.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/storyline-img2.jpg'
         ]
     }, disco_light: {
         backgroundImgs: [
-            './assets/images/activities/disco_lights/disco_lights.gif'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_lights.gif'
         ]
     }, naptime: {
         backgroundImgs: [
