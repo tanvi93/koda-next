@@ -1,0 +1,18 @@
+<mat-grid-list cols="9" gutterSize="40" rowHeight="20%">
+  {{activityList}}
+  <mat-grid-tile class="grid-tile" [colspan]="3" [rowspan]="6" *ngFor="let list of activityList; let i = index;">
+    <div class="select-option-image">
+      <img class="select-option-game-unlock" src="{{list.activityImage}}" alt="">
+      <img class="select-option-game-complete" [hidden]="!list.status.complete.imageStatus" src="{{list.status.complete.imageData}}"
+        alt="">
+    </div>
+    <div class="select-option-Caption" [ngStyle]="{'background-color': !list.status.unlock.imageStatus ? captionBackgroundColor: captionFontColor}">
+      <span class="select-option-caption-content" [ngStyle]="{'color': list.status.unlock.imageStatus ? captionBackgroundColor:captionFontColor}">{{list.title}}</span>
+    </div>
+    <div class="select-option-enable" routerLink="/{{list.name}}" id="{{list.name}}" [hidden]="!list.status.unlock.imageStatus">
+    </div>
+    <div class="select-option-disable" [hidden]="list.status.unlock.imageStatus">
+      <img class="select-option-game-lock" [hidden]="!list.status.lock.imageStatus" src="{{list.status.lock.imageData}}" alt="">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -26,6 +26,7 @@ import { AudioService } from './shared-services/audio.service';
 import { UtilitiesService } from './shared-services/utilities.service';
 import { ApiService } from './shared-services/api.service';
 import { SelectActivityComponent } from './shared-pages/select-activity/select-activity.component';
+import { ActivityThumbnailComponent } from './shared-pages/select-activity/activity-thumbnail/activity-thumbnail.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SelectActivityComponent } from './shared-pages/select-activity/select-a
     ForkScreenComponent,
     StorylineScreenComponent,
     VideoScreenComponent,
-    SelectActivityComponent
+    SelectActivityComponent,
+    ActivityThumbnailComponent
   ],
   imports: [
     BrowserModule,
