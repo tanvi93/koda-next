@@ -1,0 +1,14 @@
+<app-quiz-wrapper [quizData]="quizObj">
+  <mat-card class="quiz-container">
+    <app-quiz-question [question]='quizObj.question' [style]="stylingObj"></app-quiz-question>
+    <mat-card-content>
+      <div class="formula" *ngFor="let data of quizObj.options; let i = index;">
+        <mat-radio-button [value]="i" (input)="radioFunction(data)"></mat-radio-button>
+        <p [innerHTML]="data.option"></p>
+      </div>
+    </mat-card-content>
+    <mat-card-footer class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
+      <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg>
+    </mat-card-footer>
+  </mat-card>
+</app-quiz-wrapper>

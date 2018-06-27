@@ -7,6 +7,7 @@ import { QuizModuleRoutingModule } from './quiz-module-routing.module';
 import { QuizWrapperComponent } from './quiz-wrapper/quiz-wrapper.component';
 
 import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
+import { FormulaQuizComponent } from './formula-quiz/formula-quiz.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
     SharedModuleModule,
     QuizModuleRoutingModule
   ],
-  declarations: [QuizWrapperComponent,  RadioQuizComponent]
+  declarations: [QuizWrapperComponent,  RadioQuizComponent, FormulaQuizComponent]
 })
 export class QuizModuleModule { }
