@@ -27,7 +27,7 @@ export const quiz = {
                 "otherOption": "That doesn\'t look right. Compare the two examples given and find the constant relation between the X coordinates of the fruit and the monkey."
             },
             {
-                "question": "Fruit\'s Y coordinate = Monkey\'s Y coordinate",
+                "question": "Fruit\'s Y coordinate = Monkey\'s Y coordinates",
                 "options": [
                     {
                         "value": 0,

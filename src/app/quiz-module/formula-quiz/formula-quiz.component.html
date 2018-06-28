@@ -4,16 +4,13 @@
     <mat-card-content>
       <div class="formula" *ngFor="let data of quizObj.options; let i = index;">
         <span [innerHTML]="data.question"></span>
-        <select>
-          <option value="+">+</option>
-          <option value="-">-</option>
+        <select #selectInput (click)="selectValue($event, i, inputText.value)">
+          <option id="0" value="+">+</option>
+          <option id="1" value="-">-</option>
         </select>
-        <input type="text" name="" id="">
+        <input type="text" #inputText (input)="inputValue($event, i, selectInput.value)">
       </div>
     </mat-card-content>
-    <!-- <mat-card-footer class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-      <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg>
-    </mat-card-footer> -->
     <mat-card-footer class="error-msg" [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}"
       [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
       <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'></app-error-msg>

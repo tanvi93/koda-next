@@ -8,16 +8,23 @@
     & .formula {
         font-size: 18px;
         display: table;
-        margin: 5%;
+        margin: 8%;
         width: 100%;
-         & input {
+        & input {
+             text-align: center;
              display: table-cell;
-         }
-         & p{
-             display: table-cell;
-         }
-         & select{
-             display: table-cell;
+             width: 8%;
+             height: 30px;
+             margin-left: 5%;
+            }
+            & p{
+                display: table-cell;
+            }
+            & select{
+                display: table-cell;
+                width: 6%;
+                height: 36px;
+                margin-left: 5%;
          }
     }
     & mat-card-footer {
