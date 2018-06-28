@@ -1,0 +1,1 @@
+export const assetsLink = "http://dqfevutdn6sxd.cloudfront.net/";

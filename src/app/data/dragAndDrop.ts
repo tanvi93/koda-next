@@ -1,28 +1,28 @@
 export const algoStep = {
     "mm0_1_q2": {
         "instructionBarContent": "On the left are the steps for building the Monkey Menace game, but in a jumbled order. Drag and drop them on the right in the correct sequence.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "steps": [
             {
                 "incorrectOrder": "1",
                 "order": "2",
                 "altOrder": "3",
                 "step": "Make the monkey throw fruits",
-                "icon": "./assets/images/monkey_menace/make_the_monkey_throw_fruits.png"
+                "icon": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/make_the_monkey_throw_fruits.png"
                 
             },
             {
                 "incorrectOrder": "2",
                 "order": "1",
                 "step": "Select and position the background and characters",
-                "icon": "./assets/images/monkey_menace/step1.png"
+                "icon": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/step1.png"
             },
             {
                 "incorrectOrder": "3",
                 "order": "5",
                 "altOrder": "4",
                 "step": "End game if the player misses more than five fruits",
-                "icon": "./assets/images/monkey_menace/game_over.png"
+                "icon": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/game_over.png"
                
             },
             {
@@ -30,14 +30,14 @@ export const algoStep = {
                 "order": "3",
                 "altOrder": "2",
                 "step": "Make the cap move when player presses the arrow keys",
-                "icon": "./assets/images/monkey_menace/make_the_cap_move.png"
+                "icon": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/make_the_cap_move.png"
             },
             {
                 "incorrectOrder": "5",
                 "order": "4",
                 "altOrder": "5",
                 "step": "Increase the score if the player catches a fruit",
-                "icon": "./assets/images/monkey_menace/step4.png"                
+                "icon": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/step4.png"                
             },
 
         ],
@@ -66,7 +66,7 @@ export const algoStep = {
         "successPopupHeading": "Hurrah! You got it right!",
         "successPopupText": "Following the steps of this algorithm will help us build our game correctly.",
         'actionButtonText': 'Continue',
-        "popupMascotImage": "./../assets/images/monkey_menace/mascot_thumbs_up_head.png",
+        "popupMascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_thumbs_up_head.png",
     }, // End of mm_0_1_q2 (MM algorithm)
     
     "to_the_hills_q1": {

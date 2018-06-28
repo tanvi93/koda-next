@@ -13,7 +13,7 @@ export class AppComponent {
   private showToolbar: boolean;
 
   constructor(private router: Router, private audio: AudioService) {
-    this.showToolbar = true;
+    this.showToolbar = false;
     this.router.events.subscribe((val) => {
       if (val instanceof ActivationStart) {
         this.gameDetails = localStorage.getItem('gameProgress');
@@ -29,7 +29,7 @@ export class AppComponent {
         } else if (audio.backgroundSound.paused) {
           // audio.backgroundSound.play();
         }
-        if (this.page === 'dashboard' || this.page === 'level-1/intro' || this.page === 'level-1/') {
+        if (this.page === 'dashboard' || this.page === '' || this.page === 'level-1/intro' || this.page === 'level-1/') {
           audio.backgroundSound.pause();
           this.showToolbar = false;
         } else {

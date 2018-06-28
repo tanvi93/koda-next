@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilitiesService } from './../../shared-services/utilities.service';
+import { AudioService } from './../../shared-services/audio.service';
 
 @Component({
   selector: 'app-continue-button',
@@ -14,6 +15,7 @@ export class ContinueButtonComponent implements OnInit{
 
   constructor(private activeRoute: ActivatedRoute,
     private router: Router,
+    private audio: AudioService,
     private utility: UtilitiesService) { }
   
   ngOnInit() {
@@ -25,6 +27,7 @@ export class ContinueButtonComponent implements OnInit{
   }
 
   goNext() {
+    this.audio.stop();
     this.utility.nextPage(this.router.url.substr(1), this.pageData);
   }
 

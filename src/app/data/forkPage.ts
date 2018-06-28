@@ -1,6 +1,6 @@
 export const forkPageData = {
     mm1_2_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Now that you know quite a lot about Coordinates, what would you like to do?',
         audio: './assets/audio/fork_screens/coordinates.mp3',    
         leftButtonText: 'Practice with some <br><span style="color: #FFFF00;">ACTIVITIES</span>',
@@ -9,7 +9,7 @@ export const forkPageData = {
         rightPath: 'storyline/challenge-dragon'
     },
     mm2_3_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'You now know how to sequence blocks in your code. What would you like to do now?',
         audio: './assets/audio/fork_screens/sequencing.mp3',    
         leftButtonText: 'Practice with some <br><span>ACTIVITIES</span>',
@@ -18,7 +18,7 @@ export const forkPageData = {
         rightPath: 'storyline/landmine_detonator_challenge'
     },
     mm2_7_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Can you call yourself a Loop genius yet? What would you like to do?',
         audio: './assets/audio/fork_screens/loops.mp3',    
         leftButtonText: 'Practice with some <br><span>ACTIVITIES</span>',
@@ -27,7 +27,7 @@ export const forkPageData = {
         rightPath: 'storyline/packaging_milk_challenge'
     },
     mm3_1_learn: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Do you think you know enough about Events?',
         leftButtonText: 'No, I wish to <br><span>LEARN MORE</span>',
         rightButtonText: 'Yes! I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
@@ -35,7 +35,7 @@ export const forkPageData = {
         rightPath: 'quiz/fire_extinguisher_storyline'
     },
     mm3_2_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'How would you like to play around with Events?',
         leftButtonText: 'Practice with some <br><span>ACTIVITIES</span>',
         rightButtonText: 'I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
@@ -43,7 +43,7 @@ export const forkPageData = {
         rightPath: 'quiz/fire_extinguisher_storyline'
     },
     mm3_5_learn: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Do you think you know enough about Conditionals?',
         leftButtonText: 'No, I wish to <br><span>LEARN MORE</span>',
         rightButtonText: 'Yes! I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
@@ -51,7 +51,7 @@ export const forkPageData = {
         rightPath: 'quiz/medicine_box_storyline'
     },
     mm3_6_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Would you like to practice more or test your knowledge of Conditionals?',
         leftButtonText: 'Practice with some <br><span>ACTIVITIES</span>',
         rightButtonText: 'I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
@@ -59,7 +59,7 @@ export const forkPageData = {
         rightPath: 'quiz/medicine_box_storyline'
     },
     mm4_1_learn: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'Do you think you know enough about Variables?',
         leftButtonText: 'No, I wish to <br><span>LEARN MORE</span>',
         rightButtonText: 'Yes! I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
@@ -67,7 +67,7 @@ export const forkPageData = {
         rightPath: 'quiz/air_conditioner_storyline'
     },
     mm4_2_activities: {
-        mascotImage: './../assets/images/monkey_menace/mascot_arms_folded_full.png',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',
         question: 'How would you like to play around with Variables?',
         leftButtonText: 'Practice with some <br><span>ACTIVITIES</span>',
         rightButtonText: 'I\'m ready to<br><span> TAKE THE CHALLENGE </span>',

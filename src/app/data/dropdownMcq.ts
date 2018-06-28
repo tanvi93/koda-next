@@ -3,8 +3,10 @@ export const quiz = {
     mm0_1_q1: {
         "instructionBarContent": "Let's begin by getting to know the characters of this game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
-        "mediaLink": "",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
+        "mascotBg": "#13BCE4",
         "question": "Select the type of character that each of these is.",
         "options": [
             {
@@ -60,14 +62,17 @@ export const quiz = {
         "successPopupHeading": "Give yourself a pat on the back!",
         "successPopupText": "You have correctly identified the types of characters in this game.",
         "immediateValidation": true,
-        "buttonText": ""
+        "buttonText": "",
+        "actionButtonText": 'Continue'
     }, //end of mm0_1_q1
     
      mm3_1_q1: {
         "instructionBarContent": "To make the cap move when the player presses a key, you have to know the actions performed by each of the keys used in the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
+         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "game",
-        "mediaLink": "",
+         "mascotBg": "#13BCE4",
+         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
         "question": "Play Monkey Menace again on your left and select what happens when each of the keys below is pressed.",
         "options": [
             {
@@ -138,14 +143,17 @@ export const quiz = {
         "successPopupHeading": "Bingo!",
         "successPopupText": "The left arrow key makes the cap move left, while the right arrow key makes it move right in the game.",
         "immediateValidation": true,
-        "buttonText": ""
+         "buttonText": "",
+         "actionButtonText": 'Continue'
     }, //end of mm3_1_q1
     
      mm3_5_q2: {
         "instructionBarContent": "You discovered that the cap's X coordinate should stay between -38 and 38 for it to remain visible on Stage. Let's use these to keep the cap on Stage throughout the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
+         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mediaType": "image",
         "mediaLink": "",
+         "mascotBg": "#13BCE4",
         "question": "Choose the correct options that will restrict the movement of the cap within the Stage.",
         "options": [
             {
@@ -195,7 +203,8 @@ export const quiz = {
         "successPopupHeading": "You got it!",
         "successPopupText": "With these conditions, the cap will always remain fully visible on Stage.",
         "immediateValidation": true,
-        "buttonText": ""
+         "buttonText": "",
+         "actionButtonText": 'Continue'
     }, //end of mm3_5_q2
     
     ride_scanner_q1: {
@@ -340,7 +349,8 @@ export const quiz = {
         "successPopupHeading": "Great going!",
         "successPopupText": "With you around, nobody would be able to sneak past.",
         "immediateValidation": true,
-        "buttonText": ""
+        "buttonText": "",
+        "actionButtonText": 'Continue'
     }, // end of ride_scanner_q1
     
     medicine_box_q1: {
@@ -416,7 +426,8 @@ export const quiz = {
         "successPopupHeading": "You're doing great!",
         "successPopupText": "Let's do another one.",
         "immediateValidation": true,
-        "buttonText": ""
+        "buttonText": "",
+        "actionButtonText": 'Continue'
     }, // end of medicine_box_q1
     
     medicine_box_q2: {
@@ -492,7 +503,8 @@ export const quiz = {
         "successPopupHeading": "Great work!",
         "successPopupText": "It takes a sharp mind to analyse code like you did.",
         "immediateValidation": true,
-        "buttonText": ""
+        "buttonText": "",
+        "actionButtonText": 'Continue'
     }, // end of medicine_box_q2
     
     "air_conditioner_q2": {
@@ -580,7 +592,8 @@ export const quiz = {
          ],  
         "successPopupHeading": "Perfect!",
         "successPopupText": "'{{Chosen variable name 1}}' and '{{Chosen variable name 2}}' are good names for the variables. Easily understandable and apt.",
-        "immediateValidation": true
+        "immediateValidation": true,
+        "actionButtonText": 'Continue'
     }, // end of air_conditioner_q2
     
     "air_conditioner_q3": {
@@ -662,7 +675,8 @@ export const quiz = {
         "successPopupText": "Seems like you have understood this well.",
         //"applaudButtonText": "Continue",
         
-        "immediateValidation": false
+        "immediateValidation": false,
+        "actionButtonText": 'Continue'
     }, // end of air_conditioner_q3
     
      "air_conditioner_q4": {
@@ -743,6 +757,7 @@ export const quiz = {
         "successPopupText": "Whether the {{chosen variable name 1}} is higher than the {{chosen variable name 2}} or lower, always change the {{chosen variable name 1}} till it reaches the {{chosen variable name 2}}.",
         //"applaudButtonText": "Continue",
         
-        "immediateValidation": false
+         "immediateValidation": false,
+         "actionButtonText": 'Continue'
     } // end of air_conditioner_q4
 };
