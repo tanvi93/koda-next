@@ -10,6 +10,7 @@ import { SummaryGameElementsComponent } from './summary-game-elements/summary-ga
 import { ChooseAvatarComponent } from './choose-avatar/choose-avatar.component';
 import { GameElementsComponent } from './game-elements/game-elements.component';
 import { AlgoDragnDropComponent } from './algo-dragn-drop/algo-dragn-drop.component';
+import { DragZoneComponent } from './algo-dragn-drop/drag-zone/drag-zone.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { AlgoDragnDropComponent } from './algo-dragn-drop/algo-dragn-drop.compon
     SharedModuleModule,
     Level0RoutingModule
   ],
-  declarations: [LandingPageComponent, MascotTalkingComponent, SummaryGameElementsComponent, ChooseAvatarComponent, GameElementsComponent, AlgoDragnDropComponent]
+  declarations: [LandingPageComponent, MascotTalkingComponent, SummaryGameElementsComponent, ChooseAvatarComponent, GameElementsComponent, AlgoDragnDropComponent, DragZoneComponent]
 })
 export class Level0Module { }
+
