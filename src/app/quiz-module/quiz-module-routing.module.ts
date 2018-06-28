@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RadioQuizComponent } from './radio-quiz/radio-quiz.component';
+import { FormulaQuizComponent } from './formula-quiz/formula-quiz.component';
 import { DropdownQuizComponent } from './dropdown-quiz/dropdown-quiz.component';
 import { CheckboxQuizComponent } from './checkbox-quiz/checkbox-quiz.component';
 
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: 'radio/:pageId',
     component: RadioQuizComponent
+  },
+  {
+    path: 'formula/:pageId',
+    component: FormulaQuizComponent
   },
   {
     path: 'dropdown/:pageId',

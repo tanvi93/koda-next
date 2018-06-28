@@ -1,6 +1,7 @@
 export const gameElements = {
     "instructionBarContent": "Now based on how the Monkey Menace game is played, try answering these questions.",
     "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+     "mascotBg": "#13BCE4",
     'images': {
         'img1': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey3.png',
         'img2': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/fruit_demo.png',
@@ -113,5 +114,7 @@ export const gameElements = {
             ]
         }
     ],
-    'successMsg': `Whoa! You've mastered the game elements!`
+    'successMsg': `Whoa! You've mastered the game elements!`,
+    "popupMascotImage": "./../assets/images/monkey_menace/mascot_thumbs_up_head.png",
+    "actionButtonText": "Continue"
 };

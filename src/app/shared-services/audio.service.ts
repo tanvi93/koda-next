@@ -68,6 +68,7 @@ export class AudioService {
   }
 
   stop() {
+    if (!this.currentAudio) return;
     this.currentAudio.pause();
   }
 

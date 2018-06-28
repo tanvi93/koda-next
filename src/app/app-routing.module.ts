@@ -12,6 +12,10 @@ import { SelectActivityComponent } from './shared-pages/select-activity/select-a
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'level-1/intro',
+    pathMatch: 'full'
+  }, {
     path: 'level-1',
     loadChildren: 'app/level-0/level-0.module#Level0Module'
   }, {

@@ -1,0 +1,30 @@
+.heading {   
+    font-family: 'Quicksand';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 3% 0;
+    text-align: center;
+}
+
+.code-image {
+    position: absolute;
+    width: 30%;
+    left: 30%;
+    top: 25%;
+}
+
+.mascot-img {
+    position: absolute;    
+    right: 10%;
+    margin: 0;
+    width: 20%;
+    bottom: 20%;
+    height: 50%;
+    & img {
+        height: 100%;
+        width: 100%;
+    }
+} 
