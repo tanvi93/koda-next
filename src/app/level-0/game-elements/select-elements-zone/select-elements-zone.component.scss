@@ -6,7 +6,7 @@
 }
 
 .game-elements {
-  height: 495px;
+  height: 483px;
 }
 
 .question-comp {
@@ -17,7 +17,7 @@
 
 .rule-board {
   background-color: white;
-  height: 495px;
+  height: 483px;
 }
 
 #background{
@@ -28,7 +28,7 @@
 .img1 {
   position: absolute;
   z-index: 1;
-  top: 23%;
+  top: 24%;
   width: 180px;
   left: 30%;
 }
@@ -36,7 +36,7 @@
 .img2 {
   position: absolute;
   z-index: 1;
-  top: 51%;
+  top: 53%;
   width: 30px;
   left: 33%;
 }
@@ -48,3 +48,28 @@
   width: 100px;
   left: 60%;
 }
+
+.error-msg {
+width: 100%;
+height: 50px;
+background: #EE5862;
+z-index: 5;
+margin-top: -66px;
+position: absolute;
+}
+
+.option {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  margin-right: 55px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+mat-radio-button {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+

@@ -1,6 +1,6 @@
 <mat-card class="game-elements-container">
   <div  class="question-comp" fxLayoutAlign="start center">
-    <app-quiz-question [question]="presentQuestionData.Question"></app-quiz-question>
+    <app-quiz-question [question]="presentQuestionData.Question" *ngIf="showElementsZone"></app-quiz-question>
   </div>
   <mat-card-content>
     <div class="game-elements" (click)="elementClicked($event)" *ngIf="!showRules">
@@ -10,11 +10,12 @@
       <img class="img3" id="img3" [src]="gameInfo.images.img3" alt="">
     </div>
     <div class="rule-board" *ngIf="showRules">
-      <div class="radio-btn-grp" *ngFor="let option of rules.options;let i = index">
-        <mat-radio-button name="radioButton" [value]="val" (change)="selectedOption(option,val)" class="radio-button">
+      <div class="radio-btn-grp" *ngFor="let option of presentQuestionData.options;let i = index">
+        <mat-radio-button name="radioButton" [value]="val" (change)="selectedOption(option)" class="radio-button" *ngIf="showElementsZone">
           <p class="option" [innerHTML]='option.option'></p>
         </mat-radio-button>
       </div>
     </div>
   </mat-card-content>
+  <app-error-msg fxLayoutAlign="start center" *ngIf="showError" class="error-msg" [error]="error" [style.background-color]="isCorrect? '#008000':'#EE5862'"></app-error-msg>
 </mat-card>

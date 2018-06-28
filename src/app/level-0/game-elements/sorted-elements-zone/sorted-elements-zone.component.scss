@@ -11,38 +11,38 @@
   height: 110px;
   border-radius: 80px;
   border: 1px solid #57535f;
-  margin-top: -15px;
+  // margin-top: -15px;
 }
 
-.img1 {
+#img1Showed {
   width: 75px;
   height: 95px;
   display: none;
 }
 
-.img2 {
+#img2Showed {
   width: 30px;
   height: 55px;
   display: none;
 }
 
-.img3 {
+#img3Showed {
   width: 65px;
   height: 45px;
   display: none;
 }
 
-.img4 {
+#backgroundShowed {
   width: 100%;
-  height: 142px;
+  height: 100%;
   display: none;
 }
 
-#fifthImg {
+#img5Showed {
   display: none;
 }
 
-#sixthImg {
+#img6Showed {
   display: none;
 }
 
@@ -129,7 +129,7 @@
 }
 
 #control-char {
-  margin-top: -15px;
+  // margin-top: -15px;
   display: block;
 }
 
@@ -148,7 +148,7 @@
 
 .bg-div {
   width: 60%;
-  height: 40%;
+  height: 50%;
   border: 1px solid #57535f;
 }
 
@@ -173,7 +173,7 @@
 }
 
 .elements-container1 {
-  height: 255px;
+  height: 268px;
   width: 100%;
 }
 
@@ -182,3 +182,4 @@
   height: 100%;
   background-color: #231f2e;
 }
+
