@@ -1,0 +1,16 @@
+<app-loading *ngIf="!show"></app-loading>
+<app-narration-container>
+  <h4 class="heading">{{msgs[msgIndex]}}</h4>
+  <div class="img-section">
+    <div class="section1">
+      <img [src]='scene1'>
+    </div>
+    <div class="section2">
+      <img [src]='mascot'>
+    </div>
+    <div class="section3">
+      <img [src]='scene3' *ngIf="msgIndex > 0">
+    </div>
+  </div>
+  <app-continue-button *ngIf="msgIndex === msgs.length - 1"></app-continue-button>
+</app-narration-container>
