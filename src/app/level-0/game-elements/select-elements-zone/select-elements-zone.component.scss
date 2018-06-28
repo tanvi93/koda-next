@@ -1,0 +1,75 @@
+.game-elements-container {
+  width:100%;
+  padding: 0px;
+  margin: 0;
+  background-color: #2F2B3D;
+}
+
+.game-elements {
+  height: 483px;
+}
+
+.question-comp {
+  background-color: #13BCE4;
+  width: 100%;
+  height: 150px;
+}
+
+.rule-board {
+  background-color: white;
+  height: 483px;
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+}
+
+.img1 {
+  position: absolute;
+  z-index: 1;
+  top: 24%;
+  width: 180px;
+  left: 30%;
+}
+
+.img2 {
+  position: absolute;
+  z-index: 1;
+  top: 53%;
+  width: 30px;
+  left: 33%;
+}
+
+.img3 {
+  position: absolute;
+  z-index: 1;
+  top: 78%;
+  width: 100px;
+  left: 60%;
+}
+
+.error-msg {
+width: 100%;
+height: 50px;
+background: #EE5862;
+z-index: 5;
+margin-top: -66px;
+position: absolute;
+}
+
+.option {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  margin-right: 55px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+mat-radio-button {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
