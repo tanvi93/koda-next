@@ -29,11 +29,18 @@
     }
     & mat-card-footer {
         width: 100%;
+        position: absolute;
+        bottom: 4%;
         min-height: 60px;
         margin-left: 0%;
         float: bottom;
         & button {
             margin-left: 45%;
+            margin-top: 1.2vh;
         }
     }
+}
+
+.success-background {
+    background-color: green!important;
 }
