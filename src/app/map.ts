@@ -222,7 +222,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Intro to blocks',
-                        path: 'intro-to-blocks',
+                        path: 'level-3/intro-to-blocks',
                         order: 1,
                         type: 'narration'
                     }, {
@@ -299,7 +299,7 @@ export const map: any = [
                         type: 'game_coding'
                     }, {
                         name: 'Intro to relative positioning',
-                        path: 'relative-positioning-learning',
+                        path: 'level-3/relative-positioning-learning',
                         order: 4,
                         type: 'narration'
                     }, {
