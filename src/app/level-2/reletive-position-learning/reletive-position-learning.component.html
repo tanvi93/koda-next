@@ -1,0 +1,17 @@
+<app-loading *ngIf="!show"></app-loading>
+<app-narration-container (click)="clickOnScreen()">
+  <h4 class="heading" [innerHTML]="msgs[msgIndex]" fxLayout="row" fxLayoutAlign="center center"></h4>
+  <div class="img-section" fxLayout="row" fxLayoutAlign="center start">
+    <div class="section1" [ngClass]="{'section1-resize' : changeCss}">
+      <img [src]='mascot'>
+    </div>
+    <div class="section2" [ngClass]="{'section2-centered' : changeCss}">
+      <img [src]='scene1'>
+    </div>
+    <div class="section3">
+      <img [src]='scene3'>
+    </div>
+  </div>
+  <app-continue-button *ngIf="msgIndex === msgs.length - 1"></app-continue-button>
+  <app-click-to-continue-button *ngIf="audio.readyToGoNext && msgIndex < msgs.length - 1"></app-click-to-continue-button>
+</app-narration-container>
