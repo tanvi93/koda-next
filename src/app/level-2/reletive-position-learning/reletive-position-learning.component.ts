@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AudioService } from './../../shared-services/audio.service';
 import { assetsLink } from './../../shared-services/config';
 
@@ -19,7 +18,7 @@ export class ReletivePositionLearningComponent implements OnInit {
   private show: boolean;
   private changeCss: boolean;
 
-  constructor(private router: Router, private audio: AudioService) {
+  constructor(private audio: AudioService) {
     this.changeCss = false;
     this.msgIndex = 0;
 
