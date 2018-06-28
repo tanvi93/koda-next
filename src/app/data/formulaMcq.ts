@@ -7,7 +7,6 @@ export const quiz = {
         //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "assets/images/monkey_menace/screen-for-formula-for-relative.png",
         "question": 'Here are the examples again:<br>When monkey is at(0, 13), the fruit is at(-5, 8),<br> When monkey is at(15, 13), the fruit is at(10, 8).<br><br>What can you conclude from these examples?',
-        "selectOption": ['+', '-'],
         "options": [
             {
                 "question": "Fruit\'s X coordinate = Monkey\'s X coordinates",
