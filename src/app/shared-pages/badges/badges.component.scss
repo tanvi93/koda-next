@@ -12,19 +12,21 @@
 }
 
 .badge-container {
-    position: absolute;
+    position: relative;
     top: 32%;
-    left: 35%;
-    width: 30%;
-    height: 50%;
+    left: 0;
+    width: 35%;
+    height: 35%;
+    right: 0;
+    margin: 0 auto;
 }
 
 .badge {
     position: absolute;
     top: -18%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    left: 0%;
+    right: 0;
+    width: 100%;
     z-index: 200;
 }
 
@@ -39,7 +41,7 @@
 
 .badge-name {
     position: absolute;
-    bottom: 38%;
+    bottom: 0%;
     left: 50%;
     z-index: 300;
     color: #cd8800;
@@ -92,8 +94,6 @@
 
 .continue-icon {
   position: relative;
-  //margin-left: -10px;
- // margin-top: -5px;
   z-index: 1;
   width: 23.5px;
   height: 23.5px;
@@ -127,3 +127,11 @@
 .mat-ripple {
     overflow: auto;
 }
+
+
+@media only screen and (max-width:1600px){
+    .heading-container {
+        font-size: 55px;
+        padding-top: 4%;
+    }
+}   
