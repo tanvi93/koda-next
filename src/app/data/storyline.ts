@@ -40,5 +40,14 @@ export const stories = {
             './assets/images/activities/identical_twins/step5.png',
             './assets/images/activities/identical_twins/step6.png'
         ]
+    }, eclipse: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/storyline.jpg'
+        ]
+    }, fire_extinguisher: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step1.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step2.jpg'
+        ]
     }
 }

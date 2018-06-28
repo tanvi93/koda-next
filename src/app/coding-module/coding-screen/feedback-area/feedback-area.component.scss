@@ -1,6 +1,6 @@
 .feedbackzone {  
   background-color: #3e3a48;
-    margin-top: 20px;
+    margin-top: 1%;
   & .feedbackTxt {
     margin: auto;
     max-width: 85%;
@@ -10,3 +10,10 @@
     color: #ffff00;
   }
 }
+
+@media only screen and (max-height:750px){
+  .feedbackTxt{
+    font-size: 13px !important;
+  }
+}
+
