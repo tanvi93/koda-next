@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilitiesService } from './../../shared-services/utilities.service';
+import { assetsLink } from './../../shared-services/config';
 @Component({
   selector: 'app-choose-avatar',
   templateUrl: './choose-avatar.component.html',
@@ -73,7 +74,7 @@ export class ChooseAvatarComponent implements OnInit {
     this.characterList.forEach(element => {
       let image = new Image();
       image.onload = onImageLoad;
-      image.src = 'http://dqfevutdn6sxd.cloudfront.net/avatar/' + element + '.png';
+      image.src = `${assetsLink}avatar/`+element+`.png`
       return image;
     });
   }
@@ -104,7 +105,7 @@ export class ChooseAvatarComponent implements OnInit {
     name = name.charAt(0).toUpperCase() + name.slice(1);
     let json = {
       avatarName: name,
-      avatar: `.http://dqfevutdn6sxd.cloudfront.net/avatar/${this.charValue}.png`
+      avatar: `${assetsLink}avatar/${this.charValue}.png`
     }
     this.utility.updateAvatar(json);
     this.utility.nextPage(this.router.url.substr(1))
