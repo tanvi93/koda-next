@@ -26,7 +26,7 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
     }
   };
   private characterBorder: boolean[][];
-  private idString: Array<object>;
+  private idString: string[][];
   private applyBorder: string;
   private loading: boolean;
   private currentItem: string;
@@ -37,6 +37,8 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
   @Output() errorFlagStatus = new EventEmitter<boolean>();
   constructor() {
     this.loading = true;
+    this.characterBorder = [];
+    this.idString = [];
   }
 
   ngOnInit() {
@@ -49,7 +51,11 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
     }
 
     let monkeyimageLoad = Object.keys(this.contentData.characterList).map(key => {
+      this.characterBorder[key] = [];
+      this.idString[key] = [];
       this.contentData.characterList[key].list.forEach((element, index) => {
+        this.characterBorder[key][index] = false;
+        this.idString[key][index] = this.contentData.characterList[key].name + '-' + index;
         let image = new Image();
         image.onload = onImageLoad;
         image.src = element;
@@ -58,19 +64,6 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
     });
     this.errorFlagInputStatus = this.errorFlag;
     this.applyBorder = 'transparent';
-    this.idString = [
-      ['Background-0', 'Background-1', 'Background-2', 'Background-3'],
-      ['Monkey-0', 'Monkey-1', 'Monkey-2', 'Monkey-3'],
-      ['Fruit-0', 'Fruit-1', 'Fruit-2', 'Fruit-3'],
-      ['Cap-0', 'Cap-1', 'Cap-2', 'Cap-3']
-    ];
-    
-    // this.characterBorder = [
-    //   [false, false, false, false],
-    //   [false, false, false, false],
-    //   [false, false, false, false],
-    //   [false, false, false, false]
-    // ];
   }
 
   ngOnChanges() {
@@ -82,6 +75,7 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
   }
 
   functionCalled(ev) {
+    
     this.errorFlagInputStatus = false;
     this.errorFlagStatus.emit(this.errorFlagInputStatus);
     let x = 0;
@@ -91,45 +85,36 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
         if (ev.target.attributes.id.nodeValue === this.idString[i][j]) {
           for (let k = 0; k < this.idString.length; k++) {
             if (x === k) {
-              // this.characterBorder[i][k] = true;
+              this.characterBorder[i][k] = true;
               switch (i) {
                 case 0: {
                   this.imageObj.backgroundPath.path = ev.target.attributes.src.nodeValue;
                   this.imageObj.backgroundPath.id = ev.target.alt;
-                  this.currentItem = '' +i + x;
-                  console.log(this.currentItem);
-                  
                   this.updateEmitter();
                 }
                   break;
                 case 1: {
                   this.imageObj.monkeyImage.path = ev.target.attributes.src.nodeValue;
                   this.imageObj.monkeyImage.id = ev.target.alt;
-                  this.currentItem = '' + i + x;
-                  console.log(this.currentItem);
                   this.updateEmitter();
                 }
                   break;
                 case 2: {
                   this.imageObj.fruitImage.path = ev.target.attributes.src.nodeValue;
                   this.imageObj.fruitImage.id = ev.target.alt;
-                  this.currentItem = '' + i + x;;
-                  console.log(this.currentItem);
                   this.updateEmitter();
                 }
                   break;
                 case 3: {
                   this.imageObj.capImage.path = ev.target.attributes.src.nodeValue;
                   this.imageObj.capImage.id = ev.target.alt;
-                  this.currentItem = '' + i + x;
-                  console.log(this.currentItem);
                   this.updateEmitter();
                 }
                   break;
                 default:
               }
             } else {
-              // this.characterBorder[i][k] = false;
+              this.characterBorder[i][k] = false;
             }
           }
         }
