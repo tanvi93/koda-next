@@ -1,13 +1,14 @@
 export const gameElements = {
     "instructionBarContent": "Now based on how the Monkey Menace game is played, try answering these questions.",
-    "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+    "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+     "mascotBg": "#13BCE4",
     'images': {
-        'img1': './../assets/images/monkey_menace/monkey3.png',
-        'img2': './../assets/images/monkey_menace/fruit_demo.png',
-        'img3': './../assets/images/monkey_menace/cap_demo.png',
-        'background': './../assets/images/monkey_menace/bg_jungle_demo.jpg'
+        'img1': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey3.png',
+        'img2': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/fruit_demo.png',
+        'img3': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap_demo.png',
+        'background': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle_demo.jpg'
     },
-    'previewVideo': "./../assets/images/monkey_menace/preview_with_play.gif",
+    'previewVideo': "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
     'validation': [
         {
             'Question': 'Click on all the three characters of the Monkey Menace game.',
@@ -113,5 +114,7 @@ export const gameElements = {
             ]
         }
     ],
-    'successMsg': `Whoa! You've mastered the game elements!`
+    'successMsg': `Whoa! You've mastered the game elements!`,
+    "popupMascotImage": "./../assets/images/monkey_menace/mascot_thumbs_up_head.png",
+    "actionButtonText": "Continue"
 };

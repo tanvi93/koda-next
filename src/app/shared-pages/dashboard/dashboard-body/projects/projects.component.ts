@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from './../../../../map';
 
 @Component({
@@ -10,11 +11,13 @@ export class ProjectsComponent implements OnInit {
   private levels;
   private showHide;
   private selectedLevel;
+  private gameProgress;
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
-    let atLevel = JSON.parse(localStorage.getItem('gameProgress')).atLevel - 1;
+    this.gameProgress = JSON.parse(localStorage.getItem('gameProgress'));
+    let atLevel = this.gameProgress.atLevel - 1;
     this.levels = map.map((v, i) => {
       let elm = {
         modules: v.modules.map(u => {
@@ -34,6 +37,12 @@ export class ProjectsComponent implements OnInit {
   showModulesToogle(level) {
     this.showHide = !this.showHide;
     this.selectedLevel = level;
+  }
+
+  resume() {
+    const { atLevel, atModule, atResource } = this.gameProgress;
+    let path = map[atLevel].modules[atModule-1].resources[atResource].path;
+    this.route.navigate([path]);
   }
 
 }

@@ -1,0 +1,61 @@
+.heading {
+  font-family: 'Quicksand';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+  width: 75%;
+  margin: 0 auto;
+  height: 160px;
+  padding-top: 80px;
+}
+
+.img-section {
+  display: table;
+  width: 96%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 38%;
+  transform: translateY(38%);
+  -webkit-transform: translateY(38%);
+  -ms-transform: translateY(38%);
+  -moz-transform: translateY(38%);
+}
+
+.main-container {
+  padding: 0 2%;
+}
+
+.section1,
+.section2,
+.section3 {
+  display: table-cell;
+  vertical-align: middle;
+  width: 33%;
+}
+
+.section1 img,
+.section2 img,
+.section3 img {
+  width: 100%;
+}
+
+.section2 {
+  text-align: center;
+}
+
+.section2 img {
+  width: 51%;
+}
+
+// responsive css
+@media screen and (max-height: 750px) {
+  .heading {
+    font-size: 32px;
+    padding-top: 30px;
+  }
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilitiesService } from './../../shared-services/utilities.service';
 import { AudioService } from './../../shared-services/audio.service';
+import { assetsLink } from './../../shared-services/config';
 
 @Component({
   selector: 'app-algo-steps',
@@ -20,33 +21,33 @@ export class AlgoStepsComponent implements OnInit {
     private utility: UtilitiesService,
     private audio: AudioService,
   ) {
-    this.mascot = './assets/images/monkey_menace/mascot_pointing_up_right_full.png';
+    this.mascot = `${assetsLink}monkey_menace/mascot_pointing_up_right_full.png`;
     this.algoList = [
       {
         step: 1,
         stepText: 'Select and position background and characters',
         speech: `Let's get working on the first step of our algorithm!`,
-        image: './assets/images/monkey_menace/step1.png'
+        image: `${assetsLink}monkey_menace/step1.png`
       }, {
         step: 2,
         stepText: 'Make the monkey throw fruits',
         speech: `Let's proceed to the second step of our algorithm!`,
-        image: './assets/images/monkey_menace/make_the_monkey_throw_fruits.png'
+        image: `${assetsLink}monkey_menace/make_the_monkey_throw_fruits.png`
       }, {
         step: 3,
         stepText: 'Make the hat move when player presses the keys',
         speech: `Let's proceed to the second step of our algorithm!`,
-        image: './assets/images/monkey_menace/make_the_cap_move.png'
+        image: `${assetsLink}monkey_menace/make_the_cap_move.png`
       }, {
         step: 4,
         stepText: 'Increase the score if player catches a fruit',
         speech: `Let's proceed to the second step of our algorithm!`,
-        image: './assets/images/monkey_menace/step4.png'
+        image: `${assetsLink}monkey_menace/step4.png`
       }, {
         step: 5,
         stepText: 'End game if player misses more than five fruits',
         speech: `Let's proceed to the second step of our algorithm!`,
-        image: './assets/images/monkey_menace/game_over.png'
+        image: `${assetsLink}monkey_menace/game_over.png`
       }
     ];
   }

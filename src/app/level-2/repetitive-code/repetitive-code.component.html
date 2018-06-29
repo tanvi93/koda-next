@@ -1,0 +1,16 @@
+<app-loading *ngIf="!show"></app-loading>
+<app-narration-container (click)="goNext()">
+
+  <h3 class="heading" [innerHTML]="msgs[msgIndex]"></h3>
+
+  <img class="code-image" [src]="scene1" alt="">
+
+  <figure class="mascot-img">
+    <img [src]='mascot'>
+  </figure>
+
+  <app-continue-button *ngIf="msgIndex === msgs.length - 1"></app-continue-button>
+  <app-click-to-continue-button *ngIf="audio.readyToGoNext && msgIndex < msgs.length - 1">
+  </app-click-to-continue-button>
+
+</app-narration-container>

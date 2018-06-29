@@ -187,7 +187,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey1.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey1.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -212,7 +212,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey2.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey2.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -237,7 +237,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey3.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey3.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -264,7 +264,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey4.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey4.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -304,7 +304,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": false,
         "looks": [
-            "./assets/images/monkey_menace/fruit1.png"
+            "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/fruit1.png"
         ],
         "boundaryCondition": {
             "x": 36,
@@ -327,7 +327,7 @@ export const sprites: any = [
         //"height": 5,
         "initialVisibility": false,
         "looks": [
-            "./assets/images/monkey_menace/cap1.png"
+            "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap1.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -349,7 +349,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey1.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey1.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -374,7 +374,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey2.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey2.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -399,7 +399,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey3.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey3.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -424,7 +424,7 @@ export const sprites: any = [
                 "aspect_ratio": 0.716,
                 "width": 12,
                 "looks": [
-                    "./assets/images/monkey_menace/monkey4.png"
+                    "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/monkey4.png"
                 ],
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
@@ -464,7 +464,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/monkey_menace/fruit1.png"
+            "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/fruit1.png"
         ],
         "boundaryCondition": {
             "x": 36,
@@ -487,7 +487,7 @@ export const sprites: any = [
         //"height": 5,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/monkey_menace/cap1.png"
+            "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap1.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -687,9 +687,9 @@ export const sprites: any = [
         //"height": 40,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/disco_lights/disco_light_pink.png",
-            "./assets/images/activities/disco_lights/disco_light_blue.png",
-            "./assets/images/activities/disco_lights/disco_light_yellow.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_light_pink.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_light_blue.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/disco_lights/disco_light_yellow.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { assetsLink } from './../../shared-services/config';
 
 @Component({
   selector: 'app-summary-game-elements',
@@ -12,7 +13,7 @@ export class SummaryGameElementsComponent implements OnInit {
   private showButton: any;
 
   constructor() {
-    this.mascot = './../../../assets/images/monkey_menace/mascot_arms_folded_left_full.png';
+    this.mascot = `${assetsLink}monkey_menace/mascot_arms_folded_left_full.png`;
     this.showButton = false;
   }
 

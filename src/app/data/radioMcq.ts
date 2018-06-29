@@ -1,11 +1,11 @@
 export const quiz = {
     "mm2_1_q1": {
         "instructionBarContent": "The Stage is set and the characters are waiting for your commands.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg":"#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/MM_With Play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif",
         "question": "What's the first thing that happens after the player clicks on the Play button ?",
         "options": [
             {
@@ -25,16 +25,16 @@ export const quiz = {
         ],
         "successPopupHeading": "That's right!",
         "successPopupText": "As soon as the game begins, the monkey moves to a new position across the tree and throws a fruit.",
-        "popupMascotImage": "./../assets/images/monkey_menace/mascot_thumbs_up_head.png",
+        "popupMascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_thumbs_up_head.png",
         "actionButtonText": 'Continue'
     },
     "mm2_1_q2": {
         "instructionBarContent": "You'll get to play around with Code Blocks shortly. Just one quick thing before that.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/MM_without_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "hint": ['X along the decks.','Y to the sky.'],
         "question": "Remember how coordinates are used to represent position? Now observe the monkey's motion and infer how its coordinates change.",
         "options": [
@@ -64,11 +64,11 @@ export const quiz = {
     },
     "mm2_1_q3": {
         "instructionBarContent": "The monkey is moving to a new position. But hey, it left its fruit behind!",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/MM_without_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "Where should the fruit be after the monkey moves to a new position?",
         "options": [
             {
@@ -92,11 +92,11 @@ export const quiz = {
     },
     "mm2_1_q4": {
         "instructionBarContent": "We are almost done with the second step of the algorithm! Just one little thing left.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/MM_without_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "What exactly do we have to do to make the monkey throw the fruit it's holding?",
         "options": [
             {
@@ -120,11 +120,11 @@ export const quiz = {
     },
     "mm2_2_q1": {
         "instructionBarContent": "Here’s your code again. Run your code repeatedly by clicking Run and observe the monkey’s movement.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/MM_without_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "Where does the monkey move to for throwing the fruit?",
         "options": [
             {
@@ -149,7 +149,7 @@ export const quiz = {
     },
     "mm2_6_q1": {
         "instructionBarContent": "We’ve made the monkey throw a fruit from a random position. Let's make the monkey throw some more fruits.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
         //"mediaLink": "https://s3.bucket.com/koda/567"
@@ -177,7 +177,7 @@ export const quiz = {
     },
     "mm2_6_q2": {
         "instructionBarContent": "Can you help me pick a block that will simplify my code?",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
         //"mediaLink": "https://s3.bucket.com/koda/567"
@@ -205,7 +205,7 @@ export const quiz = {
     },
     "mm3_1_q2": {
         "instructionBarContent": "Now that you know how to instruct the cap, answer the question below.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "",
         //"mediaLink": "https://s3.bucket.com/koda/567"
@@ -238,7 +238,7 @@ export const quiz = {
     },
     "mm3_1_q3": {
         "instructionBarContent": "Here you have your code for moving the cap and the monkey throwing fruits. Run the code and answer the question based on the output.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
         //"mediaLink": "https://s3.bucket.com/koda/567"
@@ -266,11 +266,11 @@ export const quiz = {
     },
     "mm4_1_q1": {
         "instructionBarContent": "Let’s recall the scoring rule of Monkey Menace.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/preview_with_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "How does the player score points in Monkey Menace?",
         "options": [
             {
@@ -294,11 +294,11 @@ export const quiz = {
     },
     "mm5_1_q1": {
         "instructionBarContent": "Every game you play has to end at a certain point. Did you notice when this game ends?",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/preview_with_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "Select the correct condition for the game of Monkey Menace to end.",
         "options": [
             {
@@ -322,11 +322,11 @@ export const quiz = {
     },
     "mm5_1_q2": {
         "instructionBarContent": "You need to update the missed fruits variable whenever a fruit is missed by the cap.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/monkey_menace/preview_with_play.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "How will you detect if a fruit is missed by the cap?",
         "options": [
             {
@@ -350,7 +350,7 @@ export const quiz = {
     },
     "mm5_2_q1": {
         "instructionBarContent": "That was really fantastic! Now another challenge awaits you.",
-        "mascotImage": "./../assets/images/monkey_menace/mascot_arms_folded_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
         //"mediaLink": "https://s3.bucket.com/koda/567"
