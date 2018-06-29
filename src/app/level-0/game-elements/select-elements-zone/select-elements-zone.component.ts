@@ -68,7 +68,6 @@ export class SelectElementsZoneComponent implements OnInit {
 
   ngOnInit() {
     this.presentQuestionData = this.gameInfo.validation[this.questionCount];
-    console.log(this.presentQuestionData);
   }
 
   elementClicked(event) {
@@ -116,7 +115,6 @@ export class SelectElementsZoneComponent implements OnInit {
         this.clickedImageId.emit('img5');
       } else {
         this.clickedImageId.emit('img6');
-        console.log(this.gameInfo);
         setTimeout(() => {
           this.showError = false;
           setTimeout(() => {
