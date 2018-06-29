@@ -7,6 +7,7 @@ import { Level1RoutingModule } from './level-1-routing.module';
 import { SelectCharactersComponent } from './select-characters/select-characters.component';
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
