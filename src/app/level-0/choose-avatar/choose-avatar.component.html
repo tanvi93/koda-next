@@ -4,17 +4,13 @@
     <span> Choose your avatar</span>
   </div>
   <div class="avatar-options" [ngStyle]="{'margin': auto}">
-    <div class="character-div" id="{{ row1 }}" (click)="card($event)" [ngStyle]="{'top': '4%','padding-bottom': '1%', 'left': ((1*x)*28 + 11) + '%', 'border-color': charValue == row1 ? 'rgba(102, 102, 153, 1)': 'transparent'}"
-      *ngFor="let row1 of characterList.row1; let x = index;">
-      <img id="{{ row1 }}" (click)="card($event)" src="assets/images/avatar/{{row1}}.png" alt="">
-    </div>
-    <div class="character-div1" id="{{ row2 }}" (click)="card($event)" [ngStyle]="{'bottom': '0%', 'left': ((1*y)*28 + 11) + '%','padding-bottom': '1%', 'border-color': charValue == row2 ? 'rgba(102, 102, 153, 1)': 'transparent'}"
-      *ngFor="let row2 of characterList.row2; let y = index;">
-      <img id="{{ row2 }}" (click)="card($event)" src="assets/images/avatar/{{row2}}.png" alt="">
+    <div class="character-div" id="{{ avatar }}" *ngFor="let avatar of characterList" (click)="card($event)"
+    [ngStyle]="{'border-color': charValue == avatar ? 'rgba(102, 102, 153, 1)': 'transparent'}">
+      <img id="{{ avatar }}" src="assets/images/avatar/{{avatar}}.png" alt="">
     </div>
   </div>
   <div class="action-div">
-    <input type="button" [disabled]="!imageSelectFlag" [ngStyle]="{'opacity': imageSelectFlag? '1': '0.5'}" (click)="namepopUp(charValue)"
+    <input type="button" [disabled]="!imageSelectFlag" [ngStyle]="{'opacity': imageSelectFlag? '1': '0.5', 'cursor': imageSelectFlag ? 'pointer' : 'default'}" (click)="namepopUp(charValue)"
       value="CONFIRM">
   </div>
 </div>
