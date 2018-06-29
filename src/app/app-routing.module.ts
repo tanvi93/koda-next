@@ -8,6 +8,7 @@ import { LinearFlowScreenComponent } from './shared-pages/linear-flow-screen/lin
 import { ForkScreenComponent } from './shared-pages/fork-screen/fork-screen.component';
 import { StorylineScreenComponent } from './shared-pages/storyline-screen/storyline-screen.component';
 import { VideoScreenComponent } from "./shared-pages/video-screen/video-screen.component";
+import { SelectActivityComponent } from './shared-pages/select-activity/select-activity.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,9 @@ const routes: Routes = [
   }, {
     path: 'learning/:pageId',
     component: VideoScreenComponent
+  }, {
+    path: 'select-activity',
+    component: SelectActivityComponent
   }
 ];
 

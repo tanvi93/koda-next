@@ -1,4 +1,26 @@
-<p>
-  select-activity works!
-</p>
-<!-- // Haven't started it because its made in mat-grid before :( -->
+<app-instruction-bar></app-instruction-bar>
+
+<div class="select-activity-wrapper" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+  <div fxFlex="33" class="activity-bg-color">
+    <figure>
+      <img [src]="grapeAct" alt=""/>
+    </figure>
+    <figcaption><h4>Fox and Grapes</h4></figcaption>
+  </div>
+  <div fxFlex="33" class="activity-bg-color">
+    <figure>
+      <img [src]="trasureHuntBg" alt=""/>
+    </figure>
+    <figcaption><h4>Treasure Hunt</h4></figcaption>
+  </div>
+  <div fxFlex="33" class="activity-bg-color">
+    <figure>
+      <img [src]="marsRoverBg" alt=""/>
+      <img [src]="lockImg" class="lockImg" alt=""/>
+    </figure>
+    <figcaption><h4>Mars Rover</h4></figcaption>
+  </div>
+</div><!--  select-activity-wrapper -->
+
+
+
