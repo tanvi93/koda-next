@@ -1,5 +1,9 @@
 export const stories = {
-    magical_cave: {
+    fox_n_grapes: {
+        backgroundImgs: [
+            './assets/images/activities/fox_and_grapes/fox_activity_bg.jpg'
+        ]
+    }, magical_cave: {
         backgroundImgs: [
             './assets/images/activities/magical_cave/storyline.jpg'
         ]
