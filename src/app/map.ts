@@ -34,7 +34,7 @@ export const map: any = [
                         type: 'activity',
                     }, {
                         name: 'Summary game elements',
-                        path: 'level-1/game-element-summary',
+                        path: 'level-1/summary-game-elements',
                         order: 5,
                         type: 'narration'
                     }, {

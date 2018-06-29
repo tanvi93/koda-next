@@ -1,9 +1,13 @@
-<div class='drag-zone' [ngClass]="{'algo-drag-zone': !diffLook }">
-  <div *ngIf="diffLook" class="question-comp" fxLayoutAlign="start center">
-    <app-quiz-question [question]='algo.question' [style]="questionCompStyle"></app-quiz-question>
-  </div>
+<div class='drag-zone'>
   <div fxLayout="column">
-
+    <div *ngFor="let step of algo.steps;let i = index" fxFlex="100">
+      <app-drag-wrapper [msg]="step" [seq]="i" [splitStep]="diffLook" (displayError)="error($event)">
+        <div class="algoSteps" fxLayout="row" fxLayoutAlign="start center" [id]="seq"
+          [style.background-color]="dragEnd?'#3E3A48':'white'">
+          <p class="text" fxLayout="column" fxFlex="80">{{msg.step}}</p>
+          <img class="step-image" fxLayout="column" fxFlex="20" src="{{msg.icon}}" alt="">
+        </div>
+      </app-drag-wrapper>
+    </div>
     </div>
   </div>
-</div>

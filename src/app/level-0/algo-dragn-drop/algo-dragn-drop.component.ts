@@ -23,6 +23,7 @@ export class AlgoDragnDropComponent implements OnInit {
       this.pageId = params.pageId;
       this.algorithmObj = algoStep[`${this.pageId}`];
     });
+
     const imageLoad = () => {
       this.imageCount++;
       if (this.algorithmObj.steps.length === this.imageCount) {

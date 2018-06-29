@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-drag-zone',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drag-zone.component.scss']
 })
 export class DragZoneComponent implements OnInit {
+  @Input() algo;
 
   constructor() { }
 

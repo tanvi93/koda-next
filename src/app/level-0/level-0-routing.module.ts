@@ -7,7 +7,7 @@ import { SummaryGameElementsComponent } from './summary-game-elements/summary-ga
 import { ChooseAvatarComponent } from './choose-avatar/choose-avatar.component';
 import { GameElementsComponent } from './game-elements/game-elements.component';
 import { AlgoDragnDropComponent } from './algo-dragn-drop/algo-dragn-drop.component';
- 
+
 const routes: Routes = [
   {
     path: '',

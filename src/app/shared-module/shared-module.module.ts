@@ -15,8 +15,7 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
-
-
+import { DragWrapperComponent } from './drag-wrapper/drag-wrapper.component';
 
 @NgModule({
   imports: [
@@ -25,7 +24,7 @@ import { SuccessModalComponent } from './success-modal/success-modal.component';
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragWrapperComponent],
   exports: [
     CommonModule, 
     HeaderComponent,
