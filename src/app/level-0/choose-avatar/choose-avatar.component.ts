@@ -73,7 +73,7 @@ export class ChooseAvatarComponent implements OnInit {
     this.characterList.forEach(element => {
       let image = new Image();
       image.onload = onImageLoad;
-      image.src = 'assets/images/avatar/' + element + '.png';
+      image.src = 'http://dqfevutdn6sxd.cloudfront.net/avatar/' + element + '.png';
       return image;
     });
   }
@@ -104,7 +104,7 @@ export class ChooseAvatarComponent implements OnInit {
     name = name.charAt(0).toUpperCase() + name.slice(1);
     let json = {
       avatarName: name,
-      avatar: `./assets/images/avatar/${this.charValue}.png`
+      avatar: `.http://dqfevutdn6sxd.cloudfront.net/avatar/${this.charValue}.png`
     }
     this.utility.updateAvatar(json);
     this.utility.nextPage(this.router.url.substr(1))

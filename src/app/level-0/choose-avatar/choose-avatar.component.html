@@ -6,7 +6,7 @@
   <div class="avatar-options" [ngStyle]="{'margin': auto}">
     <div class="character-div" id="{{ avatar }}" *ngFor="let avatar of characterList" (click)="card($event)"
     [ngStyle]="{'border-color': charValue == avatar ? 'rgba(102, 102, 153, 1)': 'transparent'}">
-      <img id="{{ avatar }}" src="assets/images/avatar/{{avatar}}.png" alt="">
+      <img id="{{ avatar }}" src="http://dqfevutdn6sxd.cloudfront.net/avatar/{{avatar}}.png" alt="">
     </div>
   </div>
   <div class="action-div">
@@ -17,7 +17,7 @@
 <div class="shadow-popup" [hidden]="!namePopupActive">
   <div class="name-popup-box">
     <div class="image-area">
-      <img src="assets/images/avatar/{{charValue}}.png" alt="">
+      <img src="http://dqfevutdn6sxd.cloudfront.net/avatar/{{charValue}}.png" alt="">
     </div>
     <div class="name-area">
       <div class="name-card">
