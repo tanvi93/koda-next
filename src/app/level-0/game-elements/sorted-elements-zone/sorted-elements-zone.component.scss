@@ -1,0 +1,185 @@
+.game-elements-div {
+  padding: 20px 20px;
+  margin: 0;
+  background-color: #57535f;
+  text-align: center;
+  z-index: 1;
+}
+
+.char-div {
+  width: 110px;
+  height: 110px;
+  border-radius: 80px;
+  border: 1px solid #57535f;
+  // margin-top: -15px;
+}
+
+#img1Showed {
+  width: 75px;
+  height: 95px;
+  display: none;
+}
+
+#img2Showed {
+  width: 30px;
+  height: 55px;
+  display: none;
+}
+
+#img3Showed {
+  width: 65px;
+  height: 45px;
+  display: none;
+}
+
+#backgroundShowed {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#img5Showed {
+  display: none;
+}
+
+#img6Showed {
+  display: none;
+}
+
+.shark-img {
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.redFish-img {
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.purpleFish-img {
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+#uncontrolled-char {
+  margin-top: 10px;
+}
+
+.category {
+  height: 50px;
+  width: 100%;
+  background-color: #3e3a48;
+  padding-top: 25px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18.8px;
+  color: #ffffff;
+  margin-top: 0px;
+}
+
+.rules {
+  background-color: #3e3a48;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.rules-board {
+  background-color: #3e3a48;
+  margin-top: 20px;
+}
+
+.scoring-rules {
+  width: 95%;
+  height: 35%;
+  border: 1px solid #57535f;
+  background-color: #231f2e;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  color: #57535f;
+}
+
+.game-over-rules {
+  width: 95%;
+  height: 35%;
+  border: 1px solid #57535f;
+  background-color: #231f2e;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  color: #57535f;
+  margin-top: 10px;
+}
+
+.rules-container {
+  width: 100%;
+  background-color: #231f2e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#control-char {
+  // margin-top: -15px;
+  display: block;
+}
+
+.horizontal-line {
+  width: 23px;
+  position: absolute;
+  bottom: 80px;
+  left: 195px;
+  border: 1px solid #57535f;
+}
+
+.background-container {
+  display: inline-block;
+  text-align: center;
+}
+
+.bg-div {
+  width: 60%;
+  height: 50%;
+  border: 1px solid #57535f;
+}
+
+.background-img {
+  margin-top: 10px;
+  width: 180px;
+  height: 80px;
+}
+
+.heading {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.elements-container {
+  height: 230px;
+  width: 100%;
+  padding: 5px;
+}
+
+.elements-container1 {
+  height: 268px;
+  width: 100%;
+}
+
+.character-div {
+  width: 100%;
+  height: 100%;
+  background-color: #231f2e;
+}
+

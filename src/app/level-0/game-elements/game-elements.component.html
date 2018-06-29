@@ -1,3 +1,11 @@
-<p>
-  game-elements works!
-</p>
+<div class="game-elements h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="gameElementsData.mascotImage" [mascotBgColor]="gameElementsData.mascotBg" [instructions]="gameElementsData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="50" fxLayoutAlign="space-around start" >
+      <app-select-elements-zone [gameInfo]="gameElementsData" class="game-elements-component" (clickedImageId)="clickedImage($event)"></app-select-elements-zone>
+    </div>
+    <div fxFlex="50" fxLayoutAlign="space-around start">
+      <app-sorted-elements-zone class="game-elements-component" [gameInfo]="gameElementsData" [displayImage]="imageId"></app-sorted-elements-zone>
+    </div>
+  </div>
+</div>
