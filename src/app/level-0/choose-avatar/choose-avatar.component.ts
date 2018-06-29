@@ -46,24 +46,26 @@ import { assetsLink } from './../../shared-services/config';
 export class ChooseAvatarComponent implements OnInit {
 
   private characterList: string[];
-  private charValue: string;
   private namePopupActive: boolean;
   private imageSelectFlag: boolean;
   private checkLengthFlag: boolean;
+  private currentItem: string;
+  private selectedAvatar: string;
   private loading: boolean;
   constructor(private utility: UtilitiesService, private router: Router) {
     this.loading = true;
     this.characterList = [];
+    this.currentItem = '';
+    this.selectedAvatar = '';
   }
-
+  
   ngOnInit() {
     this.namePopupActive = false;
     this.imageSelectFlag = false;
     this.checkLengthFlag = false;
-    this.charValue = 'character8';
     this.characterList = [
-      'character1', 'character2', 'character3', 'character4', 'character5', 'character6'
-    ]
+      `${assetsLink}avatar/character1.png`, `${assetsLink}avatar/character2.png`, `${assetsLink}avatar/character3.png`, `${assetsLink}avatar/character4.png`, `${assetsLink}avatar/character5.png`, `${assetsLink}avatar/character6.png`
+    ];
     let avatarimageCount = 0;
     const onImageLoad = () => {
       ++avatarimageCount;
@@ -74,19 +76,21 @@ export class ChooseAvatarComponent implements OnInit {
     this.characterList.forEach(element => {
       let image = new Image();
       image.onload = onImageLoad;
-      image.src = `${assetsLink}avatar/`+element+`.png`
+      image.src = element
       return image;
     });
   }
 
 
-  card = (ev) => {
-    this.charValue = ev.target.id;
+  card = (index) => {
+    this.selectedAvatar = this.characterList[index];
+    this.currentItem = index;
     this.imageSelectFlag = true;
   }
 
   namepopUp = (data) => {
-    if (data.length > 1) {
+
+    if (data.length > 0) {
       this.namePopupActive = true;
     } else {
       this.namePopupActive = false;
@@ -105,7 +109,7 @@ export class ChooseAvatarComponent implements OnInit {
     name = name.charAt(0).toUpperCase() + name.slice(1);
     let json = {
       avatarName: name,
-      avatar: `${assetsLink}avatar/${this.charValue}.png`
+      avatar: this.selectedAvatar
     }
     this.utility.updateAvatar(json);
     this.utility.nextPage(this.router.url.substr(1))

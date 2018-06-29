@@ -4,20 +4,20 @@
     <span> Choose your avatar</span>
   </div>
   <div class="avatar-options" [ngStyle]="{'margin': auto}">
-    <div class="character-div" id="{{ avatar }}" *ngFor="let avatar of characterList" (click)="card($event)"
-    [ngStyle]="{'border-color': charValue == avatar ? 'rgba(102, 102, 153, 1)': 'transparent'}">
-      <img id="{{ avatar }}" src="http://dqfevutdn6sxd.cloudfront.net/avatar/{{avatar}}.png" alt="">
+    <div class="character-div" id="{{ i }}" *ngFor="let avatar of characterList; let i = index" (click)="card(i)"
+    [ngStyle]="{'border-color': currentItem === i ? 'rgba(102, 102, 153, 1)': 'transparent'}">
+      <img id="{{ i }}" src="{{avatar}}" alt="">
     </div>
   </div>
   <div class="action-div">
-    <input type="button" [disabled]="!imageSelectFlag" [ngStyle]="{'opacity': imageSelectFlag? '1': '0.5', 'cursor': imageSelectFlag ? 'pointer' : 'default'}" (click)="namepopUp(charValue)"
+    <input type="button" [disabled]="!imageSelectFlag" [ngStyle]="{'opacity': imageSelectFlag? '1': '0.5', 'cursor': imageSelectFlag ? 'pointer' : 'default'}" (click)="namepopUp(selectedAvatar)"
       value="CONFIRM">
   </div>
 </div>
 <div class="shadow-popup" [hidden]="!namePopupActive">
   <div class="name-popup-box">
     <div class="image-area">
-      <img src="http://dqfevutdn6sxd.cloudfront.net/avatar/{{charValue}}.png" alt="">
+      <img [src]="selectedAvatar" alt="">
     </div>
     <div class="name-area">
       <div class="name-card">
