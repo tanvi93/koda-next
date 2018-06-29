@@ -27,7 +27,7 @@ import { SuccessModalComponent } from '../../../shared-module/success-modal/succ
 * if the option is incorrect then error message is shown.
 * @param { string } error contains the error or success message.
 * @param { object } presentQuestionData contains the data of present question.
-* @param { array } charClicked stores the element which is clicked.
+* @param { array } elementsObj stores the characters and background.
 * @param { number } questionCount gets incremented when the correct option is clicked.
 * @method switchQuestion function called when the question needs to be changed.
 * the previous question stays for some time so the success message is visible then
@@ -46,42 +46,57 @@ export class SelectElementsZoneComponent implements OnInit {
   @Input() gameInfo;
   @Input() presentQuestionData;
   @Output() clickedImageId = new EventEmitter();
+  private elementsObj;
   private questionCount: number;
-  private charClicked: any;
   private showRules: Boolean;
   private error: string;
   private showError: Boolean;
   private isCorrect: Boolean;
   private showElementsZone: Boolean;
+  private isCharClickedOnce: Boolean;
   dialogRef: MatDialogRef<SuccessModalComponent>;
 
   constructor(public dialog: MatDialog) {
     this.questionCount = 0;
-    this.charClicked = [];
     this.showRules = false;
     this.showError = false;
     this.isCorrect = false;
     this.showElementsZone = true;
+    this.isCharClickedOnce = false;
+    this.elementsObj = ['img1', 'img2', 'img3', 'background'];
   }
 
   ngOnInit() {
     this.presentQuestionData = this.gameInfo.validation[this.questionCount];
+    console.log(this.presentQuestionData);
   }
 
   elementClicked(event) {
+    this.isCharClickedOnce = false;
     this.displayError();
     for (let i = 0; i < this.presentQuestionData.options.length; i++) {
       if (this.presentQuestionData.options[i].option === event.target.id) {
         if (this.presentQuestionData.options[i].isCorrect) {
-          this.clickedImageId.emit(event.target.id);
-          this.error = this.presentQuestionData.options[i].correctMsg;
-          this.isCorrect = true;
-          this.presentQuestionData.options[i].isCorrect = false;
-          this.charClicked.push(event.target.id);
-          if (this.charClicked.length >= 3) {
-            this.questionCount++;
-            this.switchQuestion(event);
-          }
+          for (let j = 0; j < this.elementsObj.length; j++) {
+            if (this.elementsObj[j] === event.target.id) {
+              this.isCharClickedOnce = true;
+                this.clickedImageId.emit(event.target.id);
+                this.error = this.presentQuestionData.options[i].correctMsg;
+              this.isCorrect = true;
+              const index = this.elementsObj.indexOf(event.target.id);
+              if (index > -1) {
+                this.elementsObj.splice(index, 1);
+              }
+              if (this.elementsObj.length <= 1) {
+                  this.questionCount++;
+                  this.switchQuestion(event);
+                }
+              }
+            }
+          if (!this.isCharClickedOnce) {
+            this.isCorrect = false;
+            this.error = this.presentQuestionData.options[i].errorMsg;
+         }
         } else {
           this.isCorrect = false;
           this.error = this.presentQuestionData.options[i].errorMsg;
@@ -101,6 +116,7 @@ export class SelectElementsZoneComponent implements OnInit {
         this.clickedImageId.emit('img5');
       } else {
         this.clickedImageId.emit('img6');
+        console.log(this.gameInfo);
         setTimeout(() => {
           this.showError = false;
           setTimeout(() => {
@@ -133,7 +149,7 @@ export class SelectElementsZoneComponent implements OnInit {
       setTimeout(() => {
         this.showElementsZone = true;
         this.presentQuestionData = this.gameInfo.validation[this.questionCount];
-        if (event.target && this.charClicked.length > 3) {
+        if (event.target && this.elementsObj.length == 0) {
           this.showRules = true;
         }
       }, 500);
