@@ -9,11 +9,10 @@
       </div>
       <div class="image-container" *ngFor="let imageList of contentData.characterList[i].list;let x = index">
         <div class="imageList"  [style.borderColor]="characterBorder[i][x] ? '#39b54a' : 'transparent'" [ngStyle]="{'left': (19*x + (4*(x+1)))+'%', top: '15%', 'border': '1px solid transparent'}">
-          <img class="imageList-image {{data.name}}" id="{{data.name}}-{{x}}" (click)="functionCalled($event)" [ngStyle]="{'height': i === 0 ? '100%': '60%','width': i === 0 ? '100%': '60%', 'top': i === 0 ? '0%': '20%','left': i === 0 ? '0%': '20%', 'border': '1px solid transparent'}"
+          <img class="imageList-image {{data.name}}" id="{{data.name}}-{{x}}" (click)="functionCalled($event, x, i)" [ngStyle]="{'height': i === 0 ? '100%': '60%','width': i === 0 ? '100%': '60%', 'top': i === 0 ? '0%': '20%','left': i === 0 ? '0%': '20%', 'border': '1px solid transparent'}"
           src="{{imageList}}" alt="{{x}}">
         </div>
       </div>
     </div>
   </div>
 </div>
-<!--  -->

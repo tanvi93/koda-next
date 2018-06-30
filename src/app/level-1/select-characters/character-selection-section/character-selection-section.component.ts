@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, EventEmitter, Output, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -6,9 +6,31 @@ import { Component, Input, OnInit, EventEmitter, Output, OnChanges } from '@angu
   templateUrl: './character-selection-section.component.html',
   styleUrls: ['./character-selection-section.component.scss']
 })
-export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
+  
+    /**
+   * @name CharacterSelectionSectionComponent<app-select-characters>
+   * @description This component will deal selecting character from the list which will be use for future game making.
+   * @param imageData its output variable which will hold the data related to what user want to see on the display screen and this all data is provided to parent so that it can share this data to his sibiling .
+   * @param contentData its holds entire detail of the page which is accepted from its parent component.
+   * @constructor intiate checkData variable
+   */
+
+  /**
+   * @method functionCalled
+   * @memberOf CharacterSelectionSectionComponent
+   * @param event This Event object contains data of the character which user want to see in display seciton.
+   * @param childIndex this index decide which subchild is selected from the group.
+   * @param parentIndex this index decide which child is selected from the group.
+   * @description this method get triggered whenever user choose character from the option provided which later emits data so that parent can pass this info to his other child .
+   */
+
+export class CharacterSelectionSectionComponent implements OnInit {
+ 
+  @Input() contentData;
+  @Output() imageData = new EventEmitter<object>();
+ 
   private imageObj = {
-    capImage: {
+    backgroundPath: {
       id: null,
       path: ''
     },
@@ -20,25 +42,17 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
       id: null,
       path: ''
     },
-    backgroundPath: {
+    capImage: {
       id: null,
       path: ''
     }
   };
   private characterBorder: boolean[][];
-  private idString: string[][];
-  private applyBorder: string;
   private loading: boolean;
-  private currentItem: string;
-  private errorFlagInputStatus: boolean;
-  @Input() contentData;
-  @Input() errorFlag;
-  @Output() imageData = new EventEmitter<object>();
-  @Output() errorFlagStatus = new EventEmitter<boolean>();
+
   constructor() {
     this.loading = true;
     this.characterBorder = [];
-    this.idString = [];
   }
 
   ngOnInit() {
@@ -52,74 +66,27 @@ export class CharacterSelectionSectionComponent implements OnInit, OnChanges {
 
     let monkeyimageLoad = Object.keys(this.contentData.characterList).map(key => {
       this.characterBorder[key] = [];
-      this.idString[key] = [];
       this.contentData.characterList[key].list.forEach((element, index) => {
         this.characterBorder[key][index] = false;
-        this.idString[key][index] = this.contentData.characterList[key].name + '-' + index;
         let image = new Image();
         image.onload = onImageLoad;
         image.src = element;
         return image;
       });
     });
-    this.errorFlagInputStatus = this.errorFlag;
-    this.applyBorder = 'transparent';
   }
 
-  ngOnChanges() {
-    this.errorFlagInputStatus = this.errorFlag;
-  }
-
-  updateEmitter() {
-    this.imageData.emit(this.imageObj);
-  }
-
-  functionCalled(ev) {
-    
-    this.errorFlagInputStatus = false;
-    this.errorFlagStatus.emit(this.errorFlagInputStatus);
-    let x = 0;
-    for (let i = 0; i < this.idString.length; i++) {
-      for (let j = 0; j < this.idString.length; j++) {
-        x = j;
-        if (ev.target.attributes.id.nodeValue === this.idString[i][j]) {
-          for (let k = 0; k < this.idString.length; k++) {
-            if (x === k) {
-              this.characterBorder[i][k] = true;
-              switch (i) {
-                case 0: {
-                  this.imageObj.backgroundPath.path = ev.target.attributes.src.nodeValue;
-                  this.imageObj.backgroundPath.id = ev.target.alt;
-                  this.updateEmitter();
-                }
-                  break;
-                case 1: {
-                  this.imageObj.monkeyImage.path = ev.target.attributes.src.nodeValue;
-                  this.imageObj.monkeyImage.id = ev.target.alt;
-                  this.updateEmitter();
-                }
-                  break;
-                case 2: {
-                  this.imageObj.fruitImage.path = ev.target.attributes.src.nodeValue;
-                  this.imageObj.fruitImage.id = ev.target.alt;
-                  this.updateEmitter();
-                }
-                  break;
-                case 3: {
-                  this.imageObj.capImage.path = ev.target.attributes.src.nodeValue;
-                  this.imageObj.capImage.id = ev.target.alt;
-                  this.updateEmitter();
-                }
-                  break;
-                default:
-              }
-            } else {
-              this.characterBorder[i][k] = false;
-            }
-          }
-        }
+  functionCalled(ev, childIndex, parentIndex) {
+    this.characterBorder.forEach((element, index) => {
+      if (childIndex === index) {
+        this.characterBorder[parentIndex][index] = true;
+        Object.values(this.imageObj)[parentIndex].path = ev.target.attributes.src.nodeValue;
+        Object.values(this.imageObj)[parentIndex].id = ev.target.alt;
+        this.imageData.emit(this.imageObj);
+      } else {
+        this.characterBorder[parentIndex][index] = false;
       }
-    }
+    });
   }
 }
 

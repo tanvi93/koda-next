@@ -1,3 +1,19 @@
-<mat-card>
-  
-</mat-card>
+<div class="display-char-div">
+    <div class="outer-div">
+        <div class="activity-zone">
+            <img class="background-position"  src="{{ imageDetail.backgroundPath.path }}" alt="">
+            <img class="monkey-position"  src="{{ imageDetail.monkeyImage.path }}" alt="">
+            <img class="fruit-position"  src="{{ imageDetail.fruitImage.path  }}" alt="">
+            <img class="cap-position"  src="{{ imageDetail.capImage.path }}" alt="">
+        </div>
+        <div class="action-zone" [style.background-color]="errorMsgFlag ? '#c75c5c': '#36323f'">
+            <div class="action-button" *ngIf='!errorMsgFlag' (click)="selectionList()">
+                <img src="assets/icons/white_tick.png" alt="">
+                <span>
+                    DONE
+                </span>
+            </div>
+            <app-error-msg class="error" *ngIf="errorMsgFlag" [error]="contentData.errorMsg"></app-error-msg>
+        </div>
+    </div>
+</div>
