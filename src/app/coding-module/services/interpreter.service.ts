@@ -334,6 +334,7 @@ export class InterpreterService {
     // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     // Blockly.JavaScript.addReservedWords('highlightBlock');
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
+    this.getXml(true);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
     });

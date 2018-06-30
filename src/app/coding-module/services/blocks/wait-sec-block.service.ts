@@ -5,8 +5,10 @@ declare let Blockly: any;
 @Injectable()
 export class WaitSecBlockService {
   public xml: String;
+  private blocks;
 
   constructor() {
+    this.blocks = [];
     this.xml = `<block type="wait" id="wait" ></block>`;
 
     Blockly.Blocks['wait'] = {
@@ -23,10 +25,12 @@ export class WaitSecBlockService {
       }
     };
 
-    Blockly.JavaScript['wait'] = function (block) {
+    Blockly.JavaScript['wait'] = (block) => {
+      this.blocks.push(block);
       const wait_secs = block.getFieldValue('wait_time');
       let json = {
-        wait_secs
+        wait_secs,
+        blockIndex: this.blocks.length - 1
       }
       return `wait('${JSON.stringify(json)}');\n`;
       // return `wait(${wait_secs})\n`;
@@ -36,10 +40,16 @@ export class WaitSecBlockService {
   initInterpreter = (interpreter, scope) => {
     // Ensure function name does not conflict with variable names.
     Blockly.JavaScript.addReservedWords('wait');
-    const wrapper = function (secs, callback) {
-      secs = JSON.parse(secs);
-      secs = Number(secs.wait_secs);
+    const wrapper = (secs, callback) => {
+      let json = JSON.parse(secs);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
+      secs = Number(json.wait_secs);
       setTimeout(() => {
+        if (this.blocks) {
+          this.blocks[json.blockIndex].removeSelect();
+        } 
         callback();
       }, secs * 1000);
     };

@@ -12,8 +12,10 @@ export class GoToCoordsService {
   private sp: SpriteService;
   private numberBlock: NumberBlockService;
   public xml: String;
+  private blocks;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.sp = new SpriteService();
     this.numberBlock = new NumberBlockService();
     this.xml = `<block type = "go_to" id = "go_to" >
@@ -45,7 +47,8 @@ export class GoToCoordsService {
       }
     };
 
-    Blockly.JavaScript['go_to'] = function (block) {
+    Blockly.JavaScript['go_to'] = (block) => {
+      this.blocks.push(block);
       const input_x = Blockly.JavaScript.valueToCode(block, 'input_x');
       const input_y = Blockly.JavaScript.valueToCode(block, 'input_y');
       let spriteIndex = block.getFieldValue('sprite');
@@ -55,15 +58,19 @@ export class GoToCoordsService {
         childJson,
         x: input_x,
         y: input_y,
-        spriteIndex
+        spriteIndex,
+        blockIndex: this.blocks.length - 1
       }
       return `goTo('${JSON.stringify(json)}');\n`;
     };
   }
 
   initInterpreter = (interpreter, scope, cb) => {
-    const wrapper = function (obj, callback) {
+    const wrapper = (obj, callback) => {
       let json = JSON.parse(obj);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       const executeFn = (axis) => {
         let intrp = new Interpreter('');
         intrp.stateStack[0].scope = scope;
@@ -78,6 +85,9 @@ export class GoToCoordsService {
             }
             clearInterval(interval);
             cb(json);
+            if (this.blocks) {
+              this.blocks[json.blockIndex].removeSelect();
+            } 
             callback();
           }
         }, 10);
@@ -88,6 +98,9 @@ export class GoToCoordsService {
         executeFn(1);
       } else {
         cb(json);
+        if (this.blocks) {
+          this.blocks[json.blockIndex].removeSelect();
+        } 
         callback(obj);
       }
     };

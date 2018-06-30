@@ -1,4 +1,19 @@
 export const stories = {
+    fox_n_grapes: {
+        backgroundImgs: [
+            './assets/images/activities/fox_and_grapes/fox_activity_bg.jpg'
+        ]
+    },
+    treasure_hunt: {
+        backgroundImgs: [
+            './assets/images/activities/treasure_hunt/bg_storyline.jpg'
+        ]
+    },
+    mars_rover: {
+        backgroundImgs: [
+            './assets/images/activities/mars_rover/mars-storyline.jpg'
+        ]
+    },
     magical_cave: {
         backgroundImgs: [
             './assets/images/activities/magical_cave/storyline.jpg'
