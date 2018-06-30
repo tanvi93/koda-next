@@ -11,7 +11,11 @@ export const stories = {
     },
     mars_rover: {
         backgroundImgs: [
-            './assets/images/activities/mars_rover/mars-storyline.jpg'
+            './assets/images/activities/mars_rover/mars-storyline.jpg',
+            './assets/images/activities/mars_rover/mars-storyline2.jpg',
+            './assets/images/activities/mars_rover/mars-storyline3.jpg',
+            './assets/images/activities/mars_rover/mars-storyline4.jpg',
+            './assets/images/activities/mars_rover/mars-storyline5.jpg',
         ]
     },
     magical_cave: {
