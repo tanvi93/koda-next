@@ -1,7 +1,6 @@
-<mat-grid-list cols="9" gutterSize="40" rowHeight="20%">
-  {{activityList}}
-  <mat-grid-tile class="grid-tile" [colspan]="3" [rowspan]="6" *ngFor="let list of activityList; let i = index;">
-    <div class="select-option-image">
+<div fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+  <div *ngFor="let list of activityList; let i = index;" fxFlex="33" class="activity-inner">
+    <div class="activity-bg" >
       <img class="select-option-game-unlock" src="{{list.activityImage}}" alt="">
       <img class="select-option-game-complete" [hidden]="!list.status.complete.imageStatus" src="{{list.status.complete.imageData}}"
         alt="">
@@ -14,5 +13,5 @@
     <div class="select-option-disable" [hidden]="list.status.unlock.imageStatus">
       <img class="select-option-game-lock" [hidden]="!list.status.lock.imageStatus" src="{{list.status.lock.imageData}}" alt="">
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div><!-- activity-inner -->
+</div> 

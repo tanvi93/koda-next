@@ -9,8 +9,10 @@ declare let Interpreter: any;
 export class MoveWithSpeedService {
   private sp: SpriteService;
   public xml; String;
+  private blocks;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.xml = `<block type = "move_with_speed" id = "move_with_speed" >
                     <value name="steps">
                         <shadow type="number"> </shadow>
@@ -49,7 +51,8 @@ export class MoveWithSpeedService {
       }
     };
 
-    Blockly.JavaScript['move_with_speed'] = function (block) {
+    Blockly.JavaScript['move_with_speed'] = (block) => {
+      this.blocks.push(block);
       const direction = block.getFieldValue('direction');
       let steps = Blockly.JavaScript.valueToCode(block, 'steps');
       let spriteIndex = block.getFieldValue('sprite');
@@ -64,7 +67,8 @@ export class MoveWithSpeedService {
         hasAnimation: true,
         x: 0,
         y: 0,
-        inputBlock: null
+        inputBlock: null,
+        blockIndex: this.blocks.length - 1
       }
       if (!Number.isNaN(Number(steps))) {
         steps = Math.abs(steps);
@@ -116,8 +120,11 @@ export class MoveWithSpeedService {
   }
 
   initInterpreter = (interpreter, scope, coordinatesJson, cb) => {
-    const wrapper = function (obj, callback) {
+    const wrapper = (obj, callback) => {
       let json = JSON.parse(obj);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       const change = json.x ? 'x' : 'y';
       let animationTime = json[change] * coordinatesJson[`${change}AxisUnit`] * 3 / json.speed;
       const executeFn = (axis) => {
@@ -130,6 +137,9 @@ export class MoveWithSpeedService {
             json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(intrp.value) : -1 * Math.abs(intrp.value);
             cb(json);
             setTimeout(() => {
+              if (this.blocks) {
+                this.blocks[json.blockIndex].removeSelect();
+              } 
               callback(json);
             }, animationTime);
             clearInterval(interval);
@@ -141,6 +151,9 @@ export class MoveWithSpeedService {
       } else {
         cb(json);
         setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
+          } 
           callback(json);
         }, animationTime);
       }
