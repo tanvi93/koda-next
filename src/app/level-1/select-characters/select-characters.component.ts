@@ -29,35 +29,30 @@ export class SelectCharactersComponent {
   private selectCharacterOutput: CharacterDisplaySectionComponent;  
   private characterData = selectCharacterContent;
   private contentData = selectCharacterContent;
-  private imagePath = {
-    backgroundPath: {
-      id: null,
-      path: ''
-    },
-    monkeyImage: {
-      id: null,
-      path: ''
-    },
-    fruitImage: {
-      id: null,
-      path: ''
-    },
-    capImage: {
-      id: null,
-      path: ''
-    }
-  };
-  constructor() { }
+  private imagePath: any;
+  constructor() {
+    this.imagePath = {
+      backgroundPath: {
+        id: null,
+        path: ''
+      },
+      monkeyImage: {
+        id: null,
+        path: ''
+      },
+      fruitImage: {
+        id: null,
+        path: ''
+      },
+      capImage: {
+        id: null,
+        path: ''
+      }
+    };
+  }
 
   recievedImagePath($event) {
-    this.imagePath.monkeyImage.path = $event.monkeyImage.path;
-    this.imagePath.monkeyImage.id = $event.monkeyImage.id;
-    this.imagePath.fruitImage.path = $event.fruitImage.path;
-    this.imagePath.fruitImage.id = $event.fruitImage.id;
-    this.imagePath.capImage.path = $event.capImage.path;
-    this.imagePath.capImage.id = $event.capImage.id;
-    this.imagePath.backgroundPath.path = $event.backgroundPath.path;
-    this.imagePath.backgroundPath.id = $event.backgroundPath.id;
+    this.imagePath = $event;
     this.selectCharacterOutput.hideErrorMsg();
   }
 }
