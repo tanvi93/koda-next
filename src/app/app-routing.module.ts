@@ -52,11 +52,7 @@ const routes: Routes = [
     path: 'learning/:pageId',
     component: VideoScreenComponent
   }, {
-<<<<<<< HEAD
     path: 'select-activity/:pageId',
-=======
-    path: 'select-activity',
->>>>>>> ceeb9e28a8e81abd0e9b592cc286ec5696d2a714
     component: SelectActivityComponent
   }
 ];
