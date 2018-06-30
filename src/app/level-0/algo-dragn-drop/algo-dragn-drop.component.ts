@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { algoStep } from '../../data/dragAndDrop';
 
@@ -12,6 +12,7 @@ export class AlgoDragnDropComponent implements OnInit {
   private pageId: String;
   private loading: Boolean;
   private imageCount;
+  @ViewChild('dropZone') dropZone;
 
   constructor(private route: ActivatedRoute) {
     this.loading = true;

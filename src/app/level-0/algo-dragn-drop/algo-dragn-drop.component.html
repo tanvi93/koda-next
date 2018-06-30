@@ -1,10 +1,10 @@
 <app-instruction-bar [mascotImage]="algorithmObj.mascotImage" [mascotBgColor]="algorithmObj.mascotBg" [instructions]="algorithmObj.instructionBarContent"></app-instruction-bar>
 <app-loading *ngIf="loading"></app-loading>
-<div fxLayout="row" *ngIf="!loading">
+<div fxLayout="row" *ngIf="!loading" fxLayoutGap="20px">
   <div fxLayout="column" fxFlex="50">
-    <app-drag-zone [algo]="algorithmObj" class="drag-zone"></app-drag-zone>
+    <app-drag-zone [algo]="algorithmObj"></app-drag-zone>
   </div>
   <div fxLayout="column" fxFlex="50">
-    <!-- <app-drop-zone #dropZone [algo]="algorithmSteps" (correctSequence)="correctSequence($event)" [diffLook]='diffPage'></app-drop-zone> -->
+    <app-drop-zone #dropZone [algo]="algorithmObj"></app-drop-zone>
   </div>
 </div>

@@ -1,4 +1,4 @@
 <div droppable (onDrop)="onItemDrop($event)" draggable [dragData]="msg" (onDragStart)="dragStartEvent($event)" (onDragEnd)="dragEndEvent($event)"
-  [dropEnabled]="dropEnabled" [dragEnabled]="dragEnabled" [style.background-color]="dragEnd?'#3E3A48':'transparent'">
+  [dropEnabled]="dropEnabled" [dragEnabled]="dragEnabled" class="step-container">
   <ng-content></ng-content>
 </div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SharedModuleModule } from './../shared-module/shared-module.module';
 import { Level0RoutingModule } from './level-0-routing.module';
 
@@ -13,6 +12,7 @@ import { AlgoDragnDropComponent } from './algo-dragn-drop/algo-dragn-drop.compon
 import { DragZoneComponent } from './algo-dragn-drop/drag-zone/drag-zone.component';
 import { SelectElementsZoneComponent } from './game-elements/select-elements-zone/select-elements-zone.component';
 import { SortedElementsZoneComponent } from './game-elements/sorted-elements-zone/sorted-elements-zone.component';
+import { DropZoneComponent } from './algo-dragn-drop/drop-zone/drop-zone.component';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { SortedElementsZoneComponent } from './game-elements/sorted-elements-zon
     SharedModuleModule,
     Level0RoutingModule
   ],
-  declarations: [LandingPageComponent, MascotTalkingComponent, SummaryGameElementsComponent, ChooseAvatarComponent, GameElementsComponent, AlgoDragnDropComponent, SelectElementsZoneComponent, SortedElementsZoneComponent, DragZoneComponent]
+  declarations: [LandingPageComponent, MascotTalkingComponent, SummaryGameElementsComponent, ChooseAvatarComponent, GameElementsComponent, AlgoDragnDropComponent, SelectElementsZoneComponent, SortedElementsZoneComponent, DragZoneComponent, DropZoneComponent]
 })
 export class Level0Module { }
 

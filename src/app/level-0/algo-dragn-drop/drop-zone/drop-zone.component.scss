@@ -1,0 +1,55 @@
+.drop-zone {
+  width: 100%;
+  background-color: #575360;
+  user-select: none;
+}
+
+.drop-image {
+  height: 70px;
+  width: 100px;
+  position: relative;
+}
+
+.step-number {
+  width: 94px;
+  height: 71px;
+  background-color: #73dcff;
+  box-sizing: border-box;
+  border-radius: 80px;
+  margin-left: -30px;
+  position: relative;
+  font-family: Quicksand;
+  font-size: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 2;
+}
+
+.step-text {
+  font-family: Quicksand;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.check-button {
+  border-radius: 20px;
+  background-color: rgb(140, 197, 62);
+  color: white;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  width: 100px;
+  min-height: 40px;
+  font-size: 18px;
+}
+
+.error-msg {
+  width: 100%;
+  position: relative;
+  left: 0;
+  z-index: 3;
+  height: 55px;
+  background-color: #403C49;
+  margin-top: 5px;
+}

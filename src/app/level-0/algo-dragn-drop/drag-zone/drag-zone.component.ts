@@ -11,6 +11,7 @@ export class DragZoneComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.algo);
   }
 
 }
