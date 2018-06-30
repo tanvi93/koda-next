@@ -696,7 +696,24 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
         }],
-        "initialCode": ``,       
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="say" id="say" x="190" y="90">
+    <field name="sprite">0</field>
+    <field name="message">Where are you?</field>
+    <next>
+      <block type="show_coords" id="showCoords">
+        <field name="sprite">2</field>
+        <next>
+          <block type="say" id="H$|6~$~AI5{^Zr!r#w1f">
+            <field name="sprite">0</field>
+            <field name="message">Ok</field>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,       
         "icons": [{
             "name": "algo",
             "isVisible": true,

@@ -8,8 +8,10 @@ declare let Blockly: any;
 export class ShowCoordsService {
   private sp: SpriteService;
   public xml; String;
+  private blocks;
 
-  constructor(activity = null) {
+constructor(activity = null) {
+  this.blocks = [];
     this.xml = `<block type="show_coords" id="showCoords"> </block>`;
     this.sp = new SpriteService();
     const sprites = this.sp.spriteDropdown(activity);
@@ -27,11 +29,13 @@ export class ShowCoordsService {
       }
     };
 
-    Blockly.JavaScript['show_coords'] = function (block) {
+  Blockly.JavaScript['show_coords'] = (block) => {
+      this.blocks.push(block);
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       let json = {
-        spriteIndex
+        spriteIndex,
+        blockIndex: this.blocks.length - 1
       }
       return `showCoo('${JSON.stringify(json)}');\n`;
       // return `showCoo(${spriteIndex});\n`;
@@ -41,10 +45,16 @@ export class ShowCoordsService {
   initInterpreterShowCoords = (interpreter, scope, cb) => {
     // Ensure function name does not conflict with variable names.
     Blockly.JavaScript.addReservedWords('showCoo');
-    const wrapper = function (json, callback) {
+    const wrapper = (json, callback) => {
       json = JSON.parse(json);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       cb(json.spriteIndex, 2000);
       setTimeout(() => {
+        if (this.blocks) {
+          this.blocks[json.blockIndex].removeSelect();
+        } 
         callback(json.spriteIndex);
       }, 2000);
     };

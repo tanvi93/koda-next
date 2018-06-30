@@ -8,10 +8,11 @@ declare function unescape(s: string): string;
 @Injectable()
 export class SayBlockService {
   private sp: SpriteService;
-  private block;
+  private blocks;
   public xml; String;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.xml = `<block type="say" id="say"></block>`;
     this.sp = new SpriteService();
     const sprites = this.sp.spriteDropdown(activity);
@@ -30,14 +31,15 @@ export class SayBlockService {
     };
 
     Blockly.JavaScript['say'] = block => {
-      this.block = block;
+      this.blocks.push(block);
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       let textName = String(block.getFieldValue('message'));
       textName = escape(textName);
       let json = {
         textName,
-        spriteIndex
+        spriteIndex,
+        blockIndex: this.blocks.length-1
       }
       return `say('${JSON.stringify(json)}');\n`;
     };
@@ -46,17 +48,17 @@ export class SayBlockService {
   initInterpreterSay = (interpreter, scope, cb) => {
     // Ensure function name does not conflict with variable names.
     Blockly.JavaScript.addReservedWords('say');
-    const wrapper = (text, callback) => {
-      if (this.block) {
-        this.block.addSelect();
-      }  
+    const wrapper = (text, callback) => { 
       text = JSON.parse(text.replace(/[']/g, ''));
+      if (this.blocks) {
+        this.blocks[text.blockIndex].addSelect();
+      } 
       text.textName = text.textName ? text.textName : '';
       text.textName = unescape(text.textName);
       cb(text.textName, text.spriteIndex, 2000);
       setTimeout(() => {
-        if (this.block) {
-          this.block.removeSelect();
+        if (this.blocks) {
+          this.blocks[text.blockIndex].removeSelect();
         }  
         callback(text.textName);
       }, 2000);
