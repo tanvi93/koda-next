@@ -363,7 +363,7 @@ export class InterpreterService {
       this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
         this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
           if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        },callback);
+        }, callback);
       });
 
       if (this.myInterpreter) {

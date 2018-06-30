@@ -40,7 +40,6 @@ export class IfBlockService {
         let intrp = new Interpreter('');
         intrp.stateStack[0].scope = scope;
         intrp.appendCode(atob(code));
-        let stopExecution = false;
         const runner = function () {
           if (intrp) {
             const hasMore = intrp.step();
