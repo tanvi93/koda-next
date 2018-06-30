@@ -11,16 +11,13 @@ export const stories = {
     },
     mars_rover: {
         backgroundImgs: [
-            './assets/images/activities/mars_rover/mars-storyline.jpg',
-            './assets/images/activities/mars_rover/mars-storyline1.jpg',
-            './assets/images/activities/mars_rover/mars-storyline2.jpg',
-            './assets/images/activities/mars_rover/mars-storyline3.jpg'
-
+            './assets/images/activities/mars_rover/mars-storyline.jpg'
         ]
     },
     dragon_capture_activity : {
         backgroundImgs: [
-            './assets/images/activities/mars_rover/mars-storyline.jpg'
+            './assets/images/activities/dragon_capture/dragon-activity.jpg',
+            './assets/images/activities/dragon_capture/dragon-activity2.jpg'
         ]
     },
     magical_cave: {
