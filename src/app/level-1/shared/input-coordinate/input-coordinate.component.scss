@@ -1,0 +1,22 @@
+.input-div {
+    position: absolute;
+    display: block;
+    & .input-wrapper-x {
+        display: table;
+        & p {
+            display: table-cell;
+        }
+        & input {
+            display: table-cell;
+        }
+    }
+    & .input-wrapper-y {
+        display: table;
+        & p {
+            display: table-cell;
+        }
+        & input {
+            display: table-cell;
+        }
+    }
+}
