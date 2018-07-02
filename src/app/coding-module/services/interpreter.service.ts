@@ -334,7 +334,6 @@ export class InterpreterService {
     // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     // Blockly.JavaScript.addReservedWords('highlightBlock');
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
-    this.getXml(true);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
     });
@@ -380,6 +379,25 @@ export class InterpreterService {
         }, 500);
       }, 1000 * 30);
     }
+  }
+
+  tmpRunCode(cb) {
+    const kk = () => {
+      return 1;
+    };
+    const goTo = (callback) => {
+      callback({ x: kk(), y: 10, spriteIndex: 0 });
+    }
+
+    goTo((obj) => {
+      console.log(obj);
+      cb({ name: 'goTo', data: obj });
+    });
+
+    // changeLook((obj) => {
+    //   console.log('changeLook', obj);
+    //   cb({ name: 'changeLook', data: obj });
+    // });
   }
 
   stopExecution = () => {

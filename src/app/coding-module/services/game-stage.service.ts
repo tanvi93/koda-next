@@ -588,7 +588,7 @@ export class GameStageService {
       totalX: this.totalX,
       totalY: this.totalY
     }
-    this.interpreter.runCode(code, this.sprites, this.buttons, coordinatesJson, feedbackCall, json => {
+    this.interpreter.tmpRunCode(/*code, this.sprites, this.buttons, coordinatesJson, feedbackCall,*/ json => {
       const { name, data } = json;
       switch (name) {
         case 'say':
