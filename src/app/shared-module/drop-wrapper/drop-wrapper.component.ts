@@ -8,19 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class DropWrapperComponent {
 
   @Input() seq;
-  @Input() changeLook;
-  @Input() imagesOfSteps;
-  @Output() correctSequence = new EventEmitter();
+  @Output() dropData = new EventEmitter();
   @Output() stepAtDropZone = new EventEmitter();
   @Output() displayError = new EventEmitter();
   private dropEnabled: Boolean = true;
   private dragEnabled: Boolean = false;
   private dropAlgoStep: String = '';
   private dropAlgoStepObj: any;
-  private applyBlue: Boolean;
 
   constructor() {
-    this.applyBlue = false;
+    this.dropAlgoStepObj = {};
   }
 
   private dragStartEvent(event) {
@@ -28,14 +25,12 @@ export class DropWrapperComponent {
   }
 
   private onItemDrop(event, seq) {
-    console.log(event);
-    this.applyBlue = true;
     if (this.dropAlgoStep === '' && event.dragData) {
       this.dropEnabled = false;
       this.dragEnabled = true;
       this.dropAlgoStepObj = { ...event.dragData };
       this.dropAlgoStep = event.dragData;
-      this.correctSequence.emit({ 'index': seq, 'order': event.dragData.order, 'msg': event.dragData.msg, 'data': this.dropAlgoStep });
+      this.dropData.emit({'index': seq, 'data': this.dropAlgoStep});
     }
   }
 
@@ -43,9 +38,8 @@ export class DropWrapperComponent {
     if (event.dataTransfer.dropEffect === 'move') {
       this.dropEnabled = true;
       this.dragEnabled = false;
-      this.applyBlue = false;
       this.dropAlgoStep = '';
-      this.correctSequence.emit({ 'index': Number(event.target.id), 'order': '' });
+      this.dropData.emit({ 'index': Number(event.target.id), 'data': this.dropAlgoStep });
     }
   }
 

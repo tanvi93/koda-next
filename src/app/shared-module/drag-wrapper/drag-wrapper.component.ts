@@ -11,15 +11,14 @@ export class DragWrapperComponent {
   @Input() seq;
   @Input() splitStep;
   @Output() displayError = new EventEmitter();
+  @Output() dragStep = new EventEmitter();
   private dropEnabled: Boolean = false;
   private dragEnabled: Boolean = true;
-  private dragEnd;
   private dragObj;
   private imageObj;
 
 
   constructor() {
-    this.dragEnd = false;
     this.imageObj = [];
   }
 
@@ -31,18 +30,18 @@ export class DragWrapperComponent {
     if (event.dataTransfer.dropEffect === 'move') {
       this.dropEnabled = true;
       this.dragEnabled = false;
-      this.dragEnd = true;
       this.msg = '';
+      this.dragStep.emit(this.msg);
     }
   }
 
   private onItemDrop(event) {
     console.log(this.msg, event.dragData);
     if (this.msg === '' && event.dragData) {
-      this.dragEnd = false;
       this.dropEnabled = false;
       this.dragEnabled = true;
       this.msg = event.dragData;
+      this.dragStep.emit(event.dragData);
     }
   }
 

@@ -1,5 +1,5 @@
-<div fxLayout="row" fxLayoutAlign="start center" class="correct-step-container" id="{{seq}}" droppable (onDrop)="onItemDrop($event,seq)" draggable [dragData]="dropAlgoStepObj" (onDragStart)="dragStartEvent($event)"
-  (onDragEnd)="onDragEnd($event,algoData)" [dropEnabled]="dropEnabled" [dragEnabled]="dragEnabled" [dragClass]="'afterDrop'"
-  [style.background-color]="applyBlue?'#00CAFE':'white'">
-  <ng-content dropStep="dropAlgoStep"></ng-content>
+<div fxLayout="row" fxLayoutAlign="start center" class="correct-step-container" id="{{seq}}" droppable (onDrop)="onItemDrop($event,seq)" 
+   [dropEnabled]="dropEnabled" draggable [dragData]="dropAlgoStepObj" (onDragStart)="dragStartEvent($event)"
+  (onDragEnd)="onDragEnd($event,algoData)" [dragEnabled]="dragEnabled" [dragClass]="'afterDrop'" [style.background-color]="dropAlgoStep?'#00CAFE':'white'">
+  <ng-content></ng-content>
   </div>

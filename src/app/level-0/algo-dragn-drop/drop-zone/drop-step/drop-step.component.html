@@ -1,0 +1,8 @@
+<app-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)">
+<div fxLayout="column" fxLayoutAlign="center center" class="step-number" [style.background-color]="step?'white':'#73dcff'"
+  [style.color]="step?'#73dcff':'white'">{{number}}
+</div>
+<p fxLayout="column" fxFlex="80" class="step-text" [style.color]="step?'white':'#57535f'">{{step.step}}</p>
+<img fxLayout="column" fxFlex="20" class="drop-image" src="{{step.icon}}" alt="">
+</app-drop-wrapper>
+

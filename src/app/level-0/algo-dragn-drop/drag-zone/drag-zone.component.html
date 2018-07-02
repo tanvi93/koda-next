@@ -1,13 +1,7 @@
 <div class='drag-zone'>
   <div fxLayout="column" fxLayoutGap="30px" style="padding: 40px 30px;">
     <div *ngFor="let step of algo.steps;let i = index" fxFlex="100">
-      <app-drag-wrapper [msg]="step" [seq]="i" [splitStep]="diffLook" (displayError)="error($event)">
-        <div class="algoSteps" fxLayout="row" fxLayoutAlign="start center" [id]="seq"
-          [style.background-color]="dragEnd?'#3E3A48':'white'">
-          <p class="text" fxLayout="column" fxFlex="80">{{step.step}}</p>
-          <img fxLayout="column" fxFlex="20" class="step-image" src="{{step.icon}}" alt="">
-        </div>
-      </app-drag-wrapper>
-    </div>
+      <app-drag-step [stepObj]="step"></app-drag-step>
     </div>
   </div>
+</div>

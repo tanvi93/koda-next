@@ -12,7 +12,7 @@ export class AlgoDragnDropComponent implements OnInit {
   private pageId: String;
   private loading: Boolean;
   private imageCount;
-  @ViewChild('dropZone') dropZone;
+  // @ViewChild('dropZone') dropZone;
 
   constructor(private route: ActivatedRoute) {
     this.loading = true;

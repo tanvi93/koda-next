@@ -1,14 +1,7 @@
 <div class='drop-zone'>
   <div fxLayout="column" fxLayoutGap="27px" style="padding: 40px 30px 17px 60px;">
-    <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100" fxLayoutGap="20px">
-      <app-drop-wrapper id="i+1" [seq]="i+1" [imagesOfSteps]="step" (messageEvent)="receiveMessage($event)"
-        (displayError)="hideErrorMsg($event)"  (correctSequence)="correctSequence($event)">
-        <div fxLayout="column" fxLayoutAlign="center center" class="step-number" [style.background-color]="applyBlue?'white':'#73dcff'"
-          [style.color]="applyBlue?'#73dcff':'white'">{{i + 1}}
-        </div>
-        <p fxLayout="column" fxFlex="80" class="step-text" [style.color]="applyBlue?'white':'#57535f'" >{{dropData.step}}</p>
-        <img  fxLayout="column" fxFlex="20" class="drop-image" src="{{dropData.icon}}" alt="">
-      </app-drop-wrapper>
+    <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100" fxLayoutGap="20px">    
+        <app-drop-step [number]="i+1" style="width:100%;" (correctSequence)="correctSequence($event)" (displayError)="hideErrorMsg($event)"></app-drop-step>
     </div>
   </div>
   <span fxLayoutAlign="center start" *ngIf="!errorShow">
