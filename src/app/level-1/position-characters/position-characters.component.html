@@ -5,8 +5,10 @@
       <app-position-validation class="position-validation" [contentData]="contentData" [errorFlag]="errorFlag"></app-position-validation>
     </div>
     <div fxFlex="40" fxLayoutAlign="space-around start">
-      <app-character-positioning class="character-position" [contentData]="contentData" [flagData]="flagData" (positionDetail)="receivedPosDetail($event)" (hideErrorMsg)="hideErrorMsg($event)"
+      <app-character-positioning class="character-position" [contentData]="contentData" [flagData]="flagData" 
       (taskFlag)="receiveWarning($event)" ></app-character-positioning>
     </div>
   </div>
 </div>
+
+<!-- (positionDetail)="receivedPosDetail($event)"  (hideErrorMsg)="hideErrorMsg($event)"from output section -->

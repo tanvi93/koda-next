@@ -1,5 +1,5 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
 import { selectCharacterContent } from './../../../data/selectCharacterContent';
 import { UtilitiesService } from './../../../shared-services/utilities.service';
@@ -10,6 +10,7 @@ import { UtilitiesService } from './../../../shared-services/utilities.service';
   templateUrl: './character-positioning.component.html',
   styleUrls: ['./character-positioning.component.scss']
 })
+  
 export class CharacterPositioningComponent implements OnInit {
   dialogRef: MatDialogRef<SuccessModalComponent>;
   @Input() contentData;
@@ -26,7 +27,6 @@ export class CharacterPositioningComponent implements OnInit {
   private incompleteTaskFlag: boolean;
   private positionCheck: object;
   private images: object;
-  private modalObj = {};
   private inputText = ['( 2, 0)', '( -6, 1)', '( 0, -17)'];
   private coord: Array<boolean>;
   private topShift: Array<String>;
@@ -109,6 +109,7 @@ export class CharacterPositioningComponent implements OnInit {
       this.backgroundWidth = x[0].clientWidth;
     }, 0);
     const selectedIndexs = JSON.parse(localStorage.getItem('gameProgress')).preferenceMap;
+console.log(  );
 
     this.backgroundImage = selectCharacterContent.characterList[0].list[selectedIndexs.background];
     this.contentData.dragImageContent[0].imagePath = selectCharacterContent.characterList[1].list[selectedIndexs.monkey];
@@ -130,39 +131,36 @@ export class CharacterPositioningComponent implements OnInit {
     this.positionDetail.emit(this.positionCheck);
   }
 
-  ngOnChanges() {
-  }
 
   onDragBegin(ev) {
     this.hideErrorMsg.emit(true);
   }
 
-  onMoving(ev) {
-  }
-
+  
   onMoveEnd(ev) {
     this.currentLeftPos = Math.round(ev.x);
     this.currentTopPos = Math.round(ev.y);
   }
 
-  onDragEnd(ev) {
+  onDragEnd(ev, index) {
     const currentData: any = document.getElementsByClassName(ev.id);
     let x: any = null;
     let y: any = null;
-
+    console.log(Object.values(this.offsetValue)[0]);
+    
     switch (ev.id) {
       case 'monkey-position': {
         setTimeout(() => {
 
-          x = this.unitXConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitYConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
+          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
+          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
 
           this.positionCheck[0].left = x;
           this.positionCheck[0].top = y;
           this.topShift[0] = '0';
           this.leftShift[0] = '0';
-          document.getElementById('input0').style.transform = 'translate('
-            + this.currentLeftPos + 'px,' + (this.currentTopPos - (currentData[0].height * 0.02)) + 'px)';
+          // document.getElementById('input0').style.transform = 'translate('
+          //   + this.currentLeftPos + 'px,' + (this.currentTopPos - (currentData[0].height * 0.02)) + 'px)';
           this.offsetValue.monkeyOffset.x = x;
           this.offsetValue.monkeyOffset.y = y;
           this.inputText[0] = '( ' + x + ', ' + y + ')';
@@ -172,14 +170,14 @@ export class CharacterPositioningComponent implements OnInit {
 
       case 'fruit-position': {
         setTimeout(() => {
-          x = this.unitXConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitYConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
+          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
+          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
           this.positionCheck[1].left = x;
           this.positionCheck[1].top = y;
           this.topShift[1] = '0';
           this.leftShift[1] = '0';
-          document.getElementById('input1').style.transform = 'translate('
-            + (this.currentLeftPos - (currentData[0].width * 1.1)) + 'px,' + (this.currentTopPos + (currentData[0].height)) + 'px)';
+          // document.getElementById('input1').style.transform = 'translate('
+          //   + (this.currentLeftPos - (currentData[0].width * 1.1)) + 'px,' + (this.currentTopPos + (currentData[0].height)) + 'px)';
           this.offsetValue.fruitOffset.x = x;
           this.offsetValue.fruitOffset.y = y;
           this.inputText[1] = '( ' + x + ', ' + y + ')';
@@ -189,14 +187,14 @@ export class CharacterPositioningComponent implements OnInit {
 
       case 'cap-position': {
         setTimeout(() => {
-          x = this.unitXConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitYConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
+          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
+          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
           this.positionCheck[2].left = x;
           this.positionCheck[2].top = y;
           this.topShift[2] = '0';
           this.leftShift[2] = '0';
-          document.getElementById('input2').style.transform = 'translate('
-            + (this.currentLeftPos - (currentData[0].width * 0.2)) + 'px,' + (this.currentTopPos - currentData[0].height) + 'px)';
+          // document.getElementById('input2').style.transform = 'translate('
+          //   + (this.currentLeftPos - (currentData[0].width * 0.2)) + 'px,' + (this.currentTopPos - currentData[0].height) + 'px)';
           this.offsetValue.capOffset.x = x;
           this.offsetValue.capOffset.y = y;
           this.inputText[2] = '( ' + x + ', ' + y + ')';
@@ -211,20 +209,18 @@ export class CharacterPositioningComponent implements OnInit {
     }, 100)
   }
 
-  unitXConversion = (backgroundValue, currentValue, totalValue, normalizeValue, width) => {
+  unitConversion = (backgroundValue, currentValue, totalValue, normalizeValue, data) => {
     let x;
-    x = ((currentValue / backgroundValue) * totalValue) - normalizeValue + ((width * totalValue) / backgroundValue);
+    if (totalValue === 70) {
+      x = ((currentValue / backgroundValue) * totalValue) - normalizeValue + ((data * totalValue) / backgroundValue);
+    } else if (totalValue === 42) {
+      x = normalizeValue - ((currentValue / backgroundValue) * totalValue) - ((data * totalValue) / backgroundValue);
+    }
     return Math.round(x);
   }
 
-  unitYConversion = (backgroundValue, currentValue, totalValue, normalizeValue, height) => {
-    let y;
-    y = normalizeValue - ((currentValue / backgroundValue) * totalValue) - ((height * totalValue) / backgroundValue);
-    return Math.round(y);
-  }
 
   checkList() {
-
     if (this.flagData.indexOf(false) === -1) {
       //store character offsets into backend
       const offsets = this.offsetValue;
