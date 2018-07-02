@@ -61,7 +61,6 @@ export class MoveWithSpeedService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const speed = Number(block.getFieldValue('speed'));
-      console.log(speed);
       const childJson = computeChildJson(block.childBlocks_);
       let json = {
         childJson,
