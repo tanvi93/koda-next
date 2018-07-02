@@ -41,7 +41,7 @@ export class ProjectsComponent implements OnInit {
 
   resume() {
     const { atLevel, atModule, atResource } = this.gameProgress;
-    let path = map[atLevel].modules[atModule-1].resources[atResource].path;
+    let path = map[atLevel].modules[atModule - 1].resources[atResource].path;
     this.route.navigate([path]);
   }
 

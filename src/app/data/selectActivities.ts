@@ -8,7 +8,7 @@ export const selectActivityContent = {
                 id: 0,
                 name: 'fox-grape-storyline',
                 title: 'Fox and Grape',
-                activityImage: './assets/images/activities/fox_and_grapes/setting_reference.jpg',
+                activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                 status: {
                     lock: {
                         imageStatus: false,

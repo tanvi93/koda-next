@@ -440,11 +440,11 @@ export const quiz = {
     },
     "identical_twins_q1": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
-        "mascotImage": "./../assets/images/activities/identical_twins/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/activities/identical_twins/preview.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby was crying one day. What could have made her cry?",
         "options": [
             {
@@ -469,11 +469,11 @@ export const quiz = {
     },
     "identical_twins_q2": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
-        "mascotImage": "./../assets/images/activities/identical_twins/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/activities/identical_twins/preview.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "What would happen if Betty sneezes?",
         "options": [
             {
@@ -498,11 +498,11 @@ export const quiz = {
     },
     "identical_twins_q3": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
-        "mascotImage": "./../assets/images/activities/identical_twins/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/activities/identical_twins/preview.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby ate a grape. What would be the series of things that happen in the correct sequence?",
         "options": [
             {
@@ -527,11 +527,11 @@ export const quiz = {
     },
     "identical_twins_q4": {
         "instructionBarContent": "Check your understanding of events and responses.",
-        "mascotImage": "./../assets/images/activities/identical_twins/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "./../assets/images/activities/identical_twins/preview.gif",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "When Betty cries, is it an event or a response?",
         "options": [
             {
