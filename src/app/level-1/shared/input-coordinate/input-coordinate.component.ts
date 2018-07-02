@@ -10,11 +10,16 @@ export class InputCoordinateComponent implements OnInit {
   @Output() inputData = new EventEmitter<any>();
   @Output() errorMsgFlag = new EventEmitter<boolean>();
   private inputCoordinateValue: any;
+  private inputParaX: string;
+  private inputParaY: string;
   constructor() { 
     this.inputCoordinateValue = [null, null];
   }
 
   ngOnInit() {
+    console.log(this.inputContent);
+    this.inputParaX = this.inputContent.inputParaContent1;
+    this.inputParaY = this.inputContent.inputParaContent2;
   }
 
   clearInput(ev) {
@@ -23,22 +28,31 @@ export class InputCoordinateComponent implements OnInit {
   }
  
   inputValue(ev) {
+    console.log(ev);
+    
     switch (ev.target.id) {
       case 'x': {
-        this.inputCoordinateValue[0] = Number(ev.target.value);
+        this.inputCoordinateValue[0] = ev.target.value;
+        console.log(this.inputCoordinateValue);
+        
         break;
       }
       case 'y': {
-        this.inputCoordinateValue[1] = Number(ev.target.value);
+        this.inputCoordinateValue[1] = ev.target.value;
+        console.log(this.inputCoordinateValue);
         break;
       }
       default: ;  
     }
   }
 
-  fetchInput() {
-    this.inputData.emit(this.inputCoordinateValue);
+  fetchInput(inputx, inputy) {
+    this.inputCoordinateValue[0] = inputx;
+    this.inputCoordinateValue[1] = inputy;
+    this.inputData.emit(this.inputCoordinateValue)
   }
+
+
   // onKeydown($event) {
   //   const allowedValue = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', 'Tab', 'Enter', 'Backspace',
   //     'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Shift'];

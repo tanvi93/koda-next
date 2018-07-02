@@ -1,3 +1,14 @@
-<p>
-  select-characters works!
-</p>
+<div class="select-character-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="characterData.mascotHead" [mascotBgColor]="characterData.mascotBg" [instructions]="characterData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="50" fxLayoutAlign="space-around start">
+      <app-character-selection-section class="character-selection" 
+      [contentData]="characterData" (imageData)='recievedImagePath($event)'
+        ></app-character-selection-section>
+    </div>
+    <div fxFlex="50" fxLayoutAlign="space-around start">
+      <app-character-display-section class="character-display"
+      [contentData]="characterData" [imageDetail]="imagePath"></app-character-display-section>
+    </div>
+  </div>
+</div>

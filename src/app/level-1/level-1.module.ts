@@ -10,6 +10,8 @@ import { InputCoordinateComponent } from './shared/input-coordinate/input-coordi
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 import { InputSectionComponent } from './fox-grape/input-section/input-section.component';
 import { OutputSectionComponent } from './fox-grape/output-section/output-section.component';
+import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
+import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { OutputSectionComponent } from './fox-grape/output-section/output-sectio
     SharedModuleModule,
     Level1RoutingModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, FoxGrapeComponent, InputSectionComponent, OutputSectionComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, FoxGrapeComponent, InputSectionComponent, OutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent]
+ 
 })
 export class Level1Module { }

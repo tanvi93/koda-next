@@ -2156,7 +2156,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "lambent_app",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "That's a great app Dad showed me! I think we can code an animation and show my class how the app can be useful to our school as well. Help me with the code.",
-        "mascotImage": "./../assets/images/activities/lambent_app/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2170,7 +2170,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/lambent_app/preview.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/preview.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2183,11 +2183,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Lit Bedroom",
-                "src": "./../assets/images/activities/lambent_app/bg_bedroom_lit.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/bg_bedroom_lit.jpg"
             },
             {
                 "name": "Dark Bedroom",
-                "src": "./../assets/images/activities/lambent_app/bg_bedroom_dark.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/bg_bedroom_dark.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2199,7 +2199,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "eclipse",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "I have coded an animation showing how solar and lunar eclipses occur. But a few bugs still remain in my code. I want it to work as it is in the preview. Can you take a look and help me fix it before the class?",
-        "mascotImage": "./../assets/images/activities/eclipse/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2213,7 +2213,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/eclipse/preview.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/preview.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2226,7 +2226,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Space",
-                "src": "./../assets/images/activities/eclipse/bg_coding.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_coding.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2234,7 +2234,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "buttons": [
             // {
             //     "name": "Solar Eclipse Button",
-            //     "src": "./../assets/images/activities/eclipse/solar_eclipse_button.png",
+            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png",
             //     "initialOffset": {
             //         "x": -15,
             //         "y": -15
@@ -2244,7 +2244,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             // },
             // {
             //     "name": "Lunar Eclipse Button",
-            //     "src": "./../assets/images/activities/eclipse/lunar_eclipse_button.png",
+            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png",
             //     "initialOffset": {
             //         "x": 15,
             //         "y": -15
