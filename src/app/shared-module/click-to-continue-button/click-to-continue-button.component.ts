@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-click-to-continue-button',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./click-to-continue-button.component.scss']
 })
 export class ClickToContinueButtonComponent implements OnInit {
-
+@Input() position;
   constructor() { }
 
   ngOnInit() {
