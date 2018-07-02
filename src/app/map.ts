@@ -125,7 +125,7 @@ export const map: any = [
                         name: 'Fox & Grapes_Storyline',
                         path: 'storyline/fox-grape',
                         order: 1,
-                        image: './assets/images/activities/fox_and_grapes/setting_reference.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Fox & Grapes_Activity',

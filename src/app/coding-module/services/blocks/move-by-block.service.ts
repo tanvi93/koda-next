@@ -9,8 +9,10 @@ declare let Interpreter: any;
 export class MoveByBlockService {
   private sp: SpriteService;
   public xml; String;
+  private blocks;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.xml = `<block type = "move_by" id = "move_by" >
                     <value name="steps" >
                         <shadow type="number" > </shadow>
@@ -43,7 +45,8 @@ export class MoveByBlockService {
       }
     };
 
-    Blockly.JavaScript['move_by'] = function (block) {
+    Blockly.JavaScript['move_by'] = (block) => {
+      this.blocks.push(block);
       const direction = block.getFieldValue('direction');
       let steps = Blockly.JavaScript.valueToCode(block, 'steps');
       let spriteIndex = block.getFieldValue('sprite');
@@ -56,7 +59,8 @@ export class MoveByBlockService {
         hasAnimation: true,
         x: 0,
         y: 0,
-        inputBlock: null
+        inputBlock: null,
+        blockIndex: this.blocks.length - 1
       }
       if (!Number.isNaN(Number(steps))) {
         steps = Math.abs(steps);
@@ -110,8 +114,11 @@ export class MoveByBlockService {
   initInterpreter = (interpreter, scope, coordinatesJson, cb) => {
     // Ensure function name does not conflict with variable names.
     Blockly.JavaScript.addReservedWords('move_by');
-    const wrapper = function (obj, callback) {
+    const wrapper = (obj, callback) => {
       let json = JSON.parse(obj);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       const change = json.x ? 'x' : 'y';
       let animationTime = Math.abs(json[change] * coordinatesJson[`${change}AxisUnit`] * 3);
       const executeFn = (axis) => {
@@ -124,6 +131,9 @@ export class MoveByBlockService {
             json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(intrp.value) : -1 * Math.abs(intrp.value);
             cb(json);
             setTimeout(() => {
+              if (this.blocks) {
+                this.blocks[json.blockIndex].removeSelect();
+              } 
               callback(json);
             }, animationTime);
             clearInterval(interval);
@@ -135,6 +145,9 @@ export class MoveByBlockService {
       } else {
         cb(json);
         setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
+          } 
           callback(json);
         }, animationTime);
       }
