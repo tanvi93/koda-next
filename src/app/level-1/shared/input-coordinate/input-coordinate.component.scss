@@ -1,0 +1,35 @@
+.input-div {
+    height: 100%;
+    display: block;
+    margin-left: 4%;
+    & .input-wrapper-x {
+        display: table;
+        margin: 10%;
+        & p {
+            display: table-cell;
+            font-size: 1.4vh;
+        }
+        & input {
+            display: table-cell;
+            width: 50px;
+            height: 50px;
+
+        }
+    }
+    & .input-wrapper-y {
+        display: table;
+        margin: 10%;
+        & p {
+            display: table-cell;
+            font-size: 1.4vh;
+        }
+        & input {
+            display: table-cell;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    & .action-button{
+        margin-left: 40%;
+    }
+}

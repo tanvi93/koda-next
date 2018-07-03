@@ -1,0 +1,9 @@
+<div class="input-section-inner-div">
+  <div class="header-section">
+    <app-quiz-question [question]='contentData.question' [style]="stylingObj"></app-quiz-question>
+  </div>
+  <div class="input-section">
+    <app-input-coordinate [inputContent]="contentData" (inputData)="recievedInput($event)"></app-input-coordinate>
+  </div>
+</div>
+
