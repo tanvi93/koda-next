@@ -23,7 +23,7 @@ export const selectCharacterContent = {
         'id': 3,
         'name': 'Cap',
         'list': ['http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap1.png', 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap2.png', 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap3.png', 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/cap4.png']
-        }],
+    }],
     actionButtonText: 'Continue',
     successPopupHeading: 'Nice!',
     successPopupText: 'That combination of characters and background will make a fun-looking game.'

@@ -918,7 +918,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/eclipse/earth.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/earth.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -937,7 +937,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/eclipse/moon.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/moon.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,

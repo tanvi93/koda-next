@@ -698,45 +698,18 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }],
         "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
   <variables></variables>
-  <block type="controls_repeat_forever" id="xPqeLb-r(k%H$c1x]oa2" x="110" y="230">
-    <statement name="in_forever_loop">
-      <block type="controls_if" id="controls_if">
-        <value name="condition">
-          <block type="touch" id="touch">
-            <field name="character1">2</field>
-            <field name="character2">1</field>
-          </block>
-        </value>
-        <statement name="in_if">
-          <block type="show_hide" id="EEOYjn-kuCS5Wl==-;9f">
-            <field name="sprite">1</field>
-            <field name="visibility_status">0</field>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-  <block type="go_to" id="go_to" x="410" y="230">
-    <field name="sprite">2</field>
-    <value name="input_x">
-      <shadow type="number" id="EOiBD_gg!+7N(?G2z@Je">
-        <field name="n">-2</field>
-      </shadow>
-    </value>
-    <value name="input_y">
-      <shadow type="number" id="H,;34MqqC9w3-T)V9BW4">
-        <field name="n">0</field>
-      </shadow>
-    </value>
+  <block type="say" id="say" x="190" y="90">
+    <field name="sprite">0</field>
+    <field name="message">Where are you?</field>
     <next>
-      <block type="move_by" id="move_by">
-        <field name="sprite">1</field>
-        <field name="direction">D</field>
-        <value name="steps">
-          <shadow type="number" id="Y,rup.$rl[0e*2Aw)-9/">
-            <field name="n">22</field>
-          </shadow>
-        </value>
+      <block type="show_coords" id="showCoords">
+        <field name="sprite">2</field>
+        <next>
+          <block type="say" id="H$|6~$~AI5{^Zr!r#w1f">
+            <field name="sprite">0</field>
+            <field name="message">Ok</field>
+          </block>
+        </next>
       </block>
     </next>
   </block>
@@ -2183,7 +2156,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "lambent_app",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "That's a great app Dad showed me! I think we can code an animation and show my class how the app can be useful to our school as well. Help me with the code.",
-        "mascotImage": "./../assets/images/activities/lambent_app/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2197,7 +2170,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/lambent_app/preview.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/preview.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2210,11 +2183,11 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Lit Bedroom",
-                "src": "./../assets/images/activities/lambent_app/bg_bedroom_lit.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/bg_bedroom_lit.jpg"
             },
             {
                 "name": "Dark Bedroom",
-                "src": "./../assets/images/activities/lambent_app/bg_bedroom_dark.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/bg_bedroom_dark.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2226,7 +2199,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "activity_name": "eclipse",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "I have coded an animation showing how solar and lunar eclipses occur. But a few bugs still remain in my code. I want it to work as it is in the preview. Can you take a look and help me fix it before the class?",
-        "mascotImage": "./../assets/images/activities/eclipse/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -2240,7 +2213,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/eclipse/preview.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/preview.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2253,7 +2226,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "backgrounds": [
             {
                 "name": "Space",
-                "src": "./../assets/images/activities/eclipse/bg_coding.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_coding.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2261,7 +2234,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "buttons": [
             // {
             //     "name": "Solar Eclipse Button",
-            //     "src": "./../assets/images/activities/eclipse/solar_eclipse_button.png",
+            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png",
             //     "initialOffset": {
             //         "x": -15,
             //         "y": -15
@@ -2271,7 +2244,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
             // },
             // {
             //     "name": "Lunar Eclipse Button",
-            //     "src": "./../assets/images/activities/eclipse/lunar_eclipse_button.png",
+            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png",
             //     "initialOffset": {
             //         "x": 15,
             //         "y": -15

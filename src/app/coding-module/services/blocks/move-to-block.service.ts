@@ -12,8 +12,10 @@ export class MoveToBlockService {
   private sp: SpriteService;
   public xml: String;
   private numberBlock: NumberBlockService;
+  private blocks;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.sp = new SpriteService();
     spriteData = this.sp.getAllSprites(activity);
     this.numberBlock = new NumberBlockService();
@@ -48,7 +50,8 @@ export class MoveToBlockService {
       }
     };
 
-    Blockly.JavaScript['move_to'] = function (block) {
+    Blockly.JavaScript['move_to'] = (block) => {
+      this.blocks.push(block);
       const input_x = Blockly.JavaScript.valueToCode(block, 'input_x');
       const input_y = Blockly.JavaScript.valueToCode(block, 'input_y');
       let spriteIndex = block.getFieldValue('sprite');
@@ -57,7 +60,8 @@ export class MoveToBlockService {
         hasAnimation: true,
         x: input_x,
         y: input_y,
-        spriteIndex
+        spriteIndex,
+        blockIndex: this.blocks.length - 1
       }
       return `moveTo('${JSON.stringify(json)}');\n`;
     };
@@ -67,6 +71,9 @@ export class MoveToBlockService {
     // Ensure function name does not conflict with variable names.
     const wrapper = (obj, callback) => {
       let json = JSON.parse(obj);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       const currentPosition = sprites[json.spriteIndex].currentOffset ? sprites[json.spriteIndex].currentOffset : sprites[json.spriteIndex].initialOffset;
       let animationTime = 500;
       const executeFn = (axis) => {
@@ -85,6 +92,9 @@ export class MoveToBlockService {
             animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
             cb(json);
             setTimeout(() => {
+              if (this.blocks) {
+                this.blocks[json.blockIndex].removeSelect();
+              } 
               callback(json);
             }, animationTime);
           }
@@ -98,6 +108,9 @@ export class MoveToBlockService {
         cb(json);
         animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
         setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
+          } 
           callback(json);
         }, animationTime);
       }  

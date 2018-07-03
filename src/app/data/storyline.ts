@@ -37,12 +37,12 @@ export const stories = {
         ]
     }, identical_twins: {
         backgroundImgs: [
-            './assets/images/activities/identical_twins/step1.png',
-            './assets/images/activities/identical_twins/step2.png',
-            './assets/images/activities/identical_twins/step3.png',
-            './assets/images/activities/identical_twins/step4.png',
-            './assets/images/activities/identical_twins/step5.png',
-            './assets/images/activities/identical_twins/step6.png'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step1.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step2.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step3.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step4.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step5.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step6.png'
         ]
     }, eclipse: {
         backgroundImgs: [
@@ -52,6 +52,11 @@ export const stories = {
         backgroundImgs: [
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step1.jpg',
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step2.jpg'
+        ]
+    }, lambent_app: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step1.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step2.jpg'
         ]
     }
 }

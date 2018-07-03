@@ -334,6 +334,7 @@ export class InterpreterService {
     // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     // Blockly.JavaScript.addReservedWords('highlightBlock');
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
+    this.getXml(true);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
     });
@@ -363,7 +364,7 @@ export class InterpreterService {
       this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
         this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
           if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        },callback);
+        }, callback);
       });
 
       if (this.myInterpreter) {

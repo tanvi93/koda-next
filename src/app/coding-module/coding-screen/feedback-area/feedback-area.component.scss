@@ -1,13 +1,44 @@
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+
 .feedbackzone {  
   background-color: #3e3a48;
     margin-top: 1%;
-  & .feedbackTxt {
-    margin: auto;
-    max-width: 85%;
     font-family: Quicksand;
     font-size: 18.8px;
     font-weight: 500;
     color: #ffff00;
+    position: relative;
+  & .feedbackTxt {
+    margin: auto;
+    max-width: 85%;
+  }
+}
+
+.accordion {
+  background-color: #3e3a48;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all ease-in-out 0.5s;
+  &.slide-animation {
+    height: 250px;
+    animation: slideInUp 0.5s ease-in-out;
+  }
+  .feedback-header {
+    height: 40px;
+    background: #3e3a48;
+    border-bottom: 1px #26192F solid;
+    box-shadow: 0px 1px 10px #26192F;
+    & h3 {
+      color: $white;
+      font-family: 'QuickSand';
+    }
+    & .mat-icon {
+      color: $white;
+    }
   }
 }
 

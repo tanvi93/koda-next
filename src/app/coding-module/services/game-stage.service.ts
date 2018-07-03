@@ -253,30 +253,12 @@ export class GameStageService {
 
   drawSpeechBubble(index = 0, text = 'Hello there', duration) {
     let isOnRight = false;
-    let top = this.sprites[index].instance.top - 30;
+    let top = this.sprites[index].instance.top;
     let left = this.sprites[index].instance.left;
     let imageWidth = (this.sprites[index].instance.width * this.sprites[index].instance.scaleX);
     let length = text.length ? text.length : 1;
-    // let width = (length * 55) > 480 ? 480 : (length * 55);
-    let width = (length > 16 ? 16 : length) * 4 * this.xAxisUnit;
-    const height = (parseInt('' + length / 17) + 1) * 90;
+
     const onLoadBubble = () => {
-      top -= parseInt('' + length / 17) * 40;
-      if (!isOnRight) {
-        left -= speechBubble.width * (width / this.fabricCanvas.width);
-      }
-      top = top > 0 ? top : 0;
-      left = left > 0 ? left : 0;
-      width = width > 100 ? width : 100;
-      const speechBubbleInstance = new fabric.Image(speechBubble, {
-        top,
-        left,
-        scaleX: width / this.fabricCanvas.width,
-        scaleY: height / this.fabricCanvas.height,
-        selectable: false,
-        hoverCursor: 'default'
-      });
-      this.fabricCanvas.add(speechBubbleInstance);
       if (length > 16) {
         let str = text.split(' ');
         text = '';
@@ -292,16 +274,32 @@ export class GameStageService {
       }
       let line = text.split('\n');
       var textObj = new fabric.Text(text, {
-        left: left + ((length*2) > 30 ? 20 : (length*2)) + 10,
-        top: top + (line.length > 1 ? 8 : 5),
         fontSize: 20
       });
+      if (!isOnRight) {
+        left -= textObj.width + 30;
+        left = left > 0 ? left : 0;
+      }
+      top -= textObj.height * 1.5;
+      top = top > 10 ? top : 10;
+      textObj.set('left', left);
+      textObj.set('top', top);
+      const speechBubbleInstance = new fabric.Image(speechBubble, {
+        top : top > 10 ? top - 10 : 0,
+        left: left > 30 ? left - 30 : 0,
+        scaleX: (textObj.width + 60) / speechBubble.width,
+        scaleY: (textObj.height * 2)/ speechBubble.height,
+        selectable: false,
+        hoverCursor: 'default'
+      });
+      this.fabricCanvas.add(speechBubbleInstance);
       this.fabricCanvas.add(textObj);
       this.spriteStatusList.push({ say: text });
       setTimeout(() => {
         this.fabricCanvas.remove(speechBubbleInstance, textObj);
       }, duration);
     }
+    
     const speechBubble = new Image();
     speechBubble.onload = onLoadBubble;
     if (left > (10 * this.xAxisUnit)) {
