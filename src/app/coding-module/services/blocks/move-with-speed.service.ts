@@ -38,9 +38,12 @@ export class MoveWithSpeedService {
           ]), 'direction')
           .appendField(' by ');
         this.appendDummyInput()
-          .appendField('steps');
-        this.appendValueInput('speed');
-        this.appendDummyInput()
+          .appendField('steps')
+          .appendField(new Blockly.FieldDropdown([
+            ['slow', '0.6'],
+            ['medium', '1'],
+            ['fast', '2'],
+          ]), 'speed')
           .appendField('speed');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -57,7 +60,7 @@ export class MoveWithSpeedService {
       let steps = Blockly.JavaScript.valueToCode(block, 'steps');
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
-      let speed = Blockly.JavaScript.valueToCode(block, 'speed');      
+      const speed = Number(block.getFieldValue('speed'));
       const childJson = computeChildJson(block.childBlocks_);
       let json = {
         childJson,
