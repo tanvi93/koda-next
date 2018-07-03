@@ -35,6 +35,9 @@ export class UtilitiesService {
         for (let k = 0; k < map[i].modules[j].resources.length; k++) {
           if (currentPath === map[i].modules[j].resources[k].path) {
             this.currentPageDetails = map[i].modules[j].resources[k];
+            this.currentPageDetails.currentLevel = i;
+            this.currentPageDetails.currentModule = j;
+            this.currentPageDetails.currentResource = k;
             pageType = map[i].modules[j].resources[k].type;
             if (pageType === 'badge') {
               let obj = map[i].modules[j].resources[k];
@@ -88,7 +91,9 @@ export class UtilitiesService {
     if (!this.currentPageDetails) {
       this.getCurrentPageDetails(currentPath);
     }
-    this.updateProgress(this.currentPageDetails.atLevel, this.currentPageDetails.atModule, this.currentPageDetails.atResource, this.currentPageDetails.type, badgeData);
+    const { currentLevel, currentModule, currentResource, atLevel, atModule, atResource } = this.currentPageDetails;
+    this.updateProgress(atLevel, atModule, atResource, this.currentPageDetails.type, badgeData);
+    map[currentLevel].modules[currentModule].resources[currentResource].status = 'done';
     this.router.navigate([`/${this.currentPageDetails.nextPath}`]);
     this.currentPageDetails = null;
   }
@@ -104,26 +109,30 @@ export class UtilitiesService {
     let localGameData = JSON.parse(localStorage.getItem('gameProgress'));
     userProgressBody = localUserData ? localUserData : userProgressBody;
     gameProgressBody = localGameData ? localGameData : gameProgressBody;
-    userProgressBody.pointsEarned += this.pointsEarned[pageType] ? this.pointsEarned[pageType] : 0;
-    gameProgressBody.pointsEarned += this.pointsEarned[pageType] ? this.pointsEarned[pageType] : 0;
-    gameProgressBody.atLevel = atLevel;
-    gameProgressBody.atModule = atModule;
-    gameProgressBody.atResource = atResource;
-    if (pageType === 'coding') {
-      gameProgressBody.lastCodingPageXml = localStorage.getItem('lastCodeXml');
+    if (!this.currentPageDetails.status || !this.checkThePageVisited(this.currentPageDetails)) {
+      userProgressBody.pointsEarned += this.pointsEarned[pageType] ? this.pointsEarned[pageType] : 0;
+      gameProgressBody.pointsEarned += this.pointsEarned[pageType] ? this.pointsEarned[pageType] : 0;
+      gameProgressBody.atLevel = atLevel;
+      gameProgressBody.atModule = atModule;
+      gameProgressBody.atResource = atResource;
+    
+      if (pageType === 'coding') {
+        gameProgressBody.lastCodingPageXml = localStorage.getItem('lastCodeXml');
+      }
+      if (pageType === 'badge') {
+        userProgressBody.badgesEarned += 1;
+        userProgressBody.modulesCompleted += 1;
+        userProgressBody.titleEarned = badgeData.badge;
+        userProgressBody.activitiesCompleted += badgeData.type === 'activity' ? badgeData.no_of_activities : 0;
+        userProgressBody.challengesCompleted += badgeData.type === 'challenge' ? 1 : 0;
+        gameProgressBody.badgesEarned += 1;
+        gameProgressBody.modulesCompleted += 1;
+        gameProgressBody.activitiesCompleted += badgeData.type === 'activity' ? badgeData.no_of_activities : 0;
+        gameProgressBody.challengesCompleted += badgeData.type === 'challenge' ? 1 : 0;
+      }
+      localStorage.setItem('userProgress', JSON.stringify(userProgressBody));
+      localStorage.setItem('gameProgress', JSON.stringify(gameProgressBody));
     }
-    if (pageType === 'badge') {
-      userProgressBody.badgesEarned += 1;
-      userProgressBody.modulesCompleted += 1;
-      userProgressBody.activitiesCompleted += badgeData.type === 'activity' ? badgeData.no_of_activities : 0;
-      userProgressBody.challengesCompleted += badgeData.type === 'challenge' ? 1 : 0;
-      gameProgressBody.badgesEarned += 1;
-      gameProgressBody.modulesCompleted += 1;
-      gameProgressBody.activitiesCompleted += badgeData.type === 'activity' ? badgeData.no_of_activities : 0;
-      gameProgressBody.challengesCompleted += badgeData.type === 'challenge' ? 1 : 0;
-    }
-    localStorage.setItem('userProgress', JSON.stringify(userProgressBody));
-    localStorage.setItem('gameProgress', JSON.stringify(gameProgressBody));
     // this.api.postUserProgress(userProgressBody);
     // this.api.postGameProgress(gameProgressBody);
   }
@@ -170,6 +179,7 @@ export class UtilitiesService {
   }
 
   deductPointsForHint = () => {
+    if (this.currentPageDetails.status === 'done' || this.checkThePageVisited(this.currentPageDetails)) return;
     let localUserData = JSON.parse(localStorage.getItem('userProgress'));
     let localGameData = JSON.parse(localStorage.getItem('gameProgress'));
     let userProgressBody = localUserData ? localUserData : {};
@@ -185,11 +195,22 @@ export class UtilitiesService {
 
   getPointsForPage = (currentPath) => {
     this.getCurrentPageDetails(currentPath);
+    if (this.currentPageDetails.status === 'done' || this.checkThePageVisited(this.currentPageDetails)) return;
     return this.pointsEarned[this.currentPageDetails.type];
   }
 
   scoreChangeCallback(callback) {
     this.scorerer = callback
+  }
+
+  checkThePageVisited(currentPageDetails) {
+    let localGameData = JSON.parse(localStorage.getItem('gameProgress'));
+    const { atLevel, atModule, atResource } = localGameData;
+    const { currentLevel, currentModule, currentResource } = currentPageDetails;
+    if (currentLevel < atLevel) return true;
+    if (currentLevel === atLevel && currentModule < atModule) return true;
+    if (currentLevel === atLevel && currentModule === atModule && currentResource < atResource) return true;
+    return false;
   }
 
 }

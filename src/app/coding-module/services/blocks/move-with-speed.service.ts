@@ -9,8 +9,10 @@ declare let Interpreter: any;
 export class MoveWithSpeedService {
   private sp: SpriteService;
   public xml; String;
+  private blocks;
 
   constructor(activity = null) {
+    this.blocks = [];
     this.xml = `<block type = "move_with_speed" id = "move_with_speed" >
                     <value name="steps">
                         <shadow type="number"> </shadow>
@@ -36,9 +38,12 @@ export class MoveWithSpeedService {
           ]), 'direction')
           .appendField(' by ');
         this.appendDummyInput()
-          .appendField('steps');
-        this.appendValueInput('speed');
-        this.appendDummyInput()
+          .appendField('steps')
+          .appendField(new Blockly.FieldDropdown([
+            ['slow', '0.6'],
+            ['medium', '1'],
+            ['fast', '2'],
+          ]), 'speed')
           .appendField('speed');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -49,12 +54,13 @@ export class MoveWithSpeedService {
       }
     };
 
-    Blockly.JavaScript['move_with_speed'] = function (block) {
+    Blockly.JavaScript['move_with_speed'] = (block) => {
+      this.blocks.push(block);
       const direction = block.getFieldValue('direction');
       let steps = Blockly.JavaScript.valueToCode(block, 'steps');
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
-      let speed = Blockly.JavaScript.valueToCode(block, 'speed');      
+      const speed = Number(block.getFieldValue('speed'));
       const childJson = computeChildJson(block.childBlocks_);
       let json = {
         childJson,
@@ -64,7 +70,8 @@ export class MoveWithSpeedService {
         hasAnimation: true,
         x: 0,
         y: 0,
-        inputBlock: null
+        inputBlock: null,
+        blockIndex: this.blocks.length - 1
       }
       if (!Number.isNaN(Number(steps))) {
         steps = Math.abs(steps);
@@ -116,8 +123,11 @@ export class MoveWithSpeedService {
   }
 
   initInterpreter = (interpreter, scope, coordinatesJson, cb) => {
-    const wrapper = function (obj, callback) {
+    const wrapper = (obj, callback) => {
       let json = JSON.parse(obj);
+      if (this.blocks) {
+        this.blocks[json.blockIndex].addSelect();
+      } 
       const change = json.x ? 'x' : 'y';
       let animationTime = json[change] * coordinatesJson[`${change}AxisUnit`] * 3 / json.speed;
       const executeFn = (axis) => {
@@ -130,6 +140,9 @@ export class MoveWithSpeedService {
             json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(intrp.value) : -1 * Math.abs(intrp.value);
             cb(json);
             setTimeout(() => {
+              if (this.blocks) {
+                this.blocks[json.blockIndex].removeSelect();
+              } 
               callback(json);
             }, animationTime);
             clearInterval(interval);
@@ -141,6 +154,9 @@ export class MoveWithSpeedService {
       } else {
         cb(json);
         setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
+          } 
           callback(json);
         }, animationTime);
       }

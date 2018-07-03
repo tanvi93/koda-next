@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-feedback-area',
@@ -9,8 +10,9 @@ export class FeedbackAreaComponent implements OnInit {
   @Input() feedback: String;
 
   private feedbackStr: String;
+  private showButton: boolean;
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
     this.feedbackStr = this.feedback;
@@ -18,6 +20,9 @@ export class FeedbackAreaComponent implements OnInit {
 
   ngOnChanges() {
     if (this.feedback && this.feedback.length) {
+      if (this.elementRef.nativeElement.clientHeight < 80) {
+        this.showButton = true;
+      }
       let element = document.getElementById("feedback-text");
       setTimeout(() => {
         element.classList.add("animated");

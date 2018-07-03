@@ -1,16 +1,16 @@
-<!-- <div class="badge-wrapper animated zoomIn"> -->
-  <app-narration-container [bgColor]="badgeBGColor" class="animated zoomIn">
+<app-narration-container [bgColor]="badgeBGColor" class="animated zoomIn">
   <img class="confetti left" src="./assets/misc_images/confetti.gif">
   <img class="confetti right" src="./assets/misc_images/confetti.gif">
   <div class="heading-container">
     <span class="heading">{{pageData.heading}}</span>
   </div>
-  <img class="items left-item animated zoomInUp" [src]="pageData.mascotImg">
-  <div class="badge-container">
-    <img class="badge" src="./assets/misc_images/badge.png">
-    <img class="ribbion" src="./assets/misc_images/badge_name.png">
+  <div class="badge-containero-outer">
+    <img class="items left-item animated zoomInUp" [src]="pageData.mascotImg">
+    <div class="badge-container">
+      <img class="badge" src="./assets/misc_images/badge.png">
+    </div>
     <span class="badge-name">{{pageData.badge}}</span>
+    <img class="items right-item animated zoomInUp" [src]="avatarImg">
   </div>
-  <img class="items right-item animated zoomInUp" [src]="avatarImg">
   <app-continue-button (click)="buttonClicked()" [pageData]="pageData"></app-continue-button>
-</app-narration-container>
+</app-narration-container> 
