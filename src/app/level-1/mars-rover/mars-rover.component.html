@@ -1,0 +1,11 @@
+<div class="mars-rover-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+      <app-input-section class="input-section" [contentData]="contentData" [clearDataFlag]="clearDataFlag" (receiveInput)="receiveInput($event)" (receiveMsgFlagStatus)="receiveMsgStatus($event)"></app-input-section>
+    </div>
+    <div fxFlex="60" fxLayoutAlign="start space-around">
+      <app-output-section class="ouput-section" [contentData]="contentData" (clearInputFlag)="clearInputText($event)" [msgFlag]="msgFlagStatus"></app-output-section>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,9 @@ import { SelectCharactersComponent } from './select-characters/select-characters
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
 import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
 import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
+import { MarsRoverComponent } from './mars-rover/mars-rover.component';
+import { InputSectionComponent } from './mars-rover/input-section/input-section.component';
+import { OutputSectionComponent } from './mars-rover/output-section/output-section.component';
 
 
 @NgModule({
@@ -16,6 +19,6 @@ import { CharacterDisplaySectionComponent } from './select-characters/character-
     SharedModuleModule,
     Level1RoutingModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, MarsRoverComponent, InputSectionComponent, OutputSectionComponent]
 })
 export class Level1Module { }
