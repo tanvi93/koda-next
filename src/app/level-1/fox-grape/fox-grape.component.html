@@ -1,0 +1,11 @@
+<div class="fox-grape-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+      <app-fox-input-section class="input-section" [contentData]="contentData" [clearDataFlag]="clearDataFlag" (hideMsgData)="hideMsgData($event)" (receiveInput)="receiveInput($event)"></app-fox-input-section>
+    </div>
+    <div fxFlex="60" fxLayoutAlign="start space-around">
+      <app-fox-output-section class="ouput-section" [contentData]="contentData" (clearInputFlag)="clearInputText($event)" ></app-fox-output-section>
+    </div>
+  </div>
+</div>

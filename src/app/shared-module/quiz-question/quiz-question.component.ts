@@ -7,17 +7,17 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class QuizQuestionComponent implements OnChanges {
   @Input() question: String;
-  // @Input() style;
+  @Input() style;
   private stylingObj;
 
   constructor() { }
 
   ngOnChanges() {
-    // this.stylingObj = {
-    //   'background-color': this.style.backgroundColor,
-    //   'font-size': this.style.fontSize,
-    //   'color': this.style.color
-    // };
+    this.stylingObj = {
+      'background-color': this.style.backgroundColor,
+      'font-size': this.style.fontSize,
+      'color': this.style.color
+    };
   }
 
 }
