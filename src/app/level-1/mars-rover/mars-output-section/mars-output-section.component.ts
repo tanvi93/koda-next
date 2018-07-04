@@ -6,6 +6,27 @@ import { SuccessModalComponent } from './../../../shared-module/success-modal/su
   templateUrl: './mars-output-section.component.html',
   styleUrls: ['./mars-output-section.component.scss']
 })
+  
+  
+ /**
+   * @name MarsOutputSectionComponent<app-mars-output-section>
+   * @description This component will deal mars rover activity in which it accept data provided by input section and then perform animation based on input provided by user.
+   * @param contentData its holds entire detail of the page which is passed as an input to its child component.
+   * @constructor intiate localData and msgPos variable
+   */
+
+  /**
+   * @method activityFunction
+   * @memberOf MarsOutputSectionComponent
+   * @param $event This varaible object contains input data from input section of div which needed to pass to output section to see the respective result.
+   * @description this is an event based method which get triggered whenever inputSectionComponent emits data to parent and from parent through view field method this function get trigger inorder to perform the animation based on user input.
+   */
+
+   /**
+   * @method hideMsgFuncion
+   * @memberOf MarsOutputSectionComponent
+   * @description this method deals with hiding bubble msg component whenever it is get triggered 
+   */
 export class MarsOutputSectionComponent implements OnInit {
   @Input() contentData;
   @Output() clearInputFlag = new EventEmitter<boolean>();
@@ -25,13 +46,11 @@ export class MarsOutputSectionComponent implements OnInit {
   private inputValueTracker = { 'left': 0, 'top': 0 };
   private msgPos: any;
   private roverStandingHide: boolean;
-  private localcheckInput: boolean;
   private xContent: number;
   private yContent: number;
   private localData: any;
 
   constructor(public dialog: MatDialog) {
-    this.localcheckInput = false;
     this.localData = JSON.parse(localStorage.getItem('coordinates'));
     this.msgPos = { 'msgTop': null, 'msgLeft': null, 'msgTailLeft': null, 'msgTailTop': null };
   }
