@@ -13,8 +13,6 @@ export class QuizQuestionComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    console.log(this.style);
-    
     this.stylingObj = {
       'background-color': this.style.backgroundColor,
       'font-size': this.style.fontSize,

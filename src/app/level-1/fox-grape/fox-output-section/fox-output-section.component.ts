@@ -1,16 +1,36 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
-import { assetsLink } from './../../../shared-services/config';
 
 @Component({
-  selector: 'app-output-section',
-  templateUrl: './output-section.component.html',
-  styleUrls: ['./output-section.component.scss']
+  selector: 'app-fox-output-section',
+  templateUrl: './fox-output-section.component.html',
+  styleUrls: ['./fox-output-section.component.scss']
 })
-export class OutputSectionComponent implements OnInit {
+  
+ /**
+   * @name FoxOutputSectionComponent<app-fox-output-section>
+   * @description This component will deal fox grape activity in which it accept data provided by input section and then perform animation based on input provided by user.
+   * @param contentData its holds entire detail of the page which is passed as an input to its child component.
+   * @constructor intiate clearDataFlag and clearMethodCount variable
+   */
+
+  /**
+   * @method activityFunction
+   * @memberOf FoxOutputSectionComponent
+   * @param $event This varaible object contains input data from input section of div which needed to pass to output section to see the respective result.
+   * @description this is an event based method which get triggered whenever inputSectionComponent emits data to parent and from parent through view field method this function get trigger inorder to perform the animation based on user input.
+   */
+
+   /**
+   * @method hideMsgFuncion
+   * @memberOf FoxOutputSectionComponent
+   * @description this method deals with hiding bubble msg component whenever it is get triggered 
+   */
+  
+ 
+export class FoxOutputSectionComponent implements OnInit {
   @Input() contentData;
-  @Input() msgFlag: boolean;
   @Output() clearInputFlag = new EventEmitter<boolean>();
   dialogRef: MatDialogRef<SuccessModalComponent>;
 
@@ -29,11 +49,8 @@ export class OutputSectionComponent implements OnInit {
   private success: Boolean;
   private xContent: any;
   private yContent: any;
-  private grapeVisible: boolean;
-  private foxVisible: boolean;
   private initialIndex: number;
   private successFlag: boolean;
-  private localcheckInput: boolean;
   private xInputPresent: boolean;
   private yInputPresent: boolean;
   private localData: any;
@@ -42,30 +59,26 @@ export class OutputSectionComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {
     this.success = true;
-    this.localcheckInput = false;
     this.localData = JSON.parse(localStorage.getItem('coordinates'));
   }
 
   ngOnInit() {
-    // let foximageCount = 0;
-    // const onImageLoad = () => {
-    //   ++foximageCount;
-    //   if (foximageCount === 5) {
-    //   }
-    // }
-    console.log(this.contentData);
-    
-    // let foxImageLoad = Object.keys(this.activityData.foxImage).map(key => {
-    //   let image = new Image();
-    //   image.onload = onImageLoad;
-    //   image.src = this.activityData.foxImage[key];
-    //   return image;
-    // });
+    let foximageCount = 0;
+    const onImageLoad = () => {
+      ++foximageCount;
+      if (foximageCount === 5) {
+      }
+    }
+
+    let foxImageLoad = Object.keys(this.contentData.foxImage).map(key => {
+      let image = new Image();
+      image.onload = onImageLoad;
+      image.src = this.contentData.foxImage[key];
+      return image;
+    });
     this.xInputPresent = true;
     this.yInputPresent = true;
     this.successFlag = false;
-    this.foxVisible = true;
-    this.grapeVisible = true;
     this.message = this.contentData.errorMsg[0];
     this.topShift = this.contentData.topShiftRange[0];
     this.initialIndex = 0;
@@ -81,8 +94,8 @@ export class OutputSectionComponent implements OnInit {
     this.hideMsg = true;
   }
 
-  hideMsgFunc(flag: boolean) {
-    this.hideMsg = flag;
+  hideMsgFuncion = () => {
+    this.hideMsg = true;
   }
 
   activityFunction(x: any, y: any) {
@@ -212,14 +225,14 @@ export class OutputSectionComponent implements OnInit {
           this.hideMsg = false;
         }
       }, 4000);
-      if (!this.successFlag) {
-        setTimeout(() => {
+      setTimeout(() => {
+        if (!this.successFlag) {
           this.hideMsg = true;
           this.foxImage = this.contentData.foxImage[0];
           this.leftShift = this.contentData.initialLeftShiftValue;
           this.clearInputFlag.emit(true);
-        }, 6050 + n);
-      }
+        }
+      }, 6050 + n);
     }
     // condition to when correct coordinates has been entered
     if (Number(this.xContent) === this.contentData.CorrectCoordinate.xValue &&
@@ -250,7 +263,7 @@ export class OutputSectionComponent implements OnInit {
 
       setTimeout(() => {
         this.hideMsg = true;
-        this.foxImage = this.contentData.foxImage[4];
+        this.foxImage = this.contentData.foxImage[3];
         this.leftShift = ((this.xContent) * 14) + '%';
       }, 6050);
     }

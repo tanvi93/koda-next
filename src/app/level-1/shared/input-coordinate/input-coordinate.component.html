@@ -1,13 +1,13 @@
 <div class="input-div">
   <div class="input-wrapper-x">
     <p [innerHTML]="inputParaX"></p>
-    <input id="x" type="text" name="" #input1 (click)="clearInput($event)" maxlength="3" (input)="inputValue($event)">
+    <input id="x" type="text" name="" #input1 [(ngModel)]="textX" (click)="clearInput($event)" [disabled]="inputFlag[0]" (keydown)="onKeydown($event)" maxlength="3" autofocus>
   </div>
   <div class="input-wrapper-y">
     <p [innerHTML]="inputParaY"></p>
-    <input id="y" type="text" name="" #input2 (click)="clearInput($event)" maxlength="3" (input)="inputValue($event)"  >
+    <input id="y" type="text" name="" #input2 [(ngModel)]="textY" (click)="clearInput($event)" [disabled]="inputFlag[1]" (keydown)="onKeydown($event)" maxlength="3">
   </div>
   <div class="action-button">
-    <input type="button" value="DONE" (click)="fetchInput(input1.value, input2.value)">
+    <input type="button" value="DONE" [disabled]="inputFlag[2]" (click)="fetchInput(input1.value, input2.value)">
   </div>
 </div>
