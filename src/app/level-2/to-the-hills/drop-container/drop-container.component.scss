@@ -5,7 +5,7 @@
   }
   
   .drop-image {
-    height: 70px;
+    height: 65px;
     width: 100px;
     position: relative;
   }
@@ -37,7 +37,7 @@
     border-radius: 20px;
     background-color: rgb(140, 197, 62);
     color: white;
-    margin-top: 7px;
+    margin-top: 2px;
     margin-bottom: 12px;
     width: 100px;
     min-height: 40px;
@@ -53,3 +53,19 @@
     margin-top: 5px;
   }
   
+  .label {
+    width: 270px;
+    height: 59px;
+    background: inherit;
+    background-color: rgba(255, 176, 60, 1);
+    border-radius: 15px;
+    font-family: Quicksand;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: #144040;
+    text-align: center;
+    margin-left: 120px;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 5px;
+    margin-bottom: 3px;
+  }

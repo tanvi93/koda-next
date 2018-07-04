@@ -2,15 +2,15 @@
     <div  class="question-comp" fxLayoutAlign="start center">
         <app-quiz-question [question]="presentQuestionData.Question" *ngIf="showElementsZone"></app-quiz-question>
       </div>
-  <div fxLayout="row" >
-      <div fxLayout="column" fxLayoutGap="20px" fxFlex="50">
-        <div *ngFor="let step of algo.steps;let i = index" >
+  <div fxLayout="row">
+      <div fxLayout="column" fxFlex="50" fxLayoutAlign="center center">
+        <div *ngFor="let step of algo.steps;let i = index">
             <app-step-drag *ngIf="i < 4" [stepObj]="step"></app-step-drag>
         </div>
       </div>
-      <div fxLayout="column" fxLayoutGap="20px" fxFlex="50">
-        <div *ngFor="let step of algo.steps;let i = index">
-            <app-step-drag *ngIf="i > 3" [stepObj]="step"></app-step-drag>
+      <div fxLayout="column"  fxFlex="50" fxLayoutAlign="center center">
+        <div *ngFor="let step of algo.steps;let i = index" >
+            <app-step-drag  *ngIf="i > 3" [stepObj]="step" style="margin: 10px 0px;"></app-step-drag>
         </div>
       </div>
     </div>

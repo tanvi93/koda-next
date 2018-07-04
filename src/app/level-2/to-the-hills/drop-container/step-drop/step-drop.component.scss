@@ -1,0 +1,32 @@
+.drop-image {
+    height: 80px;
+    // width: 100px;
+    position: relative;
+  }
+  
+  .step-number {
+    width: 100px;
+    height: 70px;
+    box-sizing: border-box;
+    border-radius: 80px;
+    margin-left: -35px;
+    position: relative;
+    font-family: Quicksand;
+    font-size: 30px;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .step-text {
+    font-family: Quicksand;
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: 500;
+    padding: 0 10px;
+  }
+  
+  .correct-step-container {
+      height: 70px;
+      width:100%;
+      background-color: white;
+    }
