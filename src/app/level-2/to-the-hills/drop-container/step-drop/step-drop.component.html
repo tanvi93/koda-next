@@ -1,0 +1,10 @@
+<app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" >
+  <div fxlayout="row" fxLayoutAlign="center start" class="correct-step-container" [style.background-color]="changeStyle?'#00CAFE':'white'">
+      <div fxLayoutAlign="center center" class="step-number" [style.background-color]="changeStyle?'white':'#73dcff'"
+      [style.color]="changeStyle?'#73dcff':'white'">{{number}}
+  </div>
+    <p fxFlex="80" class="step-text" [style.color]="changeStyle?'white':'#57535f'">{{step.step}}</p>
+    <img  fxFlex="20" class="drop-image" src="{{step.icon}}" alt="">
+  </div>
+ 
+</app-drag-drop-wrapper>
