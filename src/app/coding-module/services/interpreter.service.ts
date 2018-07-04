@@ -44,6 +44,7 @@ import { ShowHideAllButtonsService } from './blocks/show-hide-all-buttons.servic
   
 import { WorkspaceOnChangeService } from './workspace-on-change.service';
 import { CompilerService } from './compiler.service';
+import { KodaInterpreterService } from './koda-interpreter.service';
 
 declare var Blockly: any;
 declare let Interpreter: any;
@@ -101,11 +102,13 @@ export class InterpreterService {
   private rawCodes: String;
   private wsOnChange: any;
   private compiler: CompilerService;
+  private kodaInterpreter: KodaInterpreterService;
 
   private blocksList: Array<String>;
 
   constructor() {
     workspacePlayground = null;
+    this.kodaInterpreter = new KodaInterpreterService();
     this.createBlockInstances();
     this.createVariable = {
       xml: `<button text="Create variable" callbackKey="open"> </button>`
@@ -341,63 +344,143 @@ export class InterpreterService {
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     const codes = rawCodes.split('\n\n');
+    const arr = codes[0].split(';\n');
+    const loop = (i) => {
+      if (i === arr.length) return;
+      const v = JSON.parse(arr[i]);
+      console.log(v);
+      if (compiler.async.hasOwnProperty(v)) {
+        compiler.async[v](params[i], () => {
+          loop(++i);
+        });
+      } else {
+        compiler.native[v](params[i]);
+        loop(++i);
+      }
+    }
     this.myInterpreter = {};
 
-    const runner = (intrp, i) => {
-      if (!this.myInterpreter) return;
-      if (intrp) {
-        const hasMore = intrp.step();
-        if (hasMore) {
-          // Execution is currently blocked by some async call.
-          // Try again later.
-          setTimeout(() => {
-            runner(intrp, i);
-          }, 0);
-        } else if (i === (codes.length - 1)) {
-          if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        }
-      }
+    // const runner = (intrp, i) => {
+    //   if (!this.myInterpreter) return;
+    //   if (intrp) {
+    //     const hasMore = intrp.step();
+    //     if (hasMore) {
+    //       // Execution is currently blocked by some async call.
+    //       // Try again later.
+    //       setTimeout(() => {
+    //         runner(intrp, i);
+    //       }, 0);
+    //     } else if (i === (codes.length - 1)) {
+    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
+    //     }
+    //   }
+    // };
+
+    // codes.forEach((code, i) => {
+    //   this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
+    //     this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
+    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
+    //     }, callback);
+    //   });
+
+    //   if (this.myInterpreter) {
+    //     runner(this.myInterpreter[i], i);
+    //   }  
+    // });
+
+    // if (feedbackCall && rawCodes.indexOf('while(true)') !== -1) {
+    //   setTimeout(() => {
+    //     feedbackCall(rawCodes, this.getXml(false), sprites);
+    //     setTimeout(() => {
+    //       this.stopExecution();
+    //     }, 500);
+    //   }, 1000 * 30);
+    // }
+  }
+
+  compileRawCode(cb) {
+    const getX = () => {
+      return 1;
+    }
+    const changeLook = (params, callback) => {
+      callback(params);
     };
+    const goTo = (params, cb1, callback) => {
 
-    codes.forEach((code, i) => {
-      this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
-        this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
-          if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        }, callback);
-      });
-
-      if (this.myInterpreter) {
-        runner(this.myInterpreter[i], i);
-      }  
-    });
-
-    if (feedbackCall && rawCodes.indexOf('while(true)') !== -1) {
+      cb({ name: 'goTo', data: params });
       setTimeout(() => {
-        feedbackCall(rawCodes, this.getXml(false), sprites);
-        setTimeout(() => {
-          this.stopExecution();
-        }, 500);
-      }, 1000 * 30);
+        cb1();
+      }, 20);
+    }
+    const say = (params, cb1, callback) => {
+      callback(params);
+      setTimeout(() => {
+        cb1();
+      }, 2000);
+    }
+
+    return {
+      async: {
+        goTo: goTo,//function (params, callback) {
+        //   goTo(params, callback, (obj) => {
+        //     console.log(obj);
+        //     cb({ name: 'goTo', data: obj });
+        //   })
+        // },
+        say: function (params, callback) {
+          say(params, callback, (obj) => {
+            console.log(obj);
+            cb({ name: 'say', data: obj });
+          })
+        }
+      },
+      native: {
+        changeLook: function (params) {
+          changeLook(params, (obj) => {
+            console.log('changeLook', obj);
+            cb({ name: 'changeLook', data: obj });
+          })
+        },
+        getX: getX
+      }
     }
   }
 
   tmpRunCode(cb) {
-    const kk = () => {
-      return 1;
-    };
-    const goTo = (callback) => {
-      callback({ x: kk(), y: 10, spriteIndex: 0 });
+    const arr = ["goTo", 'changeLook'];
+    const arr1 = ["say"];
+    const compiler = this.compileRawCode(cb);
+    const params = [{
+      x: compiler.native.getX(), y: -10, spriteIndex: 0
+    }, { spriteIndex: 0, avatarIndex: 1 }];
+    const loop = (i) => {
+      if (i === arr.length) return;
+      const v = arr[i];
+      console.log(v);
+      if (compiler.async.hasOwnProperty(v)) {
+        compiler.async[v](params[i], () => {
+          loop(++i);
+        });
+      } else {
+        compiler.native[v](params[i]);
+        loop(++i);
+      }
     }
-
-    goTo((obj) => {
-      console.log(obj);
-      cb({ name: 'goTo', data: obj });
-    });
-
-    // changeLook((obj) => {
-    //   console.log('changeLook', obj);
-    //   cb({ name: 'changeLook', data: obj });
-    // });
+    const loop1 = (i) => {
+      if (i === arr1.length) return;
+      const v = arr1[i];
+      console.log(v);
+      if (compiler.async.hasOwnProperty(v)) {
+        compiler.async[v](() => {
+          loop1(++i);
+        });
+      } else {
+        compiler.native[v]();
+        loop1(++i);
+      }
+    }
+    loop(0);
+    // loop1(0);
   }
 
   stopExecution = () => {

@@ -36,12 +36,16 @@ export class SayBlockService {
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       let textName = String(block.getFieldValue('message'));
       textName = escape(textName);
-      let json = {
+      const params = {
         textName,
         spriteIndex,
         blockIndex: this.blocks.length-1
       }
-      return `say('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'say',
+        params: JSON.stringify(params)
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 

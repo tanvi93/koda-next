@@ -70,18 +70,22 @@ export class ChangeLookBlockService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const avatar = block.getFieldValue('avatar');
-      const json = {
+      const params = {
         spriteIndex,
         avatarIndex: avatar
       }
-      return `changeAvatar('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'changeAvatar',
+        params: JSON.stringify(params)
+      }
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
       cb(JSON.parse(obj));
     };
-    interpreter.setProperty(scope, 'changeAvatar', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('changeAvatar', wrapper);
   }
 }

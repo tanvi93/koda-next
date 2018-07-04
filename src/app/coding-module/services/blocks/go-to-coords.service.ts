@@ -54,14 +54,18 @@ export class GoToCoordsService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const childJson = computeChildJson(block.childBlocks_);
-      const json = {
+      const params = {
         childJson,
         x: input_x,
         y: input_y,
         spriteIndex,
         blockIndex: this.blocks.length - 1
       }
-      return `goTo('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'goTo',
+        params: JSON.stringify(params)
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
