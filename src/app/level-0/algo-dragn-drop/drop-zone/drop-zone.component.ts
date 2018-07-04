@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { DropWrapperComponent } from '../../../shared-module/drop-wrapper/drop-wrapper.component';
 import { SuccessModalComponent } from '../../../shared-module/success-modal/success-modal.component';
 
 @Component({
