@@ -15,7 +15,7 @@ import { MarsOutputSectionComponent } from './mars-output-section/mars-output-se
    */
 
   /**
-   * @method receiveInput
+   * @method receivedInput
    * @memberOf MarsRoverComponent
    * @param $event This varaible object contains input data from input section of div which needed to pass to output section to see the respective result.
    * @description this is an event based method which get triggered whenever inputSectionComponent emits data .
@@ -41,7 +41,7 @@ export class MarsRoverComponent {
   }
 
 
-  receiveInput($event) {
+  receivedInput($event) {
     this.marsOutput.activityFunction($event[0], $event[1]);
     $event[0] = '';
     $event[1] = '';

@@ -1,85 +1,109 @@
-.input-div {
+
+.input-section-inner-div{
     position: absolute;
     height: 100%;
     width: 100%;
-    display: block;
-        & .input-wrapper-x {
-        display: table;
+    color: white;
+    & .header-section{
         position: absolute;
-        height: 30%;
         width: 100%;
-        & span {
-            position: absolute;
-            top: 40%;
-            left: 10%;
-            font-size: 1.2vw;
-            font-weight: 400;
-            font-family: 'Quicksand';
-        }
-        & input {
-            display: table-cell;
-            position: absolute;
-            width: 10%;
-            height: 40%;
-            right: 10%;
-            top: 25%;   
-            text-align: center;
-            border: 1px solid white;
-            font-size: 1.5vh;
-            font-family: 'Quicksand';
-            font-weight: 600;
-            color: white;
-            background-color: transparent;
-        }
+        height: 20%;
     }
-    & .input-wrapper-y {
-        display: table;
+    & .input-section {
         position: absolute;
-        height: 30%;
         width: 100%;
-        top: 30%;
-        & span {
-            position: absolute;
-            top: 40%;
-            left: 10%;
-            font-size: 1.2vw;
-            font-weight: 400;
-            font-family: 'Quicksand';
-        }
-        & input {
-            display: table-cell;
-            color: white;
-            position: absolute;
-            width: 10%;
-            height: 40%;
-            right: 10%;
-            top: 25%;   
-            text-align: center;
-            border: 1px solid white;
-            font-size: 1.5vh;
-            font-family: 'Quicksand';
-            font-weight: 600;
-            background-color: transparent;
-        }
-    }
-    & .action-button{
-        position: absolute;
-        height: 40%;
-        width: 100%;
-        top: 70%;
-        & input {
-                color: white;
+        height: 80%;
+        top: 20%;
+        // & .input-coord-div {
+        //     position: absolute;
+        //     height: 100%;
+        //     width: 100%;
+              & .input-div {
                 position: absolute;
-                height: 30%;
-                width: 15%;
-                left: 40%;
-                font-size: 1vw;
-                border-radius: 50px;
-                border: none;
-                background-color: yellowgreen;
-                font-weight: 600;
-                font-family: 'Quicksand';
-                cursor: pointer;
-            }
+                height: 100%;
+                width: 100%;
+                display: block;
+                    & .input-wrapper-x {
+                    display: table;
+                    position: absolute;
+                    height: 30%;
+                    width: 100%;
+                    & span {
+                        color: white;
+                        position: absolute;
+                        top: 40%;
+                        left: 10%;
+                        font-size: 1.2vw;
+                        font-weight: 400;
+                        font-family: 'Quicksand';
+                    }
+                    & input {
+                        display: table-cell;
+                        position: absolute;
+                        width: 10%;
+                        height: 40%;
+                        right: 10%;
+                        top: 25%;   
+                        text-align: center;
+                        border: 1px solid white;
+                        font-size: 1.5vh;
+                        font-family: 'Quicksand';
+                        font-weight: 600;
+                        color: white;
+                        background-color: transparent;
+                    }
+                }
+                & .input-wrapper-y {
+                    display: table;
+                    position: absolute;
+                    height: 30%;
+                    width: 100%;
+                    top: 30%;
+                    & span {
+                        position: absolute;
+                        top: 40%;
+                        left: 10%;
+                        font-size: 1.2vw;
+                        font-weight: 400;
+                        font-family: 'Quicksand';
+                    }
+                    & input {
+                        display: table-cell;
+                        color: white;
+                        position: absolute;
+                        width: 10%;
+                        height: 40%;
+                        right: 10%;
+                        top: 25%;   
+                        text-align: center;
+                        border: 1px solid white;
+                        font-size: 1.5vh;
+                        font-family: 'Quicksand';
+                        font-weight: 600;
+                        background-color: transparent;
+                    }
+                }
+                & .action-button{
+                    position: absolute;
+                    height: 40%;
+                    width: 100%;
+                    top: 70%;
+                    & input {
+                            color: white;
+                            position: absolute;
+                            height: 30%;
+                            width: 15%;
+                            left: 40%;
+                            font-size: 1vw;
+                            border-radius: 50px;
+                            border: none;
+                            background-color: yellowgreen;
+                            font-weight: 600;
+                            font-family: 'Quicksand';
+                            cursor: pointer;
+                        }
+                }
+            // }  
+        }
     }
 }
