@@ -1,7 +1,7 @@
 <div class='drop-zone'>
-  <div fxLayout="column" fxLayoutGap="27px" style="padding: 40px 30px 17px 60px;">
+  <div fxLayout="column" fxLayoutGap="20px" style="padding: 40px 30px 17px 60px;">
     <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100" fxLayoutGap="20px">    
-        <app-drop-step [number]="i+1" style="width:100%;" (correctSequence)="correctSequence($event)" (displayError)="hideErrorMsg($event)"></app-drop-step>
+        <app-drop-step [number]="i+1" (correctSequence)="correctSequence($event)" (displayError)="hideErrorMsg($event)"></app-drop-step>
     </div>
   </div>
   <span fxLayoutAlign="center start" *ngIf="!errorShow">

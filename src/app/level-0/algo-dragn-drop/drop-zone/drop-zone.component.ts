@@ -8,48 +8,49 @@ import { SuccessModalComponent } from '../../../shared-module/success-modal/succ
   templateUrl: './drop-zone.component.html',
   styleUrls: ['./drop-zone.component.scss']
 })
+
+/**
+ * @name DropZoneComponent
+ * @description This component contains the numbered container for each step in sequence and 
+ * check button for validation.
+ * @param { object } algo This object contains the algorithm steps data.
+ * @param { boolean } errorShow This is for showing error message when done button is clicked 
+ * and sequence is incorrect.
+ * @param { object } correctAlgo This object stores the key as the correct order number and 
+ * value as the container number where it is place.
+ * @method correctSequence This method is called when the step is drop in drop zone.
+ * The error message disappears and the data is given to correctAlgo object.
+ * @method hideErrorMsg This method is called when the step is dragged from the drag zone.
+ * @method checkSequence Here the sequence is checked if the steps are in correct sequence the success
+ * message dialog is called and if not the error message is displayed based on step arranged.
+ */
+
 export class DropZoneComponent {
   @Input() algo;
   @Input() errorShow;
-  @Output() stepAtDropZone = new EventEmitter();
   dialogRef: MatDialogRef<SuccessModalComponent>;
 
   private correctAlgo: any;
   private success: Boolean;
-  private extraStepObj: any;
   private errorMsg: String;
-  private extraStepPresent: Boolean;
-  private localData: any;
-  private dropEnabled: Boolean = true;
-  private dragEnabled: Boolean = false;
 
   constructor(public dialog: MatDialog) {
     this.correctAlgo = {};
-    this.extraStepObj = {};
    }
-  
+
   correctSequence($event) {
-    let indexPresent = false;
-    this.extraStepPresent = false;
+    console.log($event);
     this.errorShow = false;
     if (!$event.data.order) {
       for (let i = 0; i <= Object.keys(this.correctAlgo).length; i++) {
-        if (this.correctAlgo[i] === $event.index) {
-          indexPresent = true;
+        if (this.correctAlgo[i] === $event.index){
           delete this.correctAlgo[i];
           break;
         }
-      }
-      if (indexPresent === false) {
-        if ($event.data.order === '') {
-          delete this.extraStepObj[$event.index];
-        } else {
-          this.extraStepObj[$event.index] = $event.data.msg;
-        }
-      }
-    } else {
-      this.correctAlgo[Number($event.data.order)] = $event.index;
-    }
+      } 
+     } else{
+        this.correctAlgo[Number($event.data.order)] = $event.index;
+      }  
   }
 
   hideErrorMsg(event) {
@@ -57,24 +58,15 @@ export class DropZoneComponent {
   }
 
   checkSequence() {
-    let msg = '';
-    for (let i = 0; i <= 5; i++) {
-      if (this.extraStepObj[i]) {
-        msg = this.extraStepObj[i];
-        this.extraStepPresent = true;
-        break;
-      }
-    }
     this.errorShow = true;
     this.success = true;
-    if ((Object.keys(this.correctAlgo).length + Object.keys(this.extraStepObj).length) < 5) {
-      if (Object.keys(this.correctAlgo).length === 0 && Object.keys(this.extraStepObj).length === 0) {
+    if (Object.keys(this.correctAlgo).length < 5) {
+      if (Object.keys(this.correctAlgo).length === 0) {
         this.errorMsg = this.algo.allEmpty;
       } else {
         this.errorMsg = this.algo.anyEmpty;
       }
-    } else{
-      if (this.correctAlgo[1] !== 1) {
+    } else if (this.correctAlgo[1] !== 1) {
         this.errorMsg = this.algo.step1WrongText;
       } else if ((this.correctAlgo[2] > this.correctAlgo[4]) || (this.correctAlgo[3] > this.correctAlgo[4])) {
         this.errorMsg = this.algo.increaseScoreBeforeMoveText;
@@ -89,6 +81,5 @@ export class DropZoneComponent {
         });
         this.dialogRef.componentInstance.modalData = this.algo;
       }
-    } 
   }
 }

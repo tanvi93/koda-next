@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgDragDropModule } from 'ng-drag-drop';
+// import { NgDragDropModule } from 'ng-drag-drop';
 import { CommonModule } from '@angular/common';
 import { SharedModuleModule } from './../shared-module/shared-module.module';
 import { Level0RoutingModule } from './level-0-routing.module';
@@ -21,8 +21,8 @@ import { DragStepComponent } from './algo-dragn-drop/drag-zone/drag-step/drag-st
   imports: [
     CommonModule,
     SharedModuleModule,
-    Level0RoutingModule,
-    NgDragDropModule.forRoot()
+    Level0RoutingModule
+    // NgDragDropModule.forRoot()
   ],
   declarations: [LandingPageComponent, MascotTalkingComponent, SummaryGameElementsComponent, ChooseAvatarComponent, GameElementsComponent, AlgoDragnDropComponent, SelectElementsZoneComponent, SortedElementsZoneComponent, DragZoneComponent, DropZoneComponent, DropStepComponent, DragStepComponent]
 })

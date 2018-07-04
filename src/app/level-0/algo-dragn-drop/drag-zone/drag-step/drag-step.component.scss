@@ -4,11 +4,15 @@
   font-style: normal;
   font-size: 20px;
   color: #57535f;
-  padding-left: 20px;
+  padding: 0 20px;
 }
 
 .step-image {
-  height: 75px;
+  height: 80px;
   width: 130px;
   position: relative;
+}
+
+.algoSteps{
+  width:100%;
 }

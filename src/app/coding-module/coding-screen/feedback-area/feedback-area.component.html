@@ -1,3 +1,11 @@
 <div class="feedbackzone" fxLayouyt="row" fxLayoutAlign="center center" fxFlex>
-  <p id="feedback-text" class="feedbackTxt" [innerHTML]="feedback"></p>
+  <p id="feedback-text" class="feedbackTxt" [innerHTML]="feedback" *ngIf="!showButton"></p>
+  <p id="feedback-text" class="feedbackButton" *ngIf="showButton" (click)="showFeedback = true;">Click here to know why</p>
+  <div class="accordion" [ngClass]="{'slide-animation': showFeedback}">
+    <mat-toolbar class="feedback-header">
+    <h3 fxFlex>Feedback</h3>
+    <mat-icon class="material-icons c-pointer" (click)="showFeedback = false;">&#xE313;</mat-icon>
+  </mat-toolbar>
+    <div style="padding: 30px" [innerHTML]="feedback"></div>
+  </div>
 </div>

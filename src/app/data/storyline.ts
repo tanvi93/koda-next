@@ -1,4 +1,29 @@
 export const stories = {
+    fox_n_grapes: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/fox_activity_bg.jpg'
+        ]
+    },
+    treasure_hunt: {
+        backgroundImgs: [
+            './assets/images/activities/treasure_hunt/bg_storyline.jpg'
+        ]
+    },
+    mars_rover: {
+        backgroundImgs: [
+            './assets/images/activities/mars_rover/mars-storyline.jpg',
+            './assets/images/activities/mars_rover/mars-storyline2.jpg',
+            './assets/images/activities/mars_rover/mars-storyline3.jpg',
+            './assets/images/activities/mars_rover/mars-storyline4.jpg',
+            './assets/images/activities/mars_rover/mars-storyline5.jpg',
+        ]
+    },
+    dragon_capture_activity : {
+        backgroundImgs: [
+            './assets/images/activities/dragon_capture/dragon-activity.jpg',
+            './assets/images/activities/dragon_capture/dragon-activity2.jpg'
+        ]
+    },
     magical_cave: {
         backgroundImgs: [
             './assets/images/activities/magical_cave/storyline.jpg'
@@ -33,12 +58,12 @@ export const stories = {
         ]
     }, identical_twins: {
         backgroundImgs: [
-            './assets/images/activities/identical_twins/step1.png',
-            './assets/images/activities/identical_twins/step2.png',
-            './assets/images/activities/identical_twins/step3.png',
-            './assets/images/activities/identical_twins/step4.png',
-            './assets/images/activities/identical_twins/step5.png',
-            './assets/images/activities/identical_twins/step6.png'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step1.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step2.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step3.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step4.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step5.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step6.png'
         ]
     }, eclipse: {
         backgroundImgs: [
@@ -48,6 +73,11 @@ export const stories = {
         backgroundImgs: [
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step1.jpg',
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step2.jpg'
+        ]
+    }, lambent_app: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step1.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step2.jpg'
         ]
     }
 }

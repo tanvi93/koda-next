@@ -4,7 +4,7 @@
 @import 'mixins';
 
 .controls {
-  height: 60px;
+  height: 70px;
   padding: 0 15px;
   background-color: rgb(62, 58, 72);
   display: grid;
@@ -67,9 +67,6 @@
   .feedbackzone {
       margin-top: 10px;
   }
-  .controls {
-      height: 50px;
-  }
   .controls .coordinates{
     font-size: 12px;
   }
@@ -82,8 +79,12 @@
   }
 }
 
-@media only screen and (max-height:680px){
+@media only screen and (max-height:700px){
   .controls img {
     width: 85px;
+  }
+  
+  .controls {
+    height: 50px;;
   }
 }

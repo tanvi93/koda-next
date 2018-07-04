@@ -8,7 +8,7 @@ export const selectActivityContent = {
                 id: 0,
                 name: 'fox-grape-storyline',
                 title: 'Fox and Grape',
-                activityImage: './assets/images/activities/fox_and_grapes/setting_reference.jpg',
+                activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                 status: {
                     lock: {
                         imageStatus: false,
@@ -29,7 +29,7 @@ export const selectActivityContent = {
                 id: 1,
                 name: 'treasure-hunt-storyline',
                 title: 'Treasure Hunt',
-                activityImage: './assets/images/activities/treasure_hunt/bg_island.jpg',
+                activityImage: './assets/images/activities/treasure_hunt/island-bg.jpg',
                 status: {
                     lock: {
                         imageStatus: true,

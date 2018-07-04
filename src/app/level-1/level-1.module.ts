@@ -6,6 +6,9 @@ import { Level1RoutingModule } from './level-1-routing.module';
 
 import { SelectCharactersComponent } from './select-characters/select-characters.component';
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
+import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
+import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
+
 
 @NgModule({
   imports: [
@@ -13,6 +16,6 @@ import { PositionCharactersComponent } from './position-characters/position-char
     SharedModuleModule,
     Level1RoutingModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent]
 })
 export class Level1Module { }

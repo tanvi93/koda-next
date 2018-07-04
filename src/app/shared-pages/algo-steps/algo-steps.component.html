@@ -1,20 +1,18 @@
-<div class="algo-steps-wrapper" (click)="goNext()">
-  <div class="left-grid">
+<div class="algo-steps-wrapper" (click)="goNext()" fxLayout="row">
+  <div fxFlex="50">
     <div class="speech-box">
       {{algoList[stepId-1].speech}}
-      <div class="arrow bottom"></div>
     </div>
     <img class="mascot-image" [src]="mascot">
   </div>
-  <div class="right-grid">
+  <div fxFlex="50">
     <div class="step-wrapper" *ngFor="let step of algoList; let i = index">
-
-      <div class="step-text-grid" [ngClass]="{'correct-step-container-active' : stepId == i+1, 'correct-step-container': stepId != i+1}">
+      <div class="step-text-grid" fxLayout="row" [ngClass]="{'correct-step-container-active' : stepId == i+1, 'correct-step-container': stepId != i+1}">
         <div class="step-number" [ngClass]="{'active' : stepId == i+1}">{{step.step}}</div>
-        <p fxLayoutAlign="start center" [ngClass]="{'step-text-active' : stepId == i+1, 'step-text': stepId != i+1}">{{step.stepText}}</p>
-        <img [src]="step.image" [ngClass]="{'img-active' : stepId == i+1}">
+        <p fxFlex="90" fxLayoutAlign="start center" [ngClass]="{'step-text-active' : stepId == i+1, 'step-text': stepId != i+1}">{{step.stepText}}</p>
+        <img [src]="step.image" [ngClass]="{'img-active' : stepId == i+1}" fxFlex="15" fxLayoutAlign="end center">
       </div>
     </div>
   </div>
-  <app-click-to-continue-button *ngIf="audio.readyToGoNext"></app-click-to-continue-button>
+  <app-click-to-continue-button position="left" *ngIf="audio.readyToGoNext"></app-click-to-continue-button>
 </div>

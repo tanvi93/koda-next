@@ -1,3 +1,11 @@
+.fork-btn-wrap{
+    position: absolute;
+    bottom: 5%;
+}
+
+.fork-mascot-img {
+    margin:3% 0 1% 0;
+}
 
 .fork-mascot-img img{
     width: 35%;
@@ -37,16 +45,24 @@
 .fork-buttons span {
     color: #FFFF00;
 }
-
-@media (max-height:790px) {
+@media only screen and (max-height:960px){
+    .fork-mascot-img img{
+        width: 22%;
+    }
+    .fork-btn-wrap {
+        bottom: 3%;
+    }
+    .fork-mascot-img {
+        margin-top: 2%;
+    }
     .heading {
-        font-size: 22px;
+        font-size: 26px;
         margin: 0;
     }
 
     .fork-buttons {
         padding: 10px;
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
@@ -57,11 +73,5 @@
     }
     .heading {
         max-width: 90%;
-    }
-}
-
-@media only screen and (max-height:880px){
-    .fork-mascot-img img{
-        width: 22%;
     }
 }
