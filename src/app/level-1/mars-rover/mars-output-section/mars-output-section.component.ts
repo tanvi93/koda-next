@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-mars-output-section',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mars-output-section.component.scss']
 })
 export class MarsOutputSectionComponent implements OnInit {
-
+  @Input() contentData;
   constructor() { }
 
   ngOnInit() {
