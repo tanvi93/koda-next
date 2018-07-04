@@ -16,8 +16,6 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
-import { DragWrapperComponent } from './drag-wrapper/drag-wrapper.component';
-import { DropWrapperComponent } from './drop-wrapper/drop-wrapper.component';
 import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.component';
 
 @NgModule({
@@ -28,7 +26,7 @@ import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragWrapperComponent, DropWrapperComponent, DragDropWrapperComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent],
   exports: [
     CommonModule,
     HeaderComponent,
@@ -42,8 +40,6 @@ import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.
     QuizQuestionComponent,
     ErrorMsgComponent,
     SuccessModalComponent,
-    DragWrapperComponent,
-    DropWrapperComponent,
     DragDropWrapperComponent
   ],
   entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent]

@@ -8,17 +8,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * @name DragWrapperComponent
- * @description This component is used to drag and drop steps from the drag zone .
+ * @description This component is used to drag and drop steps.
  * It contains the following methods:
- * @method onItemDrop This method is called when step is drop in this container.
- * Here the drop step data is given to dropAlgoStep and changeStyle variable is made true
- * to change the style of step.The output dropData is given to step container which 
+ * @method onItemDrop This method is called when step is drop in the container.
+ * Here the step data is given to dropAlgoStepObj.The output dropData is given to step container which 
  * contains the step data and the position where it is dropped.
  * The dropEnabled made false so that once a step dropped another step cannot replace it.
  * the dragEnabled made true so that this step can be dragged and placed in any other container.
- * @method dragEndEvent This method is called when step is dragged from drop zone and drop in drag zone.
+ * @method onDragEnd This method is called when step is dragged and drop in the container.
  * Here dropAlgoStepObj object is made empty and output dropData is given.
- * Here again the changeStyle is made false so the previous style is applied back.
  * The dropEnabled made true so that any other step can be dropped here.
  * the dragEnabled made false so the empty container cannot be dragged.
  * @method dragStartEvent This method is called when the step is drag.
@@ -34,12 +32,9 @@ export class DragDropWrapperComponent {
   @Output() displayError = new EventEmitter();
   private dropEnabled: Boolean = true;
   private dragEnabled: Boolean= true;
-  private changeStyle;
-  // private dropAlgoStepObj: any;
 
   constructor() {
     this.dropAlgoStepObj = {};
-    this.changeStyle = false;
   }
 
   private dragStartEvent(event) {
@@ -51,7 +46,6 @@ export class DragDropWrapperComponent {
       this.dropEnabled = false;
       this.dragEnabled = true;
       this.dropAlgoStepObj = event.dragData;
-      this.changeStyle = true;
       this.dropData.emit({'index': seq, 'data': this.dropAlgoStepObj});
     }
   }
@@ -60,7 +54,6 @@ export class DragDropWrapperComponent {
     if (event.dataTransfer.dropEffect === 'move') {
       this.dropEnabled = true;
       this.dragEnabled = false;
-      this.changeStyle = false;
       this.dropAlgoStepObj = {};
       this.dropData.emit({ 'index': Number(event.target.id), 'data': this.dropAlgoStepObj });
     }

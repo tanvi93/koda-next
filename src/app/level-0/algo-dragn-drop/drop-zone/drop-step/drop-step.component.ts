@@ -8,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 /**
  * @name DropStepComponent
- * @description This component contains the empty container wrapped by a drop wrapper 
+ * @description This component contains the empty container wrapped by a drag drop wrapper 
  * which defines the dragging and dropping methods.
  * @param { object } step conatins data of step dropped in drop zone.
  * @method dropData this method applies data of the step dropped to step variable.
