@@ -1,5 +1,5 @@
 export const dragonCaptureContent = {
-    headerContent: {
+    instructionBarContent: {
         'activity1': 'Over centuries, many adventurers have come and gone. Their collective wisdom points to a list of locations where we may find tools to help us with our quest.',
         'activity2': 'Now that we know the 3 possible locations, let\'s quickly check where the dragon is hiding.'
     },
@@ -14,6 +14,7 @@ export const dragonCaptureContent = {
     inputParaContent1: 'Change X by',
     inputParaContent2: 'Change Y by',
     mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
+    mascotHead: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     actionbutton: 'assets/images/move_button.png',
     BackgroundColor: '#ecd45c',
     defaultTransitionTime: '0s',
