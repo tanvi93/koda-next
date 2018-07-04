@@ -1,12 +1,13 @@
 export const dragonCaptureContent2 = {
     instructionBarContent: 'Now that we know the 3 possible locations, let\'s quickly check where the dragon is hiding.',
-    inputTextHeader: 'Tell me the directions and the number of steps to move so that I can quickly reach the flask.',
+    question: 'Tell me the directions and the number of steps to move so that I can quickly reach the flask.',
     inputParaContent1: 'Change X by',
     inputParaContent2: 'Change Y by',
     mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     mascotHead: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     actionbutton: 'assets/images/move_button.png',
     BackgroundColor: '#ecd45c',
+    mascotBg: '#ecd45c',
     defaultTransitionTime: '0s',
     actualTransitionTime: '1s',
     gemsImage: [
@@ -38,11 +39,8 @@ export const dragonCaptureContent2 = {
     correctMark: 'assets/images/done_icon.png',
     correctMarkChecklist: [false, false, false],
     mascotTopView: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_top_view.png',
-    backgroundImage: [
-        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity1.jpg',
-        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity1_labelled.jpg',
+    backgroundImage:      
         'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity2.jpg',
-    ],
     // gridImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/grid.png',
     dragonImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/dragon.png',
     flaskImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/flask_large.png',
@@ -67,9 +65,7 @@ export const dragonCaptureContent2 = {
     dragonProximityCoord: {
         x: [0, -1, -2],
         y: [-2, -3]
-    }
-    ,
-    
+    },
     successPopupHeading: 'You did what no one else could do.',
     successPopupText: 'You saved the world from the dragon!',
     popupMascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',

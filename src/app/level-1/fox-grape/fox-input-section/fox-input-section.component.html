@@ -3,7 +3,7 @@
     <app-quiz-question [question]='contentData.question' [style]="stylingObj"></app-quiz-question>
   </div>
   <div class="input-section">
-    <app-input-coordinate class="input-coord-div" [inputContent]="contentData" (errorMsgFlag)="clearMsg($event)" (inputData)="recievedInput($event)"></app-input-coordinate>
+    <app-input-coordinate class="input-coord-div" [contentData]="contentData" (errorMsgFlag)="clearMsg($event)" (inputData)="recievedInput($event)"></app-input-coordinate>
   </div>
 </div>
 

@@ -6,17 +6,29 @@
     & .background-image {
         width: 100%;
         display: block;
-    
     }
-    & .grape-image {
-        width: 10%;
+    & .gems-stone{
         position: absolute;
-        left: 60%;
-        top: 0%;
+        width: 8%;
+        margin-left: 5.5%;
+        margin-top: 3%;
+        transform: rotate(60deg);
     }
-    & .fox-image{
-        height: 25%;
-        width: 15%;
+    & .mascot-top-view{
         position: absolute;
+        width: 5%;
+        margin-top: 1.5%;
+        margin-left: 6.5%;
+    }
+    & .flask-image{
+        position: absolute;
+        top: 15%;
+        left: 35%;
+        width: 40%;
+        height: 75%;
+    }
+    & .dragon-image{
+        position: absolute;
+        width: 20%;
     }
 }

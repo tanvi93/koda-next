@@ -8,13 +8,32 @@ import { AudioService } from './../../../shared-services/audio.service'
   templateUrl: './dragon-output-section.component.html',
   styleUrls: ['./dragon-output-section.component.scss']
 })
+  
+/**
+   * @name DragonOutputSectionComponent<app-dragon-output-section>
+   * @description This component will deal dragon rover activity2 in which it accept data provided by input section and then perform animation based on input provided by user.
+   * @param contentData its holds entire detail of the page which is passed as an input to its child component.
+   * @constructor intiate localData and msgPos variable
+   */
+
+  /**
+   * @method activityFunction
+   * @memberOf DragonOutputSectionComponent
+   * @param $event This varaible object contains input data from input section of div which needed to pass to output section to see the respective result.
+   * @description this is an event based method which get triggered whenever inputSectionComponent emits data to parent and from parent through view field method this function get trigger inorder to perform the animation based on user input.
+   */
+
+   /**
+   * @method hideMsgFuncion
+   * @memberOf DragonOutputSectionComponent
+   * @description this method deals with hiding bubble msg component whenever it is get triggered 
+   */
 export class DragonOutputSectionComponent implements OnInit {
   @Input() contentData;
   @Output() clearInputFlag = new EventEmitter<boolean>();
 
   dialogRef: MatDialogRef<SuccessModalComponent>;
   private backgroundImage: string;
-  private gridImage: string;
   private message: string;
   private hideMsg: boolean;
   private counter: number;
@@ -31,7 +50,6 @@ export class DragonOutputSectionComponent implements OnInit {
   private inputValueTracker = { 'left': -2, 'top': 0 };
   private xContent: number;
   private yContent: number;
-  private modalObj = {};
   private msgPos: any;
   private dragAudio: string[];
 
@@ -55,6 +73,7 @@ export class DragonOutputSectionComponent implements OnInit {
       image.src = this.contentData.gemsImage[key];
       return image;
     });
+    
     this.hideMsg = true;
     this.flaskVisible = false;
     this.leftShift = this.contentData.xInitialValue * this.contentData.xGridPerUnitScale;
@@ -63,11 +82,10 @@ export class DragonOutputSectionComponent implements OnInit {
     this.currentTop = this.topShift;
     this.transitionTime = this.dragonTransitionTime = this.contentData.defaultTransitionTime;
     this.gemStoneImage[0] = this.gemStoneImage[1] = this.gemStoneImage[2] = this.contentData.gemsImage[0];
-    this.message = this.contentData.errorMsg.activity2[0];
+    this.message = this.contentData.errorMsg[0];
     this.backgroundImage = this.contentData.backgroundImage;
-    this.gridImage = this.contentData.gridImage;
     this.dragonLeftShift = 0,
-      this.dragonTopShift = 70
+    this.dragonTopShift = 70
   }
 
   ngOnChanges() {
@@ -97,18 +115,18 @@ export class DragonOutputSectionComponent implements OnInit {
 
 
     if (this.xContent === 0 && this.yContent === 0) {
-      this.message = this.contentData.errorMsg.activity2[1];
+      this.message = this.contentData.errorMsg[1];
       this.hideMsg = false;
       this.clearInputFlag.emit(true);
       return;
     } else if ((String(this.xContent).length === 0 && String(this.yContent).length === 0)) {
-      this.message = this.contentData.errorMsg.activity2[0];
+      this.message = this.contentData.errorMsg[0];
       this.hideMsg = false;
       this.clearInputFlag.emit(true);
       return;
     } else if ((this.contentData.dragonProximityCoord.x.indexOf(this.inputValueTracker.left + Number(this.xContent)) !== -1)
       && (this.contentData.dragonProximityCoord.y.indexOf(this.inputValueTracker.top + Number(this.yContent)) !== -1)) {
-      this.message = this.contentData.errorMsg.activity2[5];
+      this.message = this.contentData.errorMsg[5];
       this.hideMsg = false;
       this.clearInputFlag.emit(true);
       return;
@@ -117,7 +135,7 @@ export class DragonOutputSectionComponent implements OnInit {
       || ((this.inputValueTracker.top + Number(this.yContent)) > this.contentData.yHigherLimitValue)
       || ((this.inputValueTracker.top + Number(this.yContent)) < this.contentData.yLowerLimitValue)) {
 
-      this.message = this.contentData.errorMsg.activity2[2];
+      this.message = this.contentData.errorMsg[2];
       this.hideMsg = false;
       this.clearInputFlag.emit(true);
       return;
@@ -216,15 +234,13 @@ export class DragonOutputSectionComponent implements OnInit {
               disableClose: true,
               panelClass: 'app-full-bleed-dialog'
             });
-            this.dialogRef.componentInstance.modalData = this.contentData.modalSuccess[1];
-            this.dialogRef.afterClosed().subscribe(result => {
-            });
+            this.dialogRef.componentInstance.modalData = this.contentData;
           }, 2200);
         } else {
 
           this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
           this.msgPos.msgLeft = ((this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale)) + 11 + '%';
-          this.message = this.contentData.errorMsg.activity2[3];
+          this.message = this.contentData.errorMsg[3];
           setTimeout(() => {
             this.contentData.gemsCoordData[i].flag = true;
             this.hideMsg = false;
@@ -239,7 +255,7 @@ export class DragonOutputSectionComponent implements OnInit {
 
         this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
         this.msgPos.msgLeft = ((this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale)) + 11 + '%';
-        this.message = this.contentData.errorMsg.activity2[4];
+        this.message = this.contentData.errorMsg[4];
         setTimeout(() => {
           this.hideMsg = false;
         }, 10);
