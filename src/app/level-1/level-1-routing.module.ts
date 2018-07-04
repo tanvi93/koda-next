@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SelectCharactersComponent } from './select-characters/select-characters.component';
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
+import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   }, {
     path: 'position-character',
     component: PositionCharactersComponent
+  }, {
+    path: 'fox-grape',
+    component: FoxGrapeComponent
   }
 ];
 

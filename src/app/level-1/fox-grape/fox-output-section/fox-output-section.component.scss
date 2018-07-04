@@ -1,0 +1,22 @@
+
+.output-div  {
+    width: 100%;
+    display: block;
+    position: relative;
+    & .background-image {
+        width: 100%;
+        display: block;
+    
+    }
+    & .grape-image {
+        width: 10%;
+        position: absolute;
+        left: 60%;
+        top: 0%;
+    }
+    & .fox-image{
+        height: 25%;
+        width: 15%;
+        position: absolute;
+    }
+}
