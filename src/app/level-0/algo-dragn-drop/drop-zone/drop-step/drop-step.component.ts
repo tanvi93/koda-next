@@ -29,7 +29,6 @@ export class DropStepComponent {
    }
 
   dropData(event) {
-    console.log(event);
       this.step = event.data;
       this.correctSequence.emit(event);
       if(this.isEmpty(this.step)){
