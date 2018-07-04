@@ -6,17 +6,24 @@
     & .background-image {
         width: 100%;
         display: block;
-    
     }
-    & .grape-image {
-        width: 10%;
+    & .rover-image{
         position: absolute;
-        left: 60%;
-        top: 0%;
+        height: 16%;
+        margin-left: 3.8%;
+        margin-top: 1.8%;
     }
-    & .fox-image{
-        height: 25%;
-        width: 15%;
+    & .waterDrop1, .waterDrop2, .waterDrop3 {
         position: absolute;
+        margin-top: 4.5%;
+        margin-left: 6.5%;
+        width: 5%;
+        height: 7%;
+        overflow: hidden;
+        & .waterDroplet {
+            position: absolute;
+            width: 100%;
+            margin-top: 30%;
+        }
     }
 }
