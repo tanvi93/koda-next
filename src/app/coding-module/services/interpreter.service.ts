@@ -252,9 +252,9 @@ export class InterpreterService {
     this.showCoordinates.initInterpreterShowCoords(interpreter, scope, (spriteIndex, duration) => {
       callback({ name: 'showCoordinates', data: { spriteIndex, duration } });
     });
-    this.goTo.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'goTo', data: obj });
-    });
+    // this.goTo.initInterpreter(interpreter, scope, obj => {
+    //   callback({ name: 'goTo', data: obj });
+    // });
     this.moveBy.initInterpreter(interpreter, scope, coordinatesJson, obj => {
       callback({ name: 'moveBy', data: obj });
     });
@@ -344,20 +344,16 @@ export class InterpreterService {
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     const codes = rawCodes.split('\n\n');
-    const arr = codes[0].split(';\n');
-    const loop = (i) => {
-      if (i === arr.length) return;
-      const v = JSON.parse(arr[i]);
-      console.log(v);
-      if (compiler.async.hasOwnProperty(v)) {
-        compiler.async[v](params[i], () => {
-          loop(++i);
-        });
-      } else {
-        compiler.native[v](params[i]);
-        loop(++i);
-      }
-    }
+    this.changeLook.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'changeLook', data: obj });
+    });
+    this.say.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'say', data: obj });
+    });
+    this.goTo.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'goTo', data: obj });
+    });
+    this.kodaInterpreter.executeCommands(codes[0]);
     this.myInterpreter = {};
 
     // const runner = (intrp, i) => {

@@ -76,7 +76,7 @@ export class ChangeLookBlockService {
       }
       const json = {
         method: 'changeAvatar',
-        params: JSON.stringify(params)
+        params
       }
       return `${JSON.stringify(json)};\n`;
     }
@@ -84,7 +84,7 @@ export class ChangeLookBlockService {
 
   interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
     interpreter.setProperty('changeAvatar', wrapper);
   }
