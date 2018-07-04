@@ -15,7 +15,6 @@ import { FoxOutputSectionComponent } from './fox-grape/fox-output-section/fox-ou
 import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
 import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
 import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.component';
-import { DragonInputSectionComponent } from './dragon-capture2/dragon-input-section/dragon-input-section.component';
 import { DragonOutputSectionComponent } from './dragon-capture2/dragon-output-section/dragon-output-section.component';
 
 
@@ -26,7 +25,7 @@ import { DragonOutputSectionComponent } from './dragon-capture2/dragon-output-se
     Level1RoutingModule,
     FormsModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxInputSectionComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, DragonCapture2Component, DragonInputSectionComponent, DragonOutputSectionComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxInputSectionComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, DragonCapture2Component,  DragonOutputSectionComponent]
  
 })
 export class Level1Module { }

@@ -2,8 +2,8 @@
   <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent.activity2"></app-instruction-bar>
   <div fxLayout="row" fxLayoutGap="20px">
     <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
-      <app-dragon-input-section class="input-section" [contentData]="contentData" [clearDataFlag]="clearDataFlag" (hideMsgData)="hideMsgData($event)"
-        (receiveInput)="receiveInput($event)"></app-dragon-input-section>
+      <app-input-coordinate class="input-section" [contentData]="contentData" (errorMsgFlag)="hideMsgData($event)" [clearDataFlag]="clearDataFlag"
+        (inputData)="receivedInput($event)"></app-input-coordinate>
     </div>
     <div fxFlex="60" fxLayoutAlign="start space-around">
       <app-drag-output-section class="ouput-section" [contentData]="contentData" (clearInputFlag)="clearInputText($event)"></app-drag-output-section>
