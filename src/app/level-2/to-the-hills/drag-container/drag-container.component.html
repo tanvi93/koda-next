@@ -1,0 +1,17 @@
+<div class='drag-zone'>
+    <div  class="question-comp" >
+        <app-quiz-question [question]="algo.question" [style]="questionObj"></app-quiz-question>
+      </div>
+  <div fxLayout="row">
+      <div fxLayout="column" fxFlex="50" style="padding: 20px 10px 17px 30px;">
+        <div *ngFor="let step of algo.steps;let i = index">
+            <app-step-drag *ngIf="i < 4" [stepObj]="step"></app-step-drag>
+        </div>
+      </div>
+      <div fxLayout="column"  fxFlex="50" style="padding: 20px 10px 17px 30px;">
+        <div *ngFor="let step of algo.steps;let i = index" >
+            <app-step-drag  *ngIf="i > 3" [stepObj]="step" style="margin: 10px 0px;"></app-step-drag>
+        </div>
+      </div>
+    </div>
+</div>

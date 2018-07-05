@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './../material.module';
+import { NgDragDropModule } from 'ng-drag-drop';
 import { HeaderComponent } from './header/header.component';
 import { LevelProgressComponent } from './header/level-progress/level-progress.component';
 import { ProfileStatusComponent } from './header/profile-status/profile-status.component';
@@ -15,19 +16,19 @@ import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
-
-
+import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    NgDragDropModule.forRoot()
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent],
   exports: [
-    CommonModule, 
+    CommonModule,
     HeaderComponent,
     InstructionBarComponent,
     SpeechBubbleComponent,
@@ -38,7 +39,8 @@ import { SuccessModalComponent } from './success-modal/success-modal.component';
     MaterialModule,
     QuizQuestionComponent,
     ErrorMsgComponent,
-    SuccessModalComponent
+    SuccessModalComponent,
+    DragDropWrapperComponent
   ],
   entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent]
 })

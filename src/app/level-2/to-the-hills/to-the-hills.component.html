@@ -1,0 +1,10 @@
+<app-instruction-bar [mascotImage]="algorithmObj.mascotImage" [mascotBgColor]="algorithmObj.mascotBg" [instructions]="algorithmObj.instructionBarContent"></app-instruction-bar>
+<app-loading *ngIf="loading"></app-loading>
+<div fxLayout="row" *ngIf="!loading" fxLayoutGap="20px">
+  <div fxLayout="column" fxFlex="60">
+    <app-drag-container [algo]="algorithmObj"></app-drag-container>
+  </div>
+  <div fxLayout="column" fxFlex="40">
+    <app-drop-container [algo]="algorithmObj"></app-drop-container>
+  </div>
+</div>
