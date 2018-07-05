@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoxInputSectionComponent } from './fox-input-section.component';
+import { MarsRoverComponent } from './mars-rover.component';
 
-describe('FoxInputSectionComponent', () => {
-  let component: FoxInputSectionComponent;
-  let fixture: ComponentFixture<FoxInputSectionComponent>;
+describe('MarsRoverComponent', () => {
+  let component: MarsRoverComponent;
+  let fixture: ComponentFixture<MarsRoverComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FoxInputSectionComponent ]
+      declarations: [ MarsRoverComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FoxInputSectionComponent);
+    fixture = TestBed.createComponent(MarsRoverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
