@@ -297,7 +297,7 @@ export class InterpreterService {
     this.ifBlock.initInterpreter(interpreter, scope);
     this.ifElseBlock.initInterpreter(interpreter, scope);
     this.wait.initInterpreter(interpreter, scope);
-    this.whenKeyPressed.initInterpreter(interpreter, scope, feedbackCall);
+    // this.whenKeyPressed.initInterpreter(interpreter, scope, feedbackCall);
     this.whenCharacterClicked.initInterpreter(interpreter, scope, sprites);
     this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
     this.whenMouseClicked.initInterpreter(interpreter, scope);
@@ -356,6 +356,7 @@ export class InterpreterService {
     });
     this.coordinates.interpret(this.kodaInterpreter, sprites);
     this.repeat.interpret(this.kodaInterpreter);
+    this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.kodaInterpreter.executeCommands(codes[0]);
     this.myInterpreter = {};
 
