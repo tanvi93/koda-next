@@ -5,8 +5,8 @@
   }
   
   .step-number {
-    width: 100px;
-    height: 70px;
+    width: 85px;
+    height: 75px;
     box-sizing: border-box;
     border-radius: 80px;
     margin-left: -35px;
@@ -15,6 +15,9 @@
     font-size: 30px;
     text-align: center;
     z-index: 2;
+    background-color: #00CAFE;
+    color:white;
+
   }
   
   .step-text {
@@ -23,10 +26,17 @@
     margin-left: 20px;
     font-weight: 500;
     padding: 0 10px;
+    color: #57535f;
+
   }
   
   .correct-step-container {
       height: 70px;
       width:100%;
       background-color: white;
+    }
+
+    .icon{
+      width: 80px;
+      height: 80px;
     }

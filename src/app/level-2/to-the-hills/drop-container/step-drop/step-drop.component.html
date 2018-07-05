@@ -1,12 +1,11 @@
 <app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" >
-  <div fxlayout="row" fxLayoutAlign="center start" class="correct-step-container" [style.background-color]="changeStyle?'#00CAFE':'white'">
-      <div fxLayoutAlign="center center" class="step-number" [style.background-color]="changeStyle?'white':'#73dcff'"
-      [style.color]="changeStyle?'#73dcff':'white'"  *ngIf="!step.icon">{{number}}
+  <div fxlayout="row" fxLayoutAlign="center start" class="correct-step-container" >
+      <div fxLayoutAlign="center center" class="step-number" *ngIf="!step.icon">{{number}}
   </div>
-  <p fxLayout="column" fxLayoutAlign="center center" *ngIf="step.icon" class="step-number">
+  <div fxLayoutAlign="center center" *ngIf="step.icon" class="step-number">
       <img class="icon" src="{{step.icon}}" alt="">
-    </p>
-    <p fxFlex="80" class="step-text" [style.color]="changeStyle?'white':'#57535f'">{{step.step}}</p>
+  </div>
+    <p fxFlex="100" class="step-text">{{step.step}}</p>
   </div>
  
 </app-drag-drop-wrapper>

@@ -1,6 +1,6 @@
 <app-drag-drop-wrapper [dropAlgoStepObj]="stepObj" (dropData)="stepDragData($event)" fxLayoutGap="20px">
-  <div class="algoSteps" fxLayout="row"  fxLayoutAlign="center center" [id]="seq" [style.background-color]="changeStyle?'#3E3A48':'white'">
-    <img fxLayout="column"  fxFlex="20" class="step-image" src="{{stepObj.icon}}" alt="">
-    <p class="text" fxLayout="column" fxFlex="80">{{stepObj.step}}</p>
+  <div class="algoSteps" fxLayout="row"  [id]="seq" [style.background-color]="changeStyle?'#3E3A48':'white'">
+    <img class="step-image" src="{{stepObj.icon}}" alt="">
+    <p class="text" fxLayout="column" fxFlex="100">{{stepObj.step}}</p>
   </div>
 </app-drag-drop-wrapper>

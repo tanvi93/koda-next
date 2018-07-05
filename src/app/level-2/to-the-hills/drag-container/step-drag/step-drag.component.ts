@@ -8,11 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 
 /**
  * @name StepDragComponent
- * @description This component contains the text and image for each step wrapped by a drag wrapper 
+ * @description This component contains the text and image for each step wrapped by a drag drop wrapper 
  * which defines the dragging and dropping methods.
  * @param { object } stepObj contains data of the each step that is image and text within it.
- * @method stepDragData This method is called when the step is dropped in the drag zone.
- * Here the data is applied to stepObj. 
+ * @method stepDragData This method is called when the step is dropped in the drag container.
+ * Here the data is applied to stepObj.
  */
 
 export class StepDragComponent {
@@ -27,17 +27,18 @@ export class StepDragComponent {
 
   stepDragData(event) {
     this.stepObj = event.data;
-    if(this.isEmpty(this.stepObj)){
+    if (this.isEmpty(this.stepObj)){
       this.changeStyle = true;
-    }else{
+    } else {
       this.changeStyle = false;
     }
   }
 
   isEmpty(stepObj) {
-    for(var key in stepObj) {
-        if(stepObj.hasOwnProperty(key))
-            return false;
+    for (const key in stepObj) {
+      if (stepObj.hasOwnProperty(key)) {
+        return false;
+      }
     }
     return true;
 }

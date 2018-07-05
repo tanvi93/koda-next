@@ -8,14 +8,16 @@
   }
   
   .step-image {
-    height: 70px;
-    width: 120px;
+    height: 90px;
+    width: 90px;
     margin-left:-30px;
     position: relative;
+    margin-top: -5px;
   }
   
   .algoSteps{
+    height: 80px;
     width:100%;
-    margin-top: 10px;
-    padding: 10px 0;
+    background-color: white;
+   margin: 10px 10px;
   }

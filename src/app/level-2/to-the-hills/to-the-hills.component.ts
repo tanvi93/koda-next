@@ -14,10 +14,10 @@ import { algoStep } from '../../data/dragAndDrop';
   * user have to drag each step and drop it in right order/sequence.
   * This is the parent component consist of
   * - Instruction Bar
-  * - Drag Zone (consist of steps in incorrect order)
-  * - Drop Zone (consist of empty space to place step in order)
+  * - Drag Container (consist of steps in incorrect order and some extra steps)
+  * - Drop Container (consist of empty space to place step in order)
   * @constructor intializing the loader and image count.
-  * @param { object } algorithmObj contains the data of algo drag drop.
+  * @param { object } algorithmObj contains the data of to the hills activity.
   * @param { boolean } loading It's value will be true till the images gets load.
   */
 

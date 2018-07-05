@@ -49,8 +49,8 @@
     position: relative;
     left: 0;
     z-index: 3;
-    height: 55px;
-    margin-top: 5px;
+    height: 70px;
+    margin-top: -15px;
   }
   
   .label {
@@ -65,7 +65,15 @@
     font-size: 20px;
     color: #144040;
     text-align: center;
-    margin-left: 120px;
+    margin-left: 220px;
     box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 5px;
     margin-bottom: 3px;
+  }
+
+
+  @media only screen and (max-width: 1440px) {
+    .label {
+      margin-left: 125px;
+    }
+
   }

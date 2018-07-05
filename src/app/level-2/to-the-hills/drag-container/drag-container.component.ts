@@ -8,14 +8,28 @@ import { Component, OnInit, Input } from '@angular/core';
 
 /**
  * @name DragContainerComponent
- * @description This component contains the incorrect sequence of steps of algorithm of the game.
+ * @description This component contains the incorrect sequence of steps of algorithm of the game and some extra steps.
  * @param { object } algo This object contains the algorithm steps data.
  */
 
-export class DragContainerComponent {
+  /**
+   * @method OnInit
+   * @memberOf DragContainerComponent
+   * @description This method initialise the css property for question component.
+   */
+
+export class DragContainerComponent implements OnInit {
   @Input() algo;
+  private questionObj;
 
   constructor() { }
 
+  ngOnInit() {
+    this.questionObj = {
+      backgroundColor: '#ECD45B',
+      color: '#3e3a48',
+      fontSize: '20.8px'
+    };
+  }
 
 }

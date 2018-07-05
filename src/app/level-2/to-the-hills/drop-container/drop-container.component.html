@@ -1,7 +1,7 @@
 <div class='drop-zone'>
     <div class="label"  fxLayout="row"  fxLayoutAlign="center center" >MY CHECKLIST</div>
-  <div fxLayout="column" fxLayoutGap="10px" style="padding: 10px 30px 0px 60px;">
-    <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100" fxLayoutGap="20px">    
+  <div fxLayout="column" fxLayoutGap="15px" style="padding: 15px 90px 10px 120px;">
+    <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100">    
         <app-step-drop [number]="i+1" *ngIf="i<5" (correctSequence)="correctSequence($event)" (displayError)="hideErrorMsg($event)"></app-step-drop>
     </div>
   </div>
