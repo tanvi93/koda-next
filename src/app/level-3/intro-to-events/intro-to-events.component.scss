@@ -27,25 +27,38 @@
   -moz-transform: translateY(45%);
 }
 
-// .section1,
-// .section2 {
-//   display: table-cell;
-//   width: 33%;
-// }
-
-.section2 img{
-  width: 100%;
+.section1,
+.section2 {
+  display: table-cell;
+  width: 33%;
 }
 
-// .section1 {
-//   vertical-align: top;
-// }
+.section2 img {
+  width: 80%;
+  text-align: left;
+  user-select: none;
+  margin-top: -80px;
+  margin-left: -300px;
+}
 
 .section1 img {
-  width: 40%;
-//   margin: 50px auto;
+  width: 60%;
+  vertical-align: bottom;
 }
 
-// .section1-position img {
-  
-// }
+.section1-position img {
+  margin-left: -200px;
+  margin-top: 20px;
+}
+
+.section2-position img {
+  margin-top: 0px;
+  width: 130%;
+  margin-left: -100px;
+}
+
+@media screen and (max-height: 820px) {
+  .heading {
+    font-size: 26px;
+  }
+}
