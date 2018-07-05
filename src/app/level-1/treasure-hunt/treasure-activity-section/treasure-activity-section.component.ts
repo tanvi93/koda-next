@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-treasure-activity-section',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./treasure-activity-section.component.scss']
 })
 export class TreasureActivitySectionComponent implements OnInit {
-
+  @Input() contentData;
+  private backgroundImage;
   constructor() { }
 
   ngOnInit() {
+    this.backgroundImage = this.contentData.backgroundImage;
   }
 
 }
