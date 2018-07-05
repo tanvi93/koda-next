@@ -2,6 +2,7 @@ export const algoStep = {
     "mm0_1_q2": {
         "instructionBarContent": "On the left are the steps for building the Monkey Menace game, but in a jumbled order. Drag and drop them on the right in the correct sequence.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+        "mascotBg": "#13BCE4",
         "steps": [
             {
                 "incorrectOrder": "1",

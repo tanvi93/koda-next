@@ -29,7 +29,7 @@ const routes: Routes = [
     path: 'game-elements',
     component: GameElementsComponent
   }, {
-    path: 'algo-arrangement',
+    path: 'algo-arrangement/:pageId',
     component: AlgoDragnDropComponent
   }
 ];

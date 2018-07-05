@@ -1,0 +1,29 @@
+
+.output-div  {
+    width: 100%;
+    display: block;
+    position: relative;
+    & .background-image {
+        width: 100%;
+        display: block;
+    }
+    & .rover-image{
+        position: absolute;
+        height: 16%;
+        margin-left: 3.8%;
+        margin-top: 1.8%;
+    }
+    & .waterDrop1, .waterDrop2, .waterDrop3 {
+        position: absolute;
+        margin-top: 4.5%;
+        margin-left: 6.5%;
+        width: 5%;
+        height: 7%;
+        overflow: hidden;
+        & .waterDroplet {
+            position: absolute;
+            width: 100%;
+            margin-top: 30%;
+        }
+    }
+}

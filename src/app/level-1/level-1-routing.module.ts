@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SelectCharactersComponent } from './select-characters/select-characters.component';
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
+import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   }, {
     path: 'fox-grape',
     component: FoxGrapeComponent
+  }, {
+    path: 'mars-rover',
+    component: MarsRoverComponent
   }
 ];
 

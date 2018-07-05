@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FoxInputSectionComponent } from './fox-input-section.component';
+import { DragStepComponent } from './drag-step.component';
 
-describe('FoxInputSectionComponent', () => {
-  let component: FoxInputSectionComponent;
-  let fixture: ComponentFixture<FoxInputSectionComponent>;
+describe('DragStepComponent', () => {
+  let component: DragStepComponent;
+  let fixture: ComponentFixture<DragStepComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FoxInputSectionComponent ]
+      declarations: [ DragStepComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FoxInputSectionComponent);
+    fixture = TestBed.createComponent(DragStepComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
