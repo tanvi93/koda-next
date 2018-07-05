@@ -1,0 +1,10 @@
+<div class="output-div">
+  <img class="background-image" [src]="backgroundImage" (click)="data($event)" alt="">
+  <img class="gems-stone" [src]="gemStoneImage[i]" *ngFor="let item of contentData.gemsCoordData; let i = index;" [ngStyle]="{'top': contentData.yGridCoord.indexOf(item.y)*contentData.yGridPerUnitScale + '%', 'left': contentData.xGridCoord.indexOf(item.x)*contentData.xGridPerUnitScale + '%'}" alt="">
+  <img class="mascot-top-view" [src]="contentData.mascotTopView" [ngStyle]="{'top': topShift + '%', 'left': leftShift + '%', 'transition': transitionTime}"
+    alt="">
+  <img class="flask-image" [src]="contentData.flaskImage" [hidden]="!flaskVisible" alt="">
+  <img class="dragon-image" id="dragon-animation" [src]="contentData.dragonImage" [ngStyle]="{'top': dragonTopShift + '%', 'left': dragonLeftShift + '%', 'transition': dragonTransitionTime}"
+    alt="">
+  <app-bubble-msg [message]="message" [hideMsg]="hideMsg" [pos]="msgPos"></app-bubble-msg>
+</div>
