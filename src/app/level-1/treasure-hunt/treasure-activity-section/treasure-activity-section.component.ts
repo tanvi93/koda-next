@@ -107,7 +107,7 @@ export class TreasureActivitySectionComponent implements OnInit {
     this.hiddenTreasureFlag = [true, true, true];
   }
 
-  faildedAttemptFunction = (event) => {
+  failedAttemptFunction = (event) => {
     ++this.hintCounter;
     if (this.hintCounter === 4) {
       this.hintActivate.emit(false);

@@ -6,7 +6,7 @@
   </div>
   <img class="character-image" [ngStyle]="{'top': topPos,'left': leftPos}" [src]="contentData.characterImage" (load)="getPirateDetail($event)"
     (change)="changes($event)" alt="">
-  <div class="background-cover-shield" (click)="faildedAttemptFunction($event)">
+  <div class="background-cover-shield" (click)="failedAttemptFunction($event)">
   </div>
   <div class="treasure-dot"  *ngFor="let list of contentData.taskList; let i = index;" [hidden]="!hiddenTreasureFlag[i]"
     [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) 
