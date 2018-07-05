@@ -10,10 +10,11 @@ import { PositionCharactersComponent } from './position-characters/position-char
 import { InputCoordinateComponent } from './shared/input-coordinate/input-coordinate.component';
 import { BubbleMsgComponent } from './shared/bubble-msg/bubble-msg.component';
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
-import { FoxInputSectionComponent } from './fox-grape/fox-input-section/fox-input-section.component';
 import { FoxOutputSectionComponent } from './fox-grape/fox-output-section/fox-output-section.component';
 import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
 import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
+import { MarsRoverComponent } from './mars-rover/mars-rover.component';
+import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mars-output-section.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { CharacterDisplaySectionComponent } from './select-characters/character-
     Level1RoutingModule,
     FormsModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxInputSectionComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, MarsRoverComponent,  MarsOutputSectionComponent]
  
 })
 export class Level1Module { }
