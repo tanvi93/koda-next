@@ -5,6 +5,7 @@ import { SelectCharactersComponent } from './select-characters/select-characters
 import { PositionCharactersComponent } from './position-characters/position-characters.component';
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
+import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
   }, {
     path: 'mars-rover',
     component: MarsRoverComponent
+  }, {
+    path: 'treasure-hunt',
+    component: TreasureHuntComponent
   }
 ];
 

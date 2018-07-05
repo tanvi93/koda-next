@@ -15,6 +15,9 @@ import { CharacterSelectionSectionComponent } from './select-characters/characte
 import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mars-output-section.component';
+import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
+import { TreasureTaskSectionComponent } from './treasure-hunt/treasure-task-section/treasure-task-section.component';
+import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activity-section/treasure-activity-section.component';
 
 
 @NgModule({
@@ -24,7 +27,7 @@ import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mar
     Level1RoutingModule,
     FormsModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, MarsRoverComponent,  MarsOutputSectionComponent]
+  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, MarsRoverComponent,  MarsOutputSectionComponent, TreasureHuntComponent, TreasureTaskSectionComponent, TreasureActivitySectionComponent]
  
 })
 export class Level1Module { }
