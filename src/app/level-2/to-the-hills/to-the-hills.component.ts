@@ -43,10 +43,8 @@ export class ToTheHillsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params);
       this.pageId = params.pageId;
       this.algorithmObj = algoStep[`${this.pageId}`];
-      console.log(this.algorithmObj);
     });
 
     const imageLoad = () => {

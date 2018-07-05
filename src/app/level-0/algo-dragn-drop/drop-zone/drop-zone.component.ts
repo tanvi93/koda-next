@@ -38,7 +38,6 @@ export class DropZoneComponent {
    }
 
   correctSequence($event) {
-    console.log($event);
     this.errorShow = false;
     if (!$event.data.order) {
       for (let i = 0; i <= Object.keys(this.correctAlgo).length; i++) {

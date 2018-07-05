@@ -22,22 +22,23 @@ export class DragStepComponent {
   constructor() {
     this.stepObj = {};
     this.changeStyle = false;
-   }
+  }
 
   stepDragData(event) {
     this.stepObj = event.data;
-    if(this.isEmpty(this.stepObj)){
+    if (this.isEmpty(this.stepObj)) {
       this.changeStyle = true;
-    }else{
+    } else {
       this.changeStyle = false;
     }
   }
 
   isEmpty(stepObj) {
-    for(var key in stepObj) {
-        if(stepObj.hasOwnProperty(key))
-            return false;
+    for (const key in stepObj) {
+      if (stepObj.hasOwnProperty(key)) {
+        return false;
+      }
     }
     return true;
-}
+  }
 }

@@ -27,7 +27,7 @@ export class StepDragComponent {
 
   stepDragData(event) {
     this.stepObj = event.data;
-    if (this.isEmpty(this.stepObj)){
+    if (this.isEmpty(this.stepObj)) {
       this.changeStyle = true;
     } else {
       this.changeStyle = false;
