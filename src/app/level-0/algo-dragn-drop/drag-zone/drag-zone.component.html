@@ -1,0 +1,7 @@
+<div class='drag-zone'>
+  <div fxLayout="column" fxLayoutGap="29px" style="padding: 40px 30px;">
+    <div *ngFor="let step of algo.steps;let i = index" fxFlex="100">
+      <app-drag-step [stepObj]="step"></app-drag-step>
+    </div>
+  </div>
+</div>
