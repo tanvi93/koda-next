@@ -1,21 +1,19 @@
 <div class="output-div">
-  <img class="background-image" [src]="backgroundImage" alt="">
-  <!-- <div class="{{ 'hidden-box'+ (i+1) }}" *ngFor="let list of contentData.taskList; let i = index;" [hidden]="hiddenTreasureFlag[i]"
-    [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
-    <img class="{{ 'hidden-container-image'+ (i+1)}}" [src]="list.containerImage" [ngStyle]="{'margin-top': treasureMargin[i] + '%', 'transition': '1s'}"
+  <img class="background-image" [src]="contentData.backgroundImage" alt="">
+  <div class="hidden-box" *ngFor="let list of contentData.taskList; let i = index;" [hidden]="hiddenTreasureFlag[i]" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
+    <img class="hidden-container-image" [src]="list.containerImage" [ngStyle]="{'margin-top': treasureMargin[i] + '%', 'transition': '1s'}"
       alt="">
   </div>
-  <img class="character-image" [ngStyle]="{'top': topPos,'left': leftPos}" [src]="characterImage" (load)="getImageDetail($event)"
+  <img class="character-image" [ngStyle]="{'top': topPos,'left': leftPos}" [src]="contentData.characterImage" (load)="getPirateDetail($event)"
     (change)="changes($event)" alt="">
-  <div class="background-cover-shield" (click)="data($event)">
-  
+  <div class="background-cover-shield" (click)="faildedAttemptFunction($event)">
   </div>
-  <div class="treasure-dot" id="{{ 'treasure'+ i }}" *ngFor="let list of contentData.taskList; let i = index;" [hidden]="!hiddenTreasureFlag[i]"
+  <div class="treasure-dot"  *ngFor="let list of contentData.taskList; let i = index;" [hidden]="!hiddenTreasureFlag[i]"
     [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) 
-    + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}" (click)="clickedCoord($event)">
+  + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}" (click)="firstClickedFunction(i)">
   </div>
-  <div class="{{ 'over-the-shield'+ (i+1) }}" id="{{ 'over-the-shield'+ (i+1) }}" *ngFor="let list of contentData.taskList; let i = index;"
-    [hidden]="hiddenTreasureFlag[i]" (click)="chestboxClicked($event)" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
+  <div class="over-the-shield"  *ngFor="let list of contentData.taskList; let i = index;"
+    [hidden]="hiddenTreasureFlag[i]" (click)="repeatedClickedFunction(i)" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
   </div>
-  <app-bubble-msg [message]="message" [hideMsg]="hideMsg" [pos]="msgPos"></app-bubble-msg> -->
+  <app-bubble-msg [message]="message" [hideMsg]="hideMsg" [pos]="msgPos"></app-bubble-msg>
 </div>
