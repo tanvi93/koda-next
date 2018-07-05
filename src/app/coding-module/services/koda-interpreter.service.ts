@@ -21,11 +21,12 @@ export class KodaInterpreterService {
     this.bundle[methodType][methodName] = methodRef;
   }
 
-  executeCommands(codes) {
+  executeCommands(codes, callback = null) {
     const arr = codes.split(';\n');
     if (arr[arr.length - 1] === "") arr.splice(arr.length - 1);
     const loop = (i) => {
-      if (i === arr.length) return;
+      if (i === arr.length) return callback ? callback() : null;
+      // console.log(arr.length, i);
       const v = JSON.parse(arr[i]);
       // console.log(performance.now());
       if (v.type && v.type === 'input') {

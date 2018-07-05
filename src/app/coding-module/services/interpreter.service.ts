@@ -355,6 +355,7 @@ export class InterpreterService {
       callback({ name: 'goTo', data: obj });
     });
     this.coordinates.interpret(this.kodaInterpreter, sprites);
+    this.repeat.interpret(this.kodaInterpreter);
     this.kodaInterpreter.executeCommands(codes[0]);
     this.myInterpreter = {};
 
