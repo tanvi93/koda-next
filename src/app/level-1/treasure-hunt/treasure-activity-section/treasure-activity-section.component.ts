@@ -6,6 +6,58 @@ import { SuccessModalComponent } from './../../../shared-module/success-modal/su
   templateUrl: './treasure-activity-section.component.html',
   styleUrls: ['./treasure-activity-section.component.scss']
 })
+  
+/**
+   * @name TreasureActivitySectionComponentapp-treasure-activity-section>
+   * @description This component will deal fox grape activity in which it accept data provided by input section and then perform animation based on input provided by user.
+   * @param contentData its holds entire detail of the page which is passed as an input to its child component.
+   * @constructor mat dialog is injected.
+   */
+
+  /**
+   * @method faildedAttemptFunction
+   * @memberOf TreasureActivitySectionComponent
+   * @param $event This varaible object contains its environment data which is use to get its position which will be use to set position of the dialog.
+   * @description this is an event based method which get triggered whenever hint icon of the page is clicked, which result in popup of hint dialog box contains hint to perform the task.
+   */
+
+   /**
+   * @method firstClickedFunction
+   * @memberOf TreasureActivitySectionComponent
+   * @description this method is an event based method which triggered whenever correct coordinate is pressed result in showing of treasure.
+   */
+
+  /**
+   * @method repeatedClickedFunction
+   * @memberOf TreasureActivitySectionComponent
+   * @description this method is an event based method which triggered whenever correct coordinate is pressed repeated which is already been found.
+   */
+
+  /**
+   * @method successPopup
+   * @memberOf TreasureActivitySectionComponent
+   * @description this method deals with validating whether all the teasure has been found or not and provide msg or popup accordingly.
+   */
+
+  /**
+   * @method showMsgFunction
+   * @memberOf TreasureActivitySectionComponent
+   * @description this method deals with triggering of msg bubble based on user click input
+   */
+
+  /**
+   * @method piratePosFunction
+   * @memberOf TreasureActivitySectionComponent
+   * @description this method deals position the pirate and its respective bubble speech based on which treasure is been triggered 
+   */
+
+  /**
+   * @method getPirateDetail
+   * @memberOf TreasureActivitySectionComponent
+   * @param event This variable object contain environment variable which will help in finding pirate height and width.
+   * @description this method deals with retreiving the height and width of the pirates which will be helpful in positioning of pirates and speech bubble based on user activity.
+   */
+
 export class TreasureActivitySectionComponent implements OnInit {
   dialogRef: MatDialogRef<SuccessModalComponent>;
 
