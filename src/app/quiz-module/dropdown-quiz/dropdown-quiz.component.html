@@ -1,6 +1,5 @@
 <app-quiz-wrapper [quizData]="quizObj">
   <mat-card class="quiz-container">
-      <app-quiz-question [question]='quizObj.question'></app-quiz-question>
     <mat-card-content>
       <div class="dropdown" *ngFor="let data of quizObj.options; let i = index;">
         <p class="option" [innerHTML]='data.question'></p>

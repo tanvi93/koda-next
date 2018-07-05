@@ -11,6 +11,9 @@
       <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
     </div>
     <div fxFlex="40" class="quiz-zone">
+      <div class="question-comp">
+      <app-quiz-question [question]='quizData.question'></app-quiz-question>
+      </div>
       <ng-content></ng-content>
     </div>
   </div>
