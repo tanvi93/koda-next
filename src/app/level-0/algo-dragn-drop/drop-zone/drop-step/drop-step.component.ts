@@ -13,7 +13,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
  * @param { object } step conatins data of step dropped in drop zone.
  * @method dropData this method applies data of the step dropped to step variable.
  * @method hideErrorMsg This method is called when any step is dragged from drag zone. 
- * Here the error message gets disappear. 
+ * Here the error message gets disappear.
  */
 
 export class DropStepComponent {
@@ -26,14 +26,14 @@ export class DropStepComponent {
   constructor() {
     this.step = {};
     this.changeStyle = false;
-   }
+  }
 
   dropData(event) {
-      this.step = event.data;
-      this.correctSequence.emit(event);
-      if(this.isEmpty(this.step)){
+    this.step = event.data;
+    this.correctSequence.emit(event);
+    if (this.isEmpty(this.step)) {
       this.changeStyle = false;
-    }else{
+    } else {
       this.changeStyle = true;
     }
   }
@@ -43,10 +43,11 @@ export class DropStepComponent {
   }
 
   isEmpty(step) {
-    for(var key in step) {
-        if(step.hasOwnProperty(key))
-            return false;
+    for (const key in step) {
+      if (step.hasOwnProperty(key)) {
+        return false;
+      }
     }
     return true;
-}
+  }
 }
