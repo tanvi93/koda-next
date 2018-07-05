@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class KodaInterpreterService {
   private bundle;
+  private isStopExecution: boolean;
 
   constructor() {
     this.bundle = {
@@ -10,6 +11,7 @@ export class KodaInterpreterService {
       native: {},
       input: {}
     };
+    this.isStopExecution = true;
   }
 
   setProperty(methodName, methodRef, methodType) {
@@ -24,7 +26,9 @@ export class KodaInterpreterService {
   executeCommands(codes, callback = null) {
     const arr = codes.split(';\n');
     if (arr[arr.length - 1] === "") arr.splice(arr.length - 1);
+    this.isStopExecution = false;
     const loop = (i) => {
+      if (this.isStopExecution) return null;
       if (i === arr.length) return callback ? callback() : null;
       // console.log(arr.length, i);
       const v = JSON.parse(arr[i]);
@@ -44,6 +48,10 @@ export class KodaInterpreterService {
       }
     }
     return loop(0);
+  }
+
+  stopExecution() {
+    this.isStopExecution = true;
   }
 
 }

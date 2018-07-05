@@ -246,24 +246,6 @@ export class InterpreterService {
   }
 
   initCompiling = (interpreter, scope, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    this.say.initInterpreterSay(interpreter, scope, (text, spriteIndex, duration) => {
-      callback({ name: 'say', data: { text, spriteIndex, duration } });
-    });
-    this.showCoordinates.initInterpreterShowCoords(interpreter, scope, (spriteIndex, duration) => {
-      callback({ name: 'showCoordinates', data: { spriteIndex, duration } });
-    });
-    // this.goTo.initInterpreter(interpreter, scope, obj => {
-    //   callback({ name: 'goTo', data: obj });
-    // });
-    this.moveBy.initInterpreter(interpreter, scope, coordinatesJson, obj => {
-      callback({ name: 'moveBy', data: obj });
-    });
-    this.moveTo.initInterpreter(interpreter, scope, sprites, coordinatesJson, obj => {
-      callback({ name: 'moveTo', data: obj });
-    });
-    this.moveWithSpeed.initInterpreter(interpreter, scope, coordinatesJson, obj => {
-      callback({ name: 'moveWithSpeed', data: obj });
-    });
     this.showHideChar.initInterpreter(interpreter, scope, obj => {
       callback({ name: 'show', data: obj });
     });
@@ -333,6 +315,36 @@ export class InterpreterService {
     workspacePlayground.highlightBlock(id);
   }
 
+  interpretBlocks = (sprites, buttons, coordinatesJson, callback, feedbackCall) => {
+    this.say.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'say', data: obj });
+    });
+    this.showCoordinates.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'showCoordinates', data: obj });
+    });
+    this.goTo.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'goTo', data: obj });
+    });
+    this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+      callback({ name: 'moveBy', data: obj });
+    });
+    this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+      callback({ name: 'moveBy', data: obj });
+    });
+    this.moveTo.interpret(this.kodaInterpreter, sprites, coordinatesJson, obj => {
+      callback({ name: 'moveTo', data: obj });
+    });
+    this.moveWithSpeed.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+      callback({ name: 'moveWithSpeed', data: obj });
+    });
+    this.changeLook.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'changeLook', data: obj });
+    });
+    this.coordinates.interpret(this.kodaInterpreter, sprites);
+    this.repeat.interpret(this.kodaInterpreter);
+    this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
+  }
+
   compileCode = (pageId, callback) => {
     // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
     // Blockly.JavaScript.addReservedWords('highlightBlock');
@@ -345,20 +357,12 @@ export class InterpreterService {
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     // console.log(performance.now());
     const codes = rawCodes.split('\n\n');
-    this.changeLook.interpret(this.kodaInterpreter, obj => {
-      callback({ name: 'changeLook', data: obj });
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
+      if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
     });
-    this.say.interpret(this.kodaInterpreter, obj => {
-      callback({ name: 'say', data: obj });
+    this.kodaInterpreter.executeCommands(codes[0], () => {
+      if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
     });
-    this.goTo.interpret(this.kodaInterpreter, obj => {
-      callback({ name: 'goTo', data: obj });
-    });
-    this.coordinates.interpret(this.kodaInterpreter, sprites);
-    this.repeat.interpret(this.kodaInterpreter);
-    this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
-    this.kodaInterpreter.executeCommands(codes[0]);
-    this.myInterpreter = {};
 
     // const runner = (intrp, i) => {
     //   if (!this.myInterpreter) return;
@@ -484,7 +488,7 @@ export class InterpreterService {
   }
 
   stopExecution = () => {
-    this.myInterpreter = null;
+    this.kodaInterpreter.stopExecution();
     this.whenKeyPressed.unregister();
     this.whenCharacterClicked.unregister();
     this.whenButtonClicked.unregister();
