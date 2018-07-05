@@ -590,6 +590,7 @@ export class GameStageService {
     }
     this.interpreter.runCode(code, this.sprites, this.buttons, coordinatesJson, feedbackCall, json => {
       const { name, data } = json;
+      // console.log(name, performance.now());
       switch (name) {
         case 'say':
           this.drawSpeechBubble(data.spriteIndex, data.text, data.duration);

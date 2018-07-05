@@ -85,7 +85,7 @@ export class GoToCoordsService {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback();
-        }, 1);
+        }, 20);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
@@ -98,7 +98,7 @@ export class GoToCoordsService {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback();
-        }, 5);
+        }, 20);
       }
     };
     interpreter.setProperty('goTo', wrapper, 'async');

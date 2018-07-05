@@ -23,9 +23,11 @@ export class KodaInterpreterService {
 
   executeCommands(codes) {
     const arr = codes.split(';\n');
+    if (arr[arr.length - 1] === "") arr.splice(arr.length - 1);
     const loop = (i) => {
-      if (i === arr.length - 1) return;
+      if (i === arr.length) return;
       const v = JSON.parse(arr[i]);
+      // console.log(performance.now());
       if (v.type && v.type === 'input') {
         return this.bundle.input[v.method](v.params);
       }

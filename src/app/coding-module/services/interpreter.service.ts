@@ -302,7 +302,7 @@ export class InterpreterService {
     this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
     this.whenMouseClicked.initInterpreter(interpreter, scope);
     this.characterTouch.initInterpreter(interpreter, scope, sprites);
-    this.coordinates.initInterpreter(interpreter, scope, sprites);
+    // this.coordinates.initInterpreter(interpreter, scope, sprites);
     this.randomNumber.initInterpreter(interpreter, scope);
     this.arithmeticOperator.initInterpreter(interpreter, scope);
     this.relationalOperator.initInterpreter(interpreter, scope);
@@ -343,6 +343,7 @@ export class InterpreterService {
   }
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
+    // console.log(performance.now());
     const codes = rawCodes.split('\n\n');
     this.changeLook.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'changeLook', data: obj });
@@ -353,6 +354,7 @@ export class InterpreterService {
     this.goTo.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'goTo', data: obj });
     });
+    this.coordinates.interpret(this.kodaInterpreter, sprites);
     this.kodaInterpreter.executeCommands(codes[0]);
     this.myInterpreter = {};
 
