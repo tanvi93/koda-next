@@ -1,0 +1,10 @@
+<!-- <app-loading *ngIf="loading"></app-loading> -->
+<app-narration-container (click)="clickOnScreen()">
+  <h4 class="heading" [innerHTML]="msgs[msgIndex]" fxLayout="row" fxLayoutAlign="center center"></h4>
+  <div class="img-section" fxLayout="row" fxLayoutAlign="center start">
+    <div class="section1" fxFlex="50" fxLayoutAlign="center start" [ngClass]="{'section1-position' : changeCss}">
+      <img [src]='mascot'>
+    </div>
+  </div>
+  <app-click-to-continue-button></app-click-to-continue-button>
+</app-narration-container>
