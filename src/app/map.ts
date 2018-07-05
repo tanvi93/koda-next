@@ -44,7 +44,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'MM0_1_Q2 (MM algorithm)',
-                        path: 'level-1/drag-n-drop/mm0_1_q2',
+                        path: 'level-1/algo-arrangement/mm0_1_q2',
                         order: 7,
                         type: 'activity'
                     }, {
@@ -129,7 +129,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Fox & Grapes_Activity',
-                        path: 'fox-grape-activity',
+                        path: 'level-2/fox-grape',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -145,7 +145,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Treasure Hunt_Activity',
-                        path: 'treasure-hunt',
+                        path: 'level-2/treasure-hunt',
                         order: 4,
                         type: 'activity'
                     }, {
@@ -161,7 +161,7 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Mars Rover_Activity',
-                        path: 'mars-rover-activity',
+                        path: 'level-2/mars-rover',
                         order: 6,
                         type: 'activity'
                     }, {
@@ -184,12 +184,12 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Dragon Capture_Activity1',
-                        path: 'challenge-dragon-capture-activity',
+                        path: 'level-2/challenge-dragon-capture-activity',
                         order: 1,
                         type: 'challenge'
                     }, {
                         name: 'Dragon Capture_Activity2',
-                        path: 'challenge-dragon-capture-activity1',
+                        path: 'level-2/challenge-dragon-capture-activity1',
                         order: 2,
                         type: 'challenge'
                     }, {

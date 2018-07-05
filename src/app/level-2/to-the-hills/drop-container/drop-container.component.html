@@ -1,0 +1,14 @@
+<div class='drop-zone'>
+    <div class="label"  fxLayout="row"  fxLayoutAlign="center center" >MY CHECKLIST</div>
+  <div fxLayout="column" fxLayoutGap="15px" style="padding: 15px 90px 10px 120px;">
+    <div *ngFor="let step of algo.steps;let i = index;" fxLayout="column" fxFlex="100">    
+        <app-step-drop [number]="i+1" *ngIf="i<5" (correctSequence)="correctSequence($event)" (displayError)="hideErrorMsg($event)"></app-step-drop>
+    </div>
+  </div>
+  <span fxLayoutAlign="center start" *ngIf="!errorShow">
+    <button mat-raised-button class="check-button" (click)="checkSequence()">{{algo.buttonText}}</button>
+  </span>
+  <span fxLayoutAlign="start center" class="error-msg" *ngIf="errorShow" [ngStyle]="{'background-color': errorShow ? '#EE5862' : 'white' }">
+    <app-error-msg class="error" [error]="errorMsg"></app-error-msg>
+  </span>
+</div>
