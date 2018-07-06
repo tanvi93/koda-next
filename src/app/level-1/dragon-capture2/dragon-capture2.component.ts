@@ -11,7 +11,7 @@ import { dragonCaptureContent2 } from './../../data/dragonCaptureActivities2'
 
 /**
    * @name DragonCapture2Component<app-dragon-capture2>
-   * @description This component will deal mars rover activity2 in which the user have to grab a water sample for the research purpose.
+   * @description This component will deal dragon capture activity2 in which the user have to find the magical flask through which he can capture dragon in it.
    * @param contentData its holds entire detail of the page which is passed as an input to its child component.
    * @constructor intiate clearDataFlag and clearMethodCount variable
    */

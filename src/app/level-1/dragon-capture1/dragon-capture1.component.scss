@@ -1,0 +1,54 @@
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+
+.treasure-hunt-div {
+    height: 100%;
+    & .hunt-wrapper{
+        position: relative;
+    }
+    & .input-section-inner-div{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        & .header-section{
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            color: #3e3a48;
+            background: #ecd45c;
+        }
+        & .input-section {
+            position: absolute;
+            background-color: #666666;
+            width: 100%;
+            height: 80%;
+            top: 20%;
+            & .listing {
+                display: table;
+                margin-top: 5%;
+                margin-left: 5%;
+                color: white;
+                font-weight: 600;
+                font-size: 1.4vw;
+                font-family: 'Quicksand';
+                & span {
+                    & img {
+                        width: 1.4vw;
+                    }
+                }
+            }
+        }
+    }
+    & .output-section {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}
+
+.input-div {
+    background-color: rgba(215, 215, 215, 0.3);
+    margin-right: 20px;
+}
