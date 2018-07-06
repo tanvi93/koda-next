@@ -49,7 +49,6 @@ export class RepeatPredefinedService {
 
   interpret = (interpreter) => {
     const wrapper = (json, callback) => {
-      console.log(json, isNaN(json.times));
       if (isNaN(json.times)) {
         json.times = interpreter.executeCommands(json.times);
       }

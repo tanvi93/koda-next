@@ -60,6 +60,12 @@ export class ArithmeticOperatorsService {
     let operatorArr = ['add', 'sub', 'multiply', 'divide'];
     const wrapper = function ({input1, input2, operator}) {
       let result = null;
+      if (isNaN(Number(input1))) {
+        input1 = interpreter.executeCommands(input1);
+      }
+      if (isNaN(Number(input2))) {
+        input2 = interpreter.executeCommands(input2);
+      }
       input1 = parseFloat(input1);
       input2 = parseFloat(input2);
       switch (operatorArr[operator]) {

@@ -252,19 +252,9 @@ export class InterpreterService {
     this.flipSprite.initInterpreter(interpreter, scope, obj => {
       callback({ name: 'flipSprite', data: obj });
     });
-    this.ifBlock.initInterpreter(interpreter, scope);
-    this.ifElseBlock.initInterpreter(interpreter, scope);
-    this.wait.initInterpreter(interpreter, scope);
-    // this.whenKeyPressed.initInterpreter(interpreter, scope, feedbackCall);
     this.whenCharacterClicked.initInterpreter(interpreter, scope, sprites);
     this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
     this.whenMouseClicked.initInterpreter(interpreter, scope);
-    this.characterTouch.initInterpreter(interpreter, scope, sprites);
-    // this.coordinates.initInterpreter(interpreter, scope, sprites);
-    this.randomNumber.initInterpreter(interpreter, scope);
-    this.arithmeticOperator.initInterpreter(interpreter, scope);
-    this.relationalOperator.initInterpreter(interpreter, scope);
-    this.logicalOperator.initInterpreter(interpreter, scope);
     this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
     this.getVar.initInterpreter(interpreter, scope);
 
@@ -334,9 +324,21 @@ export class InterpreterService {
     this.showHideAllButtons.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'allHideShowButtons', data: obj });
     });
+
+    this.wait.interpret(this.kodaInterpreter);
+
     this.coordinates.interpret(this.kodaInterpreter, sprites);
+    this.characterTouch.interpret(this.kodaInterpreter, sprites);
     this.arithmeticOperator.interpret(this.kodaInterpreter);
+    this.randomNumber.interpret(this.kodaInterpreter);
+    this.relationalOperator.interpret(this.kodaInterpreter);
+    this.trueFalse.interpret(this.kodaInterpreter);
+    this.logicalOperator.interpret(this.kodaInterpreter);
+
     this.repeat.interpret(this.kodaInterpreter);
+    this.repeatForever.interpret(this.kodaInterpreter);
+    this.ifBlock.interpret(this.kodaInterpreter);
+    this.ifElseBlock.interpret(this.kodaInterpreter);
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
   }
 
