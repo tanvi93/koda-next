@@ -20,7 +20,7 @@
       </div>
     </div>
     <div fxFlex="60" fxLayoutAlign="start space-around">
-      <app-dragon-capture-output class="ouput-section" [contentData]="contentData" (dragonObject)="updateTodoList($event)"
+      <app-dragon-capture-output class="ouput-section" [contentData]="contentData" (dragonObject)="updateTodoList($event)" (inputFlagStatus)="displayFlag($event)"
        ></app-dragon-capture-output>
     </div>
   </div>
