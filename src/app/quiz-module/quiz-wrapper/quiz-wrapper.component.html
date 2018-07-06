@@ -10,8 +10,11 @@
     <div *ngIf="quizData.mediaLink" class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
       <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
     </div>
-    <div fxFlex="40" class="quiz-zone">
+    <mat-card fxFlex="40" class="quiz-zone">
+      <div class="question-comp">
+        <app-quiz-question [question]='quizData.question'></app-quiz-question>
+      </div>
       <ng-content></ng-content>
-    </div>
+    </mat-card>
   </div>
 </div>

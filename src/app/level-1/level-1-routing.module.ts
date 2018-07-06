@@ -6,6 +6,7 @@ import { PositionCharactersComponent } from './position-characters/position-char
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.component';
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
+import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
   }, {
     path: 'dragon-capture-2',
     component: DragonCapture2Component
+  }, {
+    path: 'treasure-hunt',
+    component: TreasureHuntComponent
   }
 ];
 

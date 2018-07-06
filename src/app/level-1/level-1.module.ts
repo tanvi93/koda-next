@@ -17,6 +17,8 @@ import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.compo
 import { DragonOutputSectionComponent } from './dragon-capture2/dragon-output-section/dragon-output-section.component';
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mars-output-section.component';
+import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
+import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activity-section/treasure-activity-section.component';
 
 
 @NgModule({
@@ -26,7 +28,19 @@ import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mar
     Level1RoutingModule,
     FormsModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent, MarsRoverComponent, MarsOutputSectionComponent, DragonCapture2Component, DragonOutputSectionComponent, ]
+  declarations: [
+    SelectCharactersComponent, 
+    PositionCharactersComponent, 
+    InputCoordinateComponent, 
+    BubbleMsgComponent,
+    FoxGrapeComponent, 
+    FoxOutputSectionComponent, 
+    CharacterSelectionSectionComponent,
+    CharacterDisplaySectionComponent,
+    MarsRoverComponent, MarsOutputSectionComponent, 
+    DragonCapture2Component, DragonOutputSectionComponent,
+    TreasureHuntComponent, TreasureActivitySectionComponent,
+  ]
  
 })
 export class Level1Module { }
