@@ -1,5 +1,5 @@
 <mat-card class="game-elements-container">
-  <div  class="question-comp" fxLayoutAlign="start center">
+  <div  class="question-comp">
     <app-quiz-question [question]="presentQuestionData.Question" *ngIf="showElementsZone"></app-quiz-question>
   </div>
   <mat-card-content>
@@ -17,5 +17,5 @@
       </div>
     </div>
   </mat-card-content>
-  <app-error-msg fxLayoutAlign="start center" *ngIf="showError" class="error-msg" [error]="error" [style.background-color]="isCorrect? '#008000':'#EE5862'"></app-error-msg>
+  <app-error-msg fxLayoutAlign="start center" *ngIf="showError" class="error-msg" [error]="error" [style.background-color]="isCorrect? '#008000':'#EE5862'" [success]="success"></app-error-msg>
 </mat-card>

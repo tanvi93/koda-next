@@ -115,6 +115,6 @@ export const gameElements = {
         }
     ],
     'successMsg': `Whoa! You've mastered the game elements!`,
-    "popupMascotImage": "./../assets/images/monkey_menace/mascot_thumbs_up_head.png",
+    "popupMascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_thumbs_up_head.png",
     "actionButtonText": "Continue"
 };
