@@ -22,7 +22,7 @@ import { assetsLink } from './../../shared-services/config';
  * The loader is displayed till the images loads.
  * @method clickOnScreen This method is called when user clicks anywhere on the blue screen.
  * Here, when user clicks on screen, the next dialogue and accordingly the image of block changes to show how event works.
- * Here, the msgIndex variable is incremented on each count and the msgIndex value is given to the path of block images so the image 
+ * Here, the msgIndex variable is incremented on each count and the msgIndex value is given to the path of block images so the image
  * on that index in blockImage array will be displayed.
  */
 
