@@ -36,18 +36,27 @@ export class SpriteXyService {
     Blockly.JavaScript['get_coordinates'] = function (block) {
       let sprite = block.getFieldValue('sprite');
       sprite = sprite.length === 0 ? 0 : sprite;
-      const axis = block.getFieldValue('axis');
-      return [`getCoordinate(${sprite}, ${axis})`];
+      const axis = Number(block.getFieldValue('axis'));
+      let json = {
+        method: 'getCoordinate',
+        type: 'input',
+        params: {
+          spriteIndex: sprite,
+          axis
+        }
+      }
+      return [JSON.stringify(json)];
     };
   }
 
-  initInterpreter = (interpreter, scope, spritesList) => {
-    const wrapper = function (spriteIndex, axis) {
+  interpret = (interpreter, spritesList) => {
+    const wrapper = function (obj) {
+      let { spriteIndex, axis } = obj;
       axis = axis ? 'y' : 'x';
       const n = spritesList[spriteIndex].currentOffset ? spritesList[spriteIndex].currentOffset[axis] : spritesList[spriteIndex].initialOffset[axis];
       return n;
     };
-    interpreter.setProperty(scope, 'getCoordinate', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getCoordinate', wrapper, 'input');
   }
 
 }

@@ -25,9 +25,25 @@ export class RepeatForeverService {
 
     Blockly.JavaScript['controls_repeat_forever'] = (block) => {
       const code = Blockly.JavaScript.statementToCode(block, 'in_forever_loop');
-      const loop = `while(true) {${code}};\n`
-      return loop;
-
+      const json = {
+        method: 'repeatForever',
+        params: {
+          linesOfCode: code
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     }
+  }
+
+  interpret = (interpreter) => {
+    const wrapper = (json, callback) => {
+      const repeat = () => {
+        interpreter.executeCommands(json.linesOfCode, () => {
+          repeat();
+        });
+      }
+      repeat();
+    };
+    interpreter.setProperty('repeatForever', wrapper, 'async');
   }
 }
