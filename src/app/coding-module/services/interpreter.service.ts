@@ -246,30 +246,6 @@ export class InterpreterService {
   }
 
   initCompiling = (interpreter, scope, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    this.showHideChar.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'show', data: obj });
-    });
-    this.showHideButton.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'show', data: obj });
-    });
-    this.showHideAllChar.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'allHideShow', data: obj });
-    });
-    this.showHideAllButtons.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'allHideShowButtons', data: obj });
-    });
-    this.changeLook.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'changeLook', data: obj });
-    });
-    this.changeBG.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'changeBG', data: obj });
-    });
-    this.nextLook.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'nextLook', data: obj });
-    });
-    this.changeButton.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'changeButton', data: obj });
-    });
     this.rotateSprite.initInterpreter(interpreter, scope, obj => {
       callback({ name: 'rotateSprite', data: obj });
     });
@@ -328,9 +304,6 @@ export class InterpreterService {
     this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
       callback({ name: 'moveBy', data: obj });
     });
-    this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
-      callback({ name: 'moveBy', data: obj });
-    });
     this.moveTo.interpret(this.kodaInterpreter, sprites, coordinatesJson, obj => {
       callback({ name: 'moveTo', data: obj });
     });
@@ -340,7 +313,29 @@ export class InterpreterService {
     this.changeLook.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'changeLook', data: obj });
     });
+    this.changeBG.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'changeBG', data: obj });
+    });
+    this.nextLook.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'nextLook', data: obj });
+    });
+    this.changeButton.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'changeButton', data: obj });
+    });
+    this.showHideChar.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'show', data: obj });
+    });
+    this.showHideAllChar.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'allHideShow', data: obj });
+    });
+    this.showHideButton.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'show', data: obj });
+    });
+    this.showHideAllButtons.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'allHideShowButtons', data: obj });
+    });
     this.coordinates.interpret(this.kodaInterpreter, sprites);
+    this.arithmeticOperator.interpret(this.kodaInterpreter);
     this.repeat.interpret(this.kodaInterpreter);
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
   }

@@ -42,15 +42,26 @@ export class ArithmeticOperatorsService {
       const operator = block.getFieldValue('operator');
       const input1 = Blockly.JavaScript.valueToCode(block, 'input1');
       const input2 = Blockly.JavaScript.valueToCode(block, 'input2');
-      return [`getArithmeticResult(${input1}, ${input2}, ${operator})`];
+      let json = {
+        method: 'getArithmeticResult',
+        type: 'input',
+        params: {
+          input1,
+          input2,
+          operator
+        }
+      }
+      return [JSON.stringify(json)];
     };
 
   }
 
-  initInterpreter = (interpreter, scope) => {
+  interpret = interpreter => {
     let operatorArr = ['add', 'sub', 'multiply', 'divide'];
-    const wrapper = function (input1, input2, operator) {
+    const wrapper = function ({input1, input2, operator}) {
       let result = null;
+      input1 = parseFloat(input1);
+      input2 = parseFloat(input2);
       switch (operatorArr[operator]) {
         case "add":
           result = input1 + input2;
@@ -67,6 +78,6 @@ export class ArithmeticOperatorsService {
       }
       return result;
     };
-    interpreter.setProperty(scope, 'getArithmeticResult', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getArithmeticResult', wrapper, 'input');
   }
 }
