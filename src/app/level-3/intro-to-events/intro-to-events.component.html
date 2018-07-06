@@ -5,7 +5,7 @@
     <div class="section1"  [ngClass]="{'section1-position' : changeCss}">
       <img [src]='mascot'>
     </div>
-    <div class="section2" *ngIf="image" [ngClass]="{'section2-position' : changeImage}">
+    <div class="section2" *ngIf="showBlockImage" [ngClass]="{'section2-position' : changeImage}">
       <img [src]='image'>
     </div>
   </div>
