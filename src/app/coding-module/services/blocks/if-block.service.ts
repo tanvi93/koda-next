@@ -30,33 +30,28 @@ export class IfBlockService {
     Blockly.JavaScript['controls_if'] = (block) => {
       let condition = Blockly.JavaScript.valueToCode(block, 'condition');
       let code = Blockly.JavaScript.statementToCode(block, 'in_if');
-      return `kodaIf(${condition}, "${btoa(code)}");\n`;
+      const json = {
+        method: 'kodaIf',
+        params: {
+          condition,
+          linesOfCode: code
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope) => {
-    const wrapper = function (condition, code, callback) {
+  interpret = interpreter => {
+    const wrapper = function ({ condition, linesOfCode }, callback) {
+      condition = interpreter.executeCommands(condition);
       if (condition) {
-        let intrp = new Interpreter('');
-        intrp.stateStack[0].scope = scope;
-        intrp.appendCode(atob(code));
-        const runner = function () {
-          if (intrp) {
-            const hasMore = intrp.step();
-            if (hasMore) {
-              // Execution is currently blocked by some async call.
-              // Try again later.
-              setTimeout(runner, 0);
-            } else {
-              callback();
-            }
-          }
-        };
-        runner();
+        interpreter.executeCommands(linesOfCode, () => {
+          callback();
+        });
       } else {
         callback();
       }
     };
-    interpreter.setProperty(scope, 'kodaIf', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('kodaIf', wrapper, 'async');
   }
 }

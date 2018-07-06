@@ -54,43 +54,38 @@ export class GoToCoordsService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const childJson = computeChildJson(block.childBlocks_);
-      const json = {
+      const params = {
         childJson,
         x: input_x,
         y: input_y,
         spriteIndex,
         blockIndex: this.blocks.length - 1
       }
-      return `goTo('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'goTo',
+        params
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
-    const wrapper = (obj, callback) => {
-      let json = JSON.parse(obj);
+  interpret = (interpreter, cb) => {
+    const wrapper = (json, callback) => {
       if (this.blocks) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const executeFn = (axis) => {
-        let intrp = new Interpreter('');
-        intrp.stateStack[0].scope = scope;
-        intrp.appendCode(json[axis ? 'y' : 'x']);
-        intrp.run();
-        const interval = setInterval(() => {
-          if (intrp.value !== undefined) {
-            json[axis ? 'y' : 'x'] = intrp.value;
-            if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
-              clearInterval(interval);
-              return executeFn(!axis);
-            }
-            clearInterval(interval);
-            cb(json);
-            if (this.blocks) {
-              this.blocks[json.blockIndex].removeSelect();
-            } 
-            callback();
+        json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
+        if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
+          return executeFn(!axis);
+        }
+        cb(json);
+        setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
           }
-        }, 10);
+          callback();
+        }, 20);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
@@ -98,13 +93,15 @@ export class GoToCoordsService {
         executeFn(1);
       } else {
         cb(json);
-        if (this.blocks) {
-          this.blocks[json.blockIndex].removeSelect();
-        } 
-        callback(obj);
+        setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
+          }
+          callback();
+        }, 20);
       }
     };
-    interpreter.setProperty(scope, 'goTo', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('goTo', wrapper, 'async');
   }
 
 }

@@ -55,11 +55,9 @@ export class InputCoordinateComponent implements OnInit, OnChanges {
   private textX: string;
   private textY: string;
   private inputFlag: boolean[];
-  private stylingObj: object;
   constructor() { 
     this.inputCoordinateValue = [null, null];
     this.inputFlag = [false, false, false];
-    this.stylingObj = [];
   }
 
   ngOnInit() {
@@ -67,10 +65,6 @@ export class InputCoordinateComponent implements OnInit, OnChanges {
     this.textY = '';
     this.inputParaX = this.contentData.inputParaContent1;
     this.inputParaY = this.contentData.inputParaContent2;
-      this.stylingObj = {
-        backgroundColor: this.contentData.mascotBg,
-        color: '#3e3a48'
-      };
   }
 
   ngOnChanges() {

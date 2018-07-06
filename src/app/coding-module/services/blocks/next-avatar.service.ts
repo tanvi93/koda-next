@@ -36,17 +36,20 @@ export class NextAvatarService {
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
 
       const json = {
-        spriteIndex: spriteIndex + ''
+        method: 'nextAvatar',
+        params: {
+          spriteIndex: spriteIndex + ''
+        }
       }
-      return `nextAvatar('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'nextAvatar', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('nextAvatar', wrapper);
   }
 
 }

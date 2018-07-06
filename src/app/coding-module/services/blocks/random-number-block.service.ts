@@ -39,17 +39,33 @@ export class RandomNumberBlockService {
     Blockly.JavaScript['random_number'] = function (block) {
       let from = Blockly.JavaScript.valueToCode(block, 'from');
       let to = Blockly.JavaScript.valueToCode(block, 'to');
-      return [`getRandomNumber(${from}, ${to})`];
+      let json = {
+        method: 'getRandomNumber',
+        type: 'input',
+        params: {
+          from,
+          to
+        }
+      }
+      return [JSON.stringify(json)];
     }
 
   }
 
-  initInterpreter = (interpreter, scope) => {
-    const wrapper = function (from, to) {
+  interpret = interpreter => {
+    const wrapper = function ({ from, to }) {
+      if (isNaN(Number(from))) {
+        from = interpreter.executeCommands(from);
+      }
+      if (isNaN(Number(to))) {
+        to = interpreter.executeCommands(to);
+      }
+      from = parseInt(from);
+      to = parseInt(to);
       const n = Math.floor(Math.random() * (to - from) + from);
       return n;
     };
-    interpreter.setProperty(scope, 'getRandomNumber', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getRandomNumber', wrapper, 'input');
   }
 
 }
