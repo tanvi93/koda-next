@@ -1,5 +1,7 @@
 <app-instruction-bar [mascotImage]="algorithmObj.mascotImage" [mascotBgColor]="algorithmObj.mascotBg" [instructions]="algorithmObj.instructionBarContent"></app-instruction-bar>
-<app-loading *ngIf="loading"></app-loading>
+<div class="dragdrop-spinner"> 
+  <app-loading *ngIf="loading"></app-loading>
+</div>
 <div fxLayout="row" *ngIf="!loading" fxLayoutGap="20px">
   <div fxLayout="column" fxFlex="50">
     <app-drag-zone [algo]="algorithmObj"></app-drag-zone>

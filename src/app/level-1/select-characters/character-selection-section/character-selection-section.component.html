@@ -1,5 +1,7 @@
 <div class="select-char-div">
-  <app-loading *ngIf="loading"></app-loading>
+<div class="select-char-spinner">
+  <app-loading  *ngIf="loading"></app-loading>
+</div>
   <div class="outer-div" *ngIf="!loading">
     <div class="options"  *ngFor="let data of contentData.characterList;let i = index;">
       <div class="container-name">
