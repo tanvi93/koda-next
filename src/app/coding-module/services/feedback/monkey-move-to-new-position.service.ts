@@ -29,7 +29,8 @@ export class MonkeyMoveToNewPositionService {
         return callback("Oops! That doesn't look right. Look for a block that can be used to move the monkey.");
       }
 
-      const blockObj = JSON.parse(this.codes[0].match(/\(([^)]+)\)/)[1].replace(/[']/g, ""));
+      // const blockObj = JSON.parse(this.codes[0].match(/\(([^)]+)\)/)[1].replace(/[']/g, ""));
+      const blockObj = JSON.parse(this.codes[0]).params;
       const spriteIndex = Number(blockObj.spriteIndex);
 
     // Check #2: character = monkey?
