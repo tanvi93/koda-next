@@ -1,0 +1,13 @@
+  <div class="hint-container" (click)="closeDialog()">
+    <div class="hint-header">
+      <img class="hint-closed-new"  (click)="closeDialog()" src="/assets/icons/hint_closed.svg"
+        alt="">
+      <div class="hint-cap-new">
+      </div>
+    </div>
+    <div class="hint-content-new">
+      <ul>
+        <li *ngFor="let data of activityHintData; let i = index;">{{data}}</li>
+      </ul>
+    </div>
+  </div>
