@@ -1,6 +1,6 @@
 export const dragonCaptureContent = {
     instructionBarContent: 'Over centuries, many adventurers have come and gone. Their collective wisdom points to a list of locations where we may find tools to help us with our quest.',
-    inputTextHeader: [
+    questionArray: [
         'Here\'s the first one. Can you point out on the map where it is? The red tree will guide you.',
         'And now the second one. This should be easier now that the compass is helping us.',
         'One last tool remains to be found.'
@@ -8,6 +8,7 @@ export const dragonCaptureContent = {
     mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     mascotHead: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_head.png',
     BackgroundColor: '#ecd45c',
+    mascotBg: '#ecd45c',
     gemsImage: [
         'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/to_explore.png',
         'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/explored.png'

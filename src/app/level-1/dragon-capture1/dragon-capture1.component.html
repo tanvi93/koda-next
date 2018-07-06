@@ -1,0 +1,27 @@
+<div class="treasure-hunt-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" class="hunt-wrapper">
+    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+      <div class="input-section-inner-div">
+        <div class="input-section-inner-div">
+          <div class="header-section">
+            <app-quiz-question [question]='question'></app-quiz-question>
+          </div>
+          <div class="input-section">
+            <div class="listing" *ngFor="let data of contentData.coordinates;let i = index;" [style.display]="listStatus[i] ? 'none': 'block'">
+              <span>
+                &#8226;&#32;({{ data.x }}, {{ data.y }})&#32;
+                <img class="correct-mark-image" [src]="contentData.correctMark" [style.visibility]="checkStatus[i] ? 'hidden' : 'visible'"
+                  alt="">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="60" fxLayoutAlign="start space-around">
+      <app-dragon-capture-output class="ouput-section" [contentData]="contentData" (dragonObject)="updateTodoList($event)"
+       ></app-dragon-capture-output>
+    </div>
+  </div>
+</div>
