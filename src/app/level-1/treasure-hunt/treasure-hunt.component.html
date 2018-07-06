@@ -1,0 +1,24 @@
+<div class="treasure-hunt-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row"  class="hunt-wrapper">
+    <img class="hint-icon" [hidden]="hideHint" (click)="openHintDialog($event)" src="assets/icons/hint_open.svg" alt="">
+    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+      <div class="input-section-inner-div">
+        <img class="treasure-hunt-todo-list-image" [src]="contentData.treasureScrollImage">
+        <div class='treasure-hunt-task-check'>
+          <p class="light-guideline">X is across, Y to the sky</p>
+          <p class="list-header">The treasures are at:</p>
+          <div class="listing" *ngFor="let list of contentData.taskList; let i = index;">
+            <span>
+              &#8226;&#32;({{ list.xCoord }}, {{ list.yCoord }})
+            </span>
+            <img class="correct-mark-image" [style.visibility]="chestVisibilityStatus[i] ? 'hidden' : 'visible'" [src]="contentData.correctAnswerImage" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="60" fxLayoutAlign="start space-around">
+      <app-treasure-activity-section class="ouput-section" [contentData]="contentData" (chestVisibleFlag)="updateTodoList($event)" (hintActivate)="activateHint($event)"></app-treasure-activity-section>
+    </div>
+  </div>
+</div>
