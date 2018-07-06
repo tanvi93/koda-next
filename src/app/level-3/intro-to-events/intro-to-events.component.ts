@@ -11,13 +11,13 @@ import { assetsLink } from './../../shared-services/config';
  * Defines the array of heading displayed on screen and the preloader.
  */
 
- /**
-  *@method imageLoad This method is called to load all the images in the component before the screen is displayed.
-  * The loader is displayed till the images loads.
-  * @method clickOnScreen This method is called when user clicks anywhere on the blue screen.
-  * Here, when user clicks on screen, the next dialogue and accordingly the image of mascot changes and the block images are displayed 
-  * to show how event works.
-  */
+/**
+ *@method imageLoad This method is called to load all the images in the component before the screen is displayed.
+ * The loader is displayed till the images loads.
+ * @method clickOnScreen This method is called when user clicks anywhere on the blue screen.
+ * Here, when user clicks on screen, the next dialogue and accordingly the image of mascot changes and the block images are displayed 
+ * to show how event works.
+ */
 
 @Component({
   selector: 'app-intro-to-events',
@@ -26,7 +26,7 @@ import { assetsLink } from './../../shared-services/config';
 })
 
 
-  
+
 export class IntroToEventsComponent implements OnInit {
   private loading: boolean;
   private msgs: Array<any>;
@@ -35,12 +35,14 @@ export class IntroToEventsComponent implements OnInit {
   private changeCss: boolean;
   private changeImage: boolean;
   private image: string;
+  private showBlockImage: Boolean;
 
   constructor() {
     this.msgIndex = 0;
     this.loading = true;
     this.changeCss = false;
     this.changeImage = false;
+    this.showBlockImage = false;
     this.msgs = [
       `In games, the player's action -- pressing a key, clicking the mouse, or typing something -- is called an Event. The thing that happens when such an event occurs is called the Response.`,
       `Thus, left and right arrow key presses are Events and the cap moving left and right are respective Responses.`,
@@ -55,7 +57,7 @@ export class IntroToEventsComponent implements OnInit {
   }
 
   imagesLoad() {
-    const arr = ['monkey_menace/mascot_arms_folded_full.png', 'monkey_menace/mascot_pointing_up_right_full.png', 'block_images/event_block_1.png','block_images/event_block_2.png'];
+    const arr = ['monkey_menace/mascot_arms_folded_full.png', 'monkey_menace/mascot_pointing_up_right_full.png', 'block_images/event_block_1.png', 'block_images/event_block_2.png'];
     let image = null;
     let imageCount = 0;
     const mascotLoad = () => {
@@ -72,17 +74,18 @@ export class IntroToEventsComponent implements OnInit {
   }
 
   clickOnScreen() {
-    if (this.msgIndex < 3) {
-    if (this.msgIndex >= 1) {
-      this.mascot = `${assetsLink}monkey_menace/mascot_pointing_up_right_full.png`;
-      this.image = `${assetsLink}block_images/event_block_1.png`;
-      this.changeCss = true;
-      if (this.msgIndex > 1) {
-        this.image = `${assetsLink}block_images/event_block_2.png`;
-        this.changeImage = true;
+    if (this.msgIndex < this.msgs.length - 1) {
+      this.changeImage = false;
+      if (this.msgIndex === 1) {
+        this.mascot = `${assetsLink}monkey_menace/mascot_pointing_up_right_full.png`;
+        this.image = `${assetsLink}block_images/event_block_1.png`;
+        this.showBlockImage = true;
+        this.changeCss = true;
+      } else {
+          this.image = `${assetsLink}block_images/event_block_2.png`;
+          this.changeImage = true;
       }
-    }
       this.msgIndex++;
-    }
+      }
   }
 }

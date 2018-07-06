@@ -2,10 +2,10 @@
 <app-narration-container (click)="clickOnScreen()">
   <h4 class="heading" [innerHTML]="msgs[msgIndex]" fxLayout="row" fxLayoutAlign="center center"></h4>
   <div class="img-section" fxLayout="row" fxLayoutAlign="center start">
-    <div class="section1"  [ngClass]="{'section1-position' : changeCss}">
+    <div class="section1">
       <img [src]='mascot'>
     </div>
-    <div class="section2" *ngIf="showBlockImage" [ngClass]="{'section2-position' : changeImage}">
+    <div class="section2">
       <img [src]='image'>
     </div>
   </div>
