@@ -1,0 +1,67 @@
+.output-div  {
+    width: 100%;
+    display: block;
+    position: relative;
+    color: white;
+    & .background-image {
+        width: 100%;
+        display: block;
+    }
+    & .temp {
+        position: absolute; 
+        top: 43%;
+        left: 25%;
+    }
+    & .hidden-box {
+        position: absolute;
+        overflow: hidden;
+        height: 25%;
+        width: 19%;
+        margin-top: -2%;
+        margin-left: 0%;
+    }
+    & .background-shield-cover {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0%;
+    }
+    & .clickable-article {
+        position: absolute;
+        height: 3%;
+        width: 2%;
+        margin-left: 8.3%;
+        margin-top: 6.5%;
+    }
+    & .gems-stone{
+        position: absolute;
+        width: 8%;
+        margin-left: 5.4%;
+        margin-top: 3.7%;
+        transform: rotate(60deg); 
+    }
+}
+
+
+
+.hidden-container-image2 {
+    position: absolute;
+    height: 70%;
+    width: 65%;
+    margin: 15%;
+}
+
+.hidden-container-image3 {
+    position: absolute;
+    height: 90%;
+    width: 65%;
+    margin: 15%;
+}
+
+.hidden-container-image1 {
+    position: absolute;
+    height: 90%;
+    width: 80%;
+    margin: 15%;
+}
+

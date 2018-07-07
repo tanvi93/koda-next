@@ -1,26 +1,23 @@
-.quiz-container {
-    width: auto;
-    padding: 0%;
-    height: 100%;
-    background-color: white;
-    font-family: 'Quicksand';
-    text-align: left;
-    & .checkbox {
-        font-size: 24px;
-        display: table;
-        margin: 5%;
-        width: 100%;
-         & mat-checkbox {
-             display: table-cell;
-         }
-         & p{
-             display: table-cell;
-         }
-    }
-    & mat-card-footer {
-        width: 100%;
-        min-height: 60px;
-        margin-left: 0%;
-        float: bottom;
-    }
+.checkbox {
+  font-size: 24px;
+  display: table;
+  width: 100%;
+  margin-top: 5%;
+  & mat-checkbox {
+    display: table-cell;
+  }
+  & p {
+    display: table-cell;
+  }
+}
+
+mat-card-footer {
+  width: 100%;
+  min-height: 60px;
+  margin-left: 0%;
+  float: bottom;
+}
+
+mat-card-content {
+  padding: 10px 20px;
 }
