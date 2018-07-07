@@ -19,6 +19,8 @@ import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mars-output-section.component';
 import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activity-section/treasure-activity-section.component';
+import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.component';
+import { DragonCaptureOutputComponent } from './dragon-capture1/dragon-capture-output/dragon-capture-output.component';
 
 
 @NgModule({
@@ -39,7 +41,7 @@ import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activ
     CharacterDisplaySectionComponent,
     MarsRoverComponent, MarsOutputSectionComponent, 
     DragonCapture2Component, DragonOutputSectionComponent,
-    TreasureHuntComponent, TreasureActivitySectionComponent,
+    TreasureHuntComponent, TreasureActivitySectionComponent, DragonCapture1Component,  DragonCaptureOutputComponent,
   ]
  
 })

@@ -34,18 +34,21 @@ export class HideShowButtonService {
       let buttonIndex = block.getFieldValue('button');
       buttonIndex = buttonIndex.length === 0 ? 0 : buttonIndex;
       const json = {
-        buttonIndex,
-        visibility
+        method: 'buttonVisiblityToggle',
+        params: {
+          buttonIndex,
+          visibility
+        }
       }
-      return `buttonVisiblityToggle('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'buttonVisiblityToggle', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('buttonVisiblityToggle', wrapper);
   }
 
 }

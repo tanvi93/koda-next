@@ -43,16 +43,19 @@ export class ChangeBackgroundService {
     Blockly.JavaScript['change_background'] = function (block) {
       let backgroundIndex = block.getFieldValue('background');
       let json = {
-        backgroundIndex
+        method: 'changeBG',
+        params: {
+          backgroundIndex
+        }
       }
-      return `changeBG('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'changeBG', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('changeBG', wrapper);
   }
 }
