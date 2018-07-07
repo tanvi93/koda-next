@@ -56,6 +56,7 @@ export class KeypressEventService {
       let code = Blockly.JavaScript.statementToCode(block, 'when_key_pressed');
       const json = {
         method: 'keydownEventBind',
+        type: 'event',
         params: {
           dropdown_keys,
           linesOfCode: code
@@ -88,6 +89,7 @@ export class KeypressEventService {
 
   unregister = () => {
     this.interpreter = null;
+    console.log('aaya');
     window.removeEventListener("keydown", this.keydownEvent);
   }
 

@@ -254,7 +254,6 @@ export class InterpreterService {
     });
     this.whenCharacterClicked.initInterpreter(interpreter, scope, sprites);
     this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
-    this.whenMouseClicked.initInterpreter(interpreter, scope);
     this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
     this.getVar.initInterpreter(interpreter, scope);
 
@@ -339,7 +338,9 @@ export class InterpreterService {
     this.repeatForever.interpret(this.kodaInterpreter);
     this.ifBlock.interpret(this.kodaInterpreter);
     this.ifElseBlock.interpret(this.kodaInterpreter);
+
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
+    this.whenMouseClicked.interpret(this.kodaInterpreter);
   }
 
   compileCode = (pageId, callback) => {
@@ -354,11 +355,12 @@ export class InterpreterService {
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     // console.log(performance.now());
     const codes = rawCodes.split('\n\n');
+    const list = rawCodes.split(';\n');
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
-      if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
+      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
     });
     this.kodaInterpreter.executeCommands(codes[0], () => {
-      if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
+      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
     });
 
     // const runner = (intrp, i) => {

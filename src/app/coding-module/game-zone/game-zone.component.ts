@@ -133,18 +133,23 @@ export class GameZoneComponent implements OnInit, OnChanges {
     }
   }
 
-  getFeedback = (code, xml, sprites) => {
+  getFeedback = (codes, xml, sprites) => {
     const bg = this.pageData.backgrounds[this.pageData.currentBackgroundIdx];
-    this.feedback.setBlockList(this.pageId, code, sprites, this.stageService.spriteStatusList, bg, obj => {
+    this.feedback.setBlockList(this.pageId, codes, sprites, this.stageService.spriteStatusList, bg, obj => {
       if (typeof (obj) == 'object' && obj.success && this.pageData.activity_name === 'monkey_menace') {
         localStorage.setItem('lastCodeXml', xml);
       }
       this.stageService.stopExecution();
       this.feedbackStatement.emit(obj);
     });
-    if (code.indexOf('EventBind(') === -1) {
-      this.buttonStatus = 'reset';
-    }
+    this.buttonStatus = 'reset';
+    let json = null;
+    codes.forEach(v => {
+      json = JSON.parse(v);
+      if (json.type && json.type === 'event') {
+        this.buttonStatus = 'stop';
+      }
+    })
   }
 
   compileCode = (callback) => {
