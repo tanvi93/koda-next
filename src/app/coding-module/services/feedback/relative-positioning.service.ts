@@ -24,31 +24,36 @@ export class RelativePositioningService {
     const valueFromPreviousQuiz = {
       'x': -5, 'y': -5
     };
-    const secondBlockObj = JSON.parse(this.codes[1].match(/'(.*?)'/)[1]);
-  
+    // const secondBlockObj = JSON.parse(this.codes[1].match(/'(.*?)'/)[1]);
+    const secondBlockObj = JSON.parse(this.codes[1]).params;
+    console.log(secondBlockObj);
     // check 2. Operator blocks used in both the inputs for fruit: goto block?
     if (Number(secondBlockObj.spriteIndex) !== 1 || secondBlockObj.childJson[1].name !== 'arithmetic_operators' || secondBlockObj.childJson[2].name !== 'arithmetic_operators') {
       return callback('As you correctly identified in the last quiz, the fruit must always go to a position that can be expressed as (monkey’s x - 5, monkey’s y - 5). Look for blocks that allow you to express such mathematical operations.');
     }
-    
-    const xInput = secondBlockObj.x.replace('getArithmeticResult', '');
-    const yInput = secondBlockObj.y.replace('getArithmeticResult', '');
+    const inputXOfSecondBlock = JSON.parse(secondBlockObj.x).params;
+    const inputYOfSecondBlock = JSON.parse(secondBlockObj.y).params;
+  
+    const input1 = JSON.parse(inputXOfSecondBlock.input1).params;
 
-   // check 3. The operator blocks contain the Monkey’s coordinate block(s) as first inputs?
-    if ((secondBlockObj.x.indexOf('getCoordinate(0, 0)') < 0) || (secondBlockObj.y.indexOf('getCoordinate(0, 1)') < 0) || (xInput.indexOf('getCoordinate(0, 0)') !== 1) || (yInput.indexOf('getCoordinate(0, 1)') !== 1)) {
+    const input2 = JSON.parse(inputYOfSecondBlock.input1).params;
+
+  //  // check 3. The operator blocks contain the Monkey’s coordinate block(s) as first inputs?
+    if (!input1 || !input2 || (!(Number(input1.axis) === 0 && Number(input1.spriteIndex) === 0 && Number(input2.axis) === 1 && Number(input2.spriteIndex) === 0))){
+    // if ((secondBlockObj.x.indexOf('getCoordinate(0, 0)') < 0) || (secondBlockObj.y.indexOf('getCoordinate(0, 1)') < 0) || (xInput.indexOf('getCoordinate(0, 0)') !== 1) || (yInput.indexOf('getCoordinate(0, 1)') !== 1)) {
       return callback('You are using correct blocks for doing mathematical operations, but their inputs seem to be wrong. Remember, the fruit’s needs to go to the coordinates (monkey’s x - 5, monkey’s y - 5). Can you find a block that gives you monkey’s X or Y coordinate? Attach it as an input to the arithmetic operator block.');
     }
    
-    // check 4. Operator blocks creating the correct formulas as per the previous quiz?
-    if (Number(xInput[22]) === Math.abs(valueFromPreviousQuiz.x) && Number(yInput[22]) === Math.abs(valueFromPreviousQuiz.y) && ((Number(xInput[25]) === 1 && Math.sign(valueFromPreviousQuiz.x) === -1) || (Number(xInput[25]) === 0 && Math.sign(valueFromPreviousQuiz.x) === 1)) && ((Number(yInput[25]) === 1 && Math.sign(valueFromPreviousQuiz.y) === -1) || (Number(yInput[25]) === 0 && Math.sign(valueFromPreviousQuiz.y) === 1))) {
-      this.success = true;
-      this.successObj['success'] = this.success;
-      this.successObj['title'] = 'Done in style!';
-      this.successObj['msg'] = 'This coding business is becoming a cakewalk for you.';
-      return callback(this.successObj);
-    } else {
-      return callback('You are almost there! These are the formulas you need to create through blocks: <br>Fruit’s new X coordinate = Monkey x - 5<br>Fruit’s new Y coordinate = monkey y - 5<br>Recheck the inputs to your arithmetic operator blocks and try again.');
-    }
+  //   // check 4. Operator blocks creating the correct formulas as per the previous quiz?
+  //   if (Number(xInput[22]) === Math.abs(valueFromPreviousQuiz.x) && Number(yInput[22]) === Math.abs(valueFromPreviousQuiz.y) && ((Number(xInput[25]) === 1 && Math.sign(valueFromPreviousQuiz.x) === -1) || (Number(xInput[25]) === 0 && Math.sign(valueFromPreviousQuiz.x) === 1)) && ((Number(yInput[25]) === 1 && Math.sign(valueFromPreviousQuiz.y) === -1) || (Number(yInput[25]) === 0 && Math.sign(valueFromPreviousQuiz.y) === 1))) {
+  //     this.success = true;
+  //     this.successObj['success'] = this.success;
+  //     this.successObj['title'] = 'Done in style!';
+  //     this.successObj['msg'] = 'This coding business is becoming a cakewalk for you.';
+  //     return callback(this.successObj);
+  //   } else {
+  //     return callback('You are almost there! These are the formulas you need to create through blocks: <br>Fruit’s new X coordinate = Monkey x - 5<br>Fruit’s new Y coordinate = monkey y - 5<br>Recheck the inputs to your arithmetic operator blocks and try again.');
+  //   }
   }
 
   workSpaceOnChange(e, cb, workspace) {
