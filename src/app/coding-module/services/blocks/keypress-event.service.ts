@@ -62,7 +62,7 @@ export class KeypressEventService {
           linesOfCode: code
         }
       }
-      return `${JSON.stringify(json)};\n`
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
@@ -89,7 +89,6 @@ export class KeypressEventService {
 
   unregister = () => {
     this.interpreter = null;
-    console.log('aaya');
     window.removeEventListener("keydown", this.keydownEvent);
   }
 

@@ -252,8 +252,6 @@ export class InterpreterService {
     this.flipSprite.initInterpreter(interpreter, scope, obj => {
       callback({ name: 'flipSprite', data: obj });
     });
-    this.whenCharacterClicked.initInterpreter(interpreter, scope, sprites);
-    this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
     this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
     this.getVar.initInterpreter(interpreter, scope);
 
@@ -341,6 +339,8 @@ export class InterpreterService {
 
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.whenMouseClicked.interpret(this.kodaInterpreter);
+    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
+    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons);
   }
 
   compileCode = (pageId, callback) => {
