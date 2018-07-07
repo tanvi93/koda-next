@@ -26,18 +26,21 @@ export class ShowHideAllButtonsService {
     Blockly.JavaScript['show_hide_all_buttons'] = function (block) {
       const visibility = Number(block.getFieldValue('visibility_status'));
       const json = {
-        visibility,
-        allButtons: true
+        method: 'visiblityToggleForAllButtons',
+        params: {
+          visibility,
+          allButtons: true
+        }
       }
-      return `visiblityToggleForAllButtons('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'visiblityToggleForAllButtons', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('visiblityToggleForAllButtons', wrapper);
   }
 
 }

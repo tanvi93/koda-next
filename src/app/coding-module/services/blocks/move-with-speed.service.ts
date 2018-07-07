@@ -38,9 +38,12 @@ export class MoveWithSpeedService {
           ]), 'direction')
           .appendField(' by ');
         this.appendDummyInput()
-          .appendField('steps');
-        this.appendValueInput('speed');
-        this.appendDummyInput()
+          .appendField('steps')
+          .appendField(new Blockly.FieldDropdown([
+            ['slow', '0.6'],
+            ['medium', '1'],
+            ['fast', '2'],
+          ]), 'speed')
           .appendField('speed');
         this.setInputsInline(true);
         this.setPreviousStatement(true, null);
@@ -57,9 +60,9 @@ export class MoveWithSpeedService {
       let steps = Blockly.JavaScript.valueToCode(block, 'steps');
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
-      let speed = Blockly.JavaScript.valueToCode(block, 'speed');      
+      const speed = Number(block.getFieldValue('speed'));
       const childJson = computeChildJson(block.childBlocks_);
-      let json = {
+      let params = {
         childJson,
         spriteIndex,
         direction,
@@ -74,77 +77,72 @@ export class MoveWithSpeedService {
         steps = Math.abs(steps);
         switch (direction) {
           case 'L':
-            json.x = -steps;
+            params.x = -steps;
             break;
           case 'R':
-            json.x = steps;
+            params.x = steps;
             break;
           case 'U':
-            json.y = -steps;
+            params.y = -steps;
             break;
           case 'D':
-            json.y = steps;
+            params.y = steps;
             break;
           default:
-            json.x = steps;
+            params.x = steps;
             break;
         }
       } else {
-        json.inputBlock = {
+        params.inputBlock = {
           axis: 'x',
           isAdd: true,
           steps: steps
         }
         switch (direction) {
           case 'L':
-            json.inputBlock.axis = 'x';
-            json.inputBlock.isAdd = false;
+            params.inputBlock.axis = 'x';
+            params.inputBlock.isAdd = false;
             break;
           case 'R':
-            json.inputBlock.axis = 'x';
+            params.inputBlock.axis = 'x';
             break;
           case 'U':
-            json.inputBlock.axis = 'y';
-            json.inputBlock.isAdd = false;
+            params.inputBlock.axis = 'y';
+            params.inputBlock.isAdd = false;
             break;
           case 'D':
-            json.inputBlock.axis = 'y';
+            params.inputBlock.axis = 'y';
             break;
           default:
-            json.inputBlock.axis = 'x';
+            params.inputBlock.axis = 'x';
             break;
         }
       }
-      return `moveWithSpeed('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'moveWithSpeed',
+        params
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, coordinatesJson, cb) => {
-    const wrapper = (obj, callback) => {
-      let json = JSON.parse(obj);
+  interpret = (interpreter, coordinatesJson, cb) => {
+    const wrapper = (json, callback) => {
       if (this.blocks) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const change = json.x ? 'x' : 'y';
       let animationTime = json[change] * coordinatesJson[`${change}AxisUnit`] * 3 / json.speed;
       const executeFn = (axis) => {
-        let intrp = new Interpreter('');
-        intrp.stateStack[0].scope = scope;
-        intrp.appendCode(json.inputBlock.steps);
-        intrp.run();
-        const interval = setInterval(() => {
-          if (intrp.value !== undefined) {
-            json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(intrp.value) : -1 * Math.abs(intrp.value);
-            cb(json);
-            setTimeout(() => {
-              if (this.blocks) {
-                this.blocks[json.blockIndex].removeSelect();
-              } 
-              callback(json);
-            }, animationTime);
-            clearInterval(interval);
+        let value = interpreter.executeCommands(json.inputBlock.steps);
+        json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
+        cb(json);
+        setTimeout(() => {
+          if (this.blocks) {
+            this.blocks[json.blockIndex].removeSelect();
           }
-        }, 10);
+          callback(json);
+        }, animationTime);
       }
       if (json.inputBlock) {
         executeFn(json.inputBlock.axis);
@@ -158,7 +156,7 @@ export class MoveWithSpeedService {
         }, animationTime);
       }
     };
-    interpreter.setProperty(scope, 'moveWithSpeed', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('moveWithSpeed', wrapper, 'async');
   }
 
 }

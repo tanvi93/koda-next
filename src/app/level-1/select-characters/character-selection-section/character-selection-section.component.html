@@ -1,0 +1,18 @@
+<div class="select-char-div">
+  <app-loading *ngIf="loading"></app-loading>
+  <div class="outer-div" *ngIf="!loading">
+    <div class="options"  *ngFor="let data of contentData.characterList;let i = index;">
+      <div class="container-name">
+        <p class="container-text">
+          {{data.name}}
+        </p>
+      </div>
+      <div class="image-container" >
+        <div class="imageList" [ngClass]="{'selected': characterBorder[i][x] }" *ngFor="let imageList of contentData.characterList[i].list;let x = index">
+          <img class="imageList-image {{data.name}}"(click)="functionCalled($event, x, i)"
+          src="{{imageList}}" alt="{{x}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

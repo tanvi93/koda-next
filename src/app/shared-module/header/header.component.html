@@ -1,9 +1,9 @@
 <div fxLayout="column">
 
   <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="space-between center">
-    <span class="logo" routerLink="/">KODA</span>
+    <span class="logo" (click)="goToDashBoard()">KODA</span>
     <!-- <app-level-menu [gameDetails]="gameDetails"></app-level-menu> -->
-    <app-level-progress></app-level-progress>
+    <!-- <app-level-progress></app-level-progress> -->
     <app-profile-status [gameDetails]="gameDetails"></app-profile-status>
   </mat-toolbar>
 

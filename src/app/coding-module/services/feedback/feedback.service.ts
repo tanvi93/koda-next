@@ -26,7 +26,7 @@ import { PackagingMilkCode2Service } from './packaging-milk-code2.service';
 @Injectable()
 export class FeedbackService {
   private blockList: any;
-  private codes: Array<String>;
+  private codes: Array<string>;
   private mm2_1_c1: MonkeyMoveToNewPositionService;
   private mm2_2_c1: MonkeyLeftmostLimit;
   private mm2_2_c3: RandomPositionService;
@@ -89,7 +89,7 @@ export class FeedbackService {
     this.codes.splice(this.codes.length - 1, 1);
     this.getHighlightIndex();
     this.blockList = this.codes.map(v => {
-      return v.split('(')[0];
+      return JSON.parse(v).method;
     });
     const spritesData = [...sprites, { id: 'background', ...bgDetails }];
     if (this[`${pageId}`]) {

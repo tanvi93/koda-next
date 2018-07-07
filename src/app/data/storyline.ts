@@ -1,7 +1,7 @@
 export const stories = {
     fox_n_grapes: {
         backgroundImgs: [
-            './assets/images/activities/fox_and_grapes/fox_activity_bg.jpg'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/fox_activity_bg.jpg'
         ]
     },
     treasure_hunt: {
@@ -18,7 +18,12 @@ export const stories = {
             './assets/images/activities/mars_rover/mars-storyline5.jpg',
         ]
     },
-    magical_cave: {
+    dragon_capture_activity: {
+        backgroundImgs: [
+            './assets/images/activities/dragon_capture/dragon-activity.jpg',
+            './assets/images/activities/dragon_capture/dragon-activity2.jpg'
+        ]
+    }, magical_cave: {
         backgroundImgs: [
             './assets/images/activities/magical_cave/storyline.jpg'
         ]
@@ -52,12 +57,12 @@ export const stories = {
         ]
     }, identical_twins: {
         backgroundImgs: [
-            './assets/images/activities/identical_twins/step1.png',
-            './assets/images/activities/identical_twins/step2.png',
-            './assets/images/activities/identical_twins/step3.png',
-            './assets/images/activities/identical_twins/step4.png',
-            './assets/images/activities/identical_twins/step5.png',
-            './assets/images/activities/identical_twins/step6.png'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step1.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step2.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step3.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step4.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step5.png',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/step6.png'
         ]
     }, eclipse: {
         backgroundImgs: [
@@ -67,6 +72,11 @@ export const stories = {
         backgroundImgs: [
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step1.jpg',
             'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire-ext-step2.jpg'
+        ]
+    }, lambent_app: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step1.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/step2.jpg'
         ]
     }
 }
