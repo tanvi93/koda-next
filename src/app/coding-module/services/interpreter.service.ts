@@ -252,7 +252,6 @@ export class InterpreterService {
     this.flipSprite.initInterpreter(interpreter, scope, obj => {
       callback({ name: 'flipSprite', data: obj });
     });
-    this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
 
 
     let wrapper = (id) => {
@@ -322,6 +321,7 @@ export class InterpreterService {
     this.relationalOperator.interpret(this.kodaInterpreter);
     this.trueFalse.interpret(this.kodaInterpreter);
     this.logicalOperator.interpret(this.kodaInterpreter);
+    this.mouseCoordinates.interpret(this.kodaInterpreter, coordinatesJson);
 
     this.repeat.interpret(this.kodaInterpreter);
     this.repeatForever.interpret(this.kodaInterpreter);
