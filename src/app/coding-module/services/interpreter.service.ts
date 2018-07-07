@@ -253,20 +253,8 @@ export class InterpreterService {
       callback({ name: 'flipSprite', data: obj });
     });
     this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
-    this.getVar.initInterpreter(interpreter, scope);
 
-    this.setVar.initInterpreter(interpreter, scope, arr => {
-      callback({ name: 'setVar', data: arr });
-    });
-    this.changeVar.initInterpreter(interpreter, scope, arr => {
-      callback({ name: 'changeVar', data: arr });
-    });
 
-    if (this.hideShowVar) {
-      this.hideShowVar.initInterpreter(interpreter, scope, obj => {
-        callback({ name: 'hideShowVar', data: obj });
-      });
-    }
     let wrapper = (id) => {
       return interpreter.createPrimitive(this.highlightBlock(id));
     };
@@ -321,6 +309,9 @@ export class InterpreterService {
     this.showHideAllButtons.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'allHideShowButtons', data: obj });
     });
+    this.changeVar.interpret(this.kodaInterpreter, arr => {
+      callback({ name: 'changeVar', data: arr });
+    });
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -341,6 +332,16 @@ export class InterpreterService {
     this.whenMouseClicked.interpret(this.kodaInterpreter);
     this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
     this.whenButtonClicked.interpret(this.kodaInterpreter, buttons);
+
+    this.getVar.interpret(this.kodaInterpreter);
+    this.setVar.interpret(this.kodaInterpreter, arr => {
+      callback({ name: 'setVar', data: arr });
+    });
+    if (this.hideShowVar) {
+      this.hideShowVar.interpret(this.kodaInterpreter, obj => {
+        callback({ name: 'hideShowVar', data: obj });
+      });
+    }
   }
 
   compileCode = (pageId, callback) => {
@@ -359,8 +360,10 @@ export class InterpreterService {
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
       if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
     });
-    this.kodaInterpreter.executeCommands(codes[0], () => {
-      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+    codes.forEach(code => {
+      this.kodaInterpreter.executeCommands(code, () => {
+        if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+      });
     });
 
     // const runner = (intrp, i) => {

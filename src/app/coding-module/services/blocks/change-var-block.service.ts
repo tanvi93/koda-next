@@ -28,19 +28,26 @@ export class ChangeVarBlockService {
       const nameOfVariable = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('nameOfVariable'),
         Blockly.Variables.NAME_TYPE);
       const valueOfVariable = Blockly.JavaScript.valueToCode(block, 'changevar');
-      return `changeVar('${nameOfVariable}', ${valueOfVariable});\n`;
+      let json = {
+        method: 'changeVar',
+        params: {
+          nameOfVariable,
+          valueOfVariable
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
-    const wrapper = function (name, value) {
+  interpret = (interpreter, cb) => {
+    const wrapper = function ({ nameOfVariable: name, valueOfVariable: value }) {
       if (!variableList[name]) {
         variableList[name] = { value: 0 };
       }
-      variableList[name].value += value;
+      variableList[name].value = parseFloat(variableList[name].value) + parseFloat(value);
       cb(variableList);
     };
-    interpreter.setProperty(scope, 'changeVar', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('changeVar', wrapper);
   }
 
 }
