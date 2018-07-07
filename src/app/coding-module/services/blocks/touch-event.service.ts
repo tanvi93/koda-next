@@ -36,22 +36,24 @@ export class TouchEventService {
       let sprite2Index = block.getFieldValue('character2');
       sprite2Index = sprite2Index.length === 0 ? 0 : sprite2Index;
       const json = {
-        sprite1Index,
-        sprite2Index
+        method: 'hasCharTouched',
+        type: 'input',
+        params: {
+          sprite1Index,
+          sprite2Index
+        }
       }
-      return [`hasCharTouched('${JSON.stringify(json)}')`]
+      return [JSON.stringify(json)];
     };
   }
 
-  initInterpreter = (interpreter, scope, spriteData) => {
-    Blockly.JavaScript.addReservedWords('hasCharTouched');
+  interpret = (interpreter, spriteData) => {
     const wrapper = (obj) => {
-      obj = JSON.parse(obj);
       let sprite1 = spriteData[obj.sprite1Index].instance;
       let sprite2 = spriteData[obj.sprite2Index].instance;
       return sprite1.intersectsWithObject(sprite2, null, true);
     };
-    interpreter.setProperty(scope, 'hasCharTouched', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('hasCharTouched', wrapper, 'input');
 
   }
 
