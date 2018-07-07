@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IntroToBlocksComponent } from './intro-to-blocks/intro-to-blocks.component';
 import { ReletivePositionLearningComponent } from './reletive-position-learning/reletive-position-learning.component';
 import { RepetitiveCodeComponent } from './repetitive-code/repetitive-code.component';
+import { ToTheHillsComponent } from './to-the-hills/to-the-hills.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   }, {
     path: 'repetitive-code-learning',
     component: RepetitiveCodeComponent
+  }, {
+    path: 'drag-n-drop/:pageId',
+    component: ToTheHillsComponent
   }
 ];
 

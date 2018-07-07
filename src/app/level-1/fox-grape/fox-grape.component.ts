@@ -16,7 +16,7 @@ import { foxGrapeContent } from './../../data/foxGrape';
    */
 
   /**
-   * @method receiveInput
+   * @method receivedInput
    * @memberOf FoxGrapeComponent
    * @param $event This varaible object contains input data from input section of div which needed to pass to output section to see the respective result.
    * @description this is an event based method which get triggered whenever inputSectionComponent emits data .
@@ -42,13 +42,13 @@ export class FoxGrapeComponent {
   }
 
    
-  receiveInput($event) {
+  receivedInput = ($event) => {
     this.foxoutput.activityFunction($event[0], $event[1]);
     $event[0] = '';
     $event[1] = '';
   }
 
-  clearInputText($event) {
+  clearInputText = ($event) => {
     ++this.clearMethodCount;
     if (this.clearMethodCount % 2 === 0) {
       this.clearDataFlag = false;

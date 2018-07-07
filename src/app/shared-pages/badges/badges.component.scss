@@ -122,12 +122,27 @@
      }
 }
 
-@media only screen and (max-height:790px){
+@media only screen and (max-height:930px){
     .badge-containero-outer{
         padding-top: 9%;
-        width: 32%;
+        width: 30%;
     }
     .badge-name {
-        bottom: 19%;
+        bottom: 20%;
+    }
+    .heading-container {
+        font-size: 73px;
+        padding-top: 2%;
+    }
+}
+
+
+@media only screen and (max-height:800px){
+    .badge-containero-outer{
+        padding-top: 7%;
+        width: 28%;
+    }
+    .heading-container {
+        font-size: 50px;
     }
 }

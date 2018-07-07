@@ -10,10 +10,17 @@ import { PositionCharactersComponent } from './position-characters/position-char
 import { InputCoordinateComponent } from './shared/input-coordinate/input-coordinate.component';
 import { BubbleMsgComponent } from './shared/bubble-msg/bubble-msg.component';
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
-import { FoxInputSectionComponent } from './fox-grape/fox-input-section/fox-input-section.component';
 import { FoxOutputSectionComponent } from './fox-grape/fox-output-section/fox-output-section.component';
 import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
 import { CharacterDisplaySectionComponent } from './select-characters/character-display-section/character-display-section.component';
+import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.component';
+import { DragonOutputSectionComponent } from './dragon-capture2/dragon-output-section/dragon-output-section.component';
+import { MarsRoverComponent } from './mars-rover/mars-rover.component';
+import { MarsOutputSectionComponent } from './mars-rover/mars-output-section/mars-output-section.component';
+import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
+import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activity-section/treasure-activity-section.component';
+import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.component';
+import { DragonCaptureOutputComponent } from './dragon-capture1/dragon-capture-output/dragon-capture-output.component';
 
 
 @NgModule({
@@ -23,7 +30,19 @@ import { CharacterDisplaySectionComponent } from './select-characters/character-
     Level1RoutingModule,
     FormsModule
   ],
-  declarations: [SelectCharactersComponent, PositionCharactersComponent, InputCoordinateComponent, BubbleMsgComponent, FoxGrapeComponent, FoxInputSectionComponent, FoxOutputSectionComponent, CharacterSelectionSectionComponent, CharacterDisplaySectionComponent]
+  declarations: [
+    SelectCharactersComponent, 
+    PositionCharactersComponent, 
+    InputCoordinateComponent, 
+    BubbleMsgComponent,
+    FoxGrapeComponent, 
+    FoxOutputSectionComponent, 
+    CharacterSelectionSectionComponent,
+    CharacterDisplaySectionComponent,
+    MarsRoverComponent, MarsOutputSectionComponent, 
+    DragonCapture2Component, DragonOutputSectionComponent,
+    TreasureHuntComponent, TreasureActivitySectionComponent, DragonCapture1Component,  DragonCaptureOutputComponent,
+  ]
  
 })
 export class Level1Module { }

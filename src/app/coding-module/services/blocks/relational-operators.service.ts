@@ -47,14 +47,31 @@ export class RelationalOperatorsService {
       const operator = block.getFieldValue('operator');
       const input1 = Blockly.JavaScript.valueToCode(block, 'input1');
       const input2 = Blockly.JavaScript.valueToCode(block, 'input2');
-      return [`getRelationalResult(${input1}, ${input2}, ${operator})`]
+      let json = {
+        method: 'getRelationalResult',
+        type: 'input',
+        params: {
+          input1,
+          input2,
+          operator
+        }
+      }
+      return [JSON.stringify(json)];
     };
 
   }
 
-  initInterpreter = (interpreter, scope) => {
+  interpret = interpreter => {
     let operatorArr = ['eq', 'neq', 'lt', 'lte', 'gt', 'gte'];
-    const wrapper = function (input1, input2, operator) {
+    const wrapper = function ({ input1, input2, operator }) {
+      if (isNaN(Number(input1))) {
+        input1 = interpreter.executeCommands(input1);
+      }
+      if (isNaN(Number(input2))) {
+        input2 = interpreter.executeCommands(input2);
+      }
+      input1 = parseFloat(input1);
+      input2 = parseFloat(input2);
       switch (operatorArr[operator]) {
         case "eq":
           return input1 === input2;
@@ -70,7 +87,7 @@ export class RelationalOperatorsService {
           return input1 >= input2;
       }
     };
-    interpreter.setProperty(scope, 'getRelationalResult', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getRelationalResult', wrapper, 'input');
   }
 
 }

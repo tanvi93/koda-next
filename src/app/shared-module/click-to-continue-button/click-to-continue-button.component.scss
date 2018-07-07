@@ -26,6 +26,12 @@
     line-height: 47px;
 }
 
+.btn-left  {
+    position: absolute;
+    left: 50px;
+    right: auto;
+}
+
 @media screen and (max-height:768px){
     .click-btn {
         height: 35px;

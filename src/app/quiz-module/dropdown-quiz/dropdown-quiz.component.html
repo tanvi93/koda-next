@@ -1,17 +1,13 @@
 <app-quiz-wrapper [quizData]="quizObj">
-  <mat-card class="quiz-container">
-      <app-quiz-question [question]='quizObj.question'></app-quiz-question>
-    <mat-card-content>
-      <div class="dropdown" *ngFor="let data of quizObj.options; let i = index;">
-        <p class="option" [innerHTML]='data.question'></p>
-        <app-select-option [dataOption]="data.options" 
-        [correctAnswer]="correctAnswer[i]" [currentIndex]="i" (actionDetail)="selectResult($event)"></app-select-option>
-      </div>
-    </mat-card-content>
-    <mat-card-footer class="error-msg" 
-    [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-      <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'></app-error-msg>
-      <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button>
-    </mat-card-footer>
-  </mat-card>
+  <mat-card-content>
+    <div class="dropdown" *ngFor="let data of quizObj.options; let i = index;">
+      <p class="option" [innerHTML]='data.question'></p>
+      <app-select-option [dataOption]="data.options" [correctAnswer]="correctAnswer[i]" [currentIndex]="i" (actionDetail)="selectResult($event)"></app-select-option>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="error-msg" [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}"
+    [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
+    <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'></app-error-msg>
+    <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button>
+  </mat-card-footer>
 </app-quiz-wrapper>

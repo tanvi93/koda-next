@@ -25,6 +25,9 @@ const routes: Routes = [
     path: 'level-3',
     loadChildren: 'app/level-2/level-2.module#Level2Module'
   }, {
+    path: 'level-4',
+    loadChildren: 'app/level-3/level-3.module#Level3Module'
+  }, {
     path: 'quiz',
     loadChildren: 'app/quiz-module/quiz-module.module#QuizModuleModule'
   }, {
