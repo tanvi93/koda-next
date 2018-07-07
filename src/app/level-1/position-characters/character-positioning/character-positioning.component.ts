@@ -109,9 +109,11 @@ export class CharacterPositioningComponent implements OnInit {
       this.backgroundWidth = x[0].clientWidth;
     }, 0);
     const selectedIndexs = JSON.parse(localStorage.getItem('gameProgress')).preferenceMap;
-console.log(  );
+    console.log(selectedIndexs);
 
     this.backgroundImage = selectCharacterContent.characterList[0].list[selectedIndexs.background];
+    console.log(this.backgroundImage);
+    
     this.contentData.dragImageContent[0].imagePath = selectCharacterContent.characterList[1].list[selectedIndexs.monkey];
     this.contentData.dragImageContent[1].imagePath = selectCharacterContent.characterList[2].list[selectedIndexs.fruit];
     this.contentData.dragImageContent[2].imagePath = selectCharacterContent.characterList[3].list[selectedIndexs.cap];

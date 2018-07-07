@@ -25,6 +25,7 @@ export class PositionValidationComponent implements OnInit, OnChanges {
     this.addIcon = this.contentData.addIcon;
     this.marker = this.contentData.checkedIcon;
     this.msgFlag = true;
+    
     this.contentData.imageTray[0].imageList[0] = selectCharacterContent.characterList[0].list[selectedIndexs.background];
     this.contentData.imageTray[1].imageList[0] = selectCharacterContent.characterList[1].list[selectedIndexs.monkey];
     this.contentData.imageTray[1].imageList[1] = selectCharacterContent.characterList[2].list[selectedIndexs.fruit];
