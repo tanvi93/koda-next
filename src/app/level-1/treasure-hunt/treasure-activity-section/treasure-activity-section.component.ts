@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
+
 @Component({
   selector: 'app-treasure-activity-section',
   templateUrl: './treasure-activity-section.component.html',
@@ -85,12 +87,11 @@ export class TreasureActivitySectionComponent implements OnInit {
   private success: boolean;
   private msgPos = { 'msgLeft': null, 'msgTop': null, 'msgTailTop': null, 'msgTailLeft': null };
   
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) { 
     this.success = true;
     this.hintCounter = 0;
     this.hiddenTreasureFlag = [true, true, true];
     this.treasureMargin = [75, 75, 75];
-    this.localData = JSON.parse(localStorage.getItem('coordinates'));
   }
 
   ngOnInit() {
@@ -252,11 +253,7 @@ export class TreasureActivitySectionComponent implements OnInit {
         });
         this.dialogRef.componentInstance.modalData = this.contentData;
       }, 2500);
-      this.localData[1].status.complete.imageStatus = true;
-      this.localData[1].status.unlock.imageStatus = !this.localData[1].status.complete.imageStatus;
-      this.localData[2].status.lock.imageStatus = !this.localData[1].status.complete.imageStatus;
-      this.localData[2].status.unlock.imageStatus = this.localData[1].status.complete.imageStatus;
-      localStorage.setItem('coordinates', JSON.stringify(this.localData));
+      this.tracker.setContent('coordinates', 1);
     }
   }
 

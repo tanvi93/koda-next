@@ -1,9 +1,14 @@
 .loading-comp-wrpper {
     position: absolute;
     z-index: 999;
-    height: 10em;
-    width: 10em;
-    overflow: show;
-    margin: auto;
+    height: 7em;
+    width: 7em;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+   -moz-transform: translateY(-50%); 
 }
 
