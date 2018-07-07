@@ -62,7 +62,7 @@ export class GameStageService {
     let buttonLoadCount = 0;
 
     //Audio added here
-    this.loadAudio(pageData.activity_name);
+    // this.loadAudio(pageData.activity_name);
 
     const checkIfReady = () => {
       if (imageLoadCount >= totalImages && bgLoadCount >= this.pageData.backgrounds.length && buttonLoadCount >= this.buttons.length) {
@@ -590,6 +590,7 @@ export class GameStageService {
     }
     this.interpreter.runCode(code, this.sprites, this.buttons, coordinatesJson, feedbackCall, json => {
       const { name, data } = json;
+      // console.log(name, performance.now());
       switch (name) {
         case 'say':
           this.drawSpeechBubble(data.spriteIndex, data.text, data.duration);

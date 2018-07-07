@@ -26,11 +26,11 @@ export class NotOperatorService {
       const input = Blockly.JavaScript.valueToCode(block, 'input');
       switch (input) {
         case "true":
-          return [false];
+          return false;
         case "false":
-          return [true];
+          return true;
         default:
-          return [!input];
+          return !input;
       }
     };
 

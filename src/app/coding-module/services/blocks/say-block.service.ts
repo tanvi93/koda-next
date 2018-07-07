@@ -36,33 +36,34 @@ export class SayBlockService {
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       let textName = String(block.getFieldValue('message'));
       textName = escape(textName);
-      let json = {
+      const params = {
         textName,
         spriteIndex,
         blockIndex: this.blocks.length-1
       }
-      return `say('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'say',
+        params
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreterSay = (interpreter, scope, cb) => {
-    // Ensure function name does not conflict with variable names.
-    Blockly.JavaScript.addReservedWords('say');
-    const wrapper = (text, callback) => { 
-      text = JSON.parse(text.replace(/[']/g, ''));
+  interpret = (interpreter, cb) => {
+    const wrapper = (obj, callback) => { 
       if (this.blocks) {
-        this.blocks[text.blockIndex].addSelect();
+        this.blocks[obj.blockIndex].addSelect();
       } 
-      text.textName = text.textName ? text.textName : '';
-      text.textName = unescape(text.textName);
-      cb(text.textName, text.spriteIndex, 2000);
+      obj.textName = obj.textName ? obj.textName : '';
+      obj.textName = unescape(obj.textName);
+      cb({ text: obj.textName, spriteIndex: obj.spriteIndex, duration: 2000 });
       setTimeout(() => {
         if (this.blocks) {
-          this.blocks[text.blockIndex].removeSelect();
+          this.blocks[obj.blockIndex].removeSelect();
         }  
-        callback(text.textName);
+        callback(obj.textName);
       }, 2000);
     };
-    interpreter.setProperty(scope, 'say', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('say', wrapper, 'async');
   }
 }

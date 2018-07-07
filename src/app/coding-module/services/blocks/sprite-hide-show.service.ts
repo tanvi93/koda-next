@@ -34,18 +34,21 @@ export class SpriteHideShowService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const json = {
-        spriteIndex,
-        visibility
+        method: 'visiblityToggle',
+        params: {
+          spriteIndex,
+          visibility
+        }
       }
-      return `visiblityToggle('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'visiblityToggle', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('visiblityToggle', wrapper);
   }
 
 }
