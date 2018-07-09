@@ -71,17 +71,19 @@ export class GoToCoordsService {
 
   interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      if (this.blocks) {
+      console.log(this.blocks);
+      if (this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const executeFn = (axis) => {
         json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
+        console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
         if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
           return executeFn(!axis);
         }
         cb(json);
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback();
@@ -94,7 +96,7 @@ export class GoToCoordsService {
       } else {
         cb(json);
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback();
