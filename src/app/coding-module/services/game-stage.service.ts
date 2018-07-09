@@ -345,8 +345,22 @@ export class GameStageService {
     x = parseInt(x);
     y = parseInt(y);
     const sprite = this.sprites[index];
-    let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-    this.moveToObject(index, x - offset.x, offset.y - y, hasAnimation ? true : false);
+    if (hasAnimation) {
+      let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
+      this.moveToObject(index, x - offset.x, offset.y - y, true);
+      return;
+    }
+    let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
+    let top = (Math.abs(y - this.totalY / 2) - sprite.height/2) * this.yAxisUnit;
+    sprite.instance.set('left', left);
+    sprite.instance.set('top', top);
+    const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
+    this.spriteStatusList.push({ currentPosition });
+    this.sprites = this.sp.getAllSprites(this.activity);
+    try {
+      this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
+    } catch (e) { }
+    this.fabricCanvas.renderAll();
   }
 
   showCoords(index = 0, duration) {
