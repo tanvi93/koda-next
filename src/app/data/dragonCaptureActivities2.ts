@@ -40,7 +40,7 @@ export const dragonCaptureContent2 = {
     correctMarkChecklist: [false, false, false],
     mascotTopView: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/mascot_top_view.png',
     backgroundImage:      
-        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity2.jpg',
+        'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/bg_activity1_labelled.jpg',
     // gridImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/grid.png',
     dragonImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/dragon.png',
     flaskImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/dragon_capture/flask_large.png',
