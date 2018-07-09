@@ -84,8 +84,11 @@ export class CharacterPositioningComponent implements OnInit {
     }
     this.totalXValue = 70;
     this.totalYValue = 42;
+    
     const x: any = document.getElementsByClassName('background-position');
     setTimeout(() => {
+      this.leftShift = [String(0.43 * x[0].clientWidth), String(0.33 * x[0].clientWidth), String(0.43 * x[0].clientWidth)];
+      this.topShift = [String(0.65 * x[0].clientHeight), String(0.52 * x[0].clientHeight), String(0.75 * x[0].clientHeight)];
       this.position[0].x = 0.45 * x[0].clientWidth;
       this.position[0].y = 0.35 * x[0].clientHeight
       this.position[1].x = 0.40 * x[0].clientWidth;
@@ -110,6 +113,7 @@ export class CharacterPositioningComponent implements OnInit {
       }
 
     });
+    
     this.incompleteTaskFlag = true;
     this.positionDetail.emit(this.positionCheck);
   }

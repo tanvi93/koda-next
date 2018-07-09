@@ -2,8 +2,8 @@
   <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
   <div fxLayout="row" fxLayoutGap="20px">
     <div fxFlex="60" fxLayoutAlign="space-around start">
-      <!-- <app-position-validation class="position-validation" [contentData]="contentData" [errorFlag]="errorFlag"></app-position-validation> -->
-      <div class="position-validation-div">
+      <app-position-validation class="position-validation" [contentData]="contentData" [errorFlag]="errorFlag"></app-position-validation>
+      <!-- <div class="position-validation-div"> -->
         <!-- <div class="checkbox">
           <div class="checklist-div">
             <div class="checklist-header">
@@ -27,20 +27,20 @@
             <p> {{contentData.errorMsgStatment}}</p>
           </div>
         </div> -->
-        <!-- <div class="tray">
-          <div class="image-tray {{ 'image-tray' + (i + 1)}}" [style.background-color]="image.imageList.length !== 0 ? '#282431': '#625d62'"
+        <!-- <div class="tray"> -->
+          <!-- <div class="image-tray {{ 'image-tray' + (i + 1)}}" [style.background-color]="image.imageList.length !== 0 ? '#282431': '#625d62'"
             *ngFor="let image of contentData.imageTray;let i = index;">
             <img class="image-tray-list" [ngStyle]="{'left': ((x*25)+ 1*(x+1))+'%'}" *ngFor="let trayImage of contentData.imageTray[i].imageList;let x = index"
               src="{{trayImage}}" alt="">
             <img class="lockIcon" src="{{i === 2 ? lockIcon : addIcon}}" [style.left]="image.imageList.length !== 0 ? '85%': '45%'" alt="">
           </div>
         </div> -->
-      </div>
+      <!-- </div> -->
 
+      <!-- </div> -->
     </div>
     <div fxFlex="40" fxLayoutAlign="space-around start">
       <app-character-positioning class="character-position" [contentData]="contentData" [flagData]="flagData" (positionDetail)="receivedPosDetail($event)" (hideErrorMsg)="hideErrorMsg($event)"
       (taskFlag)="receiveWarning($event)" ></app-character-positioning>
     </div>
-  </div>
 </div>

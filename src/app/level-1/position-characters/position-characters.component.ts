@@ -20,14 +20,21 @@ export class PositionCharactersComponent implements OnInit {
   }
 
   receivedPosDetail($event) {
-
+    console.log($event);
+    
     // condition for monkey hanging on the top of the stage
     if (Number($event[0].top) >= this.contentData.dragImageContent[0].topPos.minValue) {
       this.contentData.checklist[0].checkListFlag = true;
     } else {
       this.contentData.checklist[0].checkListFlag = false;
     }
-
+    console.log($event[0].top - $event[1].top);
+    console.log($event[0].handTop.min);
+    console.log($event[0].handTop.max);
+    console.log($event[0].left - $event[1].left);
+    console.log($event[0].handLeft.min);
+    console.log($event[0].handLeft.max);
+    
     // condition for fruit in monkey's hand
     if ((($event[0].top - $event[1].top) >= $event[0].handTop.min)
       && (($event[0].top - $event[1].top) <= $event[0].handTop.max)
