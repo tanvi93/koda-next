@@ -49,7 +49,7 @@ export class CharacterClickEventService {
         type: 'event',
         params: {
           spriteIndex,
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -64,7 +64,7 @@ export class CharacterClickEventService {
     const wrapper = ({ spriteIndex, linesOfCode }) => {
       this.myInterpreter = interpreter;
       this.instance = sprites[spriteIndex].instance;
-      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: linesOfCode };
+      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
       this.instance.on('mousedown', this.mouseClickEvent);
     };
     interpreter.setProperty('charClickEventBind', wrapper);

@@ -32,7 +32,7 @@ export class KodaInterpreterService {
       if (i === arr.length) return callback ? callback() : null;
       let v = null;
       try {
-        v = JSON.parse(arr[i].replace(';', ''));
+        v = JSON.parse(arr[i]);
       } catch (e) {
         eval(arr[i]);
         return;
