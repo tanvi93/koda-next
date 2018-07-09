@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AudioService } from './shared-services/audio.service';
 import { UtilitiesService } from './shared-services/utilities.service';
 import { ApiService } from './shared-services/api.service';
+import { ActivityTrackerService } from './shared-services/activity-tracker.service'
 
 import { AppComponent } from './app.component';
 import { BadgesComponent } from './shared-pages/badges/badges.component';
@@ -56,7 +57,7 @@ import { ActivityThumbnailComponent } from './shared-pages/select-activity/activ
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [AudioService, UtilitiesService, ApiService],
+  providers: [AudioService, UtilitiesService, ApiService, ActivityTrackerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

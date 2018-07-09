@@ -9,8 +9,7 @@ declare let Interpreter: any;
 @Injectable()
 export class ButtonClickEventService {
   private sp: SpriteService;
-  private scope;
-  private code;
+  private keyCodePair;
   private instance;
   private myInterpreter;
   public xml: String;
@@ -40,36 +39,31 @@ export class ButtonClickEventService {
       block.startHat_ = true;
       let buttonIndex = block.getFieldValue('button');
       buttonIndex = buttonIndex.length === 0 ? 0 : buttonIndex;
-      let codeTmp = Blockly.JavaScript.statementToCode(block, 'button_clicked');
-      return `buttonClickEventBind('${buttonIndex}', "${btoa(codeTmp)}");\n`;
-    };
-  }
-
-  mouseClickEvent = (code, e) => {
-    this.myInterpreter.push(new Interpreter(''));
-    let index = this.myInterpreter.length - 1;
-    this.myInterpreter[index].stateStack[0].scope = this.scope;
-    this.myInterpreter[index].appendCode(code);
-    const runner = () => {
-      if (this.myInterpreter && this.myInterpreter[index]) {
-        const hasMore = this.myInterpreter[index].step();
-        if (hasMore) {
-          setTimeout(runner, 0);
+      const code = Blockly.JavaScript.statementToCode(block, 'button_clicked');
+      const json = {
+        method: 'buttonClickEventBind',
+        type: 'event',
+        params: {
+          buttonIndex,
+          linesOfCode: btoa(code)
         }
       }
+      return `${JSON.stringify(json)};\n`;
     };
-    runner();
   }
 
-  initInterpreter = (interpreter, scope, buttonData) => {
-    const wrapper = (buttonIndex, tmp) => {
-      this.scope = scope;
-      let code = atob(tmp);
-      this.instance = buttonData[buttonIndex].instance;
-      this.instance.on('mousedown', this.mouseClickEvent.bind(this, code));
-    };
-    interpreter.setProperty(scope, 'buttonClickEventBind', interpreter.createNativeFunction(wrapper));
+  mouseClickEvent = e => {
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
+  }
 
+  interpret = (interpreter, buttonData) => {
+    const wrapper = ({ buttonIndex, linesOfCode }) => {
+      this.myInterpreter = interpreter;
+      this.instance = buttonData[buttonIndex].instance;
+      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
+      this.instance.on('mousedown', this.mouseClickEvent);
+    };
+    interpreter.setProperty('buttonClickEventBind', wrapper);
   }
 
   unregister = () => {

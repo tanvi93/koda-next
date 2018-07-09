@@ -30,7 +30,14 @@ export class MouseCoordinatesBlockService {
 
     Blockly.JavaScript['mouse_coordinates'] = function (block) {
       const axis = block.getFieldValue('axis');
-      return [`getMouseCoordinate(${axis})`];
+      const json = {
+        method: 'getMouseCoordinate',
+        type: 'input',
+        params: {
+          axis
+        }
+      }
+      return [JSON.stringify(json)];
     }
   }
 
@@ -41,22 +48,22 @@ export class MouseCoordinatesBlockService {
     }
   }
 
-  initInterpreter = (interpreter, scope, coordinatesJson) => {
+  interpret = (interpreter, coordinatesJson) => {
     this.coordiante = { 0: 0, 1: 0 };
     let div: any = document.getElementById('game');
     div.addEventListener('mousemove', this.mouseEvent);
-    const wrapper = (axis, callback) => {
+    const wrapper = ({ axis }) => {
       div.addEventListener('mousemove', this.mouseEvent);
       setTimeout(() => {
         div.removeEventListener('mousemove', this.mouseEvent);
       }, 10);
-      if (axis) {
+      if (axis === '1') {
         return Math.round((coordinatesJson['totalY'] / 2) - (this.coordiante['1'] / coordinatesJson.yAxisUnit));
       } else {
         return Math.round((this.coordiante['0'] / coordinatesJson.xAxisUnit) - (coordinatesJson['totalX'] / 2));
       }
     };
-    interpreter.setProperty(scope, 'getMouseCoordinate', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getMouseCoordinate', wrapper, 'input');
 
   }
 

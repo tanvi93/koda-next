@@ -44,39 +44,34 @@ export class CharacterClickEventService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       code = Blockly.JavaScript.statementToCode(block, 'sprite_clicked');
-      return `charClickEventBind('${spriteIndex}', "${btoa(code)}");\n`;
+      const json = {
+        method: 'charClickEventBind',
+        type: 'event',
+        params: {
+          spriteIndex,
+          linesOfCode: btoa(code)
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
   mouseClickEvent = e => {
-    this.myInterpreter.push(new Interpreter(''));
-    let index = this.myInterpreter.length - 1;
-    this.myInterpreter[index].stateStack[0].scope = this.scope;
-    this.myInterpreter[index].appendCode(this.keyCodePair[e.target.cacheKey]);
-    const runner = () => {
-      if (this.myInterpreter[index]) {
-        const hasMore = this.myInterpreter[index].step();
-        if (hasMore) {
-          setTimeout(runner, 0);
-        }
-      }
-    };
-    runner();
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
   }
 
-  initInterpreter = (interpreter, scope, sprites) => {
-    const wrapper = (spriteIndex, tmp) => {
-      this.scope = scope;
+  interpret = (interpreter, sprites) => {
+    const wrapper = ({ spriteIndex, linesOfCode }) => {
+      this.myInterpreter = interpreter;
       this.instance = sprites[spriteIndex].instance;
-      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(tmp) };
+      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
       this.instance.on('mousedown', this.mouseClickEvent);
     };
-    interpreter.setProperty(scope, 'charClickEventBind', interpreter.createNativeFunction(wrapper));
-
+    interpreter.setProperty('charClickEventBind', wrapper);
   }
 
   unregister = () => {
-    this.myInterpreter = [];
+    this.myInterpreter = null;
     if (this.instance) {
       this.instance.off('mousedown', this.mouseClickEvent);
     }  

@@ -674,7 +674,7 @@ buttonClickEventBind('1', "ICBjaGFuZ2VCRygneyJiYWNrZ3JvdW5kSW5kZXgiOiIxIn0nKTsKI
         "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
-            "block_list": ["say", "showHideChar", "showCoordinates", "changeLook", "nextLook", "changeBG", "goTo", "moveBy", "moveTo", "moveWithSpeed", "characterTouch", "coordinates", "showHideAllChar", "showHideButton", "showHideAllButtons"],
+            "block_list": ["say", "showHideChar", "showCoordinates", "changeLook", "nextLook", "changeBG", "rotateSprite", "flipSprite", "goTo", "moveBy", "moveTo", "moveWithSpeed", "characterTouch", "coordinates", "showHideAllChar", "showHideButton", "showHideAllButtons"],
         }, {
             "name": "Events",
             "colour": "#F69D16",
