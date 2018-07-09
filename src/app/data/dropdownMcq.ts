@@ -509,10 +509,11 @@ export const quiz = {
     
     "air_conditioner_q2": {
         "instructionBarContent": "We need to give appropriate names to these variables to make it easier to use them.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "",
-        //"mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        // "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
         "mediaLink": "",
+        "mascotBg": '#ffad34',
         "question": "Select an appropriate name for these variables.",
         "options": [
             {
@@ -598,9 +599,10 @@ export const quiz = {
     
     "air_conditioner_q3": {
         "instructionBarContent": "Help me fill this so that I can understand this better.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "gif",
         "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        "mascotBg": '#ffad34',
         "question": "The room temperature is 28 right now and I want it to be 16.",
         "options": [
             {
@@ -681,9 +683,10 @@ export const quiz = {
     
      "air_conditioner_q4": {
         "instructionBarContent": "Help me fill this so that I can understand this better.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "gif",
         "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        "mascotBg": '#ffad34',
         "question": "Now the room temperature is 16 and I want it to be 23.",
         "options": [
             {
