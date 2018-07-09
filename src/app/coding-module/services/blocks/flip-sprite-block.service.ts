@@ -32,18 +32,20 @@ export class FlipSpriteBlockService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       let json = {
-        spriteIndex
+        method: 'flip',
+        params: {
+          spriteIndex
+        }
       }
-      return `flip('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      obj = JSON.parse(obj.replace(/[']/g, ''));
       cb(obj);
       return obj;
     };
-    interpreter.setProperty(scope, 'flip', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('flip', wrapper);
   }
 }
