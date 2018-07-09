@@ -32,15 +32,7 @@ export class NotOperatorService {
         }
       }
       return [JSON.stringify(json)];
-      switch (input) {
-        case "true":
-          return false;
-        case "false":
-          return true;
-        default:
-          return !input;
-      }
-    };
+    }
   }
 
   interpret = interpreter => {

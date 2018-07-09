@@ -126,19 +126,19 @@ export class MoveWithSpeedService {
     };
   }
 
-  interpret = (interpreter, coordinatesJson, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const change = json.x ? 'x' : 'y';
-      let animationTime = json[change] * coordinatesJson[`${change}AxisUnit`] * 3 / json.speed;
+      let animationTime = Math.abs(json[change]) * 30 / json.speed;
       const executeFn = (axis) => {
         let value = interpreter.executeCommands(json.inputBlock.steps);
         json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
         cb(json);
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback(json);
@@ -149,7 +149,7 @@ export class MoveWithSpeedService {
       } else {
         cb(json);
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           } 
           callback(json);

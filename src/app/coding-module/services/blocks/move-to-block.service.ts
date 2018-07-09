@@ -72,7 +72,7 @@ export class MoveToBlockService {
 
   interpret = (interpreter, sprites, coordinatesJson, cb) => {
     const wrapper = (json, callback) => {
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const currentPosition = sprites[json.spriteIndex].currentOffset ? sprites[json.spriteIndex].currentOffset : sprites[json.spriteIndex].initialOffset;
@@ -85,7 +85,7 @@ export class MoveToBlockService {
         animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
         cb(json);
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           }
           callback(json);
@@ -99,7 +99,7 @@ export class MoveToBlockService {
         cb(json);
         animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
         setTimeout(() => {
-          if (this.blocks) {
+          if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           } 
           callback(json);
