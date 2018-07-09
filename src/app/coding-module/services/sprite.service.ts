@@ -86,8 +86,12 @@ export class SpriteService {
     if (!arr[index].currentOffset) {
       arr[index].currentOffset = { ...arr[index].initialOffset };
     }
-    arr[index].currentOffset.x += parseInt(data.left ? data.left : 0);
-    arr[index].currentOffset.y -= parseInt(data.top ? data.top : 0);
+    if (data.left) {
+      arr[index].currentOffset.x += parseInt(data.left ? data.left : 0);
+      arr[index].currentOffset.y -= parseInt(data.top ? data.top : 0);
+    } else {
+      arr[index].currentOffset = data;
+    }
     return arr[index].currentOffset;
   }
 

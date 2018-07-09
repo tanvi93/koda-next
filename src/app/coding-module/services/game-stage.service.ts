@@ -326,7 +326,7 @@ export class GameStageService {
       top: `${ySign}=${Math.abs(y) * this.yAxisUnit}`,
     }
     speed = speed ? speed : 1;
-    duration = duration ? Math.max(Math.abs(x) * this.xAxisUnit, Math.abs(y) * this.yAxisUnit) * 3 / speed : 0.1;
+    duration = duration ? Math.max(Math.abs(x), Math.abs(y)) * 30 / speed : 0.1;
     this.sprites[index].instance.animate(json, {
       onChange: this.fabricCanvas.renderAll.bind(this.fabricCanvas),
       duration: duration,
@@ -345,8 +345,22 @@ export class GameStageService {
     x = parseInt(x);
     y = parseInt(y);
     const sprite = this.sprites[index];
-    let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-    this.moveToObject(index, x - offset.x, offset.y - y, hasAnimation ? true : false);
+    if (hasAnimation) {
+      let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
+      this.moveToObject(index, x - offset.x, offset.y - y, true);
+      return;
+    }
+    let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
+    let top = (Math.abs(y - this.totalY / 2) - sprite.height/2) * this.yAxisUnit;
+    sprite.instance.set('left', left);
+    sprite.instance.set('top', top);
+    const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
+    this.spriteStatusList.push({ currentPosition });
+    this.sprites = this.sp.getAllSprites(this.activity);
+    try {
+      this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
+    } catch (e) { }
+    this.fabricCanvas.renderAll();
   }
 
   showCoords(index = 0, duration) {
@@ -516,7 +530,7 @@ export class GameStageService {
     button.looksIndex = obj.looksIndex;
   }
 
-  showVariables = (isReset = false) => {
+  showVariables =   (isReset = false) => {
     let top = 10;
     this.variableBoxes = [];
     let rect, text;
@@ -529,7 +543,7 @@ export class GameStageService {
         if (variableList[v].rect) {
           variableList[v].text.set('text', `${v} = ${variableList[v].value}`);
           top += 50;
-          // this.fabricCanvas.renderAll();
+          this.fabricCanvas.renderAll();
         } else {
           let length = v.length + (variableList[v].value + '').length + 3;
           const left = this.fabricCanvas.width - 15;

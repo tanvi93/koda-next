@@ -51,14 +51,14 @@ export class SayBlockService {
 
   interpret = (interpreter, cb) => {
     const wrapper = (obj, callback) => { 
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[obj.blockIndex].addSelect();
       } 
       obj.textName = obj.textName ? obj.textName : '';
       obj.textName = unescape(obj.textName);
       cb({ text: obj.textName, spriteIndex: obj.spriteIndex, duration: 2000 });
       setTimeout(() => {
-        if (this.blocks) {
+        if (this.blocks && this.blocks.length) {
           this.blocks[obj.blockIndex].removeSelect();
         }  
         callback(obj.textName);

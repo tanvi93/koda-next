@@ -40,7 +40,7 @@ export class RepeatPredefinedService {
         method: 'repeat',
         params: {
           times,
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -53,10 +53,11 @@ export class RepeatPredefinedService {
         json.times = interpreter.executeCommands(json.times);
       }
       json.times = parseInt(json.times);
+      const code = atob(json.linesOfCode);
       const repeat = (i) => {
         console.log(i, json.times);
         if (i === json.times) return callback();
-        interpreter.executeCommands(json.linesOfCode, () => { 
+        interpreter.executeCommands(code, () => { 
           repeat(++i);
         });
       }

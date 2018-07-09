@@ -85,9 +85,12 @@ export class FeedbackService {
   }
 
   setBlockList = (pageId, list, sprites, spriteStatus, bgDetails, callback) => {
-    this.codes = list.split(';\n');
+    this.codes = list;
     this.codes.splice(this.codes.length - 1, 1);
-    this.getHighlightIndex();
+    if (this.codes[0].indexOf('var ') !== -1) {
+      this.codes.splice(0, 1);
+    }
+    // this.getHighlightIndex();
     this.blockList = this.codes.map(v => {
       return JSON.parse(v).method;
     });

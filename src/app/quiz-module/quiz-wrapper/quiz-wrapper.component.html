@@ -1,8 +1,10 @@
 <div fxLayout="column">
+  <div class="icon-wrap">
   <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
   <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">
     <img class="icon" src="./assets/icons/hint_open.svg" alt="">
   </button>
+</div>
   <button mat-fab *ngIf="quizData.preview" (click)="previewDialog($event)" class="button">
     <img class="icon" src="./assets/icons/preview_open.svg" alt="">
   </button>

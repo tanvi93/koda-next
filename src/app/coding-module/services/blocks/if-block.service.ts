@@ -34,7 +34,7 @@ export class IfBlockService {
         method: 'kodaIf',
         params: {
           condition,
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -45,7 +45,7 @@ export class IfBlockService {
     const wrapper = function ({ condition, linesOfCode }, callback) {
       condition = interpreter.executeCommands(condition);
       if (condition) {
-        interpreter.executeCommands(linesOfCode, () => {
+        interpreter.executeCommands(atob(linesOfCode), () => {
           callback();
         });
       } else {

@@ -39,8 +39,8 @@ export class IfElseBlockService {
         method: 'kodaIfElse',
         params: {
           condition,
-          ifCode,
-          elseCode
+          ifCode: btoa(ifCode),
+          elseCode: btoa(elseCode)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -51,11 +51,11 @@ export class IfElseBlockService {
     const wrapper = function ({ condition, ifCode, elseCode }, callback) {
       condition = interpreter.executeCommands(condition);
       if (condition) {
-        interpreter.executeCommands(ifCode, () => {
+        interpreter.executeCommands(atob(ifCode), () => {
           callback();
         });
       } else {
-        interpreter.executeCommands(elseCode, () => {
+        interpreter.executeCommands(atob(elseCode), () => {
           callback();
         });
       }

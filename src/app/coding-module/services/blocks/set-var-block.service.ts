@@ -29,23 +29,26 @@ export class SetVarBlockService {
         Blockly.Variables.NAME_TYPE);
       const valueOfVariable = Blockly.JavaScript.valueToCode(block, 'varValue');
       let json = {
-        nameOfVariable,
-        valueOfVariable
+        method: 'setVar',
+        params: {
+          nameOfVariable,
+          valueOfVariable
+        }
       }
-      return `setVar('${nameOfVariable}', ${valueOfVariable});\n`;
+      return `${JSON.stringify(json)};\n`;
     };
     
   }
   
-  initInterpreter = (interpreter, scope, cb) => {
-    const wrapper = function (name, value) {
+  interpret = (interpreter, cb) => {
+    const wrapper = function ({ nameOfVariable: name, valueOfVariable: value }) {
       if (!variableList[name]) {
         variableList[name] = { value: 0 };
       }
       variableList[name].value = value;
       cb(variableList);
     };
-    interpreter.setProperty(scope, 'setVar', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('setVar', wrapper);
   }
 
 }
