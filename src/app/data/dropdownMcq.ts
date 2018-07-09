@@ -209,9 +209,10 @@ export const quiz = {
     
     ride_scanner_q1: {
         "instructionBarContent": "Help me decide which people to allow on the roller coaster according to the rules mentioned.",
-        "mascotHead": "./../assets/images/activities/ride_scanner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/ride_scanner/mascot_head.png",
         "mediaType": "image",
-        "mediaLink": "./../assets/images/activities/ride_scanner/left_image.png",
+        "mascotBg": '#ffad34',
+        "mediaLink": "./../assets/images/activities/ride_scanner/rules_zoomed.jpg",
         "question": "Choose the right option from the dropdown based on the person's description.",
         "options": [
             {
