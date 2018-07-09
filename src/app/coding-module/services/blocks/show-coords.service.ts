@@ -46,12 +46,12 @@ constructor(activity = null) {
 
   interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       cb({ spriteIndex: json.spriteIndex, duration: 2000 });
       setTimeout(() => {
-        if (this.blocks) {
+        if (this.blocks && this.blocks.length) {
           this.blocks[json.blockIndex].removeSelect();
         } 
         callback();

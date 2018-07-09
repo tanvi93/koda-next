@@ -56,12 +56,13 @@ export class KeypressEventService {
       let code = Blockly.JavaScript.statementToCode(block, 'when_key_pressed');
       const json = {
         method: 'keydownEventBind',
+        type: 'event',
         params: {
           dropdown_keys,
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
-      return `${JSON.stringify(json)};\n`
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
@@ -78,7 +79,7 @@ export class KeypressEventService {
   interpret = (interpreter, feedback) => {
     const wrapper = ({ dropdown_keys, linesOfCode }) => {
       this.lock = false;
-      this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: linesOfCode };
+      this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: atob(linesOfCode) };
       this.feedback = feedback;
       this.interpreter = interpreter;
       window.addEventListener("keydown", this.keydownEvent);
