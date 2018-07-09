@@ -326,7 +326,7 @@ export class GameStageService {
       top: `${ySign}=${Math.abs(y) * this.yAxisUnit}`,
     }
     speed = speed ? speed : 1;
-    duration = duration ? Math.max(Math.abs(x) * this.xAxisUnit, Math.abs(y) * this.yAxisUnit) * 3 / speed : 0.1;
+    duration = duration ? Math.max(Math.abs(x), Math.abs(y)) * 30 / speed : 0.1;
     this.sprites[index].instance.animate(json, {
       onChange: this.fabricCanvas.renderAll.bind(this.fabricCanvas),
       duration: duration,

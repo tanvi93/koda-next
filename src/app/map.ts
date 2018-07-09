@@ -304,7 +304,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_2_q2 (input quiz for relative positioning)',
-                        path: 'mm2_2_q2',
+                        path: 'quiz/formula/mm2_2_q2',
                         order: 5,
                         type: 'activity'
                     }, {
@@ -442,7 +442,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm2_6_RepetitiveCode',
-                        path: 'mm2_6_RepetitiveCode',
+                        path: 'level-3/repetitive-code-learning',
                         order: 1,
                         type: 'narration'
                     }, {

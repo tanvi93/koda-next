@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UtilitiesService } from './../../shared-services/utilities.service';
 import { AudioService } from './../../shared-services/audio.service';
 import { assetsLink } from './../../shared-services/config';
 
@@ -14,7 +16,7 @@ export class RepetitiveCodeComponent implements OnInit {
   private msgIndex: number;
   private show: boolean;
 
-  constructor(private audio: AudioService) {
+  constructor(private audio: AudioService, private utility: UtilitiesService, private router: Router) {
     this.msgIndex = 0;
 
     this.imagesLoad();
@@ -55,7 +57,11 @@ export class RepetitiveCodeComponent implements OnInit {
   }
 
   goNext() {
-    if (this.audio.readyToGoNext && this.msgIndex <= this.msgs.length-1) {
+    if (this.audio.readyToGoNext && this.msgIndex <= this.msgs.length - 1) {
+      if (this.msgIndex === this.msgs.length - 1) {
+        this.utility.nextPage(this.router.url.substr(1));
+        return;
+      }
       this.msgIndex++;
       this.mascot = `${assetsLink}monkey_menace/mascot_arms_folded_left_full.png`;
       this.audio.play(this.msgIndex);

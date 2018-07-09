@@ -3,7 +3,6 @@
   width: 30%;
   right: 3%;
   height: auto;
-  background: transparent;
   & .hint-header {
     width: 50px;
     height: auto;
@@ -20,17 +19,13 @@
       background-color: white;
     }
   }
-  & .hint-content-new {
+  & .hint-content-new { 
     width: 100%;
-    position: absolute;
-    top: 78px;
     background: white;
-    & ul {
-      margin-top: 5%;
+    margin-top: 75px;
+    padding: 20px 0;
       & li {
         margin: 10% 5%;
-        font-family: 'QuickSand';
       }
     }
   }
-}

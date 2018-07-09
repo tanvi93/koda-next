@@ -246,26 +246,6 @@ export class InterpreterService {
     });
   }
 
-  initCompiling = (interpreter, scope, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    this.rotateSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'rotateSprite', data: obj });
-    });
-    this.flipSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'flipSprite', data: obj });
-    });
-
-
-    let wrapper = (id) => {
-      return interpreter.createPrimitive(this.highlightBlock(id));
-    };
-    interpreter.setProperty(scope, 'highlightBlock',
-      interpreter.createNativeFunction(wrapper));
-  }
-
-  highlightBlock = (id) => {
-    workspacePlayground.highlightBlock(id);
-  }
-
   interpretBlocks = (sprites, buttons, coordinatesJson, callback, feedbackCall) => {
     this.say.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'say', data: obj });
@@ -276,13 +256,13 @@ export class InterpreterService {
     this.goTo.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'goTo', data: obj });
     });
-    this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+    this.moveBy.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveBy', data: obj });
     });
     this.moveTo.interpret(this.kodaInterpreter, sprites, coordinatesJson, obj => {
       callback({ name: 'moveTo', data: obj });
     });
-    this.moveWithSpeed.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+    this.moveWithSpeed.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveWithSpeed', data: obj });
     });
     this.changeLook.interpret(this.kodaInterpreter, obj => {
@@ -312,6 +292,12 @@ export class InterpreterService {
     this.changeVar.interpret(this.kodaInterpreter, arr => {
       callback({ name: 'changeVar', data: arr });
     });
+    this.flipSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'flipSprite', data: obj });
+    });
+    this.rotateSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'rotateSprite', data: obj });
+    });
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -322,6 +308,7 @@ export class InterpreterService {
     this.relationalOperator.interpret(this.kodaInterpreter);
     this.trueFalse.interpret(this.kodaInterpreter);
     this.logicalOperator.interpret(this.kodaInterpreter);
+    this.notOperator.interpret(this.kodaInterpreter);
     this.mouseCoordinates.interpret(this.kodaInterpreter, coordinatesJson);
 
     this.repeat.interpret(this.kodaInterpreter);
@@ -346,17 +333,17 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-    // Blockly.JavaScript.addReservedWords('highlightBlock');
+    this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
+      console.log(rawCodes);
       callback(err, rawCodes);
     });
   }
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     // console.log(performance.now());
-    const codes = rawCodes.split('\n\n');
+    const codes = rawCodes.split(';\n\n');
     const list = rawCodes.split(';\n');
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
       if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
@@ -366,128 +353,6 @@ export class InterpreterService {
         if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
       });
     });
-
-    // const runner = (intrp, i) => {
-    //   if (!this.myInterpreter) return;
-    //   if (intrp) {
-    //     const hasMore = intrp.step();
-    //     if (hasMore) {
-    //       // Execution is currently blocked by some async call.
-    //       // Try again later.
-    //       setTimeout(() => {
-    //         runner(intrp, i);
-    //       }, 0);
-    //     } else if (i === (codes.length - 1)) {
-    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     }
-    //   }
-    // };
-
-    // codes.forEach((code, i) => {
-    //   this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
-    //     this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
-    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     }, callback);
-    //   });
-
-    //   if (this.myInterpreter) {
-    //     runner(this.myInterpreter[i], i);
-    //   }  
-    // });
-
-    // if (feedbackCall && rawCodes.indexOf('while(true)') !== -1) {
-    //   setTimeout(() => {
-    //     feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     setTimeout(() => {
-    //       this.stopExecution();
-    //     }, 500);
-    //   }, 1000 * 30);
-    // }
-  }
-
-  compileRawCode(cb) {
-    const getX = () => {
-      return 1;
-    }
-    const changeLook = (params, callback) => {
-      callback(params);
-    };
-    const goTo = (params, cb1, callback) => {
-
-      cb({ name: 'goTo', data: params });
-      setTimeout(() => {
-        cb1();
-      }, 20);
-    }
-    const say = (params, cb1, callback) => {
-      callback(params);
-      setTimeout(() => {
-        cb1();
-      }, 2000);
-    }
-
-    return {
-      async: {
-        goTo: goTo,//function (params, callback) {
-        //   goTo(params, callback, (obj) => {
-        //     console.log(obj);
-        //     cb({ name: 'goTo', data: obj });
-        //   })
-        // },
-        say: function (params, callback) {
-          say(params, callback, (obj) => {
-            console.log(obj);
-            cb({ name: 'say', data: obj });
-          })
-        }
-      },
-      native: {
-        changeLook: function (params) {
-          changeLook(params, (obj) => {
-            console.log('changeLook', obj);
-            cb({ name: 'changeLook', data: obj });
-          })
-        },
-        getX: getX
-      }
-    }
-  }
-
-  tmpRunCode(cb) {
-    const arr = ["goTo", 'changeLook'];
-    const arr1 = ["say"];
-    const compiler = this.compileRawCode(cb);
-    const params = [{
-      x: compiler.native.getX(), y: -10, spriteIndex: 0
-    }, { spriteIndex: 0, avatarIndex: 1 }];
-    const loop = (i) => {
-      if (i === arr.length) return;
-      const v = arr[i];
-      console.log(v);
-      if (compiler.async.hasOwnProperty(v)) {
-        compiler.async[v](params[i], () => {
-          loop(++i);
-        });
-      } else {
-        compiler.native[v](params[i]);
-        loop(++i);
-      }
-    }
-    const loop1 = (i) => {
-      if (i === arr1.length) return;
-      const v = arr1[i];
-      console.log(v);
-      if (compiler.async.hasOwnProperty(v)) {
-        compiler.async[v](() => {
-          loop1(++i);
-        });
-      } else {
-        compiler.native[v]();
-        loop1(++i);
-      }
-    }
-    loop(0);
-    // loop1(0);
   }
 
   stopExecution = () => {

@@ -28,7 +28,7 @@ export class RepeatForeverService {
       const json = {
         method: 'repeatForever',
         params: {
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -37,8 +37,9 @@ export class RepeatForeverService {
 
   interpret = (interpreter) => {
     const wrapper = (json, callback) => {
+      const code = atob(json.linesOfCode);
       const repeat = () => {
-        interpreter.executeCommands(json.linesOfCode, () => {
+        interpreter.executeCommands(code, () => {
           repeat();
         });
       }
