@@ -23,13 +23,13 @@ const routes: Routes = [
     path: 'mars-rover',
     component: MarsRoverComponent
   }, {
-    path: 'dragon-capture-2',
+    path: 'challenge-dragon-capture-activity1',
     component: DragonCapture2Component
   }, {
     path: 'treasure-hunt',
     component: TreasureHuntComponent
   }, {
-    path: 'dragon-capture-1',
+    path: 'challenge-dragon-capture-activity',
     component: DragonCapture1Component
   }
 ];
