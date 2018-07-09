@@ -246,26 +246,6 @@ export class InterpreterService {
     });
   }
 
-  initCompiling = (interpreter, scope, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    this.rotateSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'rotateSprite', data: obj });
-    });
-    this.flipSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'flipSprite', data: obj });
-    });
-
-
-    let wrapper = (id) => {
-      return interpreter.createPrimitive(this.highlightBlock(id));
-    };
-    interpreter.setProperty(scope, 'highlightBlock',
-      interpreter.createNativeFunction(wrapper));
-  }
-
-  highlightBlock = (id) => {
-    workspacePlayground.highlightBlock(id);
-  }
-
   interpretBlocks = (sprites, buttons, coordinatesJson, callback, feedbackCall) => {
     this.say.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'say', data: obj });
@@ -312,6 +292,12 @@ export class InterpreterService {
     this.changeVar.interpret(this.kodaInterpreter, arr => {
       callback({ name: 'changeVar', data: arr });
     });
+    this.flipSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'flipSprite', data: obj });
+    });
+    this.rotateSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'rotateSprite', data: obj });
+    });
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -322,6 +308,7 @@ export class InterpreterService {
     this.relationalOperator.interpret(this.kodaInterpreter);
     this.trueFalse.interpret(this.kodaInterpreter);
     this.logicalOperator.interpret(this.kodaInterpreter);
+    this.notOperator.interpret(this.kodaInterpreter);
     this.mouseCoordinates.interpret(this.kodaInterpreter, coordinatesJson);
 
     this.repeat.interpret(this.kodaInterpreter);
@@ -356,7 +343,7 @@ export class InterpreterService {
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
     // console.log(performance.now());
-    const codes = rawCodes.split('\n\n');
+    const codes = rawCodes.split(';\n\n');
     const list = rawCodes.split(';\n');
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
       if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);

@@ -45,7 +45,7 @@ export class ButtonClickEventService {
         type: 'event',
         params: {
           buttonIndex,
-          linesOfCode: code
+          linesOfCode: btoa(code)
         }
       }
       return `${JSON.stringify(json)};\n`;
@@ -60,7 +60,7 @@ export class ButtonClickEventService {
     const wrapper = ({ buttonIndex, linesOfCode }) => {
       this.myInterpreter = interpreter;
       this.instance = buttonData[buttonIndex].instance;
-      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: linesOfCode };
+      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
       this.instance.on('mousedown', this.mouseClickEvent);
     };
     interpreter.setProperty('buttonClickEventBind', wrapper);
