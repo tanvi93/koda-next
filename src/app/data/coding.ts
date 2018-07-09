@@ -2056,8 +2056,8 @@ export const blocksData: any = {
               </value>
               <next>
               <block type="controls_repeat_ext">
-              <value name="TIMES"><shadow type="number"><field name="n">2</field></shadow></value>
-              <statement name="DO">
+              <value name="times"><shadow type="number"><field name="n">2</field></shadow></value>
+              <statement name="in_loop">
               <block type="wait" id="wait"><field name="wait_time">0.5</field>
               <next>
               <block type="next_look"><field name="sprite">1</field></block>

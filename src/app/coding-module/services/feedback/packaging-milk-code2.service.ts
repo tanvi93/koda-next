@@ -23,8 +23,8 @@ export class PackagingMilkCode2Service {
     setTimeout(() => {
       this.blockList = blockList;
       this.codes = codes;
-      console.log(this.blockList);
-      const blockObj = JSON.parse(this.codes[0].match(/'(.*?)'/)[1]);
+console.log(this.blockList);
+      const blockObj = JSON.parse(this.codes[0]).params;
     
       loop1: for (let i = 0; i < this.blockList.length; i++) {
         if (this.blockList[i] !== 'wait') {
@@ -32,27 +32,30 @@ export class PackagingMilkCode2Service {
           
             for (let j = i + 1; j < (this.blockList.length - i); j++) {
               if (this.blockList[j] !== 'wait'){
-                if (this.codes[j] === 'var repeat_end = (2)') {
-                
-                  if (this.blockList[j + 1] === 'for ') {
-                    insideRepeatBlock = Number(this.codes[j + 1].split(/{([^}]+)}/)[1].split(':')[1].replace(/"/g, ''));
+                const repeatBlockObj = JSON.parse(this.codes[j]).params;
+
+                if (Number(repeatBlockObj.times) === 2) {
+                  const innerCode =atob(repeatBlockObj.linesOfCode).split(';');
+                  const insideRepeatBlock = JSON.parse(innerCode[0]).params;
+                  const innerCode2 = JSON.parse(innerCode[1]).params;
+        
                     if (this.blockList[j + 2] !== 'wait' && this.blockList[j + 2] === '  nextAvatar') {
               
-                        if (Number(insideRepeatBlock) <= 1.5 && Number(insideRepeatBlock) >= 0.5) {
-                          const fourthblock = this.codes[j + 2].split(/{([^}]+)}/)[1].replace(/\"/g, "");
-                          if (fourthblock === 'spriteIndex:1') {
+                        if (Number(insideRepeatBlock.wait_secs) <= 1.5 && Number(insideRepeatBlock.wait_secs) >= 0.5) {
+              
+                          if (Number(innerCode2.spriteIndex) === 1) {
                             this.firstCheck = true;
                             a = j + 2;
                           }
                         }  
                       } else if (this.blockList[j + 2] === '  wait') {
-                        const waitTime = Number(this.codes[i + 3].split(/{([^}]+)}/)[1].split(':')[1].replace(/"/g, ''));
+                        const waitTime = Number(JSON.parse(this.codes[i + 3]).times);
                         const totalTime = insideRepeatBlock + waitTime;
                         if (totalTime > 1.5 || totalTime < 0.5) {
                           break loop1;
                         }
                       }
-                  }
+                  
                   break loop1;
                 }
                 break loop1;
