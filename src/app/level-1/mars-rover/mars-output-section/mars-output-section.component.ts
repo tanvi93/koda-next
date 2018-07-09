@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
+
 @Component({
   selector: 'app-mars-output-section',
   templateUrl: './mars-output-section.component.html',
@@ -50,8 +52,7 @@ export class MarsOutputSectionComponent implements OnInit {
   private yContent: number;
   private localData: any;
 
-  constructor(public dialog: MatDialog) {
-    this.localData = JSON.parse(localStorage.getItem('coordinates'));
+  constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
     this.msgPos = { 'msgTop': null, 'msgLeft': null, 'msgTailLeft': null, 'msgTailTop': null };
   }
 
@@ -186,9 +187,7 @@ export class MarsOutputSectionComponent implements OnInit {
         panelClass: 'app-full-bleed-dialog'
       });
       this.dialogRef.componentInstance.modalData = this.contentData;
-      this.localData[2].status.complete.imageStatus = true;
-      this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
-      localStorage.setItem('coordinates', JSON.stringify(this.localData));
+      this.tracker.setContent('coordinates', 2);
     }
   }
 }

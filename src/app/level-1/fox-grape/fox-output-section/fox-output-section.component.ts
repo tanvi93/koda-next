@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
-
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
 @Component({
   selector: 'app-fox-output-section',
   templateUrl: './fox-output-section.component.html',
@@ -53,13 +53,11 @@ export class FoxOutputSectionComponent implements OnInit {
   private successFlag: boolean;
   private xInputPresent: boolean;
   private yInputPresent: boolean;
-  private localData: any;
   private msgPos = { 'msgLeft': null, 'msgTop': null, 'msgTailTop': null, 'msgTailLeft': null };
 
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
     this.success = true;
-    this.localData = JSON.parse(localStorage.getItem('coordinates'));
   }
 
   ngOnInit() {
@@ -69,6 +67,8 @@ export class FoxOutputSectionComponent implements OnInit {
       if (foximageCount === 5) {
       }
     }
+    
+    
 
     let foxImageLoad = Object.keys(this.contentData.foxImage).map(key => {
       let image = new Image();
@@ -243,13 +243,7 @@ export class FoxOutputSectionComponent implements OnInit {
         this.initialIndex = 10;
         this.topGrapeShift = this.contentData.finalGrapeTopShiftPos;
       }, 2540);
-
-      this.localData[0].status.complete.imageStatus = true;
-      this.localData[0].status.unlock.imageStatus = !this.localData[0].status.complete.imageStatus;
-      this.localData[1].status.unlock.imageStatus = this.localData[0].status.complete.imageStatus;
-      this.localData[1].status.lock.imageStatus = !this.localData[0].status.complete.imageStatus;
-      localStorage.setItem('coordinates', JSON.stringify(this.localData));
-
+      this.tracker.setContent('coordinates', 0);
       setTimeout(() => {
         this.hideMsg = true;
         this.dialogRef = this.dialog.open(SuccessModalComponent, {

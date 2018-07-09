@@ -30,14 +30,16 @@ export class KodaInterpreterService {
     const loop = (i) => {
       if (this.isStopExecution) return null;
       if (i === arr.length) return callback ? callback() : null;
-      // console.log(arr.length, i);
-      const v = JSON.parse(arr[i]);
-      // console.log(performance.now());
+      let v = null;
+      try {
+        v = JSON.parse(arr[i].replace(';', ''));
+      } catch (e) {
+        eval(arr[i]);
+        return;
+      }
       if (v.type && v.type === 'input') {
         return this.bundle.input[v.method](v.params);
       }
-      // const params = v.params ? JSON.parse(v.params) : {};
-      // console.log(v.method, this.bundle);
       if (this.bundle.async.hasOwnProperty(v.method)) {
         this.bundle.async[v.method](v.params, () => {
           loop(++i);
