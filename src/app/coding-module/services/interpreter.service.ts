@@ -200,6 +200,7 @@ export class InterpreterService {
 
   init = (blocksData, pageId, feedbackCallback, callback) => {
     this.createBlockInstances(blocksData.activity_name, pageId);
+    try { Blockly.getMainWorkspace().clear(); } catch(e) {}
     workspacePlayground = Blockly.inject('blocklyDiv',
       {
         toolbox: this.getToolbox(blocksData), trashcan: true, 
