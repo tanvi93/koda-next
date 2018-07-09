@@ -22,7 +22,6 @@
     <p> {{contentData.errorMsgStatment}}</p>
   </div>
 </div>
-
 <div class="tray">
   <div class="image-tray {{ 'image-tray' + (i + 1)}}" [style.background-color]="image.imageList.length !== 0 ? '#282431': '#625d62'"
     *ngFor="let image of contentData.imageTray;let i = index;">

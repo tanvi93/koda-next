@@ -11,7 +11,6 @@ export class PositionValidationComponent implements OnInit, OnChanges {
   @Input() errorFlag;
 
   private lockIcon: string;
-  private addIcon: string;
   private marker: string;
   private msgFlag: boolean;
   private firstTray: string;
@@ -22,7 +21,6 @@ export class PositionValidationComponent implements OnInit, OnChanges {
   ngOnInit() {
     const selectedIndexs = JSON.parse(localStorage.getItem('gameProgress')).preferenceMap;
     this.lockIcon = this.contentData.lockIcon;
-    this.addIcon = this.contentData.addIcon;
     this.marker = this.contentData.checkedIcon;
     this.msgFlag = true;
     
@@ -38,6 +36,8 @@ export class PositionValidationComponent implements OnInit, OnChanges {
     }
   }
 
+
+  
   hideError = () => {
     this.msgFlag = true;
     this.errorFlag = false;

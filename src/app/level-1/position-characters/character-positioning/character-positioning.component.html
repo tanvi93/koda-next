@@ -4,13 +4,13 @@
       <img class="background-position" [src]="backgroundImage" alt="0">
       <div ngDraggable #block="ngDraggable" class="drag-block" [handle]="myHandle" id="{{ data.className }}" *ngFor="let data of contentData.dragImageContent;let i = index;"
         [bounds]="myBounds" [inBounds]="inBounds" [position]="{x: position[i].x , y: position[i].y}" (started)="onDragBegin($event)"
-        (stopped)="onDragEnd($event)" (endOffset)="onMoveEnd($event)">
+        (stopped)="onDragEnd($event, i)" (endOffset)="onMoveEnd($event)">
         <img class="{{ data.className }}" id="{{ data.className }}" src="{{data.imagePath}}" alt="{{(i+1)}}">
         <div #myHandle class="drag-block-handle">
         </div>
       </div>
-      <!-- <input type="button" class="coord-data" id="{{'input'+ i }}" [(ngModel)]='inputText[i]' [hidden]="coord[i]" *ngFor="let data of contentData.dragImageContent;let i = index;"
-        [ngStyle]="{'top': topShift[i] + 'px', 'left': leftShift[i] + 'px'}"> -->
+      <input type="button" class="coord-data" id="{{'input'+ i }}" [(ngModel)]='inputText[i]'  *ngFor="let data of contentData.dragImageContent;let i = index;" [hidden]="coord"
+        [ngStyle]="{'top': topShift[i] + 'px', 'left': leftShift[i] + 'px'}">
     </div>
     <div class="action-screen">
       <div class="action-button" (click)="checkList()">
@@ -22,6 +22,6 @@
     </div>
   </div>
   <div class="feedback">
-    <img class="lockIcon" [src]="lockIcon" alt="">
+    <img class="lockIcon" [src]="this.contentData.lockIcon" alt="">
   </div>
 </div>

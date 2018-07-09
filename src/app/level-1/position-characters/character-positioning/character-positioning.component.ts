@@ -20,15 +20,12 @@ export class CharacterPositioningComponent implements OnInit {
   @Output() taskFlag = new EventEmitter<boolean>();
   @Output() hideErrorMsg = new EventEmitter<boolean>();
   private backgroundImage: string;
-  private actionImage: string;
   private backgroundHeight: number;
   private backgroundWidth: number;
-  private lockIcon: string;
   private incompleteTaskFlag: boolean;
   private positionCheck: object;
-  private images: object;
   private inputText = ['( 2, 0)', '( -6, 1)', '( 0, -17)'];
-  private coord: Array<boolean>;
+  private coord: boolean;
   private topShift: Array<String>;
   private leftShift: Array<String>;
   private inBounds = true;
@@ -37,15 +34,13 @@ export class CharacterPositioningComponent implements OnInit {
   private currentLeftPos: number;
   private totalXValue: number;
   private totalYValue: number;
-  private normalizeXValue: number;
-  private normalizeYValue: number;
   private offsetValue: any;
+
   constructor(public dialog: MatDialog, private utility: UtilitiesService) { 
     this.positionCheck = [
       {
         id: '1',
         name: 'monkey',
-        path: '',
         top: 2,
         left: 0,
         handTop: {
@@ -59,18 +54,15 @@ export class CharacterPositioningComponent implements OnInit {
       }, {
         id: '2',
         name: 'fruit',
-        path: '',
         top: 1,
         left: -6
       }, {
         id: '3',
         name: 'cap',
-        path: '',
         top: -17,
         left: 0
       }
     ];
-    this.images = [];
     this.leftShift = ['0', '0', '0'];
     this.topShift = ['0', '0', '0'];
   }
@@ -90,15 +82,10 @@ export class CharacterPositioningComponent implements OnInit {
         y: -17
       }
     }
-    this.normalizeXValue = 35;
-    this.normalizeYValue = 21;
     this.totalXValue = 70;
     this.totalYValue = 42;
     const x: any = document.getElementsByClassName('background-position');
     setTimeout(() => {
-      this.leftShift = [String(0.43 * x[0].clientWidth), String(0.33 * x[0].clientWidth), String(0.43 * x[0].clientWidth)];
-      this.topShift = [String(0.65 * x[0].clientHeight), String(0.52 * x[0].clientHeight), String(0.75 * x[0].clientHeight)];
-
       this.position[0].x = 0.45 * x[0].clientWidth;
       this.position[0].y = 0.35 * x[0].clientHeight
       this.position[1].x = 0.40 * x[0].clientWidth;
@@ -109,15 +96,11 @@ export class CharacterPositioningComponent implements OnInit {
       this.backgroundWidth = x[0].clientWidth;
     }, 0);
     const selectedIndexs = JSON.parse(localStorage.getItem('gameProgress')).preferenceMap;
-    console.log(selectedIndexs);
-
     this.backgroundImage = selectCharacterContent.characterList[0].list[selectedIndexs.background];
-    console.log(this.backgroundImage);
-    
     this.contentData.dragImageContent[0].imagePath = selectCharacterContent.characterList[1].list[selectedIndexs.monkey];
     this.contentData.dragImageContent[1].imagePath = selectCharacterContent.characterList[2].list[selectedIndexs.fruit];
     this.contentData.dragImageContent[2].imagePath = selectCharacterContent.characterList[3].list[selectedIndexs.cap];
-    this.coord = [true, true, true];
+    this.coord = true;
     this.contentData.dragImageContent[0].imageList.forEach(element => {
       if (element.path === selectCharacterContent.characterList[1].list[selectedIndexs.monkey]) {
         this.positionCheck[0].handLeft.min = element.hand.left.min;
@@ -128,8 +111,6 @@ export class CharacterPositioningComponent implements OnInit {
 
     });
     this.incompleteTaskFlag = true;
-    this.actionImage = this.contentData.actionButton;
-    this.lockIcon = this.contentData.lockIcon;
     this.positionDetail.emit(this.positionCheck);
   }
 
@@ -146,66 +127,19 @@ export class CharacterPositioningComponent implements OnInit {
 
   onDragEnd(ev, index) {
     const currentData: any = document.getElementsByClassName(ev.id);
-    let x: any = null;
-    let y: any = null;
-    console.log(Object.values(this.offsetValue)[0]);
-    
-    switch (ev.id) {
-      case 'monkey-position': {
+    let left: any = null;
+    let top: any = null;
         setTimeout(() => {
-
-          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
-
-          this.positionCheck[0].left = x;
-          this.positionCheck[0].top = y;
-          this.topShift[0] = '0';
-          this.leftShift[0] = '0';
-          // document.getElementById('input0').style.transform = 'translate('
-          //   + this.currentLeftPos + 'px,' + (this.currentTopPos - (currentData[0].height * 0.02)) + 'px)';
-          this.offsetValue.monkeyOffset.x = x;
-          this.offsetValue.monkeyOffset.y = y;
-          this.inputText[0] = '( ' + x + ', ' + y + ')';
+          left = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.totalXValue/2, currentData[0].width / 2);
+          top = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.totalYValue/2, currentData[0].height / 2);
+          
+          this.positionCheck[index].left = left;
+          this.positionCheck[index].top = top;
+          this.topShift[index] = '0';
+          this.leftShift[index] = '0';
+          this.positionMarker(index,currentData[0],left, top);
+          this.inputText[index] = '( ' + left + ', ' + top + ')';
         }, 10)
-        break;
-      }
-
-      case 'fruit-position': {
-        setTimeout(() => {
-          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
-          this.positionCheck[1].left = x;
-          this.positionCheck[1].top = y;
-          this.topShift[1] = '0';
-          this.leftShift[1] = '0';
-          // document.getElementById('input1').style.transform = 'translate('
-          //   + (this.currentLeftPos - (currentData[0].width * 1.1)) + 'px,' + (this.currentTopPos + (currentData[0].height)) + 'px)';
-          this.offsetValue.fruitOffset.x = x;
-          this.offsetValue.fruitOffset.y = y;
-          this.inputText[1] = '( ' + x + ', ' + y + ')';
-        }, 10);
-        break;
-      }
-
-      case 'cap-position': {
-        setTimeout(() => {
-          x = this.unitConversion(this.backgroundWidth, this.currentLeftPos, this.totalXValue, this.normalizeXValue, currentData[0].width / 2);
-          y = this.unitConversion(this.backgroundHeight, this.currentTopPos, this.totalYValue, this.normalizeYValue, currentData[0].height / 2);
-          this.positionCheck[2].left = x;
-          this.positionCheck[2].top = y;
-          this.topShift[2] = '0';
-          this.leftShift[2] = '0';
-          // document.getElementById('input2').style.transform = 'translate('
-          //   + (this.currentLeftPos - (currentData[0].width * 0.2)) + 'px,' + (this.currentTopPos - currentData[0].height) + 'px)';
-          this.offsetValue.capOffset.x = x;
-          this.offsetValue.capOffset.y = y;
-          this.inputText[2] = '( ' + x + ', ' + y + ')';
-        }, 10);
-        break;
-      }
-
-      default: ;
-    }
     setTimeout(() => {
       this.positionDetail.emit(this.positionCheck);
     }, 100)
@@ -221,6 +155,32 @@ export class CharacterPositioningComponent implements OnInit {
     return Math.round(x);
   }
 
+  positionMarker = (index, currentCharacter, left, top) => {
+    switch (index) {
+      case 0: {
+        document.getElementById('input0').style.transform = 'translate('
+          + this.currentLeftPos + 'px,' + (this.currentTopPos - (currentCharacter.height * 0.02)) + 'px)';
+        this.offsetValue.monkeyOffset.x = left;
+        this.offsetValue.monkeyOffset.y = top;
+        break;
+      }
+      case 1: {
+        document.getElementById('input1').style.transform = 'translate('
+          + (this.currentLeftPos - (currentCharacter.width * 1.1)) + 'px,' + (this.currentTopPos + (currentCharacter.height)) + 'px)';
+        this.offsetValue.fruitOffset.x = left;
+        this.offsetValue.fruitOffset.y = top;
+        break;
+      } 
+      case 2: {
+        document.getElementById('input2').style.transform = 'translate('
+          + (this.currentLeftPos - (currentCharacter.width * 0.2)) + 'px,' + (this.currentTopPos - currentCharacter.height) + 'px)';
+        this.offsetValue.capOffset.x = left;
+        this.offsetValue.capOffset.y = top;
+        break;
+      } 
+      default: ;  
+    }
+  }
 
   checkList() {
     if (this.flagData.indexOf(false) === -1) {
@@ -229,7 +189,7 @@ export class CharacterPositioningComponent implements OnInit {
 
       this.utility.updatePositions(offsets);
 
-      this.coord = [false, false, false];
+      this.coord = false;
       setTimeout(() => {
         this.showModalOnSuccess();
       }, 1000)
