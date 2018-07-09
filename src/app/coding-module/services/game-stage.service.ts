@@ -516,7 +516,7 @@ export class GameStageService {
     button.looksIndex = obj.looksIndex;
   }
 
-  showVariables = (isReset = false) => {
+  showVariables =   (isReset = false) => {
     let top = 10;
     this.variableBoxes = [];
     let rect, text;
@@ -529,7 +529,7 @@ export class GameStageService {
         if (variableList[v].rect) {
           variableList[v].text.set('text', `${v} = ${variableList[v].value}`);
           top += 50;
-          // this.fabricCanvas.renderAll();
+          this.fabricCanvas.renderAll();
         } else {
           let length = v.length + (variableList[v].value + '').length + 3;
           const left = this.fabricCanvas.width - 15;
