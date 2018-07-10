@@ -19,25 +19,24 @@ export class PackagingMilkCode1Service {
     setTimeout(() => {
       this.blockList = blockList;
       this.codes = codes;
-     
-      const blockObj = JSON.parse(this.codes[0].match(/'(.*?)'/)[1]);
-
-      if (Number(blockObj.spriteIndex) === 0 && spriteStatus[0].currentPosition.x === -23 && spriteStatus[0].currentPosition.y === -10) {
   
-        if (this.codes[1] === 'var repeat_end = (2)') {
-    
-          const thirdBlock = this.codes[2].split(/{([^}]+)}/)[1].split(':')[1].replace(/"/g, '');
-          if (Number(thirdBlock) <= 1.5 && Number(thirdBlock) >= 0.5) {
-         
-            const fourthblock = this.codes[3].split(/{([^}]+)}/)[1].replace(/\"/g, "");
-            if (fourthblock === 'spriteIndex:1') {
+      const blockObj1 = JSON.parse(this.codes[0]).params;
+      const blockObj2 = JSON.parse(this.codes[1]).params;
+
+      if (Number(blockObj1.spriteIndex) === 0 && spriteStatus[0].currentPosition.x === -23 && spriteStatus[0].currentPosition.y === -10) {
+  
+        if (Number(blockObj2.times) === 2) {
+          const innerCode =atob(blockObj2.linesOfCode).split(';');
+          const innerCode1 = JSON.parse(innerCode[0]).params;
+          const innerCode2 = JSON.parse(innerCode[1]).params;
+
+          if (Number(innerCode1.wait_secs) <= 1.5 && Number(innerCode1.wait_secs) >= 0.5 && Number(innerCode2.spriteIndex) === 1) {
               this.successObj['success'] = true;
               this.successObj['title'] = 'Great!';
               this.successObj['msg'] = 'The bottle is now sparkling clean and fit to be filled with milk.';
-              this.successObj['mascotImage'] = 'assets/images/activities/packaging_milk/mascot_head.png';
-              this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
+              // this.successObj['mascotImage'] = 'assets/images/activities/packaging_milk/mascot_head.png';
+              // this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
               return callback(this.successObj);
-            }
           }
          
         }
@@ -101,7 +100,7 @@ export class PackagingMilkCode1Service {
     
     if ((workspace.topBlocks_.length === 1 && json.type === 'move' && blockPresent === false) || json.type === 'change') {
       const text = Blockly.Xml.workspaceToDom(workspace);
-      blocksData.packaging_milk_coding1.initialCode = Blockly.Xml.domToPrettyText(text);
+      blocksData.packaging_milk_coding1_challenge.initialCode = Blockly.Xml.domToPrettyText(text);
     }
 
   }
