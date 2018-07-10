@@ -48,9 +48,11 @@ export class ThrowFruitsForeverService {
       // check-0(b): to detect if more than 1 repeat forever / repeat n times block present
       // code for this case is written compiler case as this case comes under pre-running condition test
 
-      if (blockList.indexOf('var repeat_end = ') !== -1) {
-        let y = codes[blockList.indexOf('var repeat_end = ')].match(/\d/g);
-        y = y.join("");
+      if (blockList.indexOf('repeat') !== -1) {
+        
+        let y = Number(JSON.parse(codes).params.times)
+        console.log(y);
+        
         // check-1(a): to detect whether repeat n times block is still present and also no. of block present in workspace? 
         if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) <= 10) {
           this.flowChartMsg = 'That doesn’t look right. Look for a block that lets you repeat your code for throwing a fruit forever.';
@@ -168,7 +170,8 @@ export class ThrowFruitsForeverService {
       return callback(this.flowChartMsg = 'You need only one repeat block to make the monkey keep throwing fruits forever.');
     }
 
-
+    console.log(list);
+    
     if (blockList.indexOf('var repeat_end = ') !== -1) {
       let y = list[blockList.indexOf('var repeat_end = ')].match(/\d/g);
       y = y.join("");
