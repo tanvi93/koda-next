@@ -28,18 +28,16 @@ export class MonkeyRightLimitService {
         'x1': 28, 'x2': 31
       };
       
-      const firstBlockObj = JSON.parse(this.codes[0].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
+      const firstBlockObj = JSON.parse(this.codes[0]).params;
       const spriteIndex = Number(firstBlockObj.spriteIndex);
 
       // check 1: Monkey moves off Stage?(completely off the stage)
       if ((spriteStatus[0].currentPosition.x <= sprites[spriteIndex].disappearCoordinates.x1) || (spriteStatus[0].currentPosition.x >= sprites[spriteIndex].disappearCoordinates.x2) || (spriteStatus[0].currentPosition.y <= sprites[spriteIndex].disappearCoordinates.y1) || (spriteStatus[0].currentPosition.y >= sprites[spriteIndex].disappearCoordinates.y2)) {
-        console.log('Looks like the monkey has moved out of the Stage.');
         return callback('Looks like the monkey has moved out of the Stage. Recheck your input values. Remember you have to make the monkey throw a fruit from the right end of the Stage.');
       }
 
       // check 2:Monkey moves to the rightmost part of the Stage?
       if (spriteStatus[0].currentPosition.x < rightRange.x1) {
-        console.log('It doesn’t seem like the monkey moved to the right end of the stage. Try changing the input values.');
         return callback('It doesn’t seem like the monkey moved to the right end of the stage. Try changing the input values.');
       }
 
@@ -53,13 +51,11 @@ export class MonkeyRightLimitService {
         return callback(`Great! The monkey is moving to the right end but note that the monkey moves only sideways, not up or down. Keep the Y coordinate of the monkey same as its initial Y coordinate (${sprites[firstBlockObj.spriteIndex].initialOffset.y}).`);
       }
 
-      const secondBlockObj = JSON.parse(this.codes[1].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
-  
+      const secondBlockObj = JSON.parse(this.codes[1]).params;
       const offsetOfFruit = sprites[secondBlockObj.spriteIndex].currentOffset ? sprites[secondBlockObj.spriteIndex].currentOffset : sprites[secondBlockObj.spriteIndex].initialOffset;
 
       // check 5: Fruit goes off the Stage?
       if ((offsetOfFruit.x <= -35) || (offsetOfFruit.x >= 35) || (offsetOfFruit.y <= -21) || (offsetOfFruit.y >= 21)) {
-        console.log('Looks like the fruit has moved out of the Stage.');
         // tslint:disable-next-line:max-line-length
         return callback('Great! The monkey is moving to the right end but looks like the fruit has moved out of the Stage. Remember the fruit should fall from monkey’s hand. Recheck your input values.');
       }
@@ -75,7 +71,7 @@ export class MonkeyRightLimitService {
         this.successObj['msg'] = 'Now this is the boundary within which the monkey should stay throughout the game. ';
         return callback(this.successObj);
       }
-    }, 500);  
+    }, 500);
   }
 
 
@@ -101,7 +97,7 @@ export class MonkeyRightLimitService {
           return;
       }
     }
-
+    
     if (json.type === 'change' && (json.blockId === this.arrayOfIds[1] || json.blockId === this.arrayOfIds[2] || json.blockId === this.arrayOfIds[4] || json.blockId === this.arrayOfIds[5])) {
       const text = Blockly.Xml.workspaceToDom(workSpace);
       blocksData.mm2_2_c2.initialCode = Blockly.Xml.domToPrettyText(text);

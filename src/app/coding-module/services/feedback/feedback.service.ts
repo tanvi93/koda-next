@@ -45,10 +45,10 @@ export class FeedbackService {
   private magical_cave_coding: MagicalCaveService; 
   private landmine_detonator_coding1: LandmineDetonatorCoding1Service;
   private landmine_detonator_coding2: LandmineDetonatorCoding2Service;
-  private packaging_milk_coding1: PackagingMilkCode1Service;
+  private packaging_milk_coding1_challenge: PackagingMilkCode1Service;
   private disco_lights_coding = new DiscoLightCodingService;
   private naptime_coding: NaptimeActivityService;
-  private packaging_milk_coding2: PackagingMilkCode2Service;
+  private packaging_milk_coding2_challenge: PackagingMilkCode2Service;
 
   constructor() {
     this.mm2_1_c1 = new MonkeyMoveToNewPositionService();
@@ -69,10 +69,10 @@ export class FeedbackService {
     this.magical_cave_coding = new MagicalCaveService();
     this.landmine_detonator_coding1 = new LandmineDetonatorCoding1Service();
     this.landmine_detonator_coding2 = new LandmineDetonatorCoding2Service();
-    this.packaging_milk_coding1 = new PackagingMilkCode1Service();
+    this.packaging_milk_coding1_challenge = new PackagingMilkCode1Service();
     this.disco_lights_coding = new DiscoLightCodingService();
     this.naptime_coding = new NaptimeActivityService();
-    this.packaging_milk_coding2 = new PackagingMilkCode2Service();
+    this.packaging_milk_coding2_challenge = new PackagingMilkCode2Service();
   }
 
   getHighlightIndex() {

@@ -24,7 +24,7 @@ export class VenusFlytrapService {
       let nonMotionPresent = false;
     
       for (let i = 0; i < this.codes.length; i++) {
-        this.blockObj[i] = JSON.parse(this.codes[i].match(/'(.*?)'/)[1]);
+        this.blockObj[i] = JSON.parse(this.codes[i]).params;
       }
        loop1 : for (let i = 0; i < this.blockList.length; i++) {
 
@@ -74,13 +74,13 @@ export class VenusFlytrapService {
             this.successObj['success'] = this.success;
             this.successObj['title'] = 'Thank you!';
             this.successObj['msg'] = 'That animation looks great.';
-            this.successObj['mascotImage'] = 'assets/images/activities/venus_flytrap/mascot_head.png';
-            this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-            this.localData[1].status.complete.imageStatus = true;
-            this.localData[1].status.unlock.imageStatus = !this.localData[1].status.complete.imageStatus;
-            this.localData[2].status.lock.imageStatus = !this.localData[1].status.complete.imageStatus;
-            this.localData[2].status.unlock.imageStatus = this.localData[1].status.complete.imageStatus;
-            localStorage.setItem('sequencing', JSON.stringify(this.localData));
+            // this.successObj['mascotImage'] = 'assets/images/activities/venus_flytrap/mascot_head.png';
+            // this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
+            // this.localData[1].status.complete.imageStatus = true;
+            // this.localData[1].status.unlock.imageStatus = !this.localData[1].status.complete.imageStatus;
+            // this.localData[2].status.lock.imageStatus = !this.localData[1].status.complete.imageStatus;
+            // this.localData[2].status.unlock.imageStatus = this.localData[1].status.complete.imageStatus;
+            // localStorage.setItem('sequencing', JSON.stringify(this.localData));
             return callback(this.successObj);
           } else {
             return;
