@@ -49,9 +49,9 @@ export const checklistMCQ = {
     "air_conditioner_q1": {
     "instructionBarContent": "Now that I have understood how the thermostat in an air conditioner works, help me in deciding the variables for this.",
     'mascotImage': './assets/images/activities/air_conditioner/mascot_head.png',
-    "mediaType": "",
-    "mediaLink": "",
-
+    "mediaType": "video",
+    "mediaLink": "./assets/images/activities/air_conditioner/preview.gif",
+    "mascotBg": '#ffad34',    
     'question': 'Which of these are variables, i.e., their value is not fixed?',
     'answer': [
         {
