@@ -1,3 +1,10 @@
+.error-wrap{
+  background: #EE5862;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
 .error-container {
   color: #FFFFFF;
   font-family: 'Quicksand', sans-serif;
@@ -5,7 +12,6 @@
   font-style: normal;
   font-size: 18px;
   padding:0 25px;
-  
 }
 
 .error {
