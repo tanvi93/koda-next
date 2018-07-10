@@ -42,8 +42,8 @@ console.log(spriteStatus);
   if(success){
     repeat(2,3,-6,2,this.blockObj);
     if((this.blockObj[4].method === 'changeAvatar' && Number(this.blockObj[4].params.spriteIndex) === 0 && Number(this.blockObj[4].params.avatarIndex) === 1) || (this.blockObj[4].method === 'nextAvatar' && Number(this.blockObj[4].params.spriteIndex) === 0)){
-     console.log('inside');
-      if ((this.blockObj[this.blockObj.length - 1] === 'moveTo' || this.blockObj[this.blockObj.length - 1] === 'moveBy') && Number(this.blockObj[this.blockObj.length - 1].params.spriteIndex) === 0 && spriteStatus[7].currentPosition.x === 8 && spriteStatus[7].currentPosition.y === -10) {
+     console.log(this.blockObj.length - 1);
+      if ((this.blockObj[this.blockObj.length - 1].method === 'moveTo' || this.blockObj[this.blockObj.length - 1].method === 'moveBy') && Number(this.blockObj[this.blockObj.length - 1].params.spriteIndex) === 0 && spriteStatus[7].currentPosition.x === 8 && spriteStatus[7].currentPosition.y === -10) {
       alert('success');
       }
     }
