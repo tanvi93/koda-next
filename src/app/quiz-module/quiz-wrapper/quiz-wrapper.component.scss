@@ -19,10 +19,14 @@
   margin-top: -14px;
 }
 
+.icon-wrap {
+  position: relative;
+}
+
 .button {
   position: absolute;
-  right: 60px;
-  top: 210px;
+  right: 0px;
+  bottom: 30px;
   background-color: transparent;
 }
 

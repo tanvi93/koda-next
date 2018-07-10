@@ -441,8 +441,8 @@ export const quiz = {
     "identical_twins_q1": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby was crying one day. What could have made her cry?",
@@ -470,8 +470,8 @@ export const quiz = {
     "identical_twins_q2": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "What would happen if Betty sneezes?",
@@ -499,8 +499,8 @@ export const quiz = {
     "identical_twins_q3": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby ate a grape. What would be the series of things that happen in the correct sequence?",
@@ -528,8 +528,8 @@ export const quiz = {
     "identical_twins_q4": {
         "instructionBarContent": "Check your understanding of events and responses.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "When Betty cries, is it an event or a response?",
