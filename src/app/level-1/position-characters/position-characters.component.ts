@@ -28,12 +28,7 @@ export class PositionCharactersComponent implements OnInit {
     } else {
       this.contentData.checklist[0].checkListFlag = false;
     }
-    console.log($event[0].top - $event[1].top);
-    console.log($event[0].handTop.min);
-    console.log($event[0].handTop.max);
-    console.log($event[0].left - $event[1].left);
-    console.log($event[0].handLeft.min);
-    console.log($event[0].handLeft.max);
+    
     
     // condition for fruit in monkey's hand
     if ((($event[0].top - $event[1].top) >= $event[0].handTop.min)
