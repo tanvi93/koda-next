@@ -38,9 +38,10 @@ export class MagicalCaveService {
       };
 
       for (let i = 0; i < this.blockList.length; i++) {
-        this.blockdata[i] = JSON.parse(this.codes[i].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
+        this.blockdata[i] = JSON.parse(this.codes[i]).params;
         this.blockdata[i]['name'] = this.blockList[i];
       }
+    
       const boyPosition = sprites[0].currentOffset;
       const rockPosition = sprites[1].currentOffset;
       if (this.blockList[0] === 'moveTo' && boyPosition.x >= nearPoleArea.x1 && boyPosition.x <= nearPoleArea.x2 && boyPosition.y >= nearPoleArea.y1 && boyPosition.y <= nearPoleArea.y2) {
@@ -50,11 +51,11 @@ export class MagicalCaveService {
               this.successObj['success'] = true;
               this.successObj['title'] = 'You did it!';
               this.successObj['msg'] = 'The genie will make sure that there’s a whole lot of magic in store for you.';
-              this.successObj['mascotImage'] = 'assets/images/activities/magical_cave/mascot_head.png';
-              this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-              this.localData[2].status.complete.imageStatus = true;
-              this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
-              localStorage.setItem('sequencing', JSON.stringify(this.localData));
+              // this.successObj['mascotImage'] = 'assets/images/activities/magical_cave/mascot_head.png';
+              // this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
+              // this.localData[2].status.complete.imageStatus = true;
+              // this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
+              // localStorage.setItem('sequencing', JSON.stringify(this.localData));
               return callback(this.successObj);
             }
           }
