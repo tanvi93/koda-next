@@ -10,7 +10,57 @@ import { UtilitiesService } from './../../../shared-services/utilities.service';
   templateUrl: './character-positioning.component.html',
   styleUrls: ['./character-positioning.component.scss']
 })
-  
+
+  /**
+   * @name CharacterPositioningComponent<app-character-positioning>
+   * @description This component will deal positioning of choosen character which user have choosen in select character activity
+   * @param contentData its holds entire detail of the page which is passed as an input to its child component.
+   * @constructor intiate all parameter related to character and its indicator.
+   */
+
+  /**
+   * @method onDragBegin
+   * @memberOf CharacterPositioningComponent
+   * @description this method is an event based method which help in hiding the errror msg whenever user changes position of character which is then conveyed by his parent.
+   */
+
+   /**
+   * @method onDragEnd
+   * @memberOf CharacterPositioningComponent
+   * @param index this variable is of type number which help in find which character's detail needed to be set.
+   * @description this method is an event based method which help in setting all the required data which will be used by parents for validation of all the task provided.
+   */
+
+   /**
+   * @method onMoveEnd
+   * @memberOf CharacterPositioningComponent
+   * @description this method is an event based method with help in finding the current position of character which user done moving.
+   */
+
+   /**
+   * @method checklist
+   * @memberOf CharacterPositioningComponent
+   * @description this method stores all the data related to character which can be used by user for future activity which are related to monkey menace.
+   */
+
+   /**
+   * @method positionMarker
+   * @memberOf CharacterPositioningComponent
+   * @description this method help in setting the position of label which will be visible once all the task have been performed.
+   */
+
+   /**
+   * @method unitConversion
+   * @memberOf CharacterPositioningComponent
+   * @description this method deals with changing the data of character position in user readable format.
+   */
+
+  /**
+   * @method showModalOnSuccess
+   * @memberOf CharacterPositioningComponent
+   * @description this method get triggered when user performed all the task which result in showing success popup to user.
+   */
+
 export class CharacterPositioningComponent implements OnInit {
   dialogRef: MatDialogRef<SuccessModalComponent>;
   @Input() contentData;
@@ -118,12 +168,10 @@ export class CharacterPositioningComponent implements OnInit {
     this.positionDetail.emit(this.positionCheck);
   }
 
-
   onDragBegin(ev) {
     this.hideErrorMsg.emit(true);
   }
 
-  
   onMoveEnd(ev) {
     this.currentLeftPos = Math.round(ev.x);
     this.currentTopPos = Math.round(ev.y);
