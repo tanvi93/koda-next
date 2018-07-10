@@ -19,7 +19,6 @@ export class ThrowFruitsForeverService {
 
   private blockList: any;
   private codes: Array<any>;
-  private spriteIndex: any;
   private flowChartMsg: string;
   private success: Boolean;
   private successObj: any;
@@ -31,16 +30,14 @@ export class ThrowFruitsForeverService {
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
 
-    this.spriteIndex = [];
-
-    codes.forEach(element => {
-      this.spriteIndex.push(element[element.indexOf('spriteIndex') + 13]);
-    });
     // tslint:disable-next-line:prefer-const
     this.blockList = blockList;
     this.codes = codes;
+    console.log(this.blockList);
     
     setTimeout(() => {
+      console.log(repeatForeverCount);
+      console.log(repeatNTimesCount);
       
       // check-0(a): to detect if no repeat forever block present
       if ((repeatForeverCount  + repeatNTimesCount) === 0) {
@@ -59,9 +56,6 @@ export class ThrowFruitsForeverService {
           this.flowChartMsg = 'That doesn’t look right. Look for a block that lets you repeat your code for throwing a fruit forever.';
           return callback(this.flowChartMsg);
         }
-        
-        // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
-        // code for this case is written compiler case as this case comes under pre-running condition test
       }
 
       // check-2: to detect whether no of block exceed the limit then required with repeat forever block present in stack.
