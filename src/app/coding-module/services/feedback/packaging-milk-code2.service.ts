@@ -6,6 +6,7 @@ let blockPresentOnWorkspace = [];
 let initialLoadFlag = true;
 let insideRepeatBlock;
 let a;
+let success: Boolean;
 
 @Injectable()
 export class PackagingMilkCode2Service {
@@ -13,9 +14,12 @@ export class PackagingMilkCode2Service {
   private codes: Array<any>;
   private successObj;
   private firstCheck: Boolean;
+  private blockObj;
+  
 
   constructor() {
     this.successObj = {};
+    this.blockObj = {};
     this.firstCheck = false;
   }
 
@@ -23,114 +27,55 @@ export class PackagingMilkCode2Service {
     setTimeout(() => {
       this.blockList = blockList;
       this.codes = codes;
-console.log(this.blockList);
-      const blockObj = JSON.parse(this.codes[0]).params;
-    
-      loop1: for (let i = 0; i < this.blockList.length; i++) {
-        if (this.blockList[i] !== 'wait') {
-          if ((this.blockList[i] === 'moveTo' || this.blockList[i] === 'moveBy') && Number(blockObj.spriteIndex) === 0 && spriteStatus[0].currentPosition.x === -23 && spriteStatus[0].currentPosition.y === -10) {
-          
-            for (let j = i + 1; j < (this.blockList.length - i); j++) {
-              if (this.blockList[j] !== 'wait'){
-                const repeatBlockObj = JSON.parse(this.codes[j]).params;
+      success = false;
+console.log(spriteStatus);
+      // const blockObj = JSON.parse(this.codes[0]).params;
+    for(let i = 0; i < this.blockList.length; i++){
+      if(this.blockList[i] === 'wait' && (this.blockList[i+1] !== 'changeAvatar') && (this.blockList[i+1] !== 'nextAvatar')) {
+        this.blockList.splice(i,1);
+        this.codes.splice(i,1);  
+      }
+        this.blockObj[i] = JSON.parse(this.codes[i]); 
+    }
+  console.log(this.blockObj);
+  repeat(0,0,-23,1,this.blockObj);
+  if(success){
+    repeat(2,3,-6,2,this.blockObj);
+    if((this.blockObj[4].method === 'changeAvatar' && Number(this.blockObj[4].params.spriteIndex) === 0 && Number(this.blockObj[4].params.avatarIndex) === 1) || (this.blockObj[4].method === 'nextAvatar' && Number(this.blockObj[4].params.spriteIndex) === 0)){
+     console.log('inside');
+      if ((this.blockObj[this.blockObj.length - 1] === 'moveTo' || this.blockObj[this.blockObj.length - 1] === 'moveBy') && Number(this.blockObj[this.blockObj.length - 1].params.spriteIndex) === 0 && spriteStatus[7].currentPosition.x === 8 && spriteStatus[7].currentPosition.y === -10) {
+      alert('success');
+      }
+    }
+  }
+   
+function repeat(n,position,positionX,sprite,blockObj){
+  console.log(blockObj);
+  if ((blockObj[n].method === 'moveTo' || blockObj[n].method === 'moveBy') && Number(blockObj[n].params.spriteIndex) === 0 && spriteStatus[position].currentPosition.x === positionX && spriteStatus[position].currentPosition.y === -10) {
+    if(blockObj[n+1].method === 'repeat' && Number(blockObj[n+1].params.times) === 2){
+      // console.log(this.blockObj[1].linesOfCode);
+      const innerCode =atob(blockObj[n+1].params.linesOfCode).split(';');
+      const code = {};
+      let waitSec = [];
+      let waitValue = 0;
 
-                if (Number(repeatBlockObj.times) === 2) {
-                  const innerCode =atob(repeatBlockObj.linesOfCode).split(';');
-                  const insideRepeatBlock = JSON.parse(innerCode[0]).params;
-                  const innerCode2 = JSON.parse(innerCode[1]).params;
-        
-                    if (this.blockList[j + 2] !== 'wait' && this.blockList[j + 2] === '  nextAvatar') {
-              
-                        if (Number(insideRepeatBlock.wait_secs) <= 1.5 && Number(insideRepeatBlock.wait_secs) >= 0.5) {
-              
-                          if (Number(innerCode2.spriteIndex) === 1) {
-                            this.firstCheck = true;
-                            a = j + 2;
-                          }
-                        }  
-                      } else if (this.blockList[j + 2] === '  wait') {
-                        const waitTime = Number(JSON.parse(this.codes[i + 3]).times);
-                        const totalTime = insideRepeatBlock + waitTime;
-                        if (totalTime > 1.5 || totalTime < 0.5) {
-                          break loop1;
-                        }
-                      }
-                  
-                  break loop1;
-                }
-                break loop1;
-            }
-            }
-          }
-          break;
+      for(let j=0; j<innerCode.length-1; j++){
+        code[j] = JSON.parse(innerCode[j]);
+        if(code[j].method === 'wait'){
+          waitSec.push(code[j].params.wait_secs);
         }
       }
-      if (this.firstCheck) {
-        loop2: for (let i = a + 1; i < this.blockList.length; i++) {
-          if (this.blockList[i] !== 'wait') {
-            this.blockList[i] = this.blockList[i].replace(/(\r\n|\n|\r)/gm, '').replace('}', '');
-    
-            if ((this.blockList[i] === 'moveTo' || this.blockList[i] === 'moveBy') && Number(blockObj.spriteIndex) === 0 && spriteStatus[3].currentPosition.x === -6 && spriteStatus[3].currentPosition.y === -10) {
-          
-              for (let j = i + 1; j < this.blockList.length; j++) {
-                if (this.blockList[j] !== 'wait') {
-                  if (this.codes[j] === 'var repeat_end2 = (2)') {
-                    if (this.blockList[j + 1] === 'for ') {
-                      insideRepeatBlock = Number(this.codes[j + 1].split(/{([^}]+)}/)[1].split(':')[1].replace(/"/g, ''));
-                      if (this.blockList[j + 2] !== 'wait' && this.blockList[j + 2] === '  nextAvatar') {
-                        if (insideRepeatBlock <= 1.5 && insideRepeatBlock >= 0.5) {
-                          const fourthblock = this.codes[j + 2].split(/{([^}]+)}/)[1].replace(/\"/g, "");
-                          if (fourthblock === 'spriteIndex:2') {
-  
-                            for (let k = j + 3; k < this.blockList.length; k++) {
-                              this.blockList[k] = this.blockList[k].replace(/(\r\n|\n|\r)/gm, '').replace('}', '');
-                              if (this.blockList[k] !== 'wait') {
-                                if (this.blockList[k] === 'nextAvatar' || this.blockList[k] === 'changeAvatar') {
-                                  const nextLook = this.codes[k].split(/{([^}]+)}/)[1].replace(/\"/g, "");
-                                  console.log(nextLook);
-                                  if ((nextLook === 'spriteIndex:0') || (nextLook === 'spriteIndex:0,avatarIndex:1')) {
-                                    for (let l = k + 1; l < this.blockList.length;) {
-                                      if (this.blockList[l] !== 'wait') {
-                                        if ((this.blockList[l] === 'moveTo' || this.blockList[l] === 'moveBy') && Number(blockObj.spriteIndex) === 0 && spriteStatus[7].currentPosition.x === 8 && spriteStatus[7].currentPosition.y === -10) {
-                                          if (l === blockList.length - 1) {
-                                            this.successObj['success'] = true;
-                                            this.successObj['title'] = 'Great!';
-                                            this.successObj['msg'] = 'The bottle is labelled and ready to be filled with milk.';
-                                            this.successObj['mascotImage'] = 'assets/images/activities/packaging_milk/mascot_head.png';
-                                            this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-                                            return callback(this.successObj);
-                                          }
-                                          break loop2;
-                                        }
-                                        break loop2;
-                                      } else {
-                                        l++;
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        } else if (this.blockList[j + 2] === '  wait') {
-                          const waitTime = Number(this.codes[i + 3].split(/{([^}]+)}/)[1].split(':')[1].replace(/"/g, ''));
-                          const totalTime = insideRepeatBlock + waitTime;
-                          if (totalTime > 1.5 || totalTime < 0.5) {
-                            break loop2;
-                          }
-                        }
-                      }
-                      break loop2;
-                    }
-                    break loop2;
-                  }
-                }
-              }
-              break;
-            }
-          }
-        }
-      }  
+      waitSec.forEach(function (value) {
+        waitValue += value;
+    }, this);
+      if( waitValue <= 1.5 && waitValue >= 0.5 && code[innerCode.length-2].method == 'nextAvatar' && Number(code[innerCode.length-2].params.spriteIndex) === sprite){
+        console.log('success');
+        success = true;
+    }
+    }
+  }
+
+}
     }, 100);
   }
 
@@ -171,7 +116,7 @@ console.log(this.blockList);
 
     if (json.type === 'change' || (((json.type === 'move' && !e.newInputName) || json.type === 'delete') && blockPresent === false)) {
       const text = Blockly.Xml.workspaceToDom(workspace);
-      blocksData.packaging_milk_coding2.initialCode = Blockly.Xml.domToPrettyText(text);
+      blocksData.packaging_milk_coding2_challenge.initialCode = Blockly.Xml.domToPrettyText(text);
     }
   }
 }  
