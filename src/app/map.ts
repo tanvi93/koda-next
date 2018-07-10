@@ -123,7 +123,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Fox & Grapes_Storyline',
-                        path: 'storyline/fox-grape',
+                        path: 'storyline/fox_n_grapes',
                         order: 1,
                         image: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                         type: 'activity-narration'
@@ -139,9 +139,9 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Treasure Hunt_Storyline',
-                        path: 'storyline/treasure-hunt',
+                        path: 'storyline/treasure_hunt',
                         order: 3,
-                        image: './assets/images/activities/treasure_hunt/bg_island.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/bg_island.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Treasure Hunt_Activity',
@@ -155,9 +155,9 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Mars Rover_Storyline',
-                        path: 'storyline/mars-rover',
+                        path: 'storyline/mars_rover',
                         order: 5,
-                        image: './assets/images/activities/mars_rover/bg_mars.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/bg_mars.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Mars Rover_Activity',
@@ -178,7 +178,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Dragon Capture_Storyline',
-                        path: 'storyline/challenge-dragon',
+                        path: 'storyline/challenge_dragon_capture',
                         order: 0,
                         image: './assets/images/activities/dragon_capture/bg_intro1.jpg',
                         type: 'activity-narration'
@@ -304,7 +304,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_2_q2 (input quiz for relative positioning)',
-                        path: 'mm2_2_q2',
+                        path: 'quiz/formula/mm2_2_q2',
                         order: 5,
                         type: 'activity'
                     }, {
@@ -442,7 +442,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm2_6_RepetitiveCode',
-                        path: 'mm2_6_RepetitiveCode',
+                        path: 'level-3/repetitive-code-learning',
                         order: 1,
                         type: 'narration'
                     }, {

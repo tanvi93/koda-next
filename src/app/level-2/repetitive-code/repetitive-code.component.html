@@ -9,8 +9,8 @@
     <img [src]='mascot'>
   </figure>
 
-  <app-continue-button *ngIf="msgIndex === msgs.length - 1"></app-continue-button>
-  <app-click-to-continue-button *ngIf="audio.readyToGoNext && msgIndex < msgs.length - 1">
+  <!-- <app-continue-button *ngIf="msgIndex === msgs.length - 1"></app-continue-button> -->
+  <app-click-to-continue-button *ngIf="audio.readyToGoNext">
   </app-click-to-continue-button>
 
 </app-narration-container>

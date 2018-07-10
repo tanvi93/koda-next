@@ -4,7 +4,6 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg":"#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif",
         "question": "What's the first thing that happens after the player clicks on the Play button ?",
         "options": [
@@ -33,7 +32,6 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "hint": ['X along the decks.','Y to the sky.'],
         "question": "Remember how coordinates are used to represent position? Now observe the monkey's motion and infer how its coordinates change.",
@@ -66,8 +64,7 @@ export const quiz = {
         "instructionBarContent": "The monkey is moving to a new position. But hey, it left its fruit behind!",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
-        "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        "mediaType": "video",        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "Where should the fruit be after the monkey moves to a new position?",
         "options": [
@@ -95,7 +92,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "What exactly do we have to do to make the monkey throw the fruit it's holding?",
         "options": [
@@ -123,7 +120,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_without_play.gif",
         "question": "Where does the monkey move to for throwing the fruit?",
         "options": [
@@ -152,7 +149,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "",
         "question": "Which of the codes below needs to be used 5 times to throw 5 fruits, each from a random position?",
         "options": [
@@ -180,7 +177,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "./../assets/misc_images/mm2_6_q2_ref_img.png",
         "question": "Which one of these blocks will simplify the code?",
         "options": [
@@ -208,7 +205,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "",
         "question": "In what ways can the <img src='./../assets/misc_images/mm3_1_q2_quest_img1.png'> and <img src='./../assets/misc_images/mm3_1_q2_quest_img2.png'> blocks be connected to other blocks?",
         "options": [
@@ -241,7 +238,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "./../assets/misc_images/mm3_1_q3_ref_img.png",
         "question": "When does the code under the <img src: './../assets/misc_images/mm3_1_q3_quest_img1.png'> get executed?",
         "options": [
@@ -269,7 +266,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "How does the player score points in Monkey Menace?",
         "options": [
@@ -297,7 +294,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "Select the correct condition for the game of Monkey Menace to end.",
         "options": [
@@ -325,7 +322,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/preview_with_play.gif",
         "question": "How will you detect if a fruit is missed by the cap?",
         "options": [
@@ -353,7 +350,7 @@ export const quiz = {
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "./../assets/misc_images/mm5_2_q1_ref_img.png",
         "question": "Did you notice the two if blocks in your code? What can you infer from them?",
         "options": [
@@ -381,7 +378,7 @@ export const quiz = {
         "mascotImage": "./../assets/images/activities/packaging_milk/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "./../assets/images/activities/packaging_milk/packaging1/packaging_milk_q1_image.png",
         "preview": "./../assets/images/activities/packaging_milk/preview.gif",
         "question": "Which of these will be the correct code for the bottle to be filled with milk in 3 installments and then be capped as shown in the video on the left?",
@@ -410,7 +407,7 @@ export const quiz = {
         "mascotImage": "./../assets/images/activities/packaging_milk/mascot_head.png",
         "mascotBg": "#13BCE4",
         "mediaType": "image",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        
         "mediaLink": "./../assets/images/activities/packaging_milk/packaging_quiz2.png",
         "question": "What would happen if we change the input to the 'repeat 2 times' block from 2 to 1 for the milk dispenser's code?",
         "options": [
@@ -441,9 +438,8 @@ export const quiz = {
     "identical_twins_q1": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby was crying one day. What could have made her cry?",
         "options": [
@@ -470,9 +466,8 @@ export const quiz = {
     "identical_twins_q2": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "What would happen if Betty sneezes?",
         "options": [
@@ -499,9 +494,8 @@ export const quiz = {
     "identical_twins_q3": {
         "instructionBarContent": "Let us check if you can answer some questions about the twins.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "Abby ate a grape. What would be the series of things that happen in the correct sequence?",
         "options": [
@@ -528,9 +522,8 @@ export const quiz = {
     "identical_twins_q4": {
         "instructionBarContent": "Check your understanding of events and responses.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/mascot_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "video",
-        //"mediaLink": "https://s3.bucket.com/koda/567"
+        "mascotBg": "#ffad34",
+        "mediaType": "gif",
         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/preview.gif",
         "question": "When Betty cries, is it an event or a response?",
         "options": [
