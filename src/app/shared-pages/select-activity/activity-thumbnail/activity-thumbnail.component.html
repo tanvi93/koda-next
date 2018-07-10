@@ -1,14 +1,12 @@
 <div fxLayout="row" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
-  <div *ngFor="let list of activityList; let i = index;" fxFlex="33" class="activity-inner">
+  <div *ngFor="let list of activityList; let i = index;" fxFlex="33" class="activity-inner" (click)="goToActivity(list)">
     <div class="activity-bg" >
-      <img class="select-option-game-unlock" src="{{list.activityImage}}" alt="">
+      <img class="select-option-game-unlock" [src]="list.activityImage" alt="">
       <img class="select-option-game-complete" [hidden]="!list.status.complete.imageStatus" src="{{list.status.complete.imageData}}"
         alt="">
     </div>
     <div class="select-option-Caption" [ngStyle]="{'background-color': !list.status.unlock.imageStatus ? captionBackgroundColor: captionFontColor}">
       <span class="select-option-caption-content" [ngStyle]="{'color': list.status.unlock.imageStatus ? captionBackgroundColor:captionFontColor}">{{list.title}}</span>
-    </div>
-    <div class="select-option-enable" routerLink="/{{list.name}}" id="{{list.name}}" [hidden]="!list.status.unlock.imageStatus">
     </div>
     <div class="select-option-disable" [hidden]="list.status.unlock.imageStatus">
       <img class="select-option-game-lock" [hidden]="!list.status.lock.imageStatus" src="{{list.status.lock.imageData}}" alt="">
