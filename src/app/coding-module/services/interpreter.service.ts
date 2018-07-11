@@ -345,6 +345,15 @@ export class InterpreterService {
     // console.log(performance.now());
     const codes = rawCodes.split(';\n\n');
     const list = rawCodes.split(';\n');
+    console.log(rawCodes.indexOf('repeatForever'));
+    if (feedbackCall && rawCodes.indexOf('repeatForever') !== -1) {
+      setTimeout(() => {
+        feedbackCall(list, this.getXml(false), sprites);
+        setTimeout(() => {
+          this.stopExecution();
+        }, 500);
+      }, 1000 * 30);
+    }
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
       if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
     });
