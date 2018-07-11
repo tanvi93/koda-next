@@ -133,19 +133,17 @@ export class MoveByBlockService {
         let value = interpreter.executeCommands(json.inputBlock.steps);
         json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          } 
-          callback(json);
-        }, animationTime);
+        // setTimeout(() => {
+        //   if (this.blocks && this.blocks.length) {
+        //     this.blocks[json.blockIndex].removeSelect();
+        //   } 
+        //   callback(json);
+        // }, animationTime);
       }
       if (json.inputBlock) {
         executeFn(json.inputBlock.axis);
       } else {
         cb(json);
-        setTimeout(() => {
-        }, animationTime);
       }
     };
     interpreter.setProperty('moveBy', wrapper, 'async');
