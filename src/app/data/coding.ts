@@ -1705,7 +1705,7 @@ export const blocksData: any = {
     mm2_6_c2: {
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
-        "instructionBarContent": "Try replacing <img src='assets/images/block_images/repeat_n_times_block.png' style='height: 12px!important'> with something that can be used to throw fruits forever.",
+        "instructionBarContent": "Try replacing <img src='http://dqfevutdn6sxd.cloudfront.net/block_images/repeat_n_times_block.png' style='height: 12px!important'> with something that can be used to throw fruits forever.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",

@@ -7,8 +7,6 @@ let initialblockArray: string[] = [];
 @Injectable()
 export class LandmineDetonatorCoding1Service {
 
-  private blockList: any;
-  private codes: Array<any>;
   private blockObj: any;
   private success: Boolean;
   private successObj: any;
@@ -24,8 +22,6 @@ export class LandmineDetonatorCoding1Service {
 
     setTimeout(() => {
 
-      this.blockList = blockList;
-      this.codes = codes;
       let updatedBlockList = [];
       let nonRequiredBlock = [];
       let spriteIndex = [];
@@ -47,8 +43,8 @@ export class LandmineDetonatorCoding1Service {
       });
       
       
-      for (let i = 0; i < this.codes.length; i++) {
-        this.blockObj[i] = JSON.parse(this.codes[i].match(/'(.*?)'/)[1]);
+      for (let i = 0; i < codes.length; i++) {
+        this.blockObj[i] = JSON.parse(codes[i].match(/'(.*?)'/)[1]);
       }
 
       
@@ -77,7 +73,7 @@ export class LandmineDetonatorCoding1Service {
             break;
           }
           default: {
-            console.log('invalid option selected');
+            
           }
         }
       });
@@ -140,13 +136,10 @@ export class LandmineDetonatorCoding1Service {
                       || ((explosionBlockList[explosionBlockList.length - 1] + 1 + landmineBlockList.length) === (updatedBlockList.length)- removeExtraBlock)) {
                       
                       if (!sprites[3].isHidden && sprites[0].currentLookIdx == '1' && (landmineBlockList.length <= 1) && updatedBlockList[explosionBlockList[explosionBlockList.length - 1]] === 'visiblityToggle') {
-                        console.log('success');
                         this.success = true;
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
                         this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make sure that our code is robust.';
-                        this.successObj['mascotImage'] = 'assets/images/activities/landmine_detonator/mascot_head.png';
-                        this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                         return callback(this.successObj);
                       }
                     }
@@ -162,7 +155,6 @@ export class LandmineDetonatorCoding1Service {
   }
   
   workSpaceOnChange(e, cb, wsp) {
-    let tempBlock = wsp.getAllBlocks();
     
     if (e.type === 'create' && (e.blockId === 'move_by')) {
       initialblockArray = e.ids;
@@ -193,7 +185,7 @@ export class LandmineDetonatorCoding1Service {
     }
 
     // to detect change n deletion of required block 
-    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element        === 'field'))) {
+    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
         initialLoadFlag = true;
       cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
     }
