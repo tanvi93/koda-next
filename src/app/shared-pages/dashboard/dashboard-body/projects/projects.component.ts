@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.gameProgress = JSON.parse(localStorage.getItem('gameProgress'));
-    let atLevel = this.gameProgress.atLevel - 1;
+    let atLevel = this.gameProgress.atLevel;
     this.levels = map.map((v, i) => {
       let elm = {
         modules: v.modules.map(u => {
@@ -28,10 +28,9 @@ export class ProjectsComponent implements OnInit {
           return json;
         }),
         status: i < atLevel ? 'Completed' : i === atLevel ? 'Inprogress' : 'Locked'
-      }  
+      }
       return elm;
     });
-    this.levels = this.levels.slice(1);
   }
 
   showModulesToogle(level) {
@@ -41,7 +40,7 @@ export class ProjectsComponent implements OnInit {
 
   resume() {
     const { atLevel, atModule, atResource } = this.gameProgress;
-    let path = map[atLevel].modules[atModule - 1].resources[atResource].path;
+    let path = map[atLevel].modules[atModule].resources[atResource].path;
     this.route.navigate([path]);
   }
 

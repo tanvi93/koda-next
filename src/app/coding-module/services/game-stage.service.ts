@@ -351,7 +351,7 @@ export class GameStageService {
       return;
     }
     let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
-    let top = (Math.abs(y - this.totalY / 2) - sprite.height/2) * this.yAxisUnit;
+    let top = (Math.abs(y - this.totalY / 2) - sprite.height / 2) * this.yAxisUnit;
     sprite.instance.set('left', left);
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
