@@ -133,6 +133,13 @@ export class MoveWithSpeedService {
       } 
       const change = json.x ? 'x' : 'y';
       let animationTime = Math.abs(json[change]) * 30 / json.speed;
+      const releasingBlock = () => {
+        if (this.blocks && this.blocks.length) {
+          this.blocks[json.blockIndex].removeSelect();
+        }
+        callback(json);
+      }
+      json.callback = releasingBlock;
       animationTime += 5;
       const executeFn = (axis) => {
         let value = interpreter.executeCommands(json.inputBlock.steps);
@@ -149,12 +156,6 @@ export class MoveWithSpeedService {
         executeFn(json.inputBlock.axis);
       } else {
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          } 
-          callback(json);
-        }, animationTime);
       }
     };
     interpreter.setProperty('moveWithSpeed', wrapper, 'async');
