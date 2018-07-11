@@ -10,7 +10,6 @@ let repeatForeverCount = 0;
 let repeatNTimesCount = 1;
 let noOfBlocks = 0;
 let surroundParentName = '';
-let initialNumberOFBlocks = 0;
 
 declare var Blockly: any;
 @Injectable()
@@ -33,11 +32,8 @@ export class ThrowFruitsForeverService {
     // tslint:disable-next-line:prefer-const
     this.blockList = blockList;
     this.codes = codes;
-    console.log(this.blockList);
     
     setTimeout(() => {
-      console.log(repeatForeverCount);
-      console.log(repeatNTimesCount);
       
       // check-0(a): to detect if no repeat forever block present
       if ((repeatForeverCount  + repeatNTimesCount) === 0) {
@@ -48,13 +44,10 @@ export class ThrowFruitsForeverService {
       // check-0(b): to detect if more than 1 repeat forever / repeat n times block present
       // code for this case is written compiler case as this case comes under pre-running condition test
 
-      if (blockList.indexOf('repeat') !== -1) {
-        
+      if (repeatNTimesCount === 1) {
         let y = Number(JSON.parse(codes).params.times)
-        console.log(y);
-        
         // check-1(a): to detect whether repeat n times block is still present and also no. of block present in workspace? 
-        if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) <= 10) {
+        if (repeatForeverCount === 0 && Number(y) <= 10) {
           this.flowChartMsg = 'That doesn’t look right. Look for a block that lets you repeat your code for throwing a fruit forever.';
           return callback(this.flowChartMsg);
         }
@@ -169,18 +162,15 @@ export class ThrowFruitsForeverService {
     if ((repeatForeverCount + repeatNTimesCount) > 1) {
       return callback(this.flowChartMsg = 'You need only one repeat block to make the monkey keep throwing fruits forever.');
     }
-
-    console.log(list);
+    let y; 
     
-    if (blockList.indexOf('var repeat_end = ') !== -1) {
-      let y = list[blockList.indexOf('var repeat_end = ')].match(/\d/g);
-      y = y.join("");
-      // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
-      if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) > 10) {
-       return callback('That doesn’t look right. The repeat block that you are using will let you repeat your code only ' + y + ' times. Look for a block that lets you repeat your code for throwing a fruit forever.');
-      } else {
-       return callback(null);
-      }
+    if (repeatNTimesCount === 1) {
+      y = Number(JSON.parse(list).params.times)
+    }    
+      
+    // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
+    if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) > 10) {
+      return callback('That doesn’t look right. The repeat block that you are using will let you repeat your code only ' + y + ' times. Look for a block that lets you repeat your code for throwing a fruit forever.');
     } else {
       return callback(null)
     }
