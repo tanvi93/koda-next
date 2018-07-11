@@ -311,7 +311,7 @@ export class GameStageService {
     }
   }
 
-  moveToObject(index = 0, x, y, duration: any = true, speed = null) {
+  moveToObject(index = 0, x, y, duration: any = true, releaseBlock, speed = null) {
     let xSign = '+';
     let ySign = '+';
     if (x) {
@@ -333,6 +333,7 @@ export class GameStageService {
       onComplete: () => {
         const currentPosition = { ...this.sp.setSpriteOffsets(this.activity, { left: x, top: y }, index) };
         this.spriteStatusList.push({ currentPosition });
+        releaseBlock();
         this.sprites = this.sp.getAllSprites(this.activity);
         try {
           this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -347,7 +348,7 @@ export class GameStageService {
     const sprite = this.sprites[index];
     if (hasAnimation) {
       let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-      this.moveToObject(index, x - offset.x, offset.y - y, true);
+      // this.moveToObject(index, x - offset.x, offset.y - y, true);
       return;
     }
     let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
@@ -617,10 +618,10 @@ export class GameStageService {
           this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation);
           break;
         case 'moveBy':
-          this.moveToObject(data.spriteIndex, data.x, data.y);
+          this.moveToObject(data.spriteIndex, data.x, data.y, true, data.callback);
           break;
         case 'moveWithSpeed':
-          this.moveToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.speed);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback, data.speed);
           break;
         case 'show':
         case 'allHideShow':
