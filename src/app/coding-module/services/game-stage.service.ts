@@ -342,13 +342,13 @@ export class GameStageService {
     });
   }
 
-  goToObject(index = 0, x, y, hasAnimation) {
+  goToObject(index = 0, x, y, hasAnimation, releaseBlock) {
     x = parseInt(x);
     y = parseInt(y);
     const sprite = this.sprites[index];
     if (hasAnimation) {
       let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-      // this.moveToObject(index, x - offset.x, offset.y - y, true);
+      this.moveToObject(index, x - offset.x, offset.y - y, true, releaseBlock);
       return;
     }
     let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
@@ -357,6 +357,7 @@ export class GameStageService {
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
     this.spriteStatusList.push({ currentPosition });
+    releaseBlock();
     this.sprites = this.sp.getAllSprites(this.activity);
     try {
       this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -615,7 +616,7 @@ export class GameStageService {
           break;
         case 'goTo':
         case 'moveTo':
-          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation);
+          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback);
           break;
         case 'moveBy':
           this.moveToObject(data.spriteIndex, data.x, data.y, true, data.callback);

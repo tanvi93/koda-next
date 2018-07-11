@@ -73,7 +73,14 @@ export class GoToCoordsService {
     const wrapper = (json, callback) => {
       if (this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
-      } 
+      }
+      const releasingBlock = () => {
+        if (this.blocks && this.blocks.length) {
+          this.blocks[json.blockIndex].removeSelect();
+        }
+        callback(json);
+      }
+      json.callback = releasingBlock;
       const executeFn = (axis) => {
         json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
         // console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
@@ -95,13 +102,6 @@ export class GoToCoordsService {
       } else {
         // console.log(json);
         cb(json);
-        setTimeout(() => {
-          // console.log('releasing');
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback();
-        }, 20);
       }
     };
     interpreter.setProperty('goTo', wrapper, 'async');
