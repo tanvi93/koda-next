@@ -7,7 +7,6 @@ let initialblockArray: string[] = [];
 @Injectable()
 export class LandmineDetonatorCoding1Service {
 
-  private blockObj: any;
   private success: Boolean;
   private successObj: any;
   private blockDetail: object;
@@ -15,7 +14,6 @@ export class LandmineDetonatorCoding1Service {
   constructor() {
     this.success = false;
     this.successObj = {};
-    this.blockObj = {};
   }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
@@ -42,18 +40,13 @@ export class LandmineDetonatorCoding1Service {
         }
       });
       
-      
-      for (let i = 0; i < codes.length; i++) {
-        this.blockObj[i] = JSON.parse(codes[i].match(/'(.*?)'/)[1]);
-      }
-
-      
       codes.forEach(element => {
-        if (element.indexOf('showCoo') === -1 && element.indexOf('wait') && element.indexOf('say')) {
-          spriteIndex.push(element[element.indexOf('spriteIndex') + 14]);
+        let data = JSON.parse(element);
+        if (data.method !== 'showCoo' && data.method !== 'wait' && data.method !== 'say') {
+          spriteIndex.push(data.params.spriteIndex);
         }
       });
-
+      
       spriteIndex.forEach((element, index) => {
         switch (element) {
           case '0': {
@@ -89,6 +82,8 @@ export class LandmineDetonatorCoding1Service {
       });
       let step2SpriteStatus: any[] = spriteIndex.splice(step1Index);
 
+      console.log(spriteStatus);
+      
       
       if (step2SpriteStatus.length > 0) {
         step2SpriteStatus.every((element, index) => {
@@ -108,7 +103,8 @@ export class LandmineDetonatorCoding1Service {
         removeExtraBlock = 0;
       }
 
-
+      console.log(sprites);
+      
       step2Index = step1Index + step2Index;
       
       if (nonRequiredBlock.length === 0) {
@@ -173,26 +169,26 @@ export class LandmineDetonatorCoding1Service {
       }
     }
 
-    if (!wsp.getBlockById('move_by') || wsp.topBlocks_[0].id !== 'move_by') {
-      initialLoadFlag = true;
-      cb('The code given to you is for the drone scanning the minefield. Add your blocks below it.');
-    }
+    // if (!wsp.getBlockById('move_by') || wsp.topBlocks_[0].id !== 'move_by') {
+    //   initialLoadFlag = true;
+    //   cb('The code given to you is for the drone scanning the minefield. Add your blocks below it.');
+    // }
 
-    // to allow only goto block to be able move  
-    if (e.type === 'move' && e.blockId !== 'move_by'  && initialblockArray.indexOf(e.blockId) !== -1) {
-      initialLoadFlag = true;
-      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    }
+    // // to allow only goto block to be able move  
+    // if (e.type === 'move' && e.blockId !== 'move_by'  && initialblockArray.indexOf(e.blockId) !== -1) {
+    //   initialLoadFlag = true;
+    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    // }
 
-    // to detect change n deletion of required block 
-    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
-        initialLoadFlag = true;
-      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    }
+    // // to detect change n deletion of required block 
+    // if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
+    //     initialLoadFlag = true;
+    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    // }
 
-    if (e.type === 'delete' && initialblockArray.indexOf(e.blockId) !== -1) {
-      initialLoadFlag = true;
-      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    }
+    // if (e.type === 'delete' && initialblockArray.indexOf(e.blockId) !== -1) {
+    //   initialLoadFlag = true;
+    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    // }
   }
 }
