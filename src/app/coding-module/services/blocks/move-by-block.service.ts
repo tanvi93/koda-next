@@ -120,8 +120,6 @@ export class MoveByBlockService {
       if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
-      const change = json.x ? 'x' : 'y';
-      let animationTime = Math.abs(json[change] * 30) + 5;
       const releasingBlock = () => {
         if (this.blocks && this.blocks.length) {
           this.blocks[json.blockIndex].removeSelect();
@@ -133,12 +131,6 @@ export class MoveByBlockService {
         let value = interpreter.executeCommands(json.inputBlock.steps);
         json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
         cb(json);
-        // setTimeout(() => {
-        //   if (this.blocks && this.blocks.length) {
-        //     this.blocks[json.blockIndex].removeSelect();
-        //   } 
-        //   callback(json);
-        // }, animationTime);
       }
       if (json.inputBlock) {
         executeFn(json.inputBlock.axis);

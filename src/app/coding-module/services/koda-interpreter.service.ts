@@ -42,15 +42,11 @@ export class KodaInterpreterService {
       }
       if (this.bundle.async.hasOwnProperty(v.method)) {
         this.bundle.async[v.method](v.params, () => {
-          setTimeout(() => {
-            loop(++i);
-          }, 0);
+          loop(++i);
         });
       } else {
         this.bundle.native[v.method](v.params);
-        setTimeout(() => {
-          loop(++i);
-        }, 0);
+        loop(++i);
       }
     }
     return loop(0);

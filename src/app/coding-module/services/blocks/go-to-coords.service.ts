@@ -88,19 +88,12 @@ export class GoToCoordsService {
           return executeFn(!axis);
         }
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback();
-        }, 20);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
       } else if (Number.isNaN(Number(json.y))) {
         executeFn(1);
       } else {
-        // console.log(json);
         cb(json);
       }
     };
