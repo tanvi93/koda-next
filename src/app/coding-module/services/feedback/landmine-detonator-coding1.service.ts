@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { element } from 'protractor';
 
 let initialLoadFlag = true;
 let initialblockArray: string[] = [];
@@ -70,10 +69,7 @@ export class LandmineDetonatorCoding1Service {
           }
         }
       });
-
-     
       
-
       spriteIndex.every((element, index) => {
         if (element !== '0') {
           step1Index = index;
@@ -81,9 +77,6 @@ export class LandmineDetonatorCoding1Service {
         } else return true;
       });
       let step2SpriteStatus: any[] = spriteIndex.splice(step1Index);
-
-      console.log(spriteStatus);
-      
       
       if (step2SpriteStatus.length > 0) {
         step2SpriteStatus.every((element, index) => {
@@ -103,8 +96,6 @@ export class LandmineDetonatorCoding1Service {
         removeExtraBlock = 0;
       }
 
-      console.log(sprites);
-      
       step2Index = step1Index + step2Index;
       
       if (nonRequiredBlock.length === 0) {
@@ -112,7 +103,7 @@ export class LandmineDetonatorCoding1Service {
           && spriteStatus[step1Index - 1].currentPosition.x >= 8 && spriteStatus[step1Index - 1].currentPosition.x <= 10 && spriteStatus[step1Index - 1].currentPosition.y >= -7 && spriteStatus[step1Index - 1].currentPosition.y <= -2) {
             
           if (step1Index < step2Index && updatedBlockList[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]] === 'goTo' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.x >= 8 && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.x <= 10 && (spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.y === -11 || spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.y === -12)) {
-              
+
             if (updatedBlockList[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]] === 'visiblityToggle' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]].visibility.spriteIndex === '2' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]].visibility.visibility === 1) {
               
               if (updatedBlockList[step2Index] === 'nextAvatar'
@@ -135,7 +126,7 @@ export class LandmineDetonatorCoding1Service {
                         this.success = true;
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
-                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make sure that our code is robust.';
+                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make su0 that our code is robust.';
                         return callback(this.successObj);
                       }
                     }
@@ -151,7 +142,6 @@ export class LandmineDetonatorCoding1Service {
   }
   
   workSpaceOnChange(e, cb, wsp) {
-    
     if (e.type === 'create' && (e.blockId === 'move_by')) {
       initialblockArray = e.ids;
     }
@@ -169,26 +159,32 @@ export class LandmineDetonatorCoding1Service {
       }
     }
 
-    // if (!wsp.getBlockById('move_by') || wsp.topBlocks_[0].id !== 'move_by') {
-    //   initialLoadFlag = true;
-    //   cb('The code given to you is for the drone scanning the minefield. Add your blocks below it.');
-    // }
+    if (!wsp.getBlockById('move_by') || wsp.topBlocks_[0].id !== 'move_by') {
+      initialLoadFlag = true;
+      cb('The code given to you is for the drone scanning the minefield. Add your blocks below it.');
+    }
 
-    // // to allow only goto block to be able move  
-    // if (e.type === 'move' && e.blockId !== 'move_by'  && initialblockArray.indexOf(e.blockId) !== -1) {
-    //   initialLoadFlag = true;
-    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    // }
+    // to allow only goto block to be able move  
+    if (e.type === 'move' && e.blockId !== 'move_by'  && initialblockArray.indexOf(e.blockId) !== -1) {
+      initialLoadFlag = true;
+      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    }
+    console.log();
+    
+    if (e.type === 'move' && initialblockArray.indexOf(e.blockId) === -1 && e.newParentId === 'move_by') {
+      initialLoadFlag = true;
+      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    }
 
-    // // to detect change n deletion of required block 
-    // if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
-    //     initialLoadFlag = true;
-    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    // }
+    // to detect change n deletion of required block 
+    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
+        initialLoadFlag = true;
+      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    }
 
-    // if (e.type === 'delete' && initialblockArray.indexOf(e.blockId) !== -1) {
-    //   initialLoadFlag = true;
-    //   cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
-    // }
+    if (e.type === 'delete' && initialblockArray.indexOf(e.blockId) !== -1) {
+      initialLoadFlag = true;
+      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    }
   }
 }
