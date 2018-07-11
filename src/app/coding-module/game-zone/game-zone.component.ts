@@ -171,8 +171,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
         this.compileCode(code => {
           this.buttonStatus = 'stop';
           this.stageService.runCode(code, this.getFeedback, () => {
-            console.log('opop');
-            // this.updateSprite.emit(true);
+            this.updateSprite.emit(true);
           });
         })
         break;
