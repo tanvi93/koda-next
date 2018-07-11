@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { assetsLink } from './../../../shared-services/config';
 
 let initialLoadFlag = true;
 let initialblockArray: string[] = [];
@@ -124,6 +125,8 @@ export class LandmineDetonatorCoding1Service {
                       
                       if (!sprites[3].isHidden && sprites[0].currentLookIdx == '1' && (landmineBlockList.length <= 1) && updatedBlockList[explosionBlockList[explosionBlockList.length - 1]] === 'visiblityToggle') {
                         this.success = true;
+                        this.successObj['mascotImage'] = assetsLink + 'activities/landmine_detonator/mascot_head.png';
+                        this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
                         this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make su0 that our code is robust.';
