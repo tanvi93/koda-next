@@ -71,13 +71,12 @@ export class GoToCoordsService {
 
   interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      console.log(this.blocks);
       if (this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const executeFn = (axis) => {
         json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
-        console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
+        // console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
         if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
           return executeFn(!axis);
         }
@@ -94,8 +93,10 @@ export class GoToCoordsService {
       } else if (Number.isNaN(Number(json.y))) {
         executeFn(1);
       } else {
+        // console.log(json);
         cb(json);
         setTimeout(() => {
+          // console.log('releasing');
           if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
           }
