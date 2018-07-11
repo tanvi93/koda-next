@@ -140,7 +140,7 @@ export class MoveByBlockService {
         setTimeout(() => {
           if (this.blocks && this.blocks.length) {
             this.blocks[json.blockIndex].removeSelect();
-          } 
+          }
           callback(json);
         }, animationTime);
       }
