@@ -82,7 +82,7 @@ export class MoveToBlockService {
         if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
           return executeFn(!axis);
         }
-        animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
+        animationTime = (Math.max(Math.abs(currentPosition.x - json.x), Math.abs(currentPosition.y - json.y)) * 30) + 5;
         cb(json);
         setTimeout(() => {
           if (this.blocks && this.blocks.length) {
