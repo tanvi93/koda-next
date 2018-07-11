@@ -28,6 +28,7 @@ export class ContinueButtonComponent implements OnInit{
 
   goNext() {
     this.audio.stop();
+    this.audio.badgeSound.pause();
     this.utility.nextPage(this.router.url.substr(1), this.pageData);
   }
 
