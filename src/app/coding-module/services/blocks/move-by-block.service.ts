@@ -121,7 +121,7 @@ export class MoveByBlockService {
         this.blocks[json.blockIndex].addSelect();
       } 
       const change = json.x ? 'x' : 'y';
-      let animationTime = Math.abs(json[change] * 30);
+      let animationTime = Math.abs(json[change] * 30) + 5;
       const executeFn = (axis) => {
         let value = interpreter.executeCommands(json.inputBlock.steps);
         json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
