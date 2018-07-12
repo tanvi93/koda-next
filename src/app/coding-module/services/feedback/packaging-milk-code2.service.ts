@@ -4,8 +4,6 @@ import { blocksData } from './../../../data/coding';
 declare var Blockly: any;
 let blockPresentOnWorkspace = [];
 let initialLoadFlag = true;
-let insideRepeatBlock;
-let a;
 let success: Boolean;
 
 @Injectable()
@@ -52,8 +50,8 @@ export class PackagingMilkCode2Service {
       }
 
       function repeat(n, position, positionX, sprite, blockObj) {
-        console.log(blockObj);
         if ((blockObj[n].method === 'moveTo' || blockObj[n].method === 'moveBy') && Number(blockObj[n].params.spriteIndex) === 0 && spriteStatus[position].currentPosition.x === positionX && spriteStatus[position].currentPosition.y === -10) {
+          
           if (blockObj[n + 1].method === 'repeat' && Number(blockObj[n + 1].params.times) === 2) {
             const innerCode = atob(blockObj[n + 1].params.linesOfCode).split(';');
             const code = {};
