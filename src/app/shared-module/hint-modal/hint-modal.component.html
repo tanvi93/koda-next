@@ -1,12 +1,28 @@
-<div class="hint-container" (click)="closeDialog()">
-  <div class="hint-header">
-    <img class="hint-closed-new" (click)="closeDialog()" src="/assets/icons/hint_closed.svg" alt="">
-    <div class="hint-cap-new">
+<mat-dialog-content class="coding-hint-container" *ngIf="codingScreenData" style="margin:0px;">
+  <div>
+    <div class="hint-modal-tail"></div>
+    <div class="hint-modal-tail-extension" (click)="closeDialog()"></div>
+    <img class="hintForQuiz" src="./assets/icons/hint_closed.svg" (click)="closeDialog()" [ngClass]="{'hintForCodingScreen': codingScreenData}"
+      alt="">
+    <span class="hint-count">
+      <p>
+        {{codingScreenData.icons[2].totalHintAvailable}}
+      </p>
+    </span>
+    <div class="hint-modal-content">
+      <div class="hint-modal-inner-content">
+        <div class="answer-modal">
+          <img [src]="codingScreenData.icons[2].currentHintValue" [ngStyle]="{'display': codingScreenData.icons[2].content[0].hintActive ? 'block': 'none'}"
+            alt="">
+        </div>
+        <div class="option-modal {{i+1}}" id="{{(i+1)}}" [class.disabled]="data.hintDisable" [ngStyle]="{'display': data.hintActive ? 'none': 'block', 'opacity': data.hintDisable  ? '0.6':'1'}"
+          (click)="optionChoosen($event)" *ngFor="let data of codingScreenData.icons[2].content; let i = index;">
+          <span id="{{(i+1)}}">
+            <img id="{{(i+1)}}" src="assets/icons/locked_activity.png" alt="">
+            <p id="{{(i+1)}}">{{data.lockText}}</p>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hint-content-new">
-    <ul>
-      <li *ngFor="let data of activityHintData; let i = index;">{{data}}</li>
-    </ul>
-  </div>
-</div>
+</mat-dialog-content>

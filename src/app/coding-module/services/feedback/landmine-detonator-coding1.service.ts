@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { element } from 'protractor';
+import { assetsLink } from './../../../shared-services/config';
 
 let initialLoadFlag = true;
 let initialblockArray: string[] = [];
@@ -7,9 +7,6 @@ let initialblockArray: string[] = [];
 @Injectable()
 export class LandmineDetonatorCoding1Service {
 
-  private blockList: any;
-  private codes: Array<any>;
-  private blockObj: any;
   private success: Boolean;
   private successObj: any;
   private blockDetail: object;
@@ -17,15 +14,12 @@ export class LandmineDetonatorCoding1Service {
   constructor() {
     this.success = false;
     this.successObj = {};
-    this.blockObj = {};
   }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
 
     setTimeout(() => {
 
-      this.blockList = blockList;
-      this.codes = codes;
       let updatedBlockList = [];
       let nonRequiredBlock = [];
       let spriteIndex = [];
@@ -46,18 +40,13 @@ export class LandmineDetonatorCoding1Service {
         }
       });
       
-      
-      for (let i = 0; i < this.codes.length; i++) {
-        this.blockObj[i] = JSON.parse(this.codes[i].match(/'(.*?)'/)[1]);
-      }
-
-      
       codes.forEach(element => {
-        if (element.indexOf('showCoo') === -1 && element.indexOf('wait') && element.indexOf('say')) {
-          spriteIndex.push(element[element.indexOf('spriteIndex') + 14]);
+        let data = JSON.parse(element);
+        if (data.method !== 'showCoo' && data.method !== 'wait' && data.method !== 'say') {
+          spriteIndex.push(data.params.spriteIndex);
         }
       });
-
+      
       spriteIndex.forEach((element, index) => {
         switch (element) {
           case '0': {
@@ -77,14 +66,11 @@ export class LandmineDetonatorCoding1Service {
             break;
           }
           default: {
-            console.log('invalid option selected');
+            
           }
         }
       });
-
-     
       
-
       spriteIndex.every((element, index) => {
         if (element !== '0') {
           step1Index = index;
@@ -92,7 +78,6 @@ export class LandmineDetonatorCoding1Service {
         } else return true;
       });
       let step2SpriteStatus: any[] = spriteIndex.splice(step1Index);
-
       
       if (step2SpriteStatus.length > 0) {
         step2SpriteStatus.every((element, index) => {
@@ -112,7 +97,6 @@ export class LandmineDetonatorCoding1Service {
         removeExtraBlock = 0;
       }
 
-
       step2Index = step1Index + step2Index;
       
       if (nonRequiredBlock.length === 0) {
@@ -120,7 +104,7 @@ export class LandmineDetonatorCoding1Service {
           && spriteStatus[step1Index - 1].currentPosition.x >= 8 && spriteStatus[step1Index - 1].currentPosition.x <= 10 && spriteStatus[step1Index - 1].currentPosition.y >= -7 && spriteStatus[step1Index - 1].currentPosition.y <= -2) {
             
           if (step1Index < step2Index && updatedBlockList[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]] === 'goTo' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.x >= 8 && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.x <= 10 && (spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.y === -11 || spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.y === -12)) {
-              
+
             if (updatedBlockList[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]] === 'visiblityToggle' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]].visibility.spriteIndex === '2' && spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 2]].visibility.visibility === 1) {
               
               if (updatedBlockList[step2Index] === 'nextAvatar'
@@ -140,13 +124,12 @@ export class LandmineDetonatorCoding1Service {
                       || ((explosionBlockList[explosionBlockList.length - 1] + 1 + landmineBlockList.length) === (updatedBlockList.length)- removeExtraBlock)) {
                       
                       if (!sprites[3].isHidden && sprites[0].currentLookIdx == '1' && (landmineBlockList.length <= 1) && updatedBlockList[explosionBlockList[explosionBlockList.length - 1]] === 'visiblityToggle') {
-                        console.log('success');
                         this.success = true;
+                        this.successObj['mascotImage'] = assetsLink + 'activities/landmine_detonator/mascot_head.png';
+                        this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
-                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make sure that our code is robust.';
-                        this.successObj['mascotImage'] = 'assets/images/activities/landmine_detonator/mascot_head.png';
-                        this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
+                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make su0 that our code is robust.';
                         return callback(this.successObj);
                       }
                     }
@@ -162,8 +145,6 @@ export class LandmineDetonatorCoding1Service {
   }
   
   workSpaceOnChange(e, cb, wsp) {
-    let tempBlock = wsp.getAllBlocks();
-    
     if (e.type === 'create' && (e.blockId === 'move_by')) {
       initialblockArray = e.ids;
     }
@@ -191,9 +172,15 @@ export class LandmineDetonatorCoding1Service {
       initialLoadFlag = true;
       cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
     }
+    console.log();
+    
+    if (e.type === 'move' && initialblockArray.indexOf(e.blockId) === -1 && e.newParentId === 'move_by') {
+      initialLoadFlag = true;
+      cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
+    }
 
     // to detect change n deletion of required block 
-    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element        === 'field'))) {
+    if ((e.type === 'change' || e.type === 'delete') && (initialblockArray.indexOf(e.blockId) !== -1 && (e.element === 'field'))) {
         initialLoadFlag = true;
       cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
     }
