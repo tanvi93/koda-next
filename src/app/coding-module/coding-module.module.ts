@@ -17,6 +17,7 @@ import { FeedbackAreaComponent } from './coding-screen/feedback-area/feedback-ar
 import { TrayAreaComponent } from './coding-screen/tray-area/tray-area.component';
 import { ImagetrayComponent } from './coding-screen/tray-area/imagetray/imagetray.component';
 import { ImageInsideTrayComponent } from './coding-screen/tray-area/imagetray/image-inside-tray/image-inside-tray.component';
+import { ActivityTrackerService } from '../shared-services/activity-tracker.service';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import { ImageInsideTrayComponent } from './coding-screen/tray-area/imagetray/im
     ImagetrayComponent,
     ImageInsideTrayComponent
   ],
-  providers: [SpriteService, InterpreterService],
+  providers: [SpriteService, InterpreterService, ActivityTrackerService],
   entryComponents: [
     AlgoModalComponent
   ]

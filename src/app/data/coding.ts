@@ -1809,8 +1809,8 @@ export const blocksData: any = {
         }],
         "initialCode": `<xml>
                         <block type="controls_repeat_ext" id="repeat_n_times" x="10" y="20">
-                        <value name="TIMES"><shadow type="number"><field name="n">3</field></shadow></value>
-                        <statement name="DO">
+                        <value name="times"><shadow type="number"><field name="n">3</field></shadow></value>
+                        <statement name="in_loop">
                         <block type="wait" id="wait"><field name="wait_time">0.5</field>
                         <next>
                         <block type="change_look" id="change_look">
