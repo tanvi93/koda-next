@@ -357,7 +357,9 @@ export class GameStageService {
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
     this.spriteStatusList.push({ currentPosition });
-    releaseBlock();
+    setTimeout(() => {
+      releaseBlock();
+    }, 0);
     this.sprites = this.sp.getAllSprites(this.activity);
     try {
       this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
