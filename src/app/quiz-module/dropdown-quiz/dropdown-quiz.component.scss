@@ -28,6 +28,10 @@ mat-card-footer {
     width: 24%;
     margin: 0 auto;
     display: inherit;
+    box-shadow: none;
+    &:active{
+      box-shadow: none;
+    }
     & img{
       display: block;
       width: 100%;
