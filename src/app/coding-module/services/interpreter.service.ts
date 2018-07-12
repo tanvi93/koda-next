@@ -104,6 +104,7 @@ export class InterpreterService {
   private compiler: CompilerService;
   private kodaInterpreter: KodaInterpreterService;
 
+  private timer;
   private blocksList: Array<String>;
 
   constructor() {
@@ -333,10 +334,9 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    this.getXml(true);
+    // this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
-      console.log(rawCodes);
       callback(err, rawCodes);
     });
   }
@@ -345,6 +345,15 @@ export class InterpreterService {
     // console.log(performance.now());
     const codes = rawCodes.split(';\n\n');
     const list = rawCodes.split(';\n');
+    this.timer = null;
+    if (feedbackCall && rawCodes.indexOf('repeatForever') !== -1) {
+      this.timer = setTimeout(() => {
+        feedbackCall(list, this.getXml(false), sprites);
+        setTimeout(() => {
+          this.stopExecution();
+        }, 500);
+      }, 1000 * 30);
+    }
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
       if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
     });
@@ -356,6 +365,7 @@ export class InterpreterService {
   }
 
   stopExecution = () => {
+    clearTimeout(this.timer);
     this.kodaInterpreter.stopExecution();
     this.whenKeyPressed.unregister();
     this.whenCharacterClicked.unregister();

@@ -20,7 +20,7 @@
     font-weight: bold;
     width: 200px;
     text-align: center;
-    bottom: 17%;
+    bottom: 19%;
     z-index: 999;
 }
 
@@ -42,24 +42,6 @@
     top: 28%;
     -webkit-transform: rotate(50deg);
     transform: rotate(50deg);
-}
-
-.continue-icon {
-  position: relative;
-  z-index: 1;
-  width: 23.5px;
-  height: 23.5px;
-  margin: 0 0 0 -5px;
-  padding: 0 5px 0 0px;
-}
-
-.button-text {
-  display: inline-block;
-  margin-left: 7px;
-  margin-top: -5px;
-  margin: 0;
-  font-size: 18px;
-  text-transform: capitalize;
 }
 
 .confetti {
