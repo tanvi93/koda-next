@@ -194,6 +194,7 @@ export class CodingScreenComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(result => {
       flag = false;
+      this.hintDailogFlag = false;
     });
     dialog.componentInstance.codingScreenData = this.pageData;
   }
