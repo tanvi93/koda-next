@@ -61,6 +61,7 @@ export class DropdownQuizComponent implements OnInit {
   private allCorrectFlag: boolean;
   private currentMsgStatus: boolean;
   private hideButtonFlag: boolean;
+  private submitBtn: string;
 
   constructor(private route: ActivatedRoute, public dialog: MatDialog) {
     this.selected = [];
@@ -69,6 +70,7 @@ export class DropdownQuizComponent implements OnInit {
     this.allCorrectFlag = false;
     this.currentMsgStatus = false;
     this.hideButtonFlag = false;
+    this.submitBtn = "../assets/images/submit.png";
   }
 
   ngOnInit() {
