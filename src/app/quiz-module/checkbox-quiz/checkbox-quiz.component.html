@@ -8,7 +8,7 @@
   <mat-card-actions>
     <button mat-raised-button class="submit-button" (click)="submitAnswer(quizObj.answer)">SUBMIT</button>
   </mat-card-actions>
-  <mat-card-footer class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-    <app-error-msg class="error" *ngIf="showError" [error]="error"></app-error-msg>
+  <mat-card-footer class="error-msg">
+    <app-error-msg *ngIf="showError" [error]="error"></app-error-msg>
   </mat-card-footer>
 </app-quiz-wrapper>

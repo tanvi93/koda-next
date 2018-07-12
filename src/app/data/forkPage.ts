@@ -6,7 +6,7 @@ export const forkPageData = {
         leftButtonText: 'Practice with some <br><span style="color: #FFFF00;">ACTIVITIES</span>',
         rightButtonText: 'I\'m ready to<br><span> TAKE THE CHALLENGE </span>',
         leftPath: 'select-activity/coordinates',
-        rightPath: 'storyline/challenge-dragon'
+        rightPath: 'storyline/challenge_dragon_capture'
     },
     mm2_3_activities: {
         mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_full.png',

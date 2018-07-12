@@ -1,3 +1,11 @@
-<p>
-  position-characters works!
-</p>
+<div class="position-character-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div fxLayout="row" fxLayoutGap="20px">
+    <div fxFlex="60" fxLayoutAlign="space-around start">
+      <app-position-validation class="position-validation" [contentData]="contentData" [errorFlag]="errorFlag"></app-position-validation>
+    </div>
+    <div fxFlex="40" fxLayoutAlign="space-around start">
+      <app-character-positioning class="character-position" [contentData]="contentData" [flagData]="flagData" (positionDetail)="receivedPosDetail($event)" (hideErrorMsg)="hideErrorMsg($event)"
+      (taskFlag)="receiveWarning($event)" ></app-character-positioning>
+    </div>
+</div>
