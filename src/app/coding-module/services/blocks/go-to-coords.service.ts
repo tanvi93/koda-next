@@ -4,7 +4,7 @@ import { NumberBlockService } from './number-block.service';
 import { computeChildJson } from './utility-functions.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 
 @Injectable()
