@@ -129,7 +129,7 @@ export class LandmineDetonatorCoding1Service {
                         this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
-                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make su0 that our code is robust.';
+                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make sure that our code is robust.';
                         return callback(this.successObj);
                       }
                     }
