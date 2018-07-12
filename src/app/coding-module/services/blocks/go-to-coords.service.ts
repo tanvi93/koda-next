@@ -4,7 +4,7 @@ import { NumberBlockService } from './number-block.service';
 import { computeChildJson } from './utility-functions.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 
 @Injectable()
@@ -88,19 +88,12 @@ export class GoToCoordsService {
           return executeFn(!axis);
         }
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback();
-        }, 20);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
       } else if (Number.isNaN(Number(json.y))) {
         executeFn(1);
       } else {
-        // console.log(json);
         cb(json);
       }
     };
