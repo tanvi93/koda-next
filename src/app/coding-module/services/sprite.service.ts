@@ -86,7 +86,7 @@ export class SpriteService {
     if (!arr[index].currentOffset) {
       arr[index].currentOffset = { ...arr[index].initialOffset };
     }
-    if (data.left) {
+    if (data.hasOwnProperty('left')) {
       arr[index].currentOffset.x += parseInt(data.left ? data.left : 0);
       arr[index].currentOffset.y -= parseInt(data.top ? data.top : 0);
     } else {

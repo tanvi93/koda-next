@@ -1,0 +1,17 @@
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+
+.position-character-div {
+  height: 100%;
+    & .position-validation {
+        width: 100%;
+        background-color: white;
+    }
+    & .character-position {
+        width: 100%;
+        height: 60%;
+        background-color: white;
+    }
+}

@@ -71,7 +71,7 @@ export class UtilitiesService {
             if (page) {
               this.currentPageDetails.nextPath = page.path;
               this.currentPageDetails.atLevel = i;
-              this.currentPageDetails.atModule = j + 1;
+              this.currentPageDetails.atModule = j;
               this.currentPageDetails.atResource = k + 1;
             } else {
               this.currentPageDetails.path = null;

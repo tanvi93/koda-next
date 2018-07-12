@@ -75,21 +75,19 @@ export class MoveToBlockService {
       if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
-      const currentPosition = sprites[json.spriteIndex].currentOffset ? sprites[json.spriteIndex].currentOffset : sprites[json.spriteIndex].initialOffset;
-      let animationTime = 500;
+      const releasingBlock = () => {
+        if (this.blocks && this.blocks.length) {
+          this.blocks[json.blockIndex].removeSelect();
+        }
+        callback(json);
+      }
+      json.callback = releasingBlock;
       const executeFn = (axis) => {
         json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
         if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
           return executeFn(!axis);
         }
-        animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback(json);
-        }, animationTime);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
@@ -97,13 +95,6 @@ export class MoveToBlockService {
         executeFn(1);
       } else {
         cb(json);
-        animationTime = Math.max(Math.abs(currentPosition.x - json.x) * coordinatesJson.xAxisUnit, Math.abs(currentPosition.y - json.y) * coordinatesJson.yAxisUnit) * 3;
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          } 
-          callback(json);
-        }, animationTime);
       }  
     };
     interpreter.setProperty('moveTo', wrapper, 'async');
