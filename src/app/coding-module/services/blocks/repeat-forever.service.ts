@@ -39,6 +39,7 @@ export class RepeatForeverService {
     const wrapper = (json, callback) => {
       const code = atob(json.linesOfCode);
       const repeat = () => {
+        if (code === '') return callback();
         interpreter.executeCommands(code, () => {
           repeat();
         });

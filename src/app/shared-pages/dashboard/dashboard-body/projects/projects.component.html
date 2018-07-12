@@ -11,8 +11,7 @@
       <label>Level :</label>
       <div fxLayout="row" fxFlex>
         <div *ngFor="let level of levels">
-<button mat-icon-button *ngIf="level.status == 'Completed'" (click)="showModulesToogle(level)" [ngClass]="!showHide? '': 'active'">
-
+          <button mat-icon-button *ngIf="level.status === 'Completed'" (click)="showModulesToogle(level)" [ngClass]="!showHide? '': 'active'">
             <mat-icon class="completed">check_circle_outline</mat-icon>
           </button>
           <button mat-icon-button *ngIf="level.status == 'Inprogress'">

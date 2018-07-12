@@ -71,23 +71,23 @@ export class GoToCoordsService {
 
   interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      console.log(this.blocks);
       if (this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
-      } 
+      }
+      const releasingBlock = () => {
+        if (this.blocks && this.blocks.length) {
+          this.blocks[json.blockIndex].removeSelect();
+        }
+        callback(json);
+      }
+      json.callback = releasingBlock;
       const executeFn = (axis) => {
         json[axis ? 'y' : 'x'] = interpreter.executeCommands(json[axis ? 'y' : 'x']);
-        console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
+        // console.log(axis ? 'y' : 'x', json[axis ? 'y' : 'x'])
         if (Number.isNaN(Number(json[axis ? 'x' : 'y']))) {
           return executeFn(!axis);
         }
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback();
-        }, 20);
       }
       if (Number.isNaN(Number(json.x))) {
         executeFn(0);
@@ -95,12 +95,6 @@ export class GoToCoordsService {
         executeFn(1);
       } else {
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          }
-          callback();
-        }, 20);
       }
     };
     interpreter.setProperty('goTo', wrapper, 'async');
