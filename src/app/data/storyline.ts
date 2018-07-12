@@ -18,6 +18,11 @@ export const stories = {
             './assets/images/activities/mars_rover/mars-storyline5.jpg',
         ]
     },
+    to_the_hills: {
+        backgroundImgs: [
+            './assets/images/activities/to_the_hills/bg_storyline.jpg'
+        ]
+    },
     dragon_capture_activity: {
         backgroundImgs: [
             './assets/images/activities/dragon_capture/dragon-activity.jpg',
