@@ -311,7 +311,7 @@ export class GameStageService {
     }
   }
 
-  moveToObject(index = 0, x, y, duration: any = true, speed = null) {
+  moveToObject(index = 0, x, y, releaseBlock, speed = null) {
     let xSign = '+';
     let ySign = '+';
     if (x) {
@@ -326,13 +326,14 @@ export class GameStageService {
       top: `${ySign}=${Math.abs(y) * this.yAxisUnit}`,
     }
     speed = speed ? speed : 1;
-    duration = duration ? Math.max(Math.abs(x), Math.abs(y)) * 30 / speed : 0.1;
+    let duration = Math.max(Math.abs(x), Math.abs(y)) * 30 / speed;
     this.sprites[index].instance.animate(json, {
       onChange: this.fabricCanvas.renderAll.bind(this.fabricCanvas),
       duration: duration,
       onComplete: () => {
         const currentPosition = { ...this.sp.setSpriteOffsets(this.activity, { left: x, top: y }, index) };
         this.spriteStatusList.push({ currentPosition });
+        releaseBlock();
         this.sprites = this.sp.getAllSprites(this.activity);
         try {
           this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -341,21 +342,24 @@ export class GameStageService {
     });
   }
 
-  goToObject(index = 0, x, y, hasAnimation) {
+  goToObject(index = 0, x, y, hasAnimation, releaseBlock) {
     x = parseInt(x);
     y = parseInt(y);
     const sprite = this.sprites[index];
     if (hasAnimation) {
       let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-      this.moveToObject(index, x - offset.x, offset.y - y, true);
+      this.moveToObject(index, x - offset.x, offset.y - y, releaseBlock);
       return;
     }
     let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
-    let top = (Math.abs(y - this.totalY / 2) - sprite.height/2) * this.yAxisUnit;
+    let top = (Math.abs(y - this.totalY / 2) - sprite.height / 2) * this.yAxisUnit;
     sprite.instance.set('left', left);
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
     this.spriteStatusList.push({ currentPosition });
+    setTimeout(() => {
+      releaseBlock();
+    }, 0);
     this.sprites = this.sp.getAllSprites(this.activity);
     try {
       this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -614,13 +618,13 @@ export class GameStageService {
           break;
         case 'goTo':
         case 'moveTo':
-          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation);
+          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback);
           break;
         case 'moveBy':
-          this.moveToObject(data.spriteIndex, data.x, data.y);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback);
           break;
         case 'moveWithSpeed':
-          this.moveToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.speed);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback, data.speed);
           break;
         case 'show':
         case 'allHideShow':

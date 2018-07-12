@@ -26,8 +26,6 @@ export class LandmineDetonatorCoding2Service {
 
     setTimeout(() => {
 
-      this.blockList = blockList;
-      this.codes = codes;
       const updatedBlockList = [];
       const nonRequiredBlock = [];
       const spriteIndex = [];
@@ -50,12 +48,16 @@ export class LandmineDetonatorCoding2Service {
       });
 
 
-      for (let i = 0; i < this.codes.length; i++) {
+      for (let i = 0; i < codes.length; i++) {
         this.blockObj[i] = JSON.parse(this.codes[i].match(/'(.*?)'/)[1]);
-        }
+      }
 
 
       codes.forEach(element => {
+        let data = JSON.parse(element);
+        // if (data.method !== 'showCoo' && data.method !== 'wait' && data.method !== 'say') {
+        //   spriteIndex.push(data.params.spriteIndex);
+        // }
         if (element.indexOf('showCoo') === -1 && element.indexOf('say')) {
           if (element === 'wait') {
             spriteIndex.push('wait');
@@ -84,7 +86,6 @@ export class LandmineDetonatorCoding2Service {
             break;
           } 
           default: {
-            console.log('invalid option selected');
           }  
         }
       });

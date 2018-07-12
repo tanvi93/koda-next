@@ -3,7 +3,7 @@ import { SpriteService } from './../sprite.service';
 import { computeChildJson } from './utility-functions.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 @Injectable()
 export class MoveByBlockService {
@@ -120,29 +120,22 @@ export class MoveByBlockService {
       if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
-      const change = json.x ? 'x' : 'y';
-      let animationTime = Math.abs(json[change] * 30);
+      const releasingBlock = () => {
+        if (this.blocks && this.blocks.length) {
+          this.blocks[json.blockIndex].removeSelect();
+        }
+        callback(json);
+      }
+      json.callback = releasingBlock;
       const executeFn = (axis) => {
         let value = interpreter.executeCommands(json.inputBlock.steps);
         json[json.inputBlock.axis] = json.inputBlock.isAdd ? Math.abs(value) : -1 * Math.abs(value);
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          } 
-          callback(json);
-        }, animationTime);
       }
       if (json.inputBlock) {
         executeFn(json.inputBlock.axis);
       } else {
         cb(json);
-        setTimeout(() => {
-          if (this.blocks && this.blocks.length) {
-            this.blocks[json.blockIndex].removeSelect();
-          } 
-          callback(json);
-        }, animationTime);
       }
     };
     interpreter.setProperty('moveBy', wrapper, 'async');

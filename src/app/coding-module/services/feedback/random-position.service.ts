@@ -35,8 +35,6 @@ export class RandomPositionService {
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
 
-    console.log(typeof (input_x_value));
-
     setTimeout(() => {
 
       if (randomActivityCompletionFlag) {
@@ -45,14 +43,12 @@ export class RandomPositionService {
 
           this.success = true;
           this.successObj['success'] = this.success;
-          // tslint:disable-next-line:max-line-length
           this.successObj['title'] = 'You’re a rockstar!'
           this.successObj['msg'] = 'Another new block successfully used! The monkey now moves to a random position in every run.';
           return callback(this.successObj);
 
         } else {
 
-          // tslint:disable-next-line:max-line-length
           this.flowChartMsg = 'The monkey should stay between x = ' + sprites[0].partiallyVisible.x1 + ' and x = ' + sprites[0].partiallyVisible.x2 + '. Change your inputs to the random block accordingly.';
           return callback(this.flowChartMsg);
 
