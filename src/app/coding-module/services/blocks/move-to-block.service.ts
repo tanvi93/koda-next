@@ -3,7 +3,7 @@ import { SpriteService } from './../sprite.service';
 import { NumberBlockService } from './number-block.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 let spriteData;
 

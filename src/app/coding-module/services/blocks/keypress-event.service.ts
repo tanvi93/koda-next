@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 let thread;
 

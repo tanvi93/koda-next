@@ -3,7 +3,7 @@ import { SpriteService } from './../sprite.service';
 import { computeChildJson } from './utility-functions.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 @Injectable()
 export class MoveByBlockService {

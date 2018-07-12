@@ -47,8 +47,6 @@ import { CompilerService } from './compiler.service';
 import { KodaInterpreterService } from './koda-interpreter.service';
 
 declare var Blockly: any;
-declare let Interpreter: any;
-
 
 @Injectable()
 export class InterpreterService {
