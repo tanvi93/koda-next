@@ -43,8 +43,8 @@ export class FeedbackService {
   private mm3_1_c2: MoveCapRightService;
   private mm4_1_c1: CreateAndUpdateScoreService;
   private magical_cave_coding: MagicalCaveService; 
-  private landmine_detonator_coding1: LandmineDetonatorCoding1Service;
-  private landmine_detonator_coding2: LandmineDetonatorCoding2Service;
+  private landmine_detonator_coding1_challenge: LandmineDetonatorCoding1Service;
+  private landmine_detonator_coding2_challenge: LandmineDetonatorCoding2Service;
   private packaging_milk_coding1_challenge: PackagingMilkCode1Service;
   private disco_lights_coding = new DiscoLightCodingService;
   private naptime_coding: NaptimeActivityService;
@@ -67,8 +67,8 @@ export class FeedbackService {
     this.mm3_1_c2 = new MoveCapRightService();
     this.mm4_1_c1 = new CreateAndUpdateScoreService();
     this.magical_cave_coding = new MagicalCaveService();
-    this.landmine_detonator_coding1 = new LandmineDetonatorCoding1Service();
-    this.landmine_detonator_coding2 = new LandmineDetonatorCoding2Service();
+    this.landmine_detonator_coding1_challenge = new LandmineDetonatorCoding1Service();
+    this.landmine_detonator_coding2_challenge = new LandmineDetonatorCoding2Service();
     this.packaging_milk_coding1_challenge = new PackagingMilkCode1Service();
     this.disco_lights_coding = new DiscoLightCodingService();
     this.naptime_coding = new NaptimeActivityService();
