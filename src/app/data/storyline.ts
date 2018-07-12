@@ -17,6 +17,11 @@ export const stories = {
             'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline4.jpg',
             'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline5.jpg',
         ]
+    },    
+    to_the_hills: {
+        backgroundImgs: [
+            './assets/images/activities/to_the_hills/bg_storyline.jpg'
+        ]
     },
     challenge_dragon_capture: {
         backgroundImgs: [
