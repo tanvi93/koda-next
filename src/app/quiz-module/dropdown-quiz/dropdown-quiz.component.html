@@ -8,6 +8,6 @@
   <mat-card-footer class="error-msg">
      <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'  [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}"></app-error-msg>
     <!-- <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button> -->
-     <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button>
+     <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()"><img [src]="submitBtn"></button>
   </mat-card-footer>
 </app-quiz-wrapper>
