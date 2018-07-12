@@ -117,7 +117,7 @@ export class CheckboxQuizComponent implements OnInit {
 
   checkboxFunction = (ev, index) => {
     this.showError = false;
-    this.checkData[index] = ev.target.checked;
+    this.checkData[index] = ev.checked;
   }
 
   showErrorMsg = () => {

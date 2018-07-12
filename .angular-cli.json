@@ -30,8 +30,7 @@
         "../src/assets/blockly/blockly_compressed.js",
         "../src/assets/blockly/blocks_compressed.js",
         "../src/assets/blockly/javascript_compressed.js",
-        "../src/assets/blockly/msg/js/en.js",
-        "../src/assets/JS-Interpreter/acorn_interpreter.js"
+        "../src/assets/blockly/msg/js/en.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

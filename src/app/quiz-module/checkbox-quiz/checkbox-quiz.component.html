@@ -1,7 +1,7 @@
 <app-quiz-wrapper [quizData]="quizObj">
   <mat-card-content>
     <div class="checkbox" *ngFor="let data of quizObj.answer; let i = index;">
-      <mat-checkbox [value]="i" (input)="checkboxFunction($event, i)"></mat-checkbox>
+      <mat-checkbox [value]="i" (change)="checkboxFunction($event, i)"></mat-checkbox>
       <p [innerHTML]="data.option"></p>
     </div>
   </mat-card-content>
