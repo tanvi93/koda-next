@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { HintModalComponent } from '../../shared-module/hint-modal/hint-modal.component';
+import { GeneralHintModalComponent } from '../../shared-module/general-hint-modal/general-hint-modal.component';
 import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
 
 @Component({
@@ -26,21 +26,21 @@ import { PreviewModalComponent } from '../../shared-module/preview-modal/preview
 
 export class QuizWrapperComponent {
   @Input() quizData;
-  hintDialogRef: MatDialogRef<HintModalComponent>;
+  hintDialogRef: MatDialogRef<GeneralHintModalComponent>;
   previewDialogRef: MatDialogRef<PreviewModalComponent>;
 
   constructor(public dialog: MatDialog) {
   }
 
   hintDialog(ev) {
-    this.hintDialogRef = this.dialog.open(HintModalComponent, {
+    this.hintDialogRef = this.dialog.open(GeneralHintModalComponent, {
       disableClose: false,
       hasBackdrop: true,
       position: {
         top: ev.target.y + 'px'
       }
     });
-    this.hintDialogRef.componentInstance.quizHint = this.quizData.hint;
+    this.hintDialogRef.componentInstance = this.quizData.hint;
   }
 
   previewDialog(ev) {
