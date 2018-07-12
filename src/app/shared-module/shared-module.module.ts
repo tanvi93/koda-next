@@ -18,6 +18,7 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
 import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.component';
 import { GeneralHintModalComponent } from './general-hint-modal/general-hint-modal.component';
+import { ObjNgFor } from './header/level-progress/level-progress.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { GeneralHintModalComponent } from './general-hint-modal/general-hint-mod
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent, GeneralHintModalComponent],
+  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent, GeneralHintModalComponent, ObjNgFor],
   exports: [
     CommonModule,
     HeaderComponent,
@@ -42,7 +43,8 @@ import { GeneralHintModalComponent } from './general-hint-modal/general-hint-mod
     ErrorMsgComponent,
     SuccessModalComponent,
     DragDropWrapperComponent,
-    GeneralHintModalComponent
+    GeneralHintModalComponent,
+    ObjNgFor
   ],
   entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent, GeneralHintModalComponent]
 })

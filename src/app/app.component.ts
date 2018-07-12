@@ -17,6 +17,7 @@ export class AppComponent {
     this.router.events.subscribe((val) => {
       if (val instanceof ActivationStart) {
         this.gameDetails = localStorage.getItem('gameProgress');
+        console.log(this.gameDetails);
         if (this.gameDetails) {
           this.gameDetails = JSON.parse(this.gameDetails);
         } else {
