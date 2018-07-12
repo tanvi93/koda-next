@@ -311,7 +311,7 @@ export class GameStageService {
     }
   }
 
-  moveToObject(index = 0, x, y, duration: any = true, releaseBlock, speed = null) {
+  moveToObject(index = 0, x, y, releaseBlock, speed = null) {
     let xSign = '+';
     let ySign = '+';
     if (x) {
@@ -326,7 +326,7 @@ export class GameStageService {
       top: `${ySign}=${Math.abs(y) * this.yAxisUnit}`,
     }
     speed = speed ? speed : 1;
-    duration = duration ? Math.max(Math.abs(x), Math.abs(y)) * 30 / speed : 0.1;
+    let duration = Math.max(Math.abs(x), Math.abs(y)) * 30 / speed;
     this.sprites[index].instance.animate(json, {
       onChange: this.fabricCanvas.renderAll.bind(this.fabricCanvas),
       duration: duration,
@@ -348,7 +348,7 @@ export class GameStageService {
     const sprite = this.sprites[index];
     if (hasAnimation) {
       let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-      this.moveToObject(index, x - offset.x, offset.y - y, true, releaseBlock);
+      this.moveToObject(index, x - offset.x, offset.y - y, releaseBlock);
       return;
     }
     let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
@@ -357,7 +357,9 @@ export class GameStageService {
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
     this.spriteStatusList.push({ currentPosition });
-    releaseBlock();
+    setTimeout(() => {
+      releaseBlock();
+    }, 0);
     this.sprites = this.sp.getAllSprites(this.activity);
     try {
       this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -619,10 +621,10 @@ export class GameStageService {
           this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback);
           break;
         case 'moveBy':
-          this.moveToObject(data.spriteIndex, data.x, data.y, true, data.callback);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback);
           break;
         case 'moveWithSpeed':
-          this.moveToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback, data.speed);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback, data.speed);
           break;
         case 'show':
         case 'allHideShow':

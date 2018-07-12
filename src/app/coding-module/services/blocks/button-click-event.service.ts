@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SpriteService } from './../sprite.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 // let buttonData;
 
