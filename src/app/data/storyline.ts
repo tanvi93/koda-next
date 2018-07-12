@@ -23,6 +23,10 @@ export const stories = {
             './assets/images/activities/dragon_capture/dragon-activity.jpg',
             './assets/images/activities/dragon_capture/dragon-activity2.jpg'
         ]
+    }, venus_flytrap: {
+        backgroundImgs: [
+            './assets/images/activities/venus_flytrap/storyline.jpg'
+        ]
     }, magical_cave: {
         backgroundImgs: [
             './assets/images/activities/magical_cave/storyline.jpg'
