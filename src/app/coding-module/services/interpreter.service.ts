@@ -352,8 +352,8 @@ export class InterpreterService {
         }, 500);
       }, 1000 * 30);
     }
-    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null) => {
-      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites);
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
     codes.forEach((code, i) => {
       this.kodaInterpreter.executeCommands(code, () => {
