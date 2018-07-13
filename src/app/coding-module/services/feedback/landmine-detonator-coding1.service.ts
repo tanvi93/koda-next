@@ -129,7 +129,7 @@ export class LandmineDetonatorCoding1Service {
                         this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                         this.successObj['success'] = this.success;
                         this.successObj['title'] = 'That\'s awesome!';
-                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make su0 that our code is robust.';
+                        this.successObj['msg'] = 'However, remember that landmines could be anywhere on a minefield. We must make sure that our code is robust.';
                         return callback(this.successObj);
                       }
                     }
@@ -172,7 +172,6 @@ export class LandmineDetonatorCoding1Service {
       initialLoadFlag = true;
       cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
     }
-    console.log();
     
     if (e.type === 'move' && initialblockArray.indexOf(e.blockId) === -1 && e.newParentId === 'move_by') {
       initialLoadFlag = true;
