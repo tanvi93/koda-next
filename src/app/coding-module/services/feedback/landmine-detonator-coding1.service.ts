@@ -172,7 +172,6 @@ export class LandmineDetonatorCoding1Service {
       initialLoadFlag = true;
       cb('Don\'t make any changes to the code given to you. It makes the drone scan the minefield. Add new blocks to complete the detonation of the landmine as shown in the preview.');
     }
-    console.log();
     
     if (e.type === 'move' && initialblockArray.indexOf(e.blockId) === -1 && e.newParentId === 'move_by') {
       initialLoadFlag = true;
