@@ -968,6 +968,7 @@ export const sprites: any = [
     }, {
         "id": "sprite10_2",
         "name": "lever",
+        "eventId": "lever_press",
         "activityName": "fire_extinguisher1",
         "initialOffset": {
             "x": -8,

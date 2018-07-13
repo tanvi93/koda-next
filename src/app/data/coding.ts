@@ -2357,7 +2357,40 @@ export const blocksData: any = {
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
         }],
-         "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="move_to" id="move_to" x="110" y="130">
+    <field name="sprite">0</field>
+    <value name="input_x">
+      <shadow type="number" id="IY~f%Y^g.qZALPyAaP0O">
+        <field name="n">-20</field>
+      </shadow>
+    </value>
+    <value name="input_y">
+      <shadow type="number">
+    <field name = "n">-5</field>
+        </shadow>
+        </value>
+        </block>
+        <block type = "click_event" id = "click_event" x = "110" y = "190">
+            <field name="sprite">1</field>
+                <statement name = "sprite_clicked">
+                    <block type="go_to" id = "go_to">
+                        <field name="sprite">2</field>
+                            <value name = "input_x">
+                                <shadow type="number" id = "nKA)bR%S]ZxPUuJo)RM@">
+                                    <field name="n">0</field>
+                                        </shadow>
+                                        </value>
+                                        <value name = "input_y">
+                                            <shadow type="number" id = "MXtW?R.0QKkZ{u4-k5PF">
+                                                <field name="n">0</field>
+                                                    </shadow>
+                                                    </value>
+                                                    </block>
+                                                    </statement>
+                                                    </block>
+                                                    </xml>`,
          "isParallel": true,
         "icons": [{
             "name": "algo",

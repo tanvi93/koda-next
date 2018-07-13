@@ -606,7 +606,6 @@ export class GameStageService {
       totalX: this.totalX,
       totalY: this.totalY
     }
-    console.log(this.buttons);
     this.interpreter.runCode(code, this.sprites, this.buttons, coordinatesJson, feedbackCall, json => {
       const { name, data } = json;
       // console.log(name, performance.now());
