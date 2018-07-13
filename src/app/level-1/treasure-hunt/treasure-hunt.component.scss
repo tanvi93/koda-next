@@ -19,19 +19,26 @@
          height: 100%;
          width: 100%;
          background-color: gray;
+         text-align: center;
         & .treasure-hunt-todo-list-image {
             height: 90%;
             width: 80%;
-            margin-left: 10%;
-            margin-top: 0%;
+            margin-top: 20px;
         }
         & .treasure-hunt-task-check{
-                width: 40%;
-                margin-top: -55%;
-                margin-left: 25%;
-                font-family: 'QuickSand';
-                font-weight: 700;
-                font-size: 1vw;
+            width: 40%;
+            font-family: 'QuickSand';
+            font-weight: 700;
+            font-size: 1vw;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-40%);
+            -moz-transform: translateY(-40%);
+            -webkit-transform: translateY(-40%);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: left;   
                 & .list-header {
                     color: #754F28;
                 }
