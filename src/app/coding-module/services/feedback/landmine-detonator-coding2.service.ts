@@ -236,6 +236,11 @@ export class LandmineDetonatorCoding2Service {
       }
     }
 
+    if (!initialLoadFlag && wsp.getAllBlocks().length === 0) {
+      initialLoadFlag = true;
+      cb('Don’t update these inputs. You still want the drone to detonate the landmine. Just add blocks to make the landmine appear at random position and drone detonating the landmine irrespective of landmines position.');
+    }
+
     if (e.type === 'change' && initialblockArray.indexOf(e.blockId) !== -1 && numberArray.indexOf(e.blockId) <= 1) {
       initialLoadFlag = true;
       cb('Don’t update these inputs. You still want the drone to detonate the landmine. Just add blocks to make the landmine appear at random position and drone detonating the landmine irrespective of landmines position.');
