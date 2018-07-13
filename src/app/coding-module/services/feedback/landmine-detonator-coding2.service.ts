@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { assetsLink } from './../../../shared-services/config'
 
 let initialLoadFlag = true;
 let initialblockArray: string[] = [];
@@ -7,11 +8,10 @@ const movebyArray: string[] = [];
 const essentialBlock: string[] = [];
 const otherNonEssentialBlock: string[] = [];
 let lastHideBlock: string;
+
 @Injectable()
 export class LandmineDetonatorCoding2Service {
 
-  private blockList: any;
-  private codes: Array<any>;
   private blockObj: any;
   private success: Boolean;
   private successObj: any;
@@ -37,7 +37,6 @@ export class LandmineDetonatorCoding2Service {
       let extraDetonatorBlock = 0;
       let removeExtraBlock = 0;
       let droneLookCount = 0;
-      console.log(codes);
       
       blockList.forEach((element, index) => {
         if (element !== 'showCoo' && element !== 'say') {
@@ -47,23 +46,16 @@ export class LandmineDetonatorCoding2Service {
         }
       });
 
-
       for (let i = 0; i < codes.length; i++) {
-        this.blockObj[i] = JSON.parse(this.codes[i].match(/'(.*?)'/)[1]);
+        this.blockObj[i] = JSON.parse(codes[i]);
       }
-
 
       codes.forEach(element => {
         let data = JSON.parse(element);
-        // if (data.method !== 'showCoo' && data.method !== 'wait' && data.method !== 'say') {
-        //   spriteIndex.push(data.params.spriteIndex);
-        // }
-        if (element.indexOf('showCoo') === -1 && element.indexOf('say')) {
-          if (element === 'wait') {
-            spriteIndex.push('wait');
-          } else {
-            spriteIndex.push(element[element.indexOf('spriteIndex') + 14]);
-          }
+        if (data.method !== 'showCoo' && data.method !== 'wait' && data.method !== 'say') {
+          spriteIndex.push(data.params.spriteIndex);
+        } else {
+          spriteIndex.push(data.params.spriteIndex);
         }
       });
 
@@ -101,12 +93,10 @@ export class LandmineDetonatorCoding2Service {
       
       if (nonRequiredBlock.length === 0 && essentialBlock.length === 5) {
         // checking whether top block is goTo and also its child blocks are random
-        if (blockList[0] === 'goTo' && this.blockObj[0].x.substring('getRandom') && this.blockObj[0].y.substring('getRandom') && this.blockObj[0].spriteIndex === '1') {
-          console.log('entered');
-          
+        if (blockList[0] === 'goTo' && this.blockObj[0].params.x.substring('getRandom') && this.blockObj[0].params.y.substring('getRandom') && this.blockObj[0].params.spriteIndex === '1') {
           const RandomData = [];
           
-          this.blockObj[0].childJson.forEach(element => {
+          this.blockObj[0].params.childJson.forEach(element => {
             if (element.name === 'random_number') {
               RandomData.push(element);
             }
@@ -131,9 +121,8 @@ export class LandmineDetonatorCoding2Service {
               
               
               // checking whether the drone is scanning the minefield or not using two moveby blocks
-              if (this.blockObj[1].direction === 'R' && this.blockObj[1].x === 50
-              && this.blockObj[2].direction === 'L' && this.blockObj[1].x === 50) {
-                console.log('perfect condition for scanning');
+              if (this.blockObj[1].params.direction === 'R' && this.blockObj[1].params.x === 50
+              && this.blockObj[2].params.direction === 'L' && this.blockObj[1].params.x === 50) {
                 
                 
                 droneBlockList.forEach((element, index) => {
@@ -147,12 +136,11 @@ export class LandmineDetonatorCoding2Service {
                   // check whether the drone is above the minefield after scanning and also whether it have all the required blocks needed to perform task
                   
                   if (blockList[droneMineFieldPosition] === 'moveTo'
-                    && this.blockObj[droneMineFieldPosition].x.indexOf('getCoordinate') !== -1
-                    && this.blockObj[droneMineFieldPosition].y.indexOf('getCoordinate') !== -1
-                    && this.blockObj[droneMineFieldPosition].y.indexOf('getArithmetic') !== -1
+                    && this.blockObj[droneMineFieldPosition].params.x.indexOf('getCoordinate') !== -1
+                    && this.blockObj[droneMineFieldPosition].params.y.indexOf('getCoordinate') !== -1
+                    && this.blockObj[droneMineFieldPosition].params.y.indexOf('getArithmetic') !== -1
                     && sprites[1].currentOffset.x === spriteStatus[droneMineFieldPosition].currentPosition.x
                     && (spriteStatus[droneMineFieldPosition].currentPosition.y - sprites[1].currentOffset.y >= 5 && spriteStatus[droneMineFieldPosition].currentPosition.y - sprites[1].currentOffset.y <= 10)) {
-                        console.log('perfect range for move to drone motion ie 5 to 10');
                         
                     
                     // condition to avoid boundary condition and explosion proximity condition to get triggered
@@ -161,26 +149,22 @@ export class LandmineDetonatorCoding2Service {
                       && (sprites[1].currentOffset.y < (sprites[0].currentOffset.y + 16))
                       && Math.abs(spriteStatus[droneBlockList[droneBlockList.length - 1]].currentPosition.y) < 20
                       && Math.abs(spriteStatus[droneBlockList[droneBlockList.length - 1]].currentPosition.y) < 30) {
-                          console.log('perfect drone movement in upward direction');
                           
                         // check whether the detonator is above the minefield and also whether it have all the required blocks needed to perform task
                       if (blockList[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]] === 'goTo'
-                        && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].x.indexOf('getCoordinate') !== -1
-                        && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].y.indexOf('getCoordinate') !== -1
-                      && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].y.indexOf('getArithmetic') !== -1
+                        && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].params.x.indexOf('getCoordinate') !== -1
+                        && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].params.y.indexOf('getCoordinate') !== -1
+                      && this.blockObj[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].params.y.indexOf('getArithmetic') !== -1
                       && sprites[1].currentOffset.x === spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.x
                       && (sprites[1].currentOffset.y === (spriteStatus[detonatorBlockList[detonatorBlockList.length + extraDetonatorBlock - 3]].currentPosition.y - 2))) {
-                          console.log('proper condition for detonator movement');
                           
                         // positioning of explosion over the landmine 
                         if (blockList[explosionBlockList[explosionBlockList.length - 2]] === 'goTo'
-                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].x.indexOf('getCoordinate') !== -1
-                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].y.indexOf('getCoordinate') !== -1
-                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].y.indexOf('getArithmetic') !== -1
+                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].params.x.indexOf('getCoordinate') !== -1
+                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].params.y.indexOf('getCoordinate') !== -1
+                        && this.blockObj[explosionBlockList[explosionBlockList.length - 2]].params.y.indexOf('getArithmetic') !== -1
                         && sprites[3].currentOffset.x === sprites[1].currentOffset.x
                         && (sprites[3].currentOffset.y === (sprites[1].currentOffset.y + 2))) {
-                            console.log('proper condition for explosion movement');
-                            
 
                           if ((explosionBlockList[explosionBlockList.length - 1] + 3 === updatedBlockList.length)
                             || ((explosionBlockList[explosionBlockList.length - 1] + 1 + landmineBlockList.length) === (updatedBlockList.length) - removeExtraBlock)) {
@@ -191,7 +175,7 @@ export class LandmineDetonatorCoding2Service {
                               this.successObj['success'] = this.success;
                               this.successObj['title'] = 'Bravo!';
                               this.successObj['msg'] = 'That\'s some seriously good work.';
-                              this.successObj['mascotImage'] = 'assets/images/activities/landmine_detonator/mascot_head.png';
+                              this.successObj['mascotImage'] = assetsLink +'activities/landmine_detonator/mascot_head.png';
                               this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
                               return callback(this.successObj);
                             }
@@ -250,6 +234,11 @@ export class LandmineDetonatorCoding2Service {
         default:
           return;
       }
+    }
+
+    if (!initialLoadFlag && wsp.getAllBlocks().length === 0) {
+      initialLoadFlag = true;
+      cb('Don’t update these inputs. You still want the drone to detonate the landmine. Just add blocks to make the landmine appear at random position and drone detonating the landmine irrespective of landmines position.');
     }
 
     if (e.type === 'change' && initialblockArray.indexOf(e.blockId) !== -1 && numberArray.indexOf(e.blockId) <= 1) {
