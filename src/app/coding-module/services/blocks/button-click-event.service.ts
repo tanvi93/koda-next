@@ -3,7 +3,6 @@ import { SpriteService } from './../sprite.service';
 
 declare let Blockly: any;
 
-
 // let buttonData;
 
 @Injectable()
@@ -12,6 +11,7 @@ export class ButtonClickEventService {
   private keyCodePair;
   private instance;
   private myInterpreter;
+  private feedback;
   public xml: String;
 
   constructor(pageId = null) {
@@ -53,14 +53,17 @@ export class ButtonClickEventService {
   }
 
   mouseClickEvent = e => {
-    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'));
+    });
   }
 
-  interpret = (interpreter, buttonData) => {
+  interpret = (interpreter, buttonData, feedback) => {
     const wrapper = ({ buttonIndex, linesOfCode }) => {
       this.myInterpreter = interpreter;
       this.instance = buttonData[buttonIndex].instance;
       this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
+      this.feedback = feedback;
       this.instance.on('mousedown', this.mouseClickEvent);
     };
     interpreter.setProperty('buttonClickEventBind', wrapper);
