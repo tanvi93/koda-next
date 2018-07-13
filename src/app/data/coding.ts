@@ -2211,7 +2211,9 @@ export const blocksData: any = {
         "categories": [{
             "name": "",
             "colour": 0,
-            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
+            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo",
+                "moveBy", "moveTo", //"changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"
+            ],
         }],
         "initialCode": "",
         "icons": [{
@@ -2256,7 +2258,28 @@ export const blocksData: any = {
             "colour": 0,
             "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
         }],
-        "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+          <variables></variables>
+          <block type="button_click_event" id="button_click_event" x="30" y="50">
+            <field name="button">0</field>
+            <statement name="button_clicked">
+              <block type="say" id="say">
+                <field name="sprite">0</field>
+                <field name="message">Solar Eclipse</field>
+              </block>
+            </statement>
+          </block>
+          <block type="button_click_event" x="30" y="130">
+            <field name="button">1</field>
+            <statement name="button_clicked">
+              <block type="say" id="7ERfBxLR)LWnGUQlB.}!">
+                <field name="sprite">0</field>
+                <field name="message">Lunar Eclipse</field>
+              </block>
+            </statement>
+          </block>
+        </xml>`,
+        "isParallel": true,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2283,26 +2306,32 @@ export const blocksData: any = {
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
         "buttons": [
-            // {
-            //     "name": "Solar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": -15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.742,
-            //     "width": 10
-            // },
-            // {
-            //     "name": "Lunar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": 15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.734,
-            //     "width": 10
-            // } 
+            {
+                "id": "solar_eclipse_button",
+                "name": "Solar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": -25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.742,
+                "width": 15,
+                "initialVisibility": true
+            },
+            {
+                "id": "lunar_eclipse_button",
+                "name": "Lunar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": 25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.734,
+                "width": 15,
+                "initialVisibility": true
+            } 
            ]
     }, //end of eclipse_coding
     
@@ -2310,7 +2339,7 @@ export const blocksData: any = {
          "activity_name": "fire_extinguisher1",
          "mascotBgColor": '#ECD452',
         "instructionBarContent": "I have already coded to show how a fire extinguisher works but something seems to be going wrong. Help me correct my code. You can refer to the algorithm and preview.",
-        "mascotImage": "./../assets/images/activities/fire_extinguisher/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/mascot_head.png",
        "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2328,7 +2357,41 @@ export const blocksData: any = {
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
         }],
-        "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="move_to" id="move_to" x="110" y="130">
+    <field name="sprite">0</field>
+    <value name="input_x">
+      <shadow type="number" id="IY~f%Y^g.qZALPyAaP0O">
+        <field name="n">-20</field>
+      </shadow>
+    </value>
+    <value name="input_y">
+      <shadow type="number">
+    <field name = "n">-5</field>
+        </shadow>
+        </value>
+        </block>
+        <block type = "click_event" id = "click_event" x = "110" y = "190">
+            <field name="sprite">1</field>
+                <statement name = "sprite_clicked">
+                    <block type="go_to" id = "go_to">
+                        <field name="sprite">2</field>
+                            <value name = "input_x">
+                                <shadow type="number" id = "nKA)bR%S]ZxPUuJo)RM@">
+                                    <field name="n">0</field>
+                                        </shadow>
+                                        </value>
+                                        <value name = "input_y">
+                                            <shadow type="number" id = "MXtW?R.0QKkZ{u4-k5PF">
+                                                <field name="n">0</field>
+                                                    </shadow>
+                                                    </value>
+                                                    </block>
+                                                    </statement>
+                                                    </block>
+                                                    </xml>`,
+         "isParallel": true,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2336,7 +2399,7 @@ export const blocksData: any = {
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/fire_extinguisher/preview1.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/preview1.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2349,7 +2412,7 @@ export const blocksData: any = {
         "backgrounds": [
             {
                 "name": "BG1",
-                "src": "./../assets/images/activities/fire_extinguisher/bg_coding1.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/bg_coding1.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2361,7 +2424,7 @@ export const blocksData: any = {
         "mascotBgColor": '#ECD452',
         "activity_name": "fire_extinguisher2",
         "instructionBarContent": "Now code for the animation to work just like I showed you. Refer to the algorithm and preview if needed.",
-        "mascotImage": "./../assets/images/activities/fire_extinguisher/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/mascot_head.png",
        "categories": [{
             "name": "Game Elements",
             "colour": "#800080",
@@ -2387,7 +2450,7 @@ export const blocksData: any = {
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/fire_extinguisher/preview2.gif"
+            "content": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/preview2.gif"
         }, {
             "name": "hint",
             "isVisible": false,
@@ -2400,7 +2463,7 @@ export const blocksData: any = {
         "backgrounds": [
             {
                 "name": "BG2",
-                "src": "./../assets/images/activities/fire_extinguisher/bg_coding2.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/bg_coding2.jpg"
             }
         ],
         "initialBackgroundIdx": 0,

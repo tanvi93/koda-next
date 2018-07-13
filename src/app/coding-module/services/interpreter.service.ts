@@ -317,8 +317,8 @@ export class InterpreterService {
 
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.whenMouseClicked.interpret(this.kodaInterpreter);
-    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
-    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons);
+    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites, feedbackCall);
+    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons, feedbackCall);
 
     this.getVar.interpret(this.kodaInterpreter);
     this.setVar.interpret(this.kodaInterpreter, arr => {
@@ -332,7 +332,7 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    // this.getXml(true);
+    this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
@@ -352,14 +352,17 @@ export class InterpreterService {
         }, 500);
       }, 1000 * 30);
     }
-    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
-      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
-    codes.forEach(code => {
-      this.kodaInterpreter.executeCommands(code, () => {
-        if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+    const loop = i => {
+      this.kodaInterpreter.executeCommands(codes[i], () => {
+        if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
+        if (i === codes.length - 1) return;
+        loop(++i);
       });
-    });
+    }
+    loop(0);
   }
 
   stopExecution = () => {

@@ -78,6 +78,7 @@ export class KeypressEventService {
 
   interpret = (interpreter, feedback) => {
     const wrapper = ({ dropdown_keys, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.lock = false;
       this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: atob(linesOfCode) };
       this.feedback = feedback;
