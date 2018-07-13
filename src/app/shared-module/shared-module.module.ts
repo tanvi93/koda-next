@@ -28,7 +28,25 @@ import { ObjNgFor } from './header/level-progress/level-progress.component';
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent, GeneralHintModalComponent, ObjNgFor],
+  declarations: [
+    HeaderComponent,
+    LevelProgressComponent,
+    ProfileStatusComponent,
+    InstructionBarComponent,
+    SpeechBubbleComponent,
+    ClickToContinueButtonComponent,
+    NarrationContainerComponent,
+    ContinueButtonComponent,
+    LoadingComponent,
+    HintModalComponent,
+    PreviewModalComponent,
+    QuizQuestionComponent,
+    ErrorMsgComponent,
+    SuccessModalComponent,
+    DragDropWrapperComponent,
+    GeneralHintModalComponent,
+    ObjNgFor
+  ],
   exports: [
     CommonModule,
     HeaderComponent,
