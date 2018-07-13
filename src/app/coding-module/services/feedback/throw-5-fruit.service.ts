@@ -35,9 +35,10 @@ export class Throw5FruitService {
     this.codes = codes;
 
     setTimeout(() => {
-
+      console.log(codes);
+      
       // check 1:- checking whether no of block doesnt exceed 4
-      if (this.codes.length < 4) {
+      if (repeatblockCount === 0 && this.codes.length < 4) {
         this.flowChartMsg = 'You need to add a new block to make the monkey throw 5 fruits now. As you found out in the previous quiz, the repeat block might be useful.';
         return callback(this.flowChartMsg);
       }
@@ -74,9 +75,8 @@ export class Throw5FruitService {
         this.flowChartMsg = 'Something doesn’t seem right with how you have connected your earlier blocks to the repeat block. Remember, the code for throwing one fruit needs to be repeated 5 times for the monkey to throw 5 fruits.';
         return callback(this.flowChartMsg);
       }
-
       // check whether number is 5 or not
-      if (this.codes[0] !== 'var repeat_end = (5)') {
+      if (JSON.parse(codes).params.times !== '5') {
         this.flowChartMsg = 'You are so close to perfecting this. We want the fruit to be thrown 5 times. Maybe a small change in the input to the repeat block will help.';
         return callback(this.flowChartMsg);
       } else {
@@ -96,7 +96,7 @@ export class Throw5FruitService {
     repeatblockCount = 0;
     noOfBlocks = 0;
 
-
+    
     if (e.type === 'create' && e.blockId === 'go_to') {
       initialblockArray = e.ids;
     }
@@ -130,7 +130,7 @@ export class Throw5FruitService {
       initialLoadFlag = true;
       callback('Don’t make any changes to your previous code. Just add a new block to make the monkey throw fruit from 5 random positions.');
     }
-
+    
     // will not allow to change or delete the previously loaded block
     if ((e.type === 'change' || e.type === 'delete') && initialblockArray.indexOf(e.blockId) !== -1) {
       initialLoadFlag = true;
@@ -144,7 +144,7 @@ export class Throw5FruitService {
     }
 
     // help to find whether repeat block is surrounding the rest of the block or not
-    if (workspace.topBlocks_.length > 0 && workspace.getBlockById('go_to').getSurroundParent() !== null) {
+    if (workspace.getBlockById('go_to') !== null && workspace.topBlocks_.length > 0 && workspace.getBlockById('go_to').getSurroundParent() !== null) {
       surroundParentName = workspace.getBlockById('go_to').getSurroundParent().type;
     } else {
       surroundParentName = '';

@@ -1705,7 +1705,7 @@ export const blocksData: any = {
     mm2_6_c2: {
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
-        "instructionBarContent": "Try replacing <img src='assets/images/block_images/repeat_n_times_block.png' style='height: 12px!important'> with something that can be used to throw fruits forever.",
+        "instructionBarContent": "Try replacing <img src='http://dqfevutdn6sxd.cloudfront.net/block_images/repeat_n_times_block.png' style='height: 12px!important'> with something that can be used to throw fruits forever.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "",
@@ -1809,8 +1809,8 @@ export const blocksData: any = {
         }],
         "initialCode": `<xml>
                         <block type="controls_repeat_ext" id="repeat_n_times" x="10" y="20">
-                        <value name="TIMES"><shadow type="number"><field name="n">3</field></shadow></value>
-                        <statement name="DO">
+                        <value name="times"><shadow type="number"><field name="n">3</field></shadow></value>
+                        <statement name="in_loop">
                         <block type="wait" id="wait"><field name="wait_time">0.5</field>
                         <next>
                         <block type="change_look" id="change_look">
@@ -2211,7 +2211,9 @@ export const blocksData: any = {
         "categories": [{
             "name": "",
             "colour": 0,
-            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
+            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo",
+                "moveBy", "moveTo", //"changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"
+            ],
         }],
         "initialCode": "",
         "icons": [{
@@ -2283,26 +2285,30 @@ export const blocksData: any = {
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
         "buttons": [
-            // {
-            //     "name": "Solar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": -15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.742,
-            //     "width": 10
-            // },
-            // {
-            //     "name": "Lunar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": 15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.734,
-            //     "width": 10
-            // } 
+            {
+                "name": "Solar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": -25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.742,
+                "width": 15,
+                "initialVisibility": true
+            },
+            {
+                "name": "Lunar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": 25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.734,
+                "width": 15,
+                "initialVisibility": true
+            } 
            ]
     }, //end of eclipse_coding
     
