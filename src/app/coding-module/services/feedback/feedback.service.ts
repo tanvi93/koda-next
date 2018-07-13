@@ -86,7 +86,9 @@ export class FeedbackService {
 
   setBlockList = (pageId, list, sprites, spriteStatus, bgDetails, callback) => {
     this.codes = list;
-    this.codes.splice(this.codes.length - 1, 1);
+    if (this.codes.length > 1) {
+      this.codes.splice(this.codes.length - 1, 1);
+    }
     if (this.codes[0].indexOf('var ') !== -1) {
       this.codes.splice(0, 1);
     }
