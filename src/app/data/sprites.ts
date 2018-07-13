@@ -959,11 +959,11 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/safety_pin.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/safety_pin.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
-        "zIndex": "4",
+        "zIndex": "3",
         "trayOrder": "1"
     }, {
         "id": "sprite10_2",
@@ -978,12 +978,12 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/lever.png",
-            "./assets/images/activities/fire_extinguisher/lever_pressed.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/lever.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/lever_pressed.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
-        "zIndex": "3",
+        "zIndex": "4",
         "trayOrder": "2"
     }, {
         "id": "sprite10_3",
@@ -998,13 +998,13 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/extinguisher_part1.png",
-            "./assets/images/activities/fire_extinguisher/extinguisher_punctured_cartridge.png",
-            "./assets/images/activities/fire_extinguisher/extinguisher_gas_expanding.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/extinguisher_part1.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/extinguisher_punctured_cartridge.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/extinguisher_gas_expanding.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
-        "zIndex": "2",
+        "zIndex": "1",
         "trayOrder": "3"
     }, {
         "id": "sprite10_4",
@@ -1019,7 +1019,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/plunger.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/plunger.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1038,7 +1038,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/spray1.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray1.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1057,7 +1057,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1079,7 +1079,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/safety_pin.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/safety_pin.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1098,8 +1098,8 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/extinguisher_part2.png",
-            "./assets/images/activities/fire_extinguisher/extinguisher_part2_lever_pressed.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/extinguisher_part2.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/extinguisher_part2_lever_pressed.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1118,7 +1118,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/spray2.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray2.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1137,7 +1137,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/door.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/door.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1156,7 +1156,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1175,7 +1175,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/fire_alarm_button.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire_alarm_button.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1194,7 +1194,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": false,
         "looks": [
-            "./assets/images/activities/fire_extinguisher/fire_truck.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire_truck.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
