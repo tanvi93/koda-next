@@ -2211,7 +2211,9 @@ export const blocksData: any = {
         "categories": [{
             "name": "",
             "colour": 0,
-            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
+            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo",
+                "moveBy", "moveTo", //"changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"
+            ],
         }],
         "initialCode": "",
         "icons": [{
@@ -2283,26 +2285,30 @@ export const blocksData: any = {
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
         "buttons": [
-            // {
-            //     "name": "Solar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": -15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.742,
-            //     "width": 10
-            // },
-            // {
-            //     "name": "Lunar Eclipse Button",
-            //     "src": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png",
-            //     "initialOffset": {
-            //         "x": 15,
-            //         "y": -15
-            //     },
-            //     "aspect_ratio": 3.734,
-            //     "width": 10
-            // } 
+            {
+                "name": "Solar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": -25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.742,
+                "width": 15,
+                "initialVisibility": true
+            },
+            {
+                "name": "Lunar Eclipse Button",
+                "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png"],
+                "buttonLookIdx": 0,
+                "offset": {
+                    "x": 25,
+                    "y": -17
+                },
+                "aspect_ratio": 3.734,
+                "width": 15,
+                "initialVisibility": true
+            } 
            ]
     }, //end of eclipse_coding
     

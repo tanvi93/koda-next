@@ -318,7 +318,7 @@ export class InterpreterService {
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.whenMouseClicked.interpret(this.kodaInterpreter);
     this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
-    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons);
+    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons, feedbackCall);
 
     this.getVar.interpret(this.kodaInterpreter);
     this.setVar.interpret(this.kodaInterpreter, arr => {
@@ -352,12 +352,12 @@ export class InterpreterService {
         }, 500);
       }, 1000 * 30);
     }
-    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
-      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites);
     });
-    codes.forEach(code => {
+    codes.forEach((code, i) => {
       this.kodaInterpreter.executeCommands(code, () => {
-        if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+        if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
       });
     });
   }
