@@ -1,4 +1,4 @@
-<app-quiz-wrapper [quizData]="quizObj">
+<app-quiz-wrapper [quizData]="quizObj" [pageId]="pageId">
   <mat-card-content>
     <div class="dropdown" *ngFor="let data of quizObj.options; let i = index;">
       <p class="option" [innerHTML]='data.question'></p>
