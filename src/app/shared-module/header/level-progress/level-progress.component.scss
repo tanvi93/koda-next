@@ -11,7 +11,9 @@
     padding: 2px 5px;
     height: 26px;
     line-height: 40px;
-    margin: 7px 0;
+    margin: 7px 5px;
+    position: relative;
+    z-index: 9;
     & .mat-icon {
       font-size: 10px;
       line-height: 25px;
@@ -42,7 +44,7 @@
       border: solid 1px #fff;
       border-radius: 20px;
       padding: 2px;
-      & .mat-icon {
+      & .abc {
         margin: 0 5px;
       }
     }
@@ -50,8 +52,7 @@
       padding: 0 0 25px;
       & .mat-icon {
         color: green;
-        border-radius: 50%;
-        // z-index: 1;
+        border-radius: 50%; // z-index: 1;
         position: relative;
       }
       &:before {
@@ -180,7 +181,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.image-load{
+.image-load {
   position: relative;
   left: 140px;
 }
