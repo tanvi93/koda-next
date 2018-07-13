@@ -534,7 +534,7 @@ export class GameStageService {
     button.looksIndex = obj.looksIndex;
   }
 
-  showVariables =   (isReset = false) => {
+  showVariables = (isReset = false) => {
     let top = 10;
     this.variableBoxes = [];
     let rect, text;

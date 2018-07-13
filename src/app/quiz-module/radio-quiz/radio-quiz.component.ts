@@ -60,11 +60,14 @@ export class RadioQuizComponent implements OnInit {
   }
 
   radioFunction = (data) => {
+    console.log(data);
     this.showError = false;
     if (data.msg !== undefined) {
       this.error = data.msg;
+      console.log(this.error);
       this.showErrorMsg();
     } else {
+      console.log('success');
       this.showError = false;
       this.dialogRef = this.dialog.open(SuccessModalComponent, {
         hasBackdrop: true,
