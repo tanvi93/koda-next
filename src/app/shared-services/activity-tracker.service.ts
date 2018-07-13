@@ -13,6 +13,7 @@ export class ActivityTrackerService implements OnInit{
     this.checkStorage(activityType);
     this.localData[index].status.complete.imageStatus = true;
     this.localData[index].status.unlock.imageStatus = !this.localData[index].status.complete.imageStatus;
+    this.localData[index].status.lock.imageStatus = false;
     if (index < this.localData.length && !this.localData[index + 1].status.complete.imageStatus) {
       this.localData[index + 1].status.unlock.imageStatus = this.localData[index].status.complete.imageStatus;
       this.localData[index + 1].status.lock.imageStatus = !this.localData[index].status.complete.imageStatus;

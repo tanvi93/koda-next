@@ -47,17 +47,9 @@ export class DiscoLightCodingService {
       
       let x = atob(JSON.parse(codes).params.linesOfCode);
       let y = x.split(';');
-      console.log(changeLookCount);
-      console.log(repeatForeverCount);
-      console.log(repeatNTimesCount);
-      console.log(repeatPatternCount);
-      console.log(extraBlockCount);
       
       if ( changeLookCount === 4 && repeatForeverCount === 1
         && repeatNTimesCount === 2 && repeatPatternCount === 10 && extraBlockCount === 0 ) {
-        console.log('entered');
-        console.log(y[1].indexOf('wait'));
-        
         if (waitCount === 4 || (waitCount === 5 && y[1].indexOf('wait') !== -1) ) {
           
           this.success = true;
@@ -104,7 +96,7 @@ export class DiscoLightCodingService {
           break;
         } 
         default: {
-            if (element.type !== 'random_number' || element.type !== 'arithmetic_operators' || element.type !== 'show_coords' || element.type !== 'number') {
+            if (element.type !== 'random_number' && element.type !== 'arithmetic_operators' && element.type !== 'show_coords' && element.type !== 'number') {
               console.log(element.type, extraBlockCount);
               ++extraBlockCount;
             }

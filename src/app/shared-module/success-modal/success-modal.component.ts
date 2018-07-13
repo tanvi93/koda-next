@@ -24,7 +24,7 @@ export class SuccessModalComponent implements OnInit {
     private utility: UtilitiesService, private audio: AudioService) {
     this.gameDetails = localStorage.getItem('gameProgress');
     this.gameDetails = JSON.parse(this.gameDetails);
-    this.scoreValue = this.gameDetails.pointsEarned;
+    // this.scoreValue = this.gameDetails.pointsEarned;
   }
 
   ngOnInit() {
