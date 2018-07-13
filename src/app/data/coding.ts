@@ -2259,6 +2259,7 @@ export const blocksData: any = {
             "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
         }],
         "initialCode": "<some XML>",
+        "isParallel": true,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2286,6 +2287,7 @@ export const blocksData: any = {
         "currentBackgroundIdx": 0,
         "buttons": [
             {
+                "id": "solar_eclipse_button",
                 "name": "Solar Eclipse Button",
                 "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/solar_eclipse_button.png"],
                 "buttonLookIdx": 0,
@@ -2298,6 +2300,7 @@ export const blocksData: any = {
                 "initialVisibility": true
             },
             {
+                "id": "lunar_eclipse_button",
                 "name": "Lunar Eclipse Button",
                 "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/lunar_eclipse_button.png"],
                 "buttonLookIdx": 0,
