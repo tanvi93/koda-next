@@ -82,7 +82,6 @@ export class PackagingMilkCode1Service {
 
       // check b : Existing blocks deleted/sequence changed/detached?
       if ((json.type === 'delete') && json.blockId === blockPresentOnWorkspace[i]) {
-          console.log('inside delete', workspace.topBlocks_.length);
           initialLoadFlag = true;
           return cb('Don’t delete or rearrange the blocks in the given code. Just give correct inputs to the blocks.');
         }
