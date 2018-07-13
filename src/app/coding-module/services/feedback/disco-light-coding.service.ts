@@ -97,7 +97,6 @@ export class DiscoLightCodingService {
         } 
         default: {
             if (element.type !== 'random_number' && element.type !== 'arithmetic_operators' && element.type !== 'show_coords' && element.type !== 'number') {
-              console.log(element.type, extraBlockCount);
               ++extraBlockCount;
             }
           }
