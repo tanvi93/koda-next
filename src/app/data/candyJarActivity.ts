@@ -1,6 +1,4 @@
-export const quiz = {
-
-    candy_jar_activity: {
+export const candy_jar = {
         "instructionBarContent": "Read my new rules and see how many candies will remain in the jars after each of these incidents.",
         "mascotHead": "./../assets/images/activities/candy_jar/mascotHead.png",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
@@ -112,5 +110,4 @@ export const quiz = {
         "successPopupText": "This looks fair to the rules. I hope Greg enjoys the candies.",
         "immediateValidation": true,
         "actionButtonText": 'Continue'
-    }, //end of candy_jar_activity
-}
+} //end of candy_jar_activity
