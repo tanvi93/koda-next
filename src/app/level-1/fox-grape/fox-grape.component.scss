@@ -3,20 +3,30 @@
 @import 'color.scss';
 @import 'breakpoints.scss';
 
-.fox-grape-div {
-    height: 100%;
-    & .input-section {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    & .output-section {
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
+.fox-grape-act-wrap {
+    display: table;
+    position: relative;
 }
 
 .input-div {
-    background-color: #3e3a48;
+    display: table-cell;
+    width: 44%;
+    vertical-align: middle;
+    background-color:#3e3a48;
+    position: absolute;
+    height: 100%;
+
+}
+
+.fox-grape-output-wrap {
+    display: table-cell;
+    width: 55%;
+    padding-left: 1%;
+    vertical-align: middle;
+}
+
+.output-section {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
