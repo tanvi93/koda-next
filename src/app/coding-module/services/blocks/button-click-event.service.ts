@@ -61,6 +61,7 @@ export class ButtonClickEventService {
 
   interpret = (interpreter, buttonData, feedback) => {
     const wrapper = ({ buttonIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.myInterpreter = interpreter;
       this.instance = buttonData[buttonIndex].instance;
       this.keyButtonIdPair = { ...this.keyButtonIdPair, [`${this.instance.cacheKey}`]: buttonData[buttonIndex].id };

@@ -73,7 +73,7 @@ export class MakeFruitFallService {
             this.flowChartMsg = 'Looks like the fruit has moved out of the Stage. Recheck your input values.';
             return callback(this.flowChartMsg);
         }
-
+        
         // condition to check whether fruit moves at all
         if ((spriteStatus[1].currentPosition.x === spriteStatus[2].currentPosition.x)
           && (spriteStatus[1].currentPosition.y === spriteStatus[2].currentPosition.y)) {
@@ -92,25 +92,25 @@ export class MakeFruitFallService {
       }
 
       if (this.blockList[2] === 'moveBy') {
+        
         let thirdBlockDetail = JSON.parse(this.codes[2]).params;
-        let fruitXValue = spriteStatus[1].currentPosition.x + thirdBlockDetail.x 
-        let fruitYValue = spriteStatus[1].currentPosition.y - thirdBlockDetail.y 
 
         // condition to check whether fruits goes beyond boudary
-        if (((Math.abs(fruitXValue) >= this.boundaryCondition.x)
-          || (Math.abs(fruitYValue) >= this.boundaryCondition.y))) {
+        if (((Math.abs(spriteStatus[2].currentPosition.x) >= this.boundaryCondition.x)
+          || (Math.abs(spriteStatus[1].currentPosition.y) >= this.boundaryCondition.y))) {
           this.flowChartMsg = 'Looks like the fruit has moved out of the Stage. Recheck your input values.';
           return callback(this.flowChartMsg);
         }
 
+
          // condition to check whether fruit moves at all
-        if (thirdBlockDetail.x === 0 && thirdBlockDetail.y === 0) {
+        if (thirdBlockDetail.x === 0 &&  thirdBlockDetail.y === 0) {
           this.flowChartMsg = 'Try changing your input values so that the fruit moves from its current position.';
           return callback(this.flowChartMsg);
         }
         
         // condition to check whether fruit is moving down or not.
-        if (fruitYValue > sprites[2].currentOffset.y || fruitYValue <= -19) {
+        if (spriteStatus[2].currentPosition.y > sprites[2].currentOffset.y || spriteStatus[2].currentPosition.y <= -19) {
           this.flowChartMsg = 'The fruit is moving but it needs to reach as low as the cap so that the player can try to catch it. Recheck the input values to your block.';
           return callback(this.flowChartMsg);
         } else {

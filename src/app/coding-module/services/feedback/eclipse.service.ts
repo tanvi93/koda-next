@@ -9,7 +9,9 @@ export class EclipseService {
   constructor() { }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
-    this.codes = codes;
+    if (blockList.indexOf('buttonClickEventBind') === -1) {
+      return callback('No button blocks found, hint for the rescue');
+    }
     this.isSolarCorrect = false;
     this.isLunarCorrect = false;
     return callback('Click on Buttons!');
