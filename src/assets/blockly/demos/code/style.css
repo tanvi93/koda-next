@@ -132,7 +132,7 @@ pre.content {
   outline: none;
   border: 1px solid #ccc;
   font-family: monospace;
-  overflow: hidden;
+  overflow: scroll;
 }
 #languageMenu {
   vertical-align: top;
