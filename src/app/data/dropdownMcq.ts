@@ -70,9 +70,9 @@ export const quiz = {
         "instructionBarContent": "To make the cap move when the player presses a key, you have to know the actions performed by each of the keys used in the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
          "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
-        "mediaType": "game",
+         "mediaType": "game",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
          "mascotBg": "#13BCE4",
-         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
         "question": "Play Monkey Menace again on your left and select what happens when each of the keys below is pressed.",
         "options": [
             {

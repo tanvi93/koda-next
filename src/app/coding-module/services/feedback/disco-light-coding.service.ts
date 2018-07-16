@@ -7,6 +7,7 @@ let waitCount = 0;
 let repeatForeverCount = 0;
 let repeatNTimesCount = 0;
 let changeLookCount = 0;
+let extraBlockCount = 0;
 
 @Injectable()
 export class DiscoLightCodingService {
@@ -15,12 +16,10 @@ export class DiscoLightCodingService {
   private codes: Array<any>;
   private success: Boolean;
   private successObj: any;
-  private localData: any;
 
   constructor() {
     this.success = false;
     this.successObj = {};
-    this.localData = JSON.parse(localStorage.getItem('loops'));
     this.tracker = new ActivityTrackerService();
   }
 
@@ -45,34 +44,23 @@ export class DiscoLightCodingService {
           ++repeatPatternCount;
         }
       });
+      
       let x = atob(JSON.parse(codes).params.linesOfCode);
       let y = x.split(';');
       
-      console.log(x.split(';'))
       if ( changeLookCount === 4 && repeatForeverCount === 1
-        && repeatNTimesCount === 2) {
-        if (waitCount === 5 && blockList[4].indexOf('changeAvatar') !== -1 && blockList[5].indexOf('wait') !== -1 && blockList[8].indexOf('wait') !== -1) {
-          if (repeatPatternCount === 10) {
-            this.success = true;
-            this.successObj['success'] = this.success;
-            this.successObj['title'] = 'Awesome!';
-            this.successObj['msg'] = 'My son is going to love it!';
-            this.successObj['mascotImage'] = assetsLink + 'activities/disco_lights/mascot_head.png';
-            this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-            this.tracker.setContent('loops', 1);
-          }
-        } else if (waitCount === 4) {
-          if (repeatPatternCount === 10) {
-            this.success = true;
-            this.successObj['success'] = this.success;
-            this.successObj['title'] = 'Awesome!';
-            this.successObj['msg'] = 'My son is going to love it!';
-            this.successObj['mascotImage'] = assetsLink + 'activities/disco_lights/mascot_head.png';
-            this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-            this.tracker.setContent('loops', 1);
-            return callback(this.successObj);
-          }
-        }
+        && repeatNTimesCount === 2 && repeatPatternCount === 10 && extraBlockCount === 0 ) {
+        if (waitCount === 4 || (waitCount === 5 && y[1].indexOf('wait') !== -1) ) {
+          
+          this.success = true;
+          this.successObj['success'] = this.success;
+          this.successObj['title'] = 'Awesome!';
+          this.successObj['msg'] = 'My son is going to love it!';
+          this.successObj['mascotImage'] = assetsLink + 'activities/disco_lights/mascot_head.png';
+          this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
+          this.tracker.setContent('loops', 1);
+          return callback(this.successObj);
+        } 
       }
     }, 500);
   }
@@ -83,6 +71,7 @@ export class DiscoLightCodingService {
     repeatForeverCount = 0;
     repeatNTimesCount = 0;
     changeLookCount = 0;
+    extraBlockCount = 0;
     
     tempBlock.forEach((element, index) => {
       switch (element.type) {
@@ -106,8 +95,12 @@ export class DiscoLightCodingService {
           }
           break;
         } 
-        default: ;
-      }
+        default: {
+            if (element.type !== 'random_number' && element.type !== 'arithmetic_operators' && element.type !== 'show_coords' && element.type !== 'number') {
+              ++extraBlockCount;
+            }
+          }
+        };
     });
     
     if (e.type === 'create' && (e.blockId === 'repeat_n_times')) {

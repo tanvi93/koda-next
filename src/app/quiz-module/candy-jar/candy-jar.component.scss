@@ -1,7 +1,7 @@
 .input {
   width: 60px;
   height: 50px;
-  font-size: 18px;
+  font-size: 22px;
   text-align: center;
 }
 
@@ -24,3 +24,10 @@
   font-size: 10px;
 }
 
+.error {
+  background: #EE5862;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 9;
+}

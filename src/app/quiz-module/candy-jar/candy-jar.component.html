@@ -1,12 +1,12 @@
 <app-quiz-wrapper [quizData]="quizObj" [flexRight]="flexRight" [flexLeft]="flexLeft">
   <div fxLayout="row" *ngFor="let opt of quizObj.options;let i = index" class="container" id="{{'Id'+i}}">
     <p fxFlex="70" class="question">{{opt.question}}</p>
-    <form fxFlex="30" fxLayoutAlign="center center" class="form" >
-    <input *ngIf='i > count' class="input" placeholder="Reward Jar" value="" (keyup)='reward($event,opt)'>
-    <label *ngIf='i <= count' for="reward">{{previousRewardValue[i]}}</label>
-    <input *ngIf='i > count' class="input" placeholder="Penalty Jar" style="margin-left:20px;" value="" (keyup)='penalty($event,opt)'>
-    <label *ngIf='i <= count' for="penalty" style="margin-left:20px;">{{previousPenaltyValue[i]}}</label>
+    <form fxFlex="30" fxLayoutAlign="center center" class="form">
+      <input *ngIf='i > count' class="input" placeholder="Reward Jar" value="" (keyup)='reward($event,opt)' style="color:#0033CC;">
+      <label fxLayoutAlign="center center" *ngIf='i <= count' class="input" for="reward" style="color:#0033CC;">{{previousRewardValue[i]}}</label>
+      <input *ngIf='i > count' class="input" placeholder="Penalty Jar" style="margin-left:20px;color:#CC3300;" value="" (keyup)='penalty($event,opt)'>
+      <label fxLayoutAlign="center center" *ngIf='i <= count' class="input" for="penalty" style="margin-left:20px;color:#CC3300;">{{previousPenaltyValue[i]}}</label>
     </form>
   </div>
-    <app-error-msg *ngIf="showError" [error]="error" [success]="success"></app-error-msg>
+  <app-error-msg class="error" *ngIf="showError" [error]="error" [success]="success"></app-error-msg>
 </app-quiz-wrapper>

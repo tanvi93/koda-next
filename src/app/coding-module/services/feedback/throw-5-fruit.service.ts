@@ -35,8 +35,7 @@ export class Throw5FruitService {
     this.codes = codes;
 
     setTimeout(() => {
-      console.log(codes);
-      
+
       // check 1:- checking whether no of block doesnt exceed 4
       if (repeatblockCount === 0 && this.codes.length < 4) {
         this.flowChartMsg = 'You need to add a new block to make the monkey throw 5 fruits now. As you found out in the previous quiz, the repeat block might be useful.';
