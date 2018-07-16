@@ -89,7 +89,7 @@ export class EclipseService {
       28: [5]
     }
     if (!acceptableCoords.hasOwnProperty(`${coords.moon.x}`) || acceptableCoords[`${coords.moon.x}`].indexOf(coords.moon.y) === -1) {
-      return callback('Moon should be on its orbit and in middle of Sun and Earth');
+      return callback('Moon should be on its orbit and in right of Sun and Earth');
     } else {
       this.isLunarCorrect = true;
       const obj = this.checkForSuccess();

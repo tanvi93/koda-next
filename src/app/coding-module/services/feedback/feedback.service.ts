@@ -107,7 +107,6 @@ export class FeedbackService {
       if (eventId) {
         this[pageId][`on_${eventId}`](this.codes, spritesData, spriteStatus, callback);
       } else {
-        console.log('po');
         this[`${pageId}`].validateCode(this.blockList, this.codes, spritesData, spriteStatus, callback);
       }
     }

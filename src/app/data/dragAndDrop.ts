@@ -73,15 +73,15 @@ export const algoStep = {
     "to_the_hills_q1": {
         "instructionBarContent": "We need to leave for the hill station after breakfast and our car is low on fuel. Just to be on the safer side I made myself a checklist with all the important steps to reach there. But I have to rearrange them to get the right order.",
         "question": "Drag the correct steps from below and place them in the correct sequence in my checklist.",
-        "mascotImage": "./../assets/images/activities/to_the_hills/mascot_head.png",
-        "popupMascotImage": "./../assets/images/activities/to_the_hills/mascot_head.png",
+        "mascotImage": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/mascot_head.png",
+        "popupMascotImage": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/mascot_head.png",
         "BackgroundColor": "#ecd45c",
         "steps": [
             {
                 // "order": "0",
                 "incorrectOrder": "1",
                 "step": "Clean the garage",
-                "icon": "./../assets/images/activities/to_the_hills/clean_garage.png",
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/clean_garage.png",
                 // Message when 'Clean the garage' step is dragged to the right
                 "msg": "The checklist is missing some important steps. The garage will take an entire day to be cleaned. We can do that some other day."
             },
@@ -89,13 +89,13 @@ export const algoStep = {
                 "order": "3",
                 "incorrectOrder": "2",
                 "step": "Get the car refueled",
-                "icon": "./../assets/images/activities/to_the_hills/car_fuel.png"
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/car_fuel.png"
             },
             {
                 // "order": "0",
                 "incorrectOrder": "3",
                 "step": "Stop to have breakfast",
-                "icon": "./../assets/images/activities/to_the_hills/breakfast.png",
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/breakfast.png",
                 // Message when 'Breakfast included' step is dragged to the right
                 "msg": "We already had our breakfast before leaving. We don't need another one!"
             },
@@ -104,27 +104,27 @@ export const algoStep = {
                 "altOrder": "5",
                 "incorrectOrder": "4",
                 "step": "Reach the hill station",
-                "icon": "./../assets/images/activities/to_the_hills/reach_hill_station.png"
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/reach_hill_station.png"
             },
             {
                 "order": "1",
                 "altOrder": "2",
                 "incorrectOrder": "5",
                 "step": "Put the bags in the car",
-                "icon": "./../assets/images/activities/to_the_hills/put_bags_in_car.png"
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/put_bags_in_car.png"
             },
             {
                 "order": "2",
                 "altOrder": "1",
                 "incorrectOrder": "6",
                 "step": "Turn off all lights at home",
-                "icon": "./../assets/images/activities/to_the_hills/switch_off_lights.png"
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/switch_off_lights.png"
             },
             {
                 // "order": "0",
                 "incorrectOrder": "7",
                 "step": "Turn the shower on",
-                "icon": "./../assets/images/activities/to_the_hills/turn_on_shower.png",
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/turn_on_shower.png",
                 // Message when 'Shower included' step is dragged to the right
                 "msg": "We shouldn't leave the shower on while we are away on a trip. Water is precious."
             },
@@ -133,7 +133,7 @@ export const algoStep = {
                 "altOrder": "4",
                 "incorrectOrder": "8",
                 "step": "Check in at the hotel",
-                "icon": "./../assets/images/activities/to_the_hills/check_in_hotel.png"
+                "icon": "./.http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/check_in_hotel.png"
             }
         ],
         "buttonText": "DONE",

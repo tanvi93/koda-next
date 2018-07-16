@@ -20,7 +20,7 @@ export const stories = {
     },    
     to_the_hills: {
         backgroundImgs: [
-            './assets/images/activities/to_the_hills/bg_storyline.jpg'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg'
         ]
     },
     rider_scanner: {
