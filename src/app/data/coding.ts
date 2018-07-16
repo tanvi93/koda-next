@@ -2598,6 +2598,7 @@ export const blocksData: any = {
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
         }],
         "initialCode": "",
+        "isParallel": true,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2855,7 +2856,8 @@ export const blocksData: any = {
             "name": "Others",
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
-        }],
+            }],
+        "isParallel": true,
         "initialCode": "<some XML>",
         "icons": [{
             "name": "algo",
@@ -2910,7 +2912,8 @@ export const blocksData: any = {
             "name": "Others",
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
-        }],
+            }],
+        "isParallel": true,
         "initialCode": "<some XML>",
         "icons": [{
             "name": "algo",
@@ -2965,7 +2968,8 @@ export const blocksData: any = {
             "name": "Others",
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
-        }],
+             }],
+         "isParallel": true,
         "initialCode": "<some XML>",
         "icons": [{
             "name": "algo",
@@ -3020,7 +3024,8 @@ export const blocksData: any = {
             "name": "Others",
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
-        }],
+             }],
+         "isParallel": true,
         "initialCode": "<some XML>",
         "icons": [{
             "name": "algo",
