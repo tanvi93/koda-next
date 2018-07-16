@@ -104,12 +104,12 @@ export class FoxOutputSectionComponent implements OnInit {
     this.hideMsg = true;
     let n = 0
 
+    this.msgPos.msgLeft = this.contentData.initialMsgLeftValue;
+    this.msgPos.msgTop = this.contentData.sideTailMsgTopPosition;
+    this.msgPos.msgTailLeft = this.contentData.sideTailMsgTailLeftPositon;
+    this.msgPos.msgTailTop = this.contentData.sideTailMsgTailTopPosition;
+    this.foxImage = this.contentData.foxImage[0];
     if (String(this.xContent).length === 0 && String(this.yContent).length === 0) {
-      this.msgPos.msgLeft = this.contentData.initialMsgLeftValue;
-      this.msgPos.msgTop = this.contentData.sideTailMsgTopPosition;
-      this.msgPos.msgTailLeft = this.contentData.sideTailMsgTailLeftPositon;
-      this.msgPos.msgTailTop = this.contentData.sideTailMsgTailTopPosition;
-      this.foxImage = this.contentData.foxImage[0];
       this.message = this.contentData.errorMsg[1];
       setTimeout(() => {
         this.hideMsg = false;
@@ -117,11 +117,6 @@ export class FoxOutputSectionComponent implements OnInit {
       }, 500);
       return;
     } else if ((Number(this.xContent) > this.contentData.xBoundaryCondition) || (Number(this.yContent) > this.contentData.yBoundaryCondition)) {
-      this.msgPos.msgLeft = this.contentData.initialMsgLeftValue;
-      this.msgPos.msgTop = this.contentData.sideTailMsgTopPosition;
-      this.msgPos.msgTailLeft = this.contentData.sideTailMsgTailLeftPositon;
-      this.msgPos.msgTailTop = this.contentData.sideTailMsgTailTopPosition;
-      this.foxImage = this.contentData.foxImage[0];
       this.message = this.contentData.errorMsg[3];
       setTimeout(() => {
         this.hideMsg = false;
@@ -132,11 +127,6 @@ export class FoxOutputSectionComponent implements OnInit {
       }, 4500);
       return;
     } else if ((Number(this.xContent) < 0) || (Number(this.yContent) < 0)) {
-      this.msgPos.msgLeft = this.contentData.initialMsgLeftValue;
-      this.msgPos.msgTop = this.contentData.sideTailMsgTopPosition;
-      this.msgPos.msgTailLeft = this.contentData.sideTailMsgTailLeftPositon;
-      this.msgPos.msgTailTop = this.contentData.sideTailMsgTailTopPosition;
-      this.foxImage = this.contentData.foxImage[0];
       this.message = this.contentData.errorMsg[6];
       setTimeout(() => {
         this.clearInputFlag.emit(true);
@@ -144,11 +134,6 @@ export class FoxOutputSectionComponent implements OnInit {
       }, 500);
       return;
     } else if (String(this.yContent) === '0' && String(this.xContent) === '0') {
-      this.msgPos.msgLeft = this.contentData.initialMsgLeftValue;
-      this.msgPos.msgTop = this.contentData.initialMsgPos.msgTop;
-      this.msgPos.msgTailLeft = this.contentData.initialMsgPos.msgTailLeft;
-      this.msgPos.msgTailTop = this.contentData.initialMsgPos.msgTailTop;
-      this.foxImage = this.contentData.foxImage[0];
       this.message = this.contentData.errorMsg[0];
       setTimeout(() => {
         this.clearInputFlag.emit(true);
@@ -159,9 +144,6 @@ export class FoxOutputSectionComponent implements OnInit {
 
       if (this.xContent <= 4) {
         this.msgPos.msgLeft = (14 + (this.xContent) * 14) + '%';
-        this.msgPos.msgTop = this.contentData.sideTailMsgTopPosition;
-        this.msgPos.msgTailLeft = this.contentData.sideTailMsgTailLeftPositon;
-        this.msgPos.msgTailTop = this.contentData.sideTailMsgTailTopPosition;
       } else if (this.xContent > 4) {
         this.msgPos.msgLeft = (this.xContent * 14 - 10) + '%';
         this.msgPos.msgTop = this.contentData.downTailMsgTopPosition;
