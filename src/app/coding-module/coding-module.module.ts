@@ -6,6 +6,7 @@ import { SharedModuleModule } from './../shared-module/shared-module.module';
 
 import { SpriteService } from './services/sprite.service';
 import { InterpreterService } from './services/interpreter.service';
+import { GameStageService } from './services/game-stage.service';
 
 import { CodingScreenComponent } from './coding-screen/coding-screen.component';
 import { BlocklyZoneComponent } from './blockly-zone/blockly-zone.component';
@@ -36,9 +37,13 @@ import { ActivityTrackerService } from '../shared-services/activity-tracker.serv
     ImagetrayComponent,
     ImageInsideTrayComponent
   ],
-  providers: [SpriteService, InterpreterService, ActivityTrackerService],
+  providers: [SpriteService, InterpreterService, ActivityTrackerService, GameStageService],
   entryComponents: [
     AlgoModalComponent
+  ],
+  exports: [
+    GameCanvasComponent,
+    GamePlayScreenComponent
   ]
 })
 export class CodingModuleModule { }
