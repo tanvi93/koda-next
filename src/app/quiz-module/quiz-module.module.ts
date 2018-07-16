@@ -12,6 +12,7 @@ import { CheckboxQuizComponent } from './checkbox-quiz/checkbox-quiz.component';
 import { DropdownQuizComponent } from './dropdown-quiz/dropdown-quiz.component';
 import { SelectOptionComponent } from './dropdown-quiz/select-option/select-option.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CandyJarComponent } from './candy-jar/candy-jar.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [QuizWrapperComponent, RadioQuizComponent, CheckboxQuizComponent, DropdownQuizComponent, SelectOptionComponent, FormulaQuizComponent]
+  declarations: [QuizWrapperComponent, RadioQuizComponent, CheckboxQuizComponent, DropdownQuizComponent, SelectOptionComponent, FormulaQuizComponent, CandyJarComponent]
 })
 export class QuizModuleModule { }
