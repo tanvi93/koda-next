@@ -207,7 +207,7 @@ export const quiz = {
         "mediaType": "",
         
         "mediaLink": "",
-        "question": "In what ways can the <img src='./../assets/misc_images/mm3_1_q2_quest_img1.png'> and <img src='./../assets/misc_images/mm3_1_q2_quest_img2.png'> blocks be connected to other blocks?",
+        "question": "In what ways can the <img height='50px' src='./../assets/images/block_images/left_key_pressed.png'> and <img height='50px' src='./../assets/images/block_images/right_key_pressed.png'> blocks be connected to other blocks?",
         "options": [
             {
                 "option": "Below a block like <img src='./../assets/misc_images/mm3_1_q2_opt1.png'>",
@@ -219,7 +219,7 @@ export const quiz = {
                 "isCorrect": true
             },
             {
-                "option": "Inside a block like <img src='./../assets/misc_images/mm3_1_q2_opt3.png'>",
+                "option": "Inside a block like <img src='./../assets/images/block_images/repeat_forever.png'>",
                 "msg": "Observe the shape of these blocks. They don't have a notch at the top that can let them be connected inside a loop block.",
                 "isCorrect": false
             },
