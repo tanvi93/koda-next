@@ -9,10 +9,10 @@
     <img class="icon" src="./assets/icons/preview_open.svg" alt="">
   </button>
   <div fxLayout="row" fxLayoutGap="10px">
-    <div *ngIf="quizData.mediaLink" class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
+    <div *ngIf="quizData.mediaLink" class="img-placeholder" [fxFlex]="flexLeft" fxLayoutAlign="space-around center">
       <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
     </div>
-    <mat-card fxFlex="40" class="quiz-zone">
+    <mat-card [fxFlex]="flexRight" class="quiz-zone">
       <div class="question-comp">
         <app-quiz-question [question]='quizData.question'></app-quiz-question>
       </div>

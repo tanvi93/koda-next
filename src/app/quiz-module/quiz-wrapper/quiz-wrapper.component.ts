@@ -26,10 +26,14 @@ import { PreviewModalComponent } from '../../shared-module/preview-modal/preview
 
 export class QuizWrapperComponent {
   @Input() quizData;
+  @Input() flexLeft: String;
+  @Input() flexRight: String;
   hintDialogRef: MatDialogRef<GeneralHintModalComponent>;
   previewDialogRef: MatDialogRef<PreviewModalComponent>;
 
   constructor(public dialog: MatDialog) {
+    this.flexLeft = '60';
+    this.flexRight = '40';
   }
 
   hintDialog(ev) {

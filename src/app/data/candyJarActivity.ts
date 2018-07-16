@@ -105,7 +105,7 @@ export const candy_jar = {
             }
             
         ],
-
+        "commonErrormsg":"Something seems wrong with the number of Penalty candies.",
         "successPopupHeading": "Good job!",
         "successPopupText": "This looks fair to the rules. I hope Greg enjoys the candies.",
         "immediateValidation": true,
