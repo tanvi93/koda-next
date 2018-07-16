@@ -1,7 +1,7 @@
 <div (click)="goNext()">
   <div class="avatar-wrap">
     <div class="speechbubble-position">
-      <app-speech-bubble [arrow]="{left: '170px', bottom: '-24px'}">
+      <app-speech-bubble [speechContent]="speechData">
         {{speech[pageId][activeIndex]}}
       </app-speech-bubble>
     </div>
