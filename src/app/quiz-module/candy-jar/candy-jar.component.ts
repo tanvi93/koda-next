@@ -118,21 +118,21 @@ export class CandyJarComponent {
   correctAnswer(data) {
     this.success = true;
     this.error = data.successMsg;
-    this.previousRewardValue.push(this.currentRewardValue);
-    this.previousPenaltyValue.push(this.currentPenaltyValue);
-    this.count++;
-    document.getElementById('Id' + (this.count + 1)).style.visibility = 'visible';
-    this.currentRewardValue = '';
-    this.currentPenaltyValue = '';
-    // if (this.error == '') {
-    //   console.log('inside');
-    //   this.showError = false;
-    //   this.dialogRef = this.dialog.open(SuccessModalComponent, {
-    //     hasBackdrop: true,
-    //     panelClass: 'app-full-bleed-dialog'
-    //   });
-    //   this.dialogRef.componentInstance.modalData = this.quizObj;
-    // }
+    if (this.error == '') {
+      this.showError = false;
+      this.dialogRef = this.dialog.open(SuccessModalComponent, {
+        hasBackdrop: true,
+        panelClass: 'app-full-bleed-dialog'
+      });
+      this.dialogRef.componentInstance.modalData = this.quizObj;
+    } else {
+      this.previousRewardValue.push(this.currentRewardValue);
+      this.previousPenaltyValue.push(this.currentPenaltyValue);
+      this.count++;
+      document.getElementById('Id' + (this.count + 1)).style.visibility = 'visible';
+      this.currentRewardValue = '';
+      this.currentPenaltyValue = '';
+    } 
   }
 
 }
