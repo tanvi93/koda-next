@@ -23,6 +23,23 @@ export const stories = {
             'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg'
         ]
     },
+    rider_scanner: {
+        backgroundImgs: [
+            './assets/images/activities/ride_scanner/storyline-step1.jpg',
+            './assets/images/activities/ride_scanner/storyline-step2.jpg'
+        ]
+    },
+    talking_parrot: {
+        backgroundImgs: [
+            './assets/images/activities/talking_parrot/storyline-step1.jpg',
+            './assets/images/activities/talking_parrot/storyline-step2.jpg'
+        ]
+    },
+    seasons: {
+        backgroundImgs: [
+            './assets/images/activities/seasons/season-storyline.jpg',
+        ]
+    },
     challenge_dragon_capture: {
         backgroundImgs: [
             './assets/images/activities/dragon_capture/dragon-activity.jpg',

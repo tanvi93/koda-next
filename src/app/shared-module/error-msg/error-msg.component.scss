@@ -5,6 +5,7 @@
   font-style: normal;
   font-size: 18px;
   padding:0 25px;
+  
 }
 
 .error {
@@ -14,4 +15,8 @@
   .error-container {
     font-size: 14px;
   }
+}
+
+.success-background {
+  background-color: green;
 }

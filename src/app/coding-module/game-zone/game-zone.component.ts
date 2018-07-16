@@ -133,13 +133,12 @@ export class GameZoneComponent implements OnInit, OnChanges {
     }
   }
 
-  getFeedback = (codes, xml, sprites) => {
+  getFeedback = (codes, xml, sprites, eventId = null) => {
     const bg = this.pageData.backgrounds[this.pageData.currentBackgroundIdx];
-    this.feedback.setBlockList(this.pageId, codes, sprites, this.stageService.spriteStatusList, bg, obj => {
+    this.feedback.setBlockList(this.pageId, codes, sprites, this.stageService.spriteStatusList, bg, eventId, obj => {
       if (typeof (obj) == 'object' && obj.success && this.pageData.activity_name === 'monkey_menace') {
         localStorage.setItem('lastCodeXml', xml);
       }
-      this.stageService.stopExecution();
       this.feedbackStatement.emit(obj);
     });
     this.buttonStatus = 'reset';
@@ -149,7 +148,10 @@ export class GameZoneComponent implements OnInit, OnChanges {
       if (json.type && json.type === 'event') {
         this.buttonStatus = 'stop';
       }
-    })
+    });
+    if (this.buttonStatus === 'reset' && !eventId) {
+      this.stageService.stopExecution();
+    }
   }
 
   compileCode = (callback) => {

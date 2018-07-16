@@ -10,7 +10,8 @@ let code, spriteData;
 export class CharacterClickEventService {
   private sp: SpriteService;
   private keyCodePair;
-  private scope;
+  private keySpritePair;
+  private feedback;
   private code;
   private instance;
   private myInterpreter;
@@ -57,13 +58,18 @@ export class CharacterClickEventService {
   }
 
   mouseClickEvent = e => {
-    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keySpritePair[e.target.cacheKey]);
+    });
   }
 
-  interpret = (interpreter, sprites) => {
+  interpret = (interpreter, sprites, feedback) => {
     const wrapper = ({ spriteIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.myInterpreter = interpreter;
+      this.feedback = feedback;
       this.instance = sprites[spriteIndex].instance;
+      this.keySpritePair = { ...this.keySpritePair, [`${this.instance.cacheKey}`]: sprites[spriteIndex].eventId };
       this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
       this.instance.on('mousedown', this.mouseClickEvent);
     };
