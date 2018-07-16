@@ -23,6 +23,7 @@ import { DiscoLightCodingService } from './disco-light-coding.service';
 import { NaptimeActivityService } from './naptime-activity.service';
 import { PackagingMilkCode2Service } from './packaging-milk-code2.service';
 import { EclipseService } from './eclipse.service';
+import { FireExtinguisher1Service } from './fire-extinguisher1.service';
 
 @Injectable()
 export class FeedbackService {
@@ -51,6 +52,7 @@ export class FeedbackService {
   private naptime_coding: NaptimeActivityService;
   private packaging_milk_coding2_challenge: PackagingMilkCode2Service;
   private eclipse_coding: EclipseService;
+  private fire_extinguisher_coding1: FireExtinguisher1Service;
 
   constructor() {
     this.mm2_1_c1 = new MonkeyMoveToNewPositionService();
@@ -76,6 +78,7 @@ export class FeedbackService {
     this.naptime_coding = new NaptimeActivityService();
     this.packaging_milk_coding2_challenge = new PackagingMilkCode2Service();
     this.eclipse_coding = new EclipseService();
+    this.fire_extinguisher_coding1 = new FireExtinguisher1Service();
   }
 
   getHighlightIndex() {
@@ -104,6 +107,7 @@ export class FeedbackService {
       if (eventId) {
         this[pageId][`on_${eventId}`](this.codes, spritesData, spriteStatus, callback);
       } else {
+        console.log('po');
         this[`${pageId}`].validateCode(this.blockList, this.codes, spritesData, spriteStatus, callback);
       }
     }

@@ -1386,7 +1386,7 @@ export const blocksData: any = {
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "We have coded for the drone to scan for the mine. Now help it reach the mine as seen in the preview. Once it reaches the mine, it should drop a detonator and move back up. The mine then gets detonated with an explosion.",
         "mascot": '#ECD452',
-        "mascotImage": "./../assets/images/activities/landmine_detonator/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1419,30 +1419,30 @@ export const blocksData: any = {
                 "content": [
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine1/hint1.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine1/hint1.png',
                         "hintActive": false,
                         "hintDisable": false
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine1/hint2.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine1/hint2.png',
                         "hintActive": false,
                         "hintDisable": true
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine1/hint3.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine1/hint3.png',
                         "hintActive": false,
                         "hintDisable": true
                     }
                 ],
                 "totalHintAvailable": 3,
-                "currentHintValue": "assets/images/activities/landmine_detonator/landmine1/hint1.png"
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine1/hint1.png"
         }],
         "backgrounds": [
             {
                 "name": "Minefield",
-                "src": "./../assets/images/activities/landmine_detonator/bg_minefield.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/bg_minefield.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -1455,7 +1455,7 @@ export const blocksData: any = {
         "activity_name": "landmine_detonator",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "Add code to make the landmine appear at a different random location in the dummy minefield each time you run the code. Then make sure that your code for the drone is still able to detonate the mine irrespective of where the landmine is.",
-        "mascotImage": "./../assets/images/activities/landmine_detonator/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1581,37 +1581,37 @@ export const blocksData: any = {
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/landmine_detonator/Landmine_2.gif"
+                "content": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/Landmine_2.gif"
         }, {
                 "name": "hint",
                 "isVisible": true,
                 "content": [
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine2/hint1.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine2/hint1.png',
                         "hintActive": false,
                         "hintDisable": false
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine2/hint2.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine2/hint2.png',
                         "hintActive": false,
                         "hintDisable": true
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/landmine_detonator/landmine2/hint3.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine2/hint3.png',
                         "hintActive": false,
                         "hintDisable": true
                     }
                 ],
                 "totalHintAvailable": 3,
-                "currentHintValue": "assets/images/activities/landmine_detonator/landmine2/hint1.png"
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/landmine2/hint1.png"
         }],
         "backgrounds": [
             {
                 "name": "bg_minefield",
-                "src": "./../assets/images/activities/landmine_detonator/bg_minefield.jpg"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/landmine_detonator/bg_minefield.jpg"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -1868,7 +1868,7 @@ export const blocksData: any = {
         "activity_name": "naptime",
         "mascotBgColor": '#ECD452',
         "instructionBarContent": "I have written some code to make this job easier. But it doesn't seem to work. Grace and Roxy need 2 pats each. Oreo needs 3 pats.",
-        "mascotImage": "./../assets/images/activities/naptime/mascot_head.png",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/activities/naptime/mascot_head.png",
         "categories": [{
             "name": "",
             "colour": 0,
@@ -1918,37 +1918,37 @@ export const blocksData: any = {
         }, {
             "name": "preview",
             "isVisible": true,
-            "content": "./../assets/images/activities/naptime/Naptime.gif"
+                "content": "http://dqfevutdn6sxd.cloudfront.net/activities/naptime/Naptime.gif"
         }, {
                 "name": "hint",
                 "isVisible": true,
                 "content": [
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/naptime/hint1.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/naptime/hint1.png',
                         "hintActive": false,
                         "hintDisable": false
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/naptime/hint2.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/naptime/hint2.png',
                         "hintActive": false,
                         "hintDisable": true
                     },
                     {
                         "lockText": 'Unlock for 25 points',
-                        "unlockHint": 'assets/images/activities/naptime/hint3.png',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/naptime/hint3.png',
                         "hintActive": false,
                         "hintDisable": true
                     }
                 ],
                 "totalHintAvailable": 3,
-                "currentHintValue": "assets/images/activities/naptime/hint1.png"
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/naptime/hint1.png"
         }],
         "backgrounds": [
             {
                 "name": "Living Room",
-                "src": "./../assets/images/activities/naptime/bg_coding.png"
+                "src": "http://dqfevutdn6sxd.cloudfront.net/activities/naptime/bg_coding.png"
             }
         ],
         "initialBackgroundIdx": 0,
@@ -2357,7 +2357,40 @@ export const blocksData: any = {
             "colour": "#42b4bd",
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
         }],
-         "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="move_to" id="move_to" x="110" y="130">
+    <field name="sprite">0</field>
+    <value name="input_x">
+      <shadow type="number" id="IY~f%Y^g.qZALPyAaP0O">
+        <field name="n">-20</field>
+      </shadow>
+    </value>
+    <value name="input_y">
+      <shadow type="number">
+    <field name = "n">-5</field>
+        </shadow>
+        </value>
+        </block>
+        <block type = "click_event" id = "click_event" x = "110" y = "190">
+            <field name="sprite">1</field>
+                <statement name = "sprite_clicked">
+                    <block type="go_to" id = "go_to">
+                        <field name="sprite">2</field>
+                            <value name = "input_x">
+                                <shadow type="number" id = "nKA)bR%S]ZxPUuJo)RM@">
+                                    <field name="n">0</field>
+                                        </shadow>
+                                        </value>
+                                        <value name = "input_y">
+                                            <shadow type="number" id = "MXtW?R.0QKkZ{u4-k5PF">
+                                                <field name="n">0</field>
+                                                    </shadow>
+                                                    </value>
+                                                    </block>
+                                                    </statement>
+                                                    </block>
+                                                    </xml>`,
          "isParallel": true,
         "icons": [{
             "name": "algo",
