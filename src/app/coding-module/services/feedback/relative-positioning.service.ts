@@ -105,7 +105,6 @@ export class RelativePositioningService {
     }
 
     if (workspace.topBlocks_.length === 1 && json.type === 'move' && blockPresent === false) {
-      console.log('inside saved code');
       const text = Blockly.Xml.workspaceToDom(workspace);
       blocksData.mm2_2_c4.initialCode = Blockly.Xml.domToPrettyText(text);
     }

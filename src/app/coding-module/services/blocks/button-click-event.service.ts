@@ -9,6 +9,7 @@ declare let Blockly: any;
 export class ButtonClickEventService {
   private sp: SpriteService;
   private keyCodePair;
+  private keyButtonIdPair;
   private instance;
   private myInterpreter;
   private feedback;
@@ -54,14 +55,16 @@ export class ButtonClickEventService {
 
   mouseClickEvent = e => {
     this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
-      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'));
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keyButtonIdPair[e.target.cacheKey]);
     });
   }
 
   interpret = (interpreter, buttonData, feedback) => {
     const wrapper = ({ buttonIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.myInterpreter = interpreter;
       this.instance = buttonData[buttonIndex].instance;
+      this.keyButtonIdPair = { ...this.keyButtonIdPair, [`${this.instance.cacheKey}`]: buttonData[buttonIndex].id };
       this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
       this.feedback = feedback;
       this.instance.on('mousedown', this.mouseClickEvent);
@@ -70,7 +73,6 @@ export class ButtonClickEventService {
   }
 
   unregister = () => {
-    this.myInterpreter = [];
     if (this.instance) {
       this.instance.off('mousedown', this.mouseClickEvent);
     }  
