@@ -5,9 +5,9 @@
       <app-select-option [dataOption]="data.options" [correctAnswer]="correctAnswer[i]" [currentIndex]="i" (actionDetail)="selectResult($event)"></app-select-option>
     </div>
   </mat-card-content>
-  <mat-card-footer class="error-msg" [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}"
-    [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-    <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'></app-error-msg>
-    <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button>
+  <mat-card-footer class="error-msg">
+     <app-error-msg class="error" *ngIf="showError" [error]="error" [success]='currentMsgStatus'  [ngClass]="{'success-background': currentMsgStatus && !allCorrectFlag, 'final-success': allCorrectFlag}"></app-error-msg>
+    <!-- <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()">SUBMIT</button> -->
+     <button mat-raised-button *ngIf="!hideButtonFlag" class="submit-button" [disabled]="!allCorrectFlag" (click)="submitAnswer()"><img [src]="submitBtn"></button>
   </mat-card-footer>
 </app-quiz-wrapper>
