@@ -1,20 +1,61 @@
-.speech-box {
-  width: 400px;
-  padding: 30px;
-  border-radius: 20px;
-  font-family: Quicksand;
-  font-size: 18px;
-  color: #fff;
-  background-color: rgb(62, 58, 72);
-  z-index: 300;
-}
 
-.speech-box .arrow {
-  border-style: solid;
+.speech-bubble {
   position: absolute;
+  font-family: 'Quicksand';
+  font-size: 18px;
+  padding: 20px 20px;
+  color: #fff;
+	background: rgb(62, 58, 72);
+	border-radius: .4em;
+  margin: 1em 0;
+  text-align: left;
 }
 
-.bottom {
-  border-color: rgb(62, 58, 72) transparent transparent transparent;
-  border-width: 25px 25px 0px 25px;
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 17px solid transparent;
 }
+
+// left-done
+.speech-bubble.left:after {
+	border-right-color: rgb(62, 58, 72);
+  left: 0;
+	top: 50%;
+	border-left: 0;
+	margin-left: -17px;
+	margin-top: -17px;
+}
+
+// rigth-done
+.speech-bubble.right:after {
+	border-left-color: rgb(62, 58, 72);
+  right: 0;
+	top: 50%;
+	border-right: 0;
+	margin-right: -17px;
+	margin-top: -17px;
+}
+
+// bottom-done
+.speech-bubble.bottom:after {
+	border-top-color: rgb(62, 58, 72);
+  bottom: 0;
+	left: 50%;
+	border-bottom: 0;
+	margin-left: -17px;
+	margin-bottom: -17px;
+}
+
+// top-done
+.speech-bubble.top:after {
+	border-bottom-color: rgb(62, 58, 72);
+  top: 0;
+	left: 50%;
+	border-top: 0;
+	margin-left: -17px;
+	margin-top: -17px;
+}
+

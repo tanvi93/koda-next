@@ -75,7 +75,6 @@ export class TreasureActivitySectionComponent implements OnInit {
   private yGridPerUnitScale: number;
   private checklist = [false, false, false];
   private message: string;
-  private hideMsg: boolean;
   private counter: number;
   private taskList: object;
   private leftPos: string;
@@ -83,21 +82,22 @@ export class TreasureActivitySectionComponent implements OnInit {
   private hintCounter: number;
   private hiddenTreasureFlag: boolean[];
   private treasureMargin: number[];
-  private localData: any;
   private success: boolean;
-  private msgPos = { 'msgLeft': null, 'msgTop': null, 'msgTailTop': null, 'msgTailLeft': null };
+  private speechCss: any;
   
   constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) { 
     this.success = true;
     this.hintCounter = 0;
+    this.speechCss = { position: 'bottom', top: '0px', left: '0px', autoHideMsg: true, width: '18%'};
     this.hiddenTreasureFlag = [true, true, true];
     this.treasureMargin = [75, 75, 75];
   }
 
   ngOnInit() {
-    this.hideMsg = true;
+    this.speechCss.autoHideMsg = true;
     this.counter = 0;
-    this.msgPos = this.contentData.initialMsgPos;
+    this.speechCss.top = this.contentData.initialMsgPos.msgTop;
+    this.speechCss.left = this.contentData.initialMsgPos.msgLeft;
     this.message = this.contentData.errorMsg[0];
     this.taskList = this.contentData.taskCoordinates;
     this.treasureMargin = [75, 75, 75];
@@ -107,7 +107,7 @@ export class TreasureActivitySectionComponent implements OnInit {
     this.yGridPerUnitScale = this.contentData.totalEffectYArea / this.contentData.yScaleValue;
     this.hiddenTreasureFlag = [true, true, true];
   }
-
+  
   failedAttemptFunction = (event) => {
     ++this.hintCounter;
     if (this.hintCounter === 4) {
@@ -117,19 +117,18 @@ export class TreasureActivitySectionComponent implements OnInit {
     this.leftPos = (event.layerX - (this.pirateWidth / 2)) + 'px';
     this.topPos = (event.layerY - (this.pirateHeight / 2)) + 'px';
     this.message = this.contentData.errorMsg[0];
-    this.msgPos.msgTop = (event.layerY - (this.pirateHeight * 1.2)) + 'px';
-    this.msgPos.msgLeft = (event.layerX - (this.pirateWidth * 0.8)) + 'px';
-    this.msgPos.msgTailTop = '68%';
-    this.msgPos.msgTailLeft = '75%';
+    this.speechCss.top = (event.layerY - (this.pirateHeight * 1.4)) + 'px';
+    this.speechCss.left = (event.layerX - (this.pirateWidth * 0.8)) + 'px';
+    this.speechCss.position = 'bottom';
+    
 
     // top-left-edge condition
     if (((event.layerX - (this.pirateWidth / 2)) < 10) && ((event.layerY - (this.pirateHeight / 2)) < 0)) {
       this.topPos = '0px';
       this.leftPos = '5px';
-      this.msgPos.msgLeft = '14%';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '8%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = '14%';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'left';
       return;
     }
     // top-right-edge condition
@@ -137,23 +136,21 @@ export class TreasureActivitySectionComponent implements OnInit {
       && ((event.layerY - (this.pirateHeight / 2)) < 0)) {
       this.topPos = '0px';
       this.leftPos = (event.target.clientWidth - this.pirateWidth) + 'px';
-      this.msgPos.msgLeft = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '100%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'right';
       return;
     }
     // top condition
     if (((event.layerY - (this.pirateHeight / 2)) < 0)) {
       this.topPos = '0px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.top = this.topPos;
       if (event.layerX / event.target.clientWidth < 0.75) {
-        this.msgPos.msgTailLeft = '8%';
-        this.msgPos.msgLeft = (event.layerX + (this.pirateWidth / 2)) + 'px';
+        this.speechCss.position = 'left';
+        this.speechCss.left = (event.layerX + (this.pirateWidth / 2)) + 'px';
       } else {
-        this.msgPos.msgTailLeft = '100%';
-        this.msgPos.msgLeft = (event.layerX - (this.pirateWidth * 1.7)) + 'px';
+        this.speechCss.position = 'right';
+        this.speechCss.left = (event.layerX - (this.pirateWidth * 1.7)) + 'px';
       }
       return;
     }
@@ -163,10 +160,9 @@ export class TreasureActivitySectionComponent implements OnInit {
       && (event.layerY + (this.pirateHeight / 2)) > event.target.clientHeight) {
       this.leftPos = '10px';
       this.topPos = (event.target.clientHeight - (this.pirateHeight)) + 'px';
-      this.msgPos.msgLeft = (this.pirateWidth) + 'px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '8%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = (this.pirateWidth) + 'px';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'left';
       return;
     }
 
@@ -175,47 +171,49 @@ export class TreasureActivitySectionComponent implements OnInit {
       && (event.layerY + (this.pirateHeight / 2)) > event.target.clientHeight) {
       this.topPos = (event.target.clientHeight - (this.pirateHeight)) + 'px';
       this.leftPos = (event.layerX - (this.pirateWidth)) + 'px';
-      this.msgPos.msgLeft = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '100%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'right';
       return;
     }
 
     // bottom condition
     if ((event.layerY + (this.pirateHeight / 2)) > event.target.clientHeight) {
       this.topPos = (event.target.clientHeight - (this.pirateHeight)) + 'px';
-      this.msgPos.msgTop = (event.target.clientHeight - (this.pirateHeight * 1.7)) + 'px';
+      this.speechCss.top = (event.target.clientHeight - (this.pirateHeight * 1.9)) + 'px';
     }
 
     // left position condition
     if ((event.layerX - (this.pirateWidth / 2)) < 10) {
       this.leftPos = '0px'
-      this.msgPos.msgLeft = (this.pirateWidth * 1) + 'px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '8%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = (this.pirateWidth * 1) + 'px';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'left';
     }
 
     // right position condition
     if ((event.layerX + (this.pirateWidth / 2)) > event.target.clientWidth) {
       this.leftPos = (event.target.clientWidth - (this.pirateWidth)) + 'px';
-      this.msgPos.msgLeft = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailLeft = '100%';
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.left = (event.target.clientWidth - this.pirateWidth * 2.2) + 'px';
+      this.speechCss.top = this.topPos;
+      this.speechCss.position = 'right';
     }
 
     if (event.layerY / event.target.clientHeight < 0.3) {
-      this.msgPos.msgTop = this.topPos;
-      this.msgPos.msgTailTop = '30%';
+      this.speechCss.top = this.topPos;
       if (event.layerX / event.target.clientWidth < 0.75) {
-        this.msgPos.msgTailLeft = '8%';
-        this.msgPos.msgLeft = (event.layerX + (this.pirateWidth / 2)) + 'px';
+        this.speechCss.position = 'left';
+        this.speechCss.left = (event.layerX + (this.pirateWidth / 2)) + 'px';
       } else {
-        this.msgPos.msgTailLeft = '100%';
-        this.msgPos.msgLeft = (event.layerX - (this.pirateWidth * 1.7)) + 'px';
+        this.speechCss.position = 'right';
+        this.speechCss.left = (event.layerX - (this.pirateWidth * 1.7)) + 'px';
       }
+    }
+    if (this.speechCss.top[0] === '-') {
+      this.speechCss.top = '0px';
+    }
+    if (this.speechCss.left[0] === '-') {
+      this.speechCss.left = '15px';
     }
   }
 
@@ -258,9 +256,9 @@ export class TreasureActivitySectionComponent implements OnInit {
   }
 
   showMsgFunction = () => {
-    this.hideMsg = true;
+    this.speechCss.autoHideMsg = true;
     setTimeout(() => {
-      this.hideMsg = false;
+      this.speechCss.autoHideMsg = false;
     }, 50);
   }
 
@@ -270,28 +268,25 @@ export class TreasureActivitySectionComponent implements OnInit {
       case 0: {
         this.leftPos = '69%';
         this.topPos = '50%';
-        this.msgPos.msgTop = '30%';
-        this.msgPos.msgLeft = '64%';
-        this.msgPos.msgTailTop = '68%';
-        this.msgPos.msgTailLeft = '75%';
+        this.speechCss.top = '30%';
+        this.speechCss.left = '64%';
+        this.speechCss.position = 'bottom';
         break;
       }
       case 1: {
         this.leftPos = '75%';
         this.topPos = '22%';
-        this.msgPos.msgTop = '1%';
-        this.msgPos.msgLeft = '70%';
-        this.msgPos.msgTailTop = '68%';
-        this.msgPos.msgTailLeft = '75%';
+        this.speechCss.top = '0%';
+        this.speechCss.left = '70%';
+        this.speechCss.position = 'bottom';
         break;
       }
       case 2: {
         this.leftPos = '25%';
         this.topPos = '0%';
-        this.msgPos.msgTop = '1%';
-        this.msgPos.msgLeft = '39%';
-        this.msgPos.msgTailTop = '25%';
-        this.msgPos.msgTailLeft = '8%';
+        this.speechCss.top = '0%';
+        this.speechCss.left = '40%';
+        this.speechCss.position = 'left';
         break;
       }
       default: ;
