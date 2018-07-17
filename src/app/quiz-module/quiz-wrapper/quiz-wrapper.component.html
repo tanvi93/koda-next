@@ -1,18 +1,21 @@
-<div fxLayout="column">
+<div fxLayout="column" style="overflow-x: hidden;">
   <div class="icon-wrap">
-  <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
-  <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">
-    <img class="icon" src="./assets/icons/hint_open.svg" alt="">
-  </button>
-</div>
+    <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
+    <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">
+      <img class="icon" src="./assets/icons/hint_open.svg" alt="">
+    </button>
+  </div>
   <button mat-fab *ngIf="quizData.preview" (click)="previewDialog($event)" class="button">
     <img class="icon" src="./assets/icons/preview_open.svg" alt="">
   </button>
   <div fxLayout="row" fxLayoutGap="10px">
-    <div *ngIf="quizData.mediaLink" class="img-placeholder" fxFlex="60" fxLayoutAlign="space-around center">
-      <img class="gameImage" [src]="quizData.mediaLink" alt="game video">
+    <div *ngIf="quizData.mediaLink" class="img-placeholder" [fxFlex]="flexLeft" fxLayoutAlign="space-around center">
+      <img *ngIf="quizData.mediaType != 'game'" class="gameImage" [src]="quizData.mediaLink" alt="game video">
+      <div *ngIf="quizData.mediaType == 'game'" id="canvas-holder" class="game-canvas-container" fxLayout="column" fxFlex="90">
+        <app-game-canvas></app-game-canvas>
+      </div>
     </div>
-    <mat-card fxFlex="40" class="quiz-zone">
+    <mat-card [fxFlex]="flexRight" class="quiz-zone">
       <div class="question-comp">
         <app-quiz-question [question]='quizData.question'></app-quiz-question>
       </div>

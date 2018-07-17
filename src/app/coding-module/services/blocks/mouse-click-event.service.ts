@@ -50,6 +50,7 @@ export class MouseClickEventService {
 
   interpret = interpreter => {
     const wrapper = ({ linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.interpreter = interpreter;
       this.code = linesOfCode;
       document.getElementById('game').addEventListener('click', this.mouseClickEvent);

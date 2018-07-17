@@ -1,0 +1,33 @@
+.input {
+  width: 60px;
+  height: 50px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.container {
+  font-family: 'Quicksand';
+  margin-top: 5px;
+  font-size: 20px;
+  visibility: hidden;
+}
+
+#Id0, #Id1{
+    visibility: visible;
+}
+
+.question {
+  margin-left: 50px;
+}
+
+::placeholder {
+  font-size: 10px;
+}
+
+.error {
+  background: #EE5862;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 9;
+}

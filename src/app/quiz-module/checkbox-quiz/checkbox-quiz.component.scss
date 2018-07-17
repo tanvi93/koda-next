@@ -14,12 +14,11 @@
 }
 
 mat-card-actions {
-  display: table;
-  width: 100%;
-  margin-top: 5%;
+  margin: 5% 0 0 0;
   text-align: center;
-  & button {
-    display: table-cell;
+  & img {
+    width:24%;
+    cursor: pointer;
   }
 }
 

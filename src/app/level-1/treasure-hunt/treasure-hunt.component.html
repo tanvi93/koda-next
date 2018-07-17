@@ -1,8 +1,8 @@
 <div class="treasure-hunt-div h100" fxLayout="column">
   <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
-  <div fxLayout="row"  class="hunt-wrapper">
+  <div class="hunt-wrapper">
     <img class="hint-icon" [hidden]="hideHint" (click)="openHintDialog($event)" src="assets/icons/hint_open.svg" alt="">
-    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+    <div class="input-div">
       <div class="input-section-inner-div">
         <img class="treasure-hunt-todo-list-image" [src]="contentData.treasureScrollImage">
         <div class='treasure-hunt-task-check'>
@@ -17,8 +17,8 @@
         </div>
       </div>
     </div>
-    <div fxFlex="60" fxLayoutAlign="start space-around">
-      <app-treasure-activity-section class="ouput-section" [contentData]="contentData" (chestVisibleFlag)="updateTodoList($event)" (hintActivate)="activateHint($event)"></app-treasure-activity-section>
+    <div class="treasure-map-wrap">
+      <app-treasure-activity-section class="output-section" [contentData]="contentData" (chestVisibleFlag)="updateTodoList($event)" (hintActivate)="activateHint($event)"></app-treasure-activity-section>
     </div>
   </div>
 </div>

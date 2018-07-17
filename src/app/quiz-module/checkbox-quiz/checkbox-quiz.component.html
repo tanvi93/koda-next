@@ -1,12 +1,12 @@
 <app-quiz-wrapper [quizData]="quizObj">
   <mat-card-content>
     <div class="checkbox" *ngFor="let data of quizObj.answer; let i = index;">
-      <mat-checkbox [value]="i" (input)="checkboxFunction($event, i)"></mat-checkbox>
+      <mat-checkbox [value]="i" (change)="checkboxFunction($event, i)"></mat-checkbox>
       <p [innerHTML]="data.option"></p>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button class="submit-button" (click)="submitAnswer(quizObj.answer)">SUBMIT</button>
+    <span (click)="submitAnswer(quizObj.answer)"><img [src]="submitBtn" alt=""/></span>
   </mat-card-actions>
   <mat-card-footer class="error-msg">
     <app-error-msg *ngIf="showError" [error]="error"></app-error-msg>

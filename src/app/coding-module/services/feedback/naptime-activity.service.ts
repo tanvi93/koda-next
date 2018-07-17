@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { assetsLink } from './../../../shared-services/config';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service'; 
 
 let initialLoadFlag = true;
 let initialblockArray: string[] = [];
@@ -12,16 +14,14 @@ let numberArray = [];
 
 @Injectable()
 export class NaptimeActivityService {
-  private blockList: any;
-  private codes: Array<any>;
+  private tracker: ActivityTrackerService;
   private success: Boolean;
   private successObj: any;
-  private localData: any;
   
   constructor() {
     this.success = false;
     this.successObj = {};
-    this.localData = JSON.parse(localStorage.getItem('loops'));
+    this.tracker = new ActivityTrackerService();
   }
   
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
@@ -158,12 +158,10 @@ export class NaptimeActivityService {
                               this.successObj['success'] = this.success;
                               this.successObj['title'] = 'Great!';
                               this.successObj['msg'] = 'All my pets are asleep now.';
-                              this.successObj['mascotImage'] = 'assets/images/activities/naptime/mascot_head.png';
+                              this.successObj['mascotImage'] = assetsLink + 'activities/naptime/mascot_head.png';
                               this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-                              this.localData[2].status.complete.imageStatus = true;
-                              this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
-                              localStorage.setItem('loops', JSON.stringify(this.localData));
-                                return callback(this.successObj);
+                              this.tracker.setContent('loops', 2);
+                              return callback(this.successObj);
                               
                             }                            
                           }
