@@ -49,17 +49,17 @@ export class MarsOutputSectionComponent implements OnInit {
   private roverStandingHide: boolean;
   private xContent: number;
   private yContent: number;
-  private speechData: any;
+  private speechCss: any;
 
   constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
-    this.speechData = { position: 'left', width: '20%', autoHideMsg: true, top: '0px', left: '0px' };
+    this.speechCss = { position: 'left', width: '20%', autoHideMsg: true, top: '0px', left: '0px' };
   }
 
   ngOnInit() {
     this.backgroundImage = this.contentData.mapImage;
-    this.speechData.top = this.contentData.initialMsgPos.msgTop;
-    this.speechData.left = this.contentData.initialMsgPos.msgLeft;
-    this.speechData.autoHideMsg = true;
+    this.speechCss.top = this.contentData.initialMsgPos.msgTop;
+    this.speechCss.left = this.contentData.initialMsgPos.msgLeft;
+    this.speechCss.autoHideMsg = true;
     this.waterDropletFlag = [false, false, false];
     this.roverImage = this.contentData.roverImage[0];
     this.roverSittingImage = this.contentData.roverImage[1];
@@ -74,11 +74,11 @@ export class MarsOutputSectionComponent implements OnInit {
     this.roverStandingHide = false;
   }
   hideMsgFunc(flag: boolean) {
-    this.speechData.autoHideMsg = flag;
+    this.speechCss.autoHideMsg = flag;
   }
 
   clearMsgFunction = () => {
-    this.speechData.autoHideMsg = false;
+    this.speechCss.autoHideMsg = false;
     this.clearInputFlag.emit(true);
   }
 
@@ -87,16 +87,16 @@ export class MarsOutputSectionComponent implements OnInit {
   activityFunction(x: number, y: number) {
     this.xContent = Number(x);
     this.yContent = Number(y);
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
     // condition to showing warning msg at proper position
     if (this.inputValueTracker.left > 6) {
-      this.speechData.position = 'right';
-      this.speechData.top = (this.inputValueTracker.top * this.contentData.yPerUnitValue)  + '%';
-      this.speechData.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) - 21 + '%';
+      this.speechCss.position = 'right';
+      this.speechCss.top = (this.inputValueTracker.top * this.contentData.yPerUnitValue)  + '%';
+      this.speechCss.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) - 21 + '%';
     } else {
-      this.speechData.position = 'left';
-      this.speechData.top = ((this.inputValueTracker.top) * this.contentData.yPerUnitValue) + '%';
-      this.speechData.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) + 17 + '%';
+      this.speechCss.position = 'left';
+      this.speechCss.top = ((this.inputValueTracker.top) * this.contentData.yPerUnitValue) + '%';
+      this.speechCss.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) + 17 + '%';
     }
 
     if (this.xContent === 0 && this.yContent === 0) {
@@ -185,7 +185,7 @@ export class MarsOutputSectionComponent implements OnInit {
 
   checkSuccessCondition(count) {
     if (count === 3) {
-      this.speechData.autoHideMsg = true;
+      this.speechCss.autoHideMsg = true;
       this.dialogRef = this.dialog.open(SuccessModalComponent, {
         hasBackdrop: true,
         disableClose: true,

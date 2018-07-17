@@ -15,7 +15,7 @@
   <div class="over-the-shield"  *ngFor="let list of contentData.taskList; let i = index;"
     [hidden]="hiddenTreasureFlag[i]" (click)="repeatedClickedFunction(i)" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
   </div>
-  <app-speech-bubble [speechContent]="speechData">
+  <app-speech-bubble [speechContent]="speechCss">
     {{message}}
   </app-speech-bubble>
 </div>

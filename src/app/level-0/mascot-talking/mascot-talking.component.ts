@@ -17,7 +17,7 @@ export class MascotTalkingComponent implements OnInit {
   private activeIndex;
   private audios: Array<any>;
   private currentAudio;
-  private speechData;
+  private speechCss;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -56,7 +56,7 @@ export class MascotTalkingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.speechData = { width: '75%',  position: 'bottom', autoHideMsg: false };
+    this.speechCss = { width: '75%',  position: 'bottom'};
     this.route.params.subscribe(params => {
       this.pageId = params.pageId;
       this.audio.loader(this.VOs[this.pageId]);

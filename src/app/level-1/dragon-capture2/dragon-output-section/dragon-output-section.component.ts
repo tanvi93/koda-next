@@ -50,10 +50,10 @@ export class DragonOutputSectionComponent implements OnInit {
   private xContent: number;
   private yContent: number;
   private dragAudio: string[];
-  private speechData: any;
+  private speechCss: any;
 
   constructor(public dialog: MatDialog, private audio: AudioService) {
-    this.speechData = { autoHideMsg: true, position: 'bottom', width: '20%' };  
+    this.speechCss = { autoHideMsg: true, position: 'bottom', width: '20%' };  
     this.gemStoneImage = ['', '', ''];
     this.dragAudio = ['assets/audio/dragon/dragons-roar-trim.mp3'];
   }
@@ -73,7 +73,7 @@ export class DragonOutputSectionComponent implements OnInit {
       return image;
     });
     
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
     this.flaskVisible = false;
     this.leftShift = this.contentData.xInitialValue * this.contentData.xGridPerUnitScale;
     this.topShift = this.contentData.yInitialValue * this.contentData.yGridPerUnitScale;
@@ -92,21 +92,21 @@ export class DragonOutputSectionComponent implements OnInit {
   }
 
   hideMsgFunc(flag: boolean) {
-    this.speechData.autoHideMsg = flag;
+    this.speechCss.autoHideMsg = flag;
   }
 
   activityFunction(x: number, y: number) {
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
     this.xContent = Number(x);
     this.yContent = Number(y);
 
     // condition to showing warning msg at proper position
     if (this.inputValueTracker.left > 5) {
-      this.speechData.position = 'right';
+      this.speechCss.position = 'right';
     } else {
-      this.speechData.position = 'left';
+      this.speechCss.position = 'left';
     }
-    this.speechPosition(this.speechData.position);
+    this.speechPosition(this.speechCss.position);
 
 
 
@@ -194,16 +194,16 @@ export class DragonOutputSectionComponent implements OnInit {
 
   speechPosition(position) {
     if (position === 'right') {
-      this.speechData.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
-      this.speechData.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) - 19 + '%';
+      this.speechCss.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
+      this.speechCss.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) - 19 + '%';
     } else if(position === 'left') {
-      this.speechData.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
-      this.speechData.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) + 13 + '%';
+      this.speechCss.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
+      this.speechCss.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) + 13 + '%';
     }
   }
 
   clearMsgFunction() {
-    this.speechData.autoHideMsg = false;
+    this.speechCss.autoHideMsg = false;
     this.clearInputFlag.emit(true);
   }
 
@@ -247,11 +247,11 @@ export class DragonOutputSectionComponent implements OnInit {
             this.dialogRef.componentInstance.modalData = this.contentData;
           }, 2200);
         } else {
-          this.speechPosition(this.speechData.position);
+          this.speechPosition(this.speechCss.position);
           this.message = this.contentData.errorMsg[3];
           setTimeout(() => {
             this.contentData.gemsCoordData[i].flag = true;
-            this.speechData.autoHideMsg = false;
+            this.speechCss.autoHideMsg = false;
           }, 1000);
           setTimeout(() => {
             this.gemStoneImage[i] = this.contentData.gemsImage[1];
@@ -260,10 +260,10 @@ export class DragonOutputSectionComponent implements OnInit {
       } else if (this.inputValueTracker.left === this.contentData.gemsCoordData[i].x
         && this.inputValueTracker.top === this.contentData.gemsCoordData[i].y
         && this.contentData.gemsCoordData[i].flag === true) {
-          this.speechPosition(this.speechData.position);
+          this.speechPosition(this.speechCss.position);
           this.message = this.contentData.errorMsg[4];
           setTimeout(() => {
-            this.speechData.autoHideMsg = false;
+            this.speechCss.autoHideMsg = false;
           }, 10);
       }
     }

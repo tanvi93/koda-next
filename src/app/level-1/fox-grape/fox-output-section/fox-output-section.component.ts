@@ -41,7 +41,7 @@ export class FoxOutputSectionComponent implements OnInit {
   private transitionTime: string;
   private topShiftRange: Array<string>;
   private message: string;
-  private speechData: any;
+  private speechCss: any;
   private topGrapeShift: string;
   private grapesTransitionTime: string;
   private success: Boolean;
@@ -55,7 +55,7 @@ export class FoxOutputSectionComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
     this.success = true;
-    this.speechData = { position: 'left', width: '20%', autoHideMsg: true, top: '0px', left: '0px' };
+    this.speechCss = { position: 'left', width: '20%', autoHideMsg: true, top: '0px', left: '0px' };
   }
 
   ngOnInit() {
@@ -83,27 +83,27 @@ export class FoxOutputSectionComponent implements OnInit {
     this.topShiftRange = this.contentData.topShiftRange;
     this.foxImage = this.contentData.foxImage[0];
     this.topGrapeShift = this.contentData.initialTopShiftValue;
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
   }
 
   hideMsgFuncion = () => {
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
   }
 
   clearMsgFunction = () => {
-    this.speechData.autoHideMsg = false;
+    this.speechCss.autoHideMsg = false;
     this.clearInputFlag.emit(true);
   }
 
   activityFunction(x: any, y: any) {
     this.xContent = x;
     this.yContent = y;
-    this.speechData.autoHideMsg = true;
+    this.speechCss.autoHideMsg = true;
     let n = 0
 
-    this.speechData.left = this.contentData.initialMsgLeftValue;
-    this.speechData.top = this.contentData.sideTailMsgTopPosition;
-    this.speechData.position = 'left';
+    this.speechCss.left = this.contentData.initialMsgLeftValue;
+    this.speechCss.top = this.contentData.sideTailMsgTopPosition;
+    this.speechCss.position = 'left';
     this.foxImage = this.contentData.foxImage[0];
     if (String(this.xContent).length === 0 && String(this.yContent).length === 0) {
       this.message = this.contentData.errorMsg[1];
@@ -114,11 +114,11 @@ export class FoxOutputSectionComponent implements OnInit {
     } else if ((Number(this.xContent) > this.contentData.xBoundaryCondition) || (Number(this.yContent) > this.contentData.yBoundaryCondition)) {
       this.message = this.contentData.errorMsg[3];
       setTimeout(() => {
-        this.speechData.autoHideMsg = false;
+        this.speechCss.autoHideMsg = false;
       }, 500);
       setTimeout(() => {
         this.clearInputFlag.emit(true);
-        this.speechData.autoHideMsg = true;
+        this.speechCss.autoHideMsg = true;
       }, 4500);
       return;
     } else if ((Number(this.xContent) < 0) || (Number(this.yContent) < 0)) {
@@ -136,11 +136,11 @@ export class FoxOutputSectionComponent implements OnInit {
     } else {
 
       if (this.xContent <= 4) {
-        this.speechData.left = (16 + (this.xContent) * 14) + '%';
+        this.speechCss.left = (16 + (this.xContent) * 14) + '%';
       } else if (this.xContent > 4) {
-        this.speechData.left = (this.xContent * 14 - 10) + '%';
-        this.speechData.top = this.contentData.downTailMsgTopPosition;
-        this.speechData.position = 'bottom';
+        this.speechCss.left = (this.xContent * 14 - 10) + '%';
+        this.speechCss.top = this.contentData.downTailMsgTopPosition;
+        this.speechCss.position = 'bottom';
       }
 
       if ((this.yContent === '' || this.yContent === '0') && this.xContent !== '0') {
@@ -196,12 +196,12 @@ export class FoxOutputSectionComponent implements OnInit {
       }, 3540);
       setTimeout(() => {
         if (!this.successFlag) {
-          this.speechData.autoHideMsg = false;
+          this.speechCss.autoHideMsg = false;
         }
       }, 4000);
       setTimeout(() => {
         if (!this.successFlag) {
-          this.speechData.autoHideMsg = true;
+          this.speechCss.autoHideMsg = true;
           this.foxImage = this.contentData.foxImage[0];
           this.leftShift = this.contentData.initialLeftShiftValue;
           this.clearInputFlag.emit(true);
@@ -213,13 +213,13 @@ export class FoxOutputSectionComponent implements OnInit {
       Number(this.yContent) === this.contentData.CorrectCoordinate.yValue) {
       this.successFlag = true;
       setTimeout(() => {
-        this.speechData.autoHideMsg = true;
+        this.speechCss.autoHideMsg = true;
         this.initialIndex = 10;
         this.topGrapeShift = this.contentData.finalGrapeTopShiftPos;
       }, 2540);
       this.tracker.setContent('coordinates', 0);
       setTimeout(() => {
-        this.speechData.autoHideMsg = true;
+        this.speechCss.autoHideMsg = true;
         this.dialogRef = this.dialog.open(SuccessModalComponent, {
           hasBackdrop: true,
           disableClose: true,
@@ -230,7 +230,7 @@ export class FoxOutputSectionComponent implements OnInit {
       }, 4040);
 
       setTimeout(() => {
-        this.speechData.autoHideMsg = true;
+        this.speechCss.autoHideMsg = true;
         this.foxImage = this.contentData.foxImage[3];
         this.leftShift = ((this.xContent) * 14) + '%';
       }, 6050);

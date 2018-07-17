@@ -50,10 +50,10 @@ export class DragonCaptureOutputComponent implements OnInit {
   private articleTopShift: string[];
   private articleHidden: boolean[];
   private clickableContentFlag: boolean[];
-  private speechData;
+  private speechCss;
  
   constructor(public dialog: MatDialog) { 
-    this.speechData = {autoHideMsg: true, position: 'bottom', width: '20%', textAlign: 'center', top: '0px', left:'0px', fontSize: '1vw'}
+    this.speechCss = {autoHideMsg: true, position: 'bottom', width: '20%', textAlign: 'center', top: '0px', left:'0px', fontSize: '1vw'}
   }
 
   ngOnInit() {
@@ -71,41 +71,41 @@ export class DragonCaptureOutputComponent implements OnInit {
     this.message = this.contentData.errorMsg;
     if (ev.layerX / ev.target.clientWidth > 0.8 && ev.layerY / ev.target.clientHeight < 0.1) {
 
-      this.speechData.position = "right";
-      this.speechData.left = (ev.layerX * 0.75) + 'px';
-      this.speechData.top = (ev.layerY) + 'px';
+      this.speechCss.position = "right";
+      this.speechCss.left = (ev.layerX * 0.75) + 'px';
+      this.speechCss.top = (ev.layerY) + 'px';
     } else if (ev.layerX / ev.target.clientWidth > 0.8 && ev.layerY / ev.target.clientHeight > 0.9) {
 
-      this.speechData.position = "right";
-      this.speechData.left = (ev.layerX * 0.75) + 'px';
-      this.speechData.top = '90%';
+      this.speechCss.position = "right";
+      this.speechCss.left = (ev.layerX * 0.75) + 'px';
+      this.speechCss.top = '90%';
     } else if (ev.layerY / ev.target.clientHeight < 0.1) {
 
-      this.speechData.position = "left";
-      this.speechData.left = (ev.layerX) + 'px';
-      this.speechData.top = (ev.layerY) + 'px';
+      this.speechCss.position = "left";
+      this.speechCss.left = (ev.layerX) + 'px';
+      this.speechCss.top = (ev.layerY) + 'px';
     } else if (ev.layerX / ev.target.clientWidth > 0.8) {
 
-      this.speechData.position = "right";
-      this.speechData.left = (ev.layerX * 0.73) + 'px';
-      this.speechData.top = (ev.layerY - 20) + 'px';
+      this.speechCss.position = "right";
+      this.speechCss.left = (ev.layerX * 0.73) + 'px';
+      this.speechCss.top = (ev.layerY - 20) + 'px';
     } else if (ev.layerY / ev.target.clientHeight > 0.9) {
 
-      this.speechData.position = "left";
-      this.speechData.left = (ev.layerX) + 'px';
-      this.speechData.top = '90%';
+      this.speechCss.position = "left";
+      this.speechCss.left = (ev.layerX) + 'px';
+      this.speechCss.top = '90%';
     } else {
 
-      this.speechData.position = "left";
-      this.speechData.left = (ev.layerX) + 'px';
-      this.speechData.top = (ev.layerY - 20) + 'px';
+      this.speechCss.position = "left";
+      this.speechCss.left = (ev.layerX) + 'px';
+      this.speechCss.top = (ev.layerY - 20) + 'px';
     }
     setTimeout(() => {
-      this.speechData.autoHideMsg = false;
+      this.speechCss.autoHideMsg = false;
       this.gridEnabled = false;
     }, 100);
     setTimeout(() => {
-      this.speechData.autoHideMsg = true;
+      this.speechCss.autoHideMsg = true;
       this.gridEnabled = true;
     }, 3000);
   }
@@ -113,15 +113,15 @@ export class DragonCaptureOutputComponent implements OnInit {
   successfulAttempt = (ev) => {
     this.gridEnabled = false;
     setTimeout(() => {
-      this.speechData.autoHideMsg = false;
+      this.speechCss.autoHideMsg = false;
     }, 500);
     ev.target.style.display = 'none';
     setTimeout(() => {
       this.articleTopShift[Number(ev.target.id)] = '0';
     }, 100);
-    this.speechData.top = (this.contentData.yGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].y) + 0.5) * this.contentData.yGridPerUnitScale + '%';
-    this.speechData.left = (this.contentData.xGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].x) + 1.5) * this.contentData.xGridPerUnitScale + '%';
-    this.speechData.position = 'left';
+    this.speechCss.top = (this.contentData.yGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].y) + 0.5) * this.contentData.yGridPerUnitScale + '%';
+    this.speechCss.left = (this.contentData.xGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].x) + 1.5) * this.contentData.xGridPerUnitScale + '%';
+    this.speechCss.position = 'left';
 
     switch (Number(ev.target.id) + 1) {
 
@@ -133,7 +133,7 @@ export class DragonCaptureOutputComponent implements OnInit {
           this.articleHidden[Number(ev.target.id)] = true;
           this.clickableContentFlag[1] = false;
           this.gridEnabled = true;
-          this.speechData.autoHideMsg = true;
+          this.speechCss.autoHideMsg = true;
           this.coordVisibility = false;
           this.backgroundImage = this.contentData.backgroundImage[1];
           this.inputFlagStatus.emit(Number(ev.target.id));
@@ -147,7 +147,7 @@ export class DragonCaptureOutputComponent implements OnInit {
         setTimeout(() => {
           this.gridEnabled = true;
           this.clickableContentFlag[2] = false;
-          this.speechData.autoHideMsg = true;
+          this.speechCss.autoHideMsg = true;
           this.articleHidden[Number(ev.target.id)] = true;
           this.inputFlagStatus.emit(Number(ev.target.id));
         }, 5500);
@@ -160,7 +160,7 @@ export class DragonCaptureOutputComponent implements OnInit {
         setTimeout(() => {
           this.gridEnabled = true;
           this.successCondition();
-          this.speechData.autoHideMsg = true;
+          this.speechCss.autoHideMsg = true;
           this.articleHidden[Number(ev.target.id)] = true;
           this.inputFlagStatus.emit(Number(ev.target.id));
         }, 3000);

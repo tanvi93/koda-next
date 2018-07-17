@@ -4,7 +4,7 @@
   <img class="mascot-top-view" [src]="contentData.mascotTopView" [ngStyle]="{'top': topShift + '%', 'left': leftShift + '%', 'transition': transitionTime}"  alt="">
   <img class="flask-image" [src]="contentData.flaskImage" [hidden]="!flaskVisible" alt="">
   <img class="dragon-image" id="dragon-animation" [src]="contentData.dragonImage" [ngStyle]="{'top': dragonTopShift + '%', 'left': dragonLeftShift + '%', 'transition': dragonTransitionTime}"  alt="">
-  <app-speech-bubble [speechContent]="speechData">
+  <app-speech-bubble [speechContent]="speechCss">
     {{message}}
   </app-speech-bubble>
 </div>
