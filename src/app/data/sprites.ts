@@ -1058,7 +1058,9 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire1.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire2.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire3.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
