@@ -1,7 +1,7 @@
 <div class="treasure-hunt-div h100" fxLayout="column">
   <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
-  <div fxLayout="row" class="hunt-wrapper">
-    <div fxFlex="40" fxLayoutAlign="space-around start" class="input-div">
+  <div class="hunt-wrapper">
+    <div class="input-div">
       <div class="input-section-inner-div">
         <div class="input-section-inner-div">
           <div class="header-section">
@@ -19,8 +19,8 @@
         </div>
       </div>
     </div>
-    <div fxFlex="60" fxLayoutAlign="start space-around">
-      <app-dragon-capture-output class="ouput-section" [contentData]="contentData" (dragonObject)="updateTodoList($event)" (inputFlagStatus)="displayFlag($event)"
+    <div class="dragon-output-wrap">
+      <app-dragon-capture-output class="output-section" [contentData]="contentData" (dragonObject)="updateTodoList($event)" (inputFlagStatus)="displayFlag($event)"
        ></app-dragon-capture-output>
     </div>
   </div>
