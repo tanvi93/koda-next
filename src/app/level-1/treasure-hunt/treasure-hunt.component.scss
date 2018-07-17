@@ -1,0 +1,59 @@
+.hunt-wrapper {
+    display: table;
+}
+
+.input-div {
+    display: table-cell;
+    width: 44%;
+    vertical-align: middle;
+    position: relative;
+    background-color: rgba(215, 215, 215, 0.3);
+    padding: 0 2%;
+}
+
+.treasure-map-wrap {
+    display: table-cell;
+    width: 55%;
+    padding-left: 1%;
+    vertical-align: middle;
+}
+
+.treasure-hunt-task-check{
+    width: 40%;
+    font-family: 'QuickSand';
+    font-weight: 700;
+    font-size: 1vw;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+    -moz-transform: translateY(-40%);
+    -webkit-transform: translateY(-40%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: left;   
+        & .list-header {
+            color: #754F28;
+        }
+        & .light-guideline {
+            color: #A58057;
+            font-style: italic;
+        }
+        & .listing {
+            display: table;
+            margin-top: 5%;
+            color: #6e4e27;
+            & span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            & img {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+}
+
+.treasure-hunt-todo-list-image {
+    width: 100%;
+}

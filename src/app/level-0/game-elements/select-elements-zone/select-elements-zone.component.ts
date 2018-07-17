@@ -54,6 +54,7 @@ export class SelectElementsZoneComponent implements OnInit {
   private isCorrect: Boolean;
   private showElementsZone: Boolean;
   private isCharClickedOnce: Boolean;
+  private success: Boolean;
   dialogRef: MatDialogRef<SuccessModalComponent>;
 
   constructor(public dialog: MatDialog) {
@@ -61,6 +62,7 @@ export class SelectElementsZoneComponent implements OnInit {
     this.showRules = false;
     this.showError = false;
     this.isCorrect = false;
+    this.success = false;
     this.showElementsZone = true;
     this.isCharClickedOnce = false;
     this.elementsObj = ['img1', 'img2', 'img3', 'background'];
@@ -71,6 +73,7 @@ export class SelectElementsZoneComponent implements OnInit {
   }
 
   elementClicked(event) {
+    this.success = false;
     this.isCharClickedOnce = false;
     this.displayError();
     for (let i = 0; i < this.presentQuestionData.options.length; i++) {
@@ -79,6 +82,7 @@ export class SelectElementsZoneComponent implements OnInit {
           for (let j = 0; j < this.elementsObj.length; j++) {
             if (this.elementsObj[j] === event.target.id) {
               this.isCharClickedOnce = true;
+              this.success = true;
                 this.clickedImageId.emit(event.target.id);
                 this.error = this.presentQuestionData.options[i].correctMsg;
               this.isCorrect = true;
@@ -105,8 +109,10 @@ export class SelectElementsZoneComponent implements OnInit {
   }
 
   selectedOption(value) {
+    this.success = false;
     this.displayError();
     if (value.isCorrect) {
+      this.success = true;
       if (value.correctMsg) {
         this.isCorrect = true;
         this.error = value.correctMsg;

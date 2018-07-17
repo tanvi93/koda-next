@@ -1,3 +1,7 @@
+.game-canvas-container{
+    position: relative;
+    z-index: 999;
+}
 .build-game button{
     background:#00bee5;
     width: 290px;

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { BadgesComponent } from './shared-pages/badges/badges.component';
 import { DashboardComponent } from './shared-pages/dashboard/dashboard.component';
@@ -24,6 +24,9 @@ const routes: Routes = [
   }, {
     path: 'level-3',
     loadChildren: 'app/level-2/level-2.module#Level2Module'
+  }, {
+    path: 'level-4',
+    loadChildren: 'app/level-3/level-3.module#Level3Module'
   }, {
     path: 'quiz',
     loadChildren: 'app/quiz-module/quiz-module.module#QuizModuleModule'
@@ -58,7 +61,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

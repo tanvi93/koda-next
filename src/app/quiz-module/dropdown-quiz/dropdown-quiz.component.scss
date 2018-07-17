@@ -1,12 +1,15 @@
 .dropdown {
   display: table;
   margin-top: 2%;
-  margin-left: 20%;
+  padding-left: 25%;
   color: black;
   width: 100%;
+  box-sizing: border-box;
   & p {
     display: table-cell;
     width: 20%;
+    font-size: 18px;
+    font-weight: 500;
   }
 }
 
@@ -20,10 +23,35 @@ mat-card-footer {
   }
 }
 
-.success-background {
-  background-color: green !important;
+mat-card-content{
+  margin: 45px 0 0 0;
 }
-
 .final-success {
   background-color: white !important;
 }
+
+.mat-card-footer button.submit-button {
+  width: 25%;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+}
+
+.mat-raised-button[disabled]{
+  background: transparent;
+}
+
+.submit-button img{
+  width: 100%;
+}
+
+.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]),.mat-raised-button:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+.mat-button-ripple:focus{
+  outline: none;
+}
+

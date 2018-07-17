@@ -22,11 +22,13 @@ import { PackagingMilkCode1Service } from './packaging-milk-code1.service';
 import { DiscoLightCodingService } from './disco-light-coding.service';
 import { NaptimeActivityService } from './naptime-activity.service';
 import { PackagingMilkCode2Service } from './packaging-milk-code2.service';
+import { EclipseService } from './eclipse.service';
+import { FireExtinguisher1Service } from './fire-extinguisher1.service';
 
 @Injectable()
 export class FeedbackService {
   private blockList: any;
-  private codes: Array<String>;
+  private codes: Array<string>;
   private mm2_1_c1: MonkeyMoveToNewPositionService;
   private mm2_2_c1: MonkeyLeftmostLimit;
   private mm2_2_c3: RandomPositionService;
@@ -43,12 +45,14 @@ export class FeedbackService {
   private mm3_1_c2: MoveCapRightService;
   private mm4_1_c1: CreateAndUpdateScoreService;
   private magical_cave_coding: MagicalCaveService; 
-  private landmine_detonator_coding1: LandmineDetonatorCoding1Service;
-  private landmine_detonator_coding2: LandmineDetonatorCoding2Service;
-  private packaging_milk_coding1: PackagingMilkCode1Service;
+  private landmine_detonator_coding1_challenge: LandmineDetonatorCoding1Service;
+  private landmine_detonator_coding2_challenge: LandmineDetonatorCoding2Service;
+  private packaging_milk_coding1_challenge: PackagingMilkCode1Service;
   private disco_lights_coding = new DiscoLightCodingService;
   private naptime_coding: NaptimeActivityService;
-  private packaging_milk_coding2: PackagingMilkCode2Service;
+  private packaging_milk_coding2_challenge: PackagingMilkCode2Service;
+  private eclipse_coding: EclipseService;
+  private fire_extinguisher_coding1: FireExtinguisher1Service;
 
   constructor() {
     this.mm2_1_c1 = new MonkeyMoveToNewPositionService();
@@ -67,12 +71,14 @@ export class FeedbackService {
     this.mm3_1_c2 = new MoveCapRightService();
     this.mm4_1_c1 = new CreateAndUpdateScoreService();
     this.magical_cave_coding = new MagicalCaveService();
-    this.landmine_detonator_coding1 = new LandmineDetonatorCoding1Service();
-    this.landmine_detonator_coding2 = new LandmineDetonatorCoding2Service();
-    this.packaging_milk_coding1 = new PackagingMilkCode1Service();
+    this.landmine_detonator_coding1_challenge = new LandmineDetonatorCoding1Service();
+    this.landmine_detonator_coding2_challenge = new LandmineDetonatorCoding2Service();
+    this.packaging_milk_coding1_challenge = new PackagingMilkCode1Service();
     this.disco_lights_coding = new DiscoLightCodingService();
     this.naptime_coding = new NaptimeActivityService();
-    this.packaging_milk_coding2 = new PackagingMilkCode2Service();
+    this.packaging_milk_coding2_challenge = new PackagingMilkCode2Service();
+    this.eclipse_coding = new EclipseService();
+    this.fire_extinguisher_coding1 = new FireExtinguisher1Service();
   }
 
   getHighlightIndex() {
@@ -84,16 +90,25 @@ export class FeedbackService {
     }
   }
 
-  setBlockList = (pageId, list, sprites, spriteStatus, bgDetails, callback) => {
-    this.codes = list.split(';\n');
-    this.codes.splice(this.codes.length - 1, 1);
-    this.getHighlightIndex();
+  setBlockList = (pageId, list, sprites, spriteStatus, bgDetails, eventId, callback) => {
+    this.codes = list;
+    if (this.codes.length > 1) {
+      this.codes.splice(this.codes.length - 1, 1);
+    }
+    if (this.codes[0].indexOf('var ') !== -1) {
+      this.codes.splice(0, 1);
+    }
+    // this.getHighlightIndex();
     this.blockList = this.codes.map(v => {
-      return v.split('(')[0];
+      return JSON.parse(v).method;
     });
     const spritesData = [...sprites, { id: 'background', ...bgDetails }];
     if (this[`${pageId}`]) {
-      this[`${pageId}`].validateCode(this.blockList, this.codes, spritesData, spriteStatus, callback);
+      if (eventId) {
+        this[pageId][`on_${eventId}`](this.codes, spritesData, spriteStatus, callback);
+      } else {
+        this[`${pageId}`].validateCode(this.blockList, this.codes, spritesData, spriteStatus, callback);
+      }
     }
   }
 

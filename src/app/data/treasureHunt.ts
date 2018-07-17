@@ -1,14 +1,15 @@
 export const treasureContent = {
-    header: 'Help me unearth the treasures in the order by clicking on the coordinates that are on the scroll on the left.',
-    pirateHead: 'assets/images/activities/treasure_hunt/mascot_head.png',
-    popupMascotImage: 'assets/images/activities/treasure_hunt/mascot_head.png',
+    instructionBarContent: 'Help me unearth the treasures in the order by clicking on the coordinates that are on the scroll on the left.',
+    mascotHead: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/mascot_head.png',
+    popupMascotImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/mascot_head.png',
     BackgroundColor: '#ecd45c',
-    characterImage: 'assets/images/activities/treasure_hunt/pirate.png',
-    backgroundImage: 'assets/images/activities/treasure_hunt/bg_island.jpg',
-    treasureChest: 'assets/images/activities/treasure_hunt/treasure.png',
-    treasureMap: 'assets/images/activities/treasure_hunt/bg_island.jpg',
-    treasureScrollImage: 'assets/images/activities/treasure_hunt/pirate_todo_scroll.png',
-    correctAnswerImage: 'assets/images/activities/treasure_hunt/tick.png',
+    mascotBg: '#ecd45c',
+    characterImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/pirate.png',
+    backgroundImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/bg_island.jpg',
+    treasureChest: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/treasure.png',
+    treasureMap: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/bg_island.jpg',
+    treasureScrollImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/pirate_todo_scroll.png',
+    correctAnswerImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/tick.png',
     errorMsg: [
         'Shiver me timbers! There\'s no treasure here.',
         'Shiver me timbers! We dont want to move  outside map guideline.'
@@ -36,19 +37,19 @@ export const treasureContent = {
             id: 0,
             xCoord: 4,
             yCoord: -2,
-            containerImage: 'assets/images/activities/treasure_hunt/treasure.png'
+            containerImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/treasure.png'
         },
         {
             id: 1,
             xCoord: 8,
             yCoord: 1,
-            containerImage: 'assets/images/activities/treasure_hunt/treasure.png'
+            containerImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/treasure.png'
         },
         {
             id: 2,
             xCoord: -3,
             yCoord: 3,
-            containerImage: 'assets/images/activities/treasure_hunt/treasure.png'
+            containerImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/treasure.png'
         }
     ],
     successPopupHeading: 'Thanks, matey!',

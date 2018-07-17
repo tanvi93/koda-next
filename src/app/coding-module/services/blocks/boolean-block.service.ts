@@ -25,8 +25,23 @@ export class BooleanBlockService {
 
     Blockly.JavaScript['boolean_value'] = function (block) {
       var state = block.getFieldValue('state');
-      return [state];
+      state = state === '1' ? true : false;
+      const json = {
+        method: 'getBoolean',
+        type: 'input',
+        params: {
+          state
+        }
+      }
+      return [JSON.stringify(json)];
     };
+  }
+
+  interpret = interpreter => {
+    const wrapper = function ({ state }) {
+      return state;
+    };
+    interpreter.setProperty('getBoolean', wrapper, 'input');
   }
 
 }

@@ -22,18 +22,25 @@ export class GetVarBlockService {
     Blockly.JavaScript['get_var'] = function (block) {
       const nameOfVariable = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('nameOfVariable1'),
         Blockly.Variables.NAME_TYPE);
-      return [`getValueOfVariable('${nameOfVariable}')`];
+      const json = {
+        method: 'getValueOfVariable',
+        type: 'input',
+        params: {
+          nameOfVariable
+        }
+      }
+      return [JSON.stringify(json)];
     };
   }
 
-  initInterpreter = (interpreter, scope) => {
-    const wrapper = function (name) {
-      if (!variableList[name]) {
-        variableList[name] = { value: 0 };
+  interpret = interpreter => {
+    const wrapper = ({ nameOfVariable}) => {
+      if (!variableList[nameOfVariable]) {
+        variableList[nameOfVariable] = { value: 0 };
       }
-      return variableList[name].value;
+      return variableList[nameOfVariable]['value'];
     };
-    interpreter.setProperty(scope, 'getValueOfVariable', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getValueOfVariable', wrapper, 'input');
   }
 
 }

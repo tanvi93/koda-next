@@ -29,31 +29,30 @@ export class WaitSecBlockService {
       this.blocks.push(block);
       const wait_secs = block.getFieldValue('wait_time');
       let json = {
-        wait_secs,
-        blockIndex: this.blocks.length - 1
+        method: 'wait',
+        params: {
+          wait_secs,
+          blockIndex: this.blocks.length - 1
+        }
       }
-      return `wait('${JSON.stringify(json)}');\n`;
-      // return `wait(${wait_secs})\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope) => {
-    // Ensure function name does not conflict with variable names.
-    Blockly.JavaScript.addReservedWords('wait');
-    const wrapper = (secs, callback) => {
-      let json = JSON.parse(secs);
-      if (this.blocks) {
+  interpret = interpreter => {
+    const wrapper = (json, callback) => {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
-      secs = Number(json.wait_secs);
+      const secs = Number(json.wait_secs);
       setTimeout(() => {
-        if (this.blocks) {
+        if (this.blocks && this.blocks.length) {
           this.blocks[json.blockIndex].removeSelect();
         } 
         callback();
       }, secs * 1000);
     };
-    interpreter.setProperty(scope, 'wait', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('wait', wrapper, 'async');
   }
 
 }

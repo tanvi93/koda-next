@@ -24,16 +24,23 @@ export class NotOperatorService {
 
     Blockly.JavaScript['not_operator'] = function (block) {
       const input = Blockly.JavaScript.valueToCode(block, 'input');
-      switch (input) {
-        case "true":
-          return [false];
-        case "false":
-          return [true];
-        default:
-          return [!input];
+      const json = {
+        method: 'notOperator',
+        type: 'input',
+        params: {
+          condition: input
+        }
       }
-    };
+      return [JSON.stringify(json)];
+    }
+  }
 
+  interpret = interpreter => {
+    const wrapper = function ({ condition }) {
+      condition = interpreter.executeCommands(condition);
+      return !condition;
+    };
+    interpreter.setProperty('notOperator', wrapper, 'input');
   }
 
 }

@@ -62,7 +62,7 @@ export class GameStageService {
     let buttonLoadCount = 0;
 
     //Audio added here
-    this.loadAudio(pageData.activity_name);
+    // this.loadAudio(pageData.activity_name);
 
     const checkIfReady = () => {
       if (imageLoadCount >= totalImages && bgLoadCount >= this.pageData.backgrounds.length && buttonLoadCount >= this.buttons.length) {
@@ -311,7 +311,7 @@ export class GameStageService {
     }
   }
 
-  moveToObject(index = 0, x, y, duration: any = true, speed = null) {
+  moveToObject(index = 0, x, y, releaseBlock, speed = null) {
     let xSign = '+';
     let ySign = '+';
     if (x) {
@@ -326,13 +326,19 @@ export class GameStageService {
       top: `${ySign}=${Math.abs(y) * this.yAxisUnit}`,
     }
     speed = speed ? speed : 1;
-    duration = duration ? Math.max(Math.abs(x) * this.xAxisUnit, Math.abs(y) * this.yAxisUnit) * 3 / speed : 0.1;
+    let duration = Math.max(Math.abs(x), Math.abs(y)) * 30 / speed;
     this.sprites[index].instance.animate(json, {
       onChange: this.fabricCanvas.renderAll.bind(this.fabricCanvas),
       duration: duration,
       onComplete: () => {
         const currentPosition = { ...this.sp.setSpriteOffsets(this.activity, { left: x, top: y }, index) };
-        this.spriteStatusList.push({ currentPosition });
+        this.spriteStatusList.push({
+          name: this.sprites[index].name,
+          action: 'moveObject',
+          timestamp: Date.now(),
+          currentPosition
+        });
+        releaseBlock();
         this.sprites = this.sp.getAllSprites(this.activity);
         try {
           this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
@@ -341,12 +347,34 @@ export class GameStageService {
     });
   }
 
-  goToObject(index = 0, x, y, hasAnimation) {
+  goToObject(index = 0, x, y, hasAnimation, releaseBlock) {
     x = parseInt(x);
     y = parseInt(y);
     const sprite = this.sprites[index];
-    let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
-    this.moveToObject(index, x - offset.x, offset.y - y, hasAnimation ? true : false);
+    if (hasAnimation) {
+      let offset = sprite.currentOffset ? sprite.currentOffset : sprite.initialOffset;
+      this.moveToObject(index, x - offset.x, offset.y - y, releaseBlock);
+      return;
+    }
+    let left = ((x + this.totalX / 2) - sprite.width/2) * this.xAxisUnit;
+    let top = (Math.abs(y - this.totalY / 2) - sprite.height / 2) * this.yAxisUnit;
+    sprite.instance.set('left', left);
+    sprite.instance.set('top', top);
+    const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
+    this.spriteStatusList.push({
+      name: sprite.name,
+      action: 'moveObject',
+      timestamp: Date.now(),
+      currentPosition
+    });
+    setTimeout(() => {
+      releaseBlock();
+    }, 0);
+    this.sprites = this.sp.getAllSprites(this.activity);
+    try {
+      this.sprites[index].instance.moveTo(this.sprites[index].zIndex);
+    } catch (e) { }
+    this.fabricCanvas.renderAll();
   }
 
   showCoords(index = 0, duration) {
@@ -400,7 +428,11 @@ export class GameStageService {
         this.sprites[obj.spriteIndex].isHidden = true;
       }
       if (this.spriteStatusList) {
-        this.spriteStatusList.push({ visibility: obj });
+        this.spriteStatusList.push({
+          name: this.sprites[obj.spriteIndex].name,
+          action: 'visibility', 
+          visibility: obj.visibility ? true: false
+        });
       }
     } else if (obj.hasOwnProperty('buttonIndex')) {
       if (obj.visibility) {
@@ -457,7 +489,13 @@ export class GameStageService {
 
   changeSpriteAvatar(obj) {
     const sprite = this.sprites[obj.spriteIndex];
-    this.spriteStatusList.push({ previousLook: sprite.looks[sprite.currentLookIdx] });
+    this.spriteStatusList.push({
+      name: sprite.name,
+      action: 'changeLook',
+      timestamp: Date.now(),
+      lookIdx: obj.avatarIndex ? parseInt(obj.avatarIndex) : sprite.currentLookIdx ? parseInt(sprite.currentLookIdx) + 1 : 1,
+      previousLook: sprite.looks[sprite.currentLookIdx]
+    });
     let avatar = new Image();
     const drawSprite = (index) => {
       this.fabricCanvas.remove(sprite.instance);
@@ -529,7 +567,7 @@ export class GameStageService {
         if (variableList[v].rect) {
           variableList[v].text.set('text', `${v} = ${variableList[v].value}`);
           top += 50;
-          // this.fabricCanvas.renderAll();
+          this.fabricCanvas.renderAll();
         } else {
           let length = v.length + (variableList[v].value + '').length + 3;
           const left = this.fabricCanvas.width - 15;
@@ -590,6 +628,7 @@ export class GameStageService {
     }
     this.interpreter.runCode(code, this.sprites, this.buttons, coordinatesJson, feedbackCall, json => {
       const { name, data } = json;
+      // console.log(name, performance.now());
       switch (name) {
         case 'say':
           this.drawSpeechBubble(data.spriteIndex, data.text, data.duration);
@@ -599,13 +638,13 @@ export class GameStageService {
           break;
         case 'goTo':
         case 'moveTo':
-          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation);
+          this.goToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.callback);
           break;
         case 'moveBy':
-          this.moveToObject(data.spriteIndex, data.x, data.y);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback);
           break;
         case 'moveWithSpeed':
-          this.moveToObject(data.spriteIndex, data.x, data.y, data.hasAnimation, data.speed);
+          this.moveToObject(data.spriteIndex, data.x, data.y, data.callback, data.speed);
           break;
         case 'show':
         case 'allHideShow':
