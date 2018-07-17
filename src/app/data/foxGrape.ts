@@ -23,7 +23,7 @@ export const foxGrapeContent = {
     defaultTransitionTime: '0s',
     actualTransitionTime: '1s',
     finalGrapeTopShiftPos: '67%',
-    initialMsgLeftValue: '14%',
+    initialMsgLeftValue: '17%',
     sideTailMsgTopPosition: '60%',
     sideTailMsgTailTopPosition: '30%',
     sideTailMsgTailLeftPositon: '6%',

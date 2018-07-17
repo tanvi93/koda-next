@@ -11,5 +11,7 @@
 
   <img class="gems-stone" [src]="contentData.gemsImage[0]" *ngFor="let item of contentData.gemsCoordData" [ngStyle]="{'top': contentData.yGridCoord.indexOf(item.y)*contentData.yGridPerUnitScale +   '%', 'left': contentData.xGridCoord.indexOf(item.x)*contentData.xGridPerUnitScale  + '%', 'transition': '1s', 'opacity': gemOpacity}" alt="">
 
-  <app-bubble-msg [message]="message" [hideMsg]="hideMsg" [pos]="msgPos"></app-bubble-msg>
+  <app-speech-bubble [speechContent]="speechData">
+    {{message}}
+  </app-speech-bubble>
 </div>

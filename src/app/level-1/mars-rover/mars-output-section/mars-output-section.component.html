@@ -8,5 +8,7 @@
     alt="">
   <img class="rover-image" [src]="roverSittingImage" [hidden]='!roverStandingHide' [ngStyle]="{'top': topShift, 'left': leftShift, 'transition': transitionTime}"
     alt="">
-  <app-bubble-msg [message]="message" [hideMsg]="hideMsg" [pos]="msgPos"></app-bubble-msg>
+  <app-speech-bubble [speechContent]="speechData">
+    {{message}}
+  </app-speech-bubble>
 </div>

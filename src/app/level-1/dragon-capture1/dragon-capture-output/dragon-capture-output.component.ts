@@ -47,61 +47,65 @@ export class DragonCaptureOutputComponent implements OnInit {
   private gemOpacity: number;
   private gridEnabled: boolean;
   private message: string;
-  private hideMsg: boolean;
   private articleTopShift: string[];
   private articleHidden: boolean[];
   private clickableContentFlag: boolean[];
-  msgPos = { 'msgLeft': null, 'msgTop': null, 'msgTailTop': null, 'msgTailLeft': null };
+  private speechData;
  
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { 
+    this.speechData = {autoHideMsg: true, position: 'bottom', width: '20%', textAlign: 'center', top: '0px', left:'0px', fontSize: '1vw'}
+  }
 
   ngOnInit() {
     this.backgroundImage = this.contentData.backgroundImage[0];
-    this.hideMsg = true;
     this.gemOpacity = 0;
     this.articleHidden = [true, true, true];
     this.clickableContentFlag = [false, true, true];
     this.gridEnabled = true;
     this.articleTopShift = ['60', '68', '72'];
     this.coordVisibility = true;
-    this.msgPos = this.contentData.initialMsgPos;
     this.message = this.contentData.errorMsg;
   }
 
   wrongAttempt = (ev) =>{
     this.message = this.contentData.errorMsg;
     if (ev.layerX / ev.target.clientWidth > 0.8 && ev.layerY / ev.target.clientHeight < 0.1) {
-      this.msgPos.msgTailLeft = '76%';
-      this.msgPos.msgLeft = (ev.layerX * 0.75) + 'px';
-      this.msgPos.msgTop = (ev.layerY) + 'px';
+
+      this.speechData.position = "right";
+      this.speechData.left = (ev.layerX * 0.75) + 'px';
+      this.speechData.top = (ev.layerY) + 'px';
     } else if (ev.layerX / ev.target.clientWidth > 0.8 && ev.layerY / ev.target.clientHeight > 0.9) {
-      this.msgPos.msgTailLeft = '76%';
-      this.msgPos.msgLeft = (ev.layerX * 0.75) + 'px';
-      this.msgPos.msgTop = '90%';
+
+      this.speechData.position = "right";
+      this.speechData.left = (ev.layerX * 0.75) + 'px';
+      this.speechData.top = '90%';
     } else if (ev.layerY / ev.target.clientHeight < 0.1) {
-      this.msgPos.msgTop = (ev.layerY) + 'px';
-      this.msgPos.msgLeft = ev.layerX + 'px';
-      this.msgPos.msgTailLeft = '7%';
+
+      this.speechData.position = "left";
+      this.speechData.left = (ev.layerX) + 'px';
+      this.speechData.top = (ev.layerY) + 'px';
     } else if (ev.layerX / ev.target.clientWidth > 0.8) {
-      this.msgPos.msgTop = (ev.layerY - 20) + 'px';
-      this.msgPos.msgLeft = (ev.layerX * 0.73) + 'px';
-      this.msgPos.msgTailLeft = '76%';
+
+      this.speechData.position = "right";
+      this.speechData.left = (ev.layerX * 0.73) + 'px';
+      this.speechData.top = (ev.layerY - 20) + 'px';
     } else if (ev.layerY / ev.target.clientHeight > 0.9) {
-      this.msgPos.msgTop = '90%';
-      this.msgPos.msgLeft = ev.layerX + 'px';
-      this.msgPos.msgTailLeft = '7%';
+
+      this.speechData.position = "left";
+      this.speechData.left = (ev.layerX) + 'px';
+      this.speechData.top = '90%';
     } else {
-      this.msgPos.msgTop = (ev.layerY - 20) + 'px';
-      this.msgPos.msgLeft = ev.layerX + 'px';
-      this.msgPos.msgTailLeft = '7%';
+
+      this.speechData.position = "left";
+      this.speechData.left = (ev.layerX) + 'px';
+      this.speechData.top = (ev.layerY - 20) + 'px';
     }
-    this.msgPos.msgTailTop = this.contentData.initialMsgPos.msgTailTop;
     setTimeout(() => {
-      this.hideMsg = false;
+      this.speechData.autoHideMsg = false;
       this.gridEnabled = false;
     }, 100);
     setTimeout(() => {
-      this.hideMsg = true;
+      this.speechData.autoHideMsg = true;
       this.gridEnabled = true;
     }, 3000);
   }
@@ -109,16 +113,15 @@ export class DragonCaptureOutputComponent implements OnInit {
   successfulAttempt = (ev) => {
     this.gridEnabled = false;
     setTimeout(() => {
-      this.hideMsg = false;
+      this.speechData.autoHideMsg = false;
     }, 500);
     ev.target.style.display = 'none';
     setTimeout(() => {
       this.articleTopShift[Number(ev.target.id)] = '0';
     }, 100);
-    this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].y) + 0.5) * this.contentData.yGridPerUnitScale + '%';
-    this.msgPos.msgLeft = (this.contentData.xGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].x) + 1.5) * this.contentData.xGridPerUnitScale + '%';
-    this.msgPos.msgTailLeft = this.contentData.initialMsgPos.msgTailLeft;
-    this.msgPos.msgTailTop = this.contentData.initialMsgPos.msgTailTop;
+    this.speechData.top = (this.contentData.yGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].y) + 0.5) * this.contentData.yGridPerUnitScale + '%';
+    this.speechData.left = (this.contentData.xGridCoord.indexOf(this.contentData.coordinates[Number(ev.target.id)].x) + 1.5) * this.contentData.xGridPerUnitScale + '%';
+    this.speechData.position = 'left';
 
     switch (Number(ev.target.id) + 1) {
 
@@ -130,7 +133,7 @@ export class DragonCaptureOutputComponent implements OnInit {
           this.articleHidden[Number(ev.target.id)] = true;
           this.clickableContentFlag[1] = false;
           this.gridEnabled = true;
-          this.hideMsg = true;
+          this.speechData.autoHideMsg = true;
           this.coordVisibility = false;
           this.backgroundImage = this.contentData.backgroundImage[1];
           this.inputFlagStatus.emit(Number(ev.target.id));
@@ -144,7 +147,7 @@ export class DragonCaptureOutputComponent implements OnInit {
         setTimeout(() => {
           this.gridEnabled = true;
           this.clickableContentFlag[2] = false;
-          this.hideMsg = true;
+          this.speechData.autoHideMsg = true;
           this.articleHidden[Number(ev.target.id)] = true;
           this.inputFlagStatus.emit(Number(ev.target.id));
         }, 5500);
@@ -157,7 +160,7 @@ export class DragonCaptureOutputComponent implements OnInit {
         setTimeout(() => {
           this.gridEnabled = true;
           this.successCondition();
-          this.hideMsg = true;
+          this.speechData.autoHideMsg = true;
           this.articleHidden[Number(ev.target.id)] = true;
           this.inputFlagStatus.emit(Number(ev.target.id));
         }, 3000);

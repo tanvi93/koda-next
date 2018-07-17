@@ -35,7 +35,6 @@ export class DragonOutputSectionComponent implements OnInit {
   dialogRef: MatDialogRef<SuccessModalComponent>;
   private backgroundImage: string;
   private message: string;
-  private hideMsg: boolean;
   private counter: number;
   private topShift: any;
   private leftShift: any;
@@ -50,11 +49,11 @@ export class DragonOutputSectionComponent implements OnInit {
   private inputValueTracker = { 'left': -2, 'top': 0 };
   private xContent: number;
   private yContent: number;
-  private msgPos: any;
   private dragAudio: string[];
+  private speechData: any;
 
   constructor(public dialog: MatDialog, private audio: AudioService) {
-    this.msgPos = { 'msgTop': '30%', 'msgLeft': '10%', 'msgTailLeft': '6%', 'msgTailTop': '30%' };
+    this.speechData = { autoHideMsg: true, position: 'bottom', width: '20%' };  
     this.gemStoneImage = ['', '', ''];
     this.dragAudio = ['assets/audio/dragon/dragons-roar-trim.mp3'];
   }
@@ -74,7 +73,7 @@ export class DragonOutputSectionComponent implements OnInit {
       return image;
     });
     
-    this.hideMsg = true;
+    this.speechData.autoHideMsg = true;
     this.flaskVisible = false;
     this.leftShift = this.contentData.xInitialValue * this.contentData.xGridPerUnitScale;
     this.topShift = this.contentData.yInitialValue * this.contentData.yGridPerUnitScale;
@@ -93,42 +92,36 @@ export class DragonOutputSectionComponent implements OnInit {
   }
 
   hideMsgFunc(flag: boolean) {
-    this.hideMsg = flag;
+    this.speechData.autoHideMsg = flag;
   }
 
   activityFunction(x: number, y: number) {
-    this.hideMsg = true;
+    this.speechData.autoHideMsg = true;
     this.xContent = Number(x);
     this.yContent = Number(y);
 
     // condition to showing warning msg at proper position
     if (this.inputValueTracker.left > 5) {
-      this.msgPos.msgTailLeft = '100%';
-      this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
-      this.msgPos.msgLeft = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * 0.7 * this.contentData.xGridPerUnitScale) + '%';
+      this.speechData.position = 'right';
     } else {
-      this.msgPos.msgTailLeft = '7%';
-      this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
-      this.msgPos.msgLeft = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) + 11 + '%';
+      this.speechData.position = 'left';
     }
+    this.speechPosition(this.speechData.position);
 
 
 
     if (this.xContent === 0 && this.yContent === 0) {
       this.message = this.contentData.errorMsg[1];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else if ((String(this.xContent).length === 0 && String(this.yContent).length === 0)) {
       this.message = this.contentData.errorMsg[0];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else if ((this.contentData.dragonProximityCoord.x.indexOf(this.inputValueTracker.left + Number(this.xContent)) !== -1)
       && (this.contentData.dragonProximityCoord.y.indexOf(this.inputValueTracker.top + Number(this.yContent)) !== -1)) {
       this.message = this.contentData.errorMsg[5];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else if (((this.inputValueTracker.left + Number(this.xContent)) > this.contentData.xHigherLimitValue)
       || ((this.inputValueTracker.left + Number(this.xContent)) < this.contentData.xLowerLimitValue)
@@ -136,8 +129,7 @@ export class DragonOutputSectionComponent implements OnInit {
       || ((this.inputValueTracker.top + Number(this.yContent)) < this.contentData.yLowerLimitValue)) {
 
       this.message = this.contentData.errorMsg[2];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else {
       if (String(this.xContent) === '') {
@@ -200,6 +192,33 @@ export class DragonOutputSectionComponent implements OnInit {
     }
   }
 
+  speechPosition(position) {
+    if (position === 'right') {
+      this.speechData.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
+      this.speechData.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) - 19 + '%';
+    } else if(position === 'left') {
+      this.speechData.top = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) - 7 + '%';
+      this.speechData.left = (this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale) + 13 + '%';
+    }
+  }
+
+  clearMsgFunction() {
+    this.speechData.autoHideMsg = false;
+    this.clearInputFlag.emit(true);
+  }
+
+  dragonAnimationFunction() {
+    let element = document.getElementById("dragon-animation");
+    setTimeout(() => {
+      element.classList.add("animated");
+      element.classList.add("bounce");
+    }, 200);
+    setTimeout(() => {
+      element.classList.remove("animated");
+      element.classList.remove("bounce");
+    }, 400);
+  }
+
   checkFlaskAcheivedCondition() {
     for (let i = 0; i < this.contentData.gemsCoordData.length; i++) {
       if (this.inputValueTracker.left === this.contentData.gemsCoordData[i].x
@@ -217,16 +236,7 @@ export class DragonOutputSectionComponent implements OnInit {
           this.audio.stopForeverPlayingAudio();
           this.audio.play(0);
           setTimeout(() => {
-
-            let element = document.getElementById("dragon-animation");
-            setTimeout(() => {
-              element.classList.add("animated");
-              element.classList.add("bounce");
-            }, 200);
-            setTimeout(() => {
-              element.classList.remove("animated");
-              element.classList.remove("bounce");
-            }, 400);
+            this.dragonAnimationFunction();
           }, 1300);
           setTimeout(() => {
             this.dialogRef = this.dialog.open(SuccessModalComponent, {
@@ -237,13 +247,11 @@ export class DragonOutputSectionComponent implements OnInit {
             this.dialogRef.componentInstance.modalData = this.contentData;
           }, 2200);
         } else {
-
-          this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
-          this.msgPos.msgLeft = ((this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale)) + 11 + '%';
+          this.speechPosition(this.speechData.position);
           this.message = this.contentData.errorMsg[3];
           setTimeout(() => {
             this.contentData.gemsCoordData[i].flag = true;
-            this.hideMsg = false;
+            this.speechData.autoHideMsg = false;
           }, 1000);
           setTimeout(() => {
             this.gemStoneImage[i] = this.contentData.gemsImage[1];
@@ -252,15 +260,12 @@ export class DragonOutputSectionComponent implements OnInit {
       } else if (this.inputValueTracker.left === this.contentData.gemsCoordData[i].x
         && this.inputValueTracker.top === this.contentData.gemsCoordData[i].y
         && this.contentData.gemsCoordData[i].flag === true) {
-
-        this.msgPos.msgTop = (this.contentData.yGridCoord.indexOf(this.inputValueTracker.top) * this.contentData.yGridPerUnitScale) + '%';
-        this.msgPos.msgLeft = ((this.contentData.xGridCoord.indexOf(this.inputValueTracker.left) * this.contentData.xGridPerUnitScale)) + 11 + '%';
-        this.message = this.contentData.errorMsg[4];
-        setTimeout(() => {
-          this.hideMsg = false;
-        }, 10);
+          this.speechPosition(this.speechData.position);
+          this.message = this.contentData.errorMsg[4];
+          setTimeout(() => {
+            this.speechData.autoHideMsg = false;
+          }, 10);
       }
     }
   }
-
 }
