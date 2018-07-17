@@ -11,7 +11,6 @@ import { PositionCharactersComponent } from './position-characters/position-char
 import { PositionValidationComponent } from './position-characters/position-validation/position-validation.component';
 import { CharacterPositioningComponent } from './position-characters/character-positioning/character-positioning.component';
 import { InputCoordinateComponent } from './shared/input-coordinate/input-coordinate.component';
-import { BubbleMsgComponent } from './shared/bubble-msg/bubble-msg.component';
 import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 import { FoxOutputSectionComponent } from './fox-grape/fox-output-section/fox-output-section.component';
 import { CharacterSelectionSectionComponent } from './select-characters/character-selection-section/character-selection-section.component';
@@ -39,7 +38,6 @@ import { DragonCaptureOutputComponent } from './dragon-capture1/dragon-capture-o
     SelectCharactersComponent, 
     PositionCharactersComponent, PositionValidationComponent, CharacterPositioningComponent,
     InputCoordinateComponent, 
-    BubbleMsgComponent,
     FoxGrapeComponent, 
     FoxOutputSectionComponent, 
     CharacterSelectionSectionComponent,
