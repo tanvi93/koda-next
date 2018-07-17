@@ -1,9 +1,9 @@
 export const checklistMCQ = {
-    "mm3_1_q4": {
+    "mm3_1_q3": {
         "instructionBarContent": "Here is your full code.",
         'mascotImage': 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
         "mediaType": "stage and code zone",
-        "mediaLink": "./../assets/misc_images/mm3_1_q4_ref_img.png",
+        "mediaLink": "./../assets/misc_images/mm3_1_q3_ref_img.png",
 
         "question": 'Did you observe what all happens when you Run this code and then press the left / right arrow key ? Select all the correct options.',
         "mascotBg": '#13BCE4',
