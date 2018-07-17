@@ -84,7 +84,6 @@ export class TreasureActivitySectionComponent implements OnInit {
   private treasureMargin: number[];
   private success: boolean;
   private speechData: any;
-  private msgPos = { 'msgLeft': null, 'msgTop': null, 'msgTailTop': null, 'msgTailLeft': null };
   
   constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) { 
     this.success = true;
@@ -97,7 +96,6 @@ export class TreasureActivitySectionComponent implements OnInit {
   ngOnInit() {
     this.speechData.autoHideMsg = true;
     this.counter = 0;
-    this.msgPos = this.contentData.initialMsgPos;
     this.speechData.top = this.contentData.initialMsgPos.msgTop;
     this.speechData.left = this.contentData.initialMsgPos.msgLeft;
     this.message = this.contentData.errorMsg[0];
