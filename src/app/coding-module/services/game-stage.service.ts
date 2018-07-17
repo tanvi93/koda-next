@@ -332,7 +332,12 @@ export class GameStageService {
       duration: duration,
       onComplete: () => {
         const currentPosition = { ...this.sp.setSpriteOffsets(this.activity, { left: x, top: y }, index) };
-        this.spriteStatusList.push({ currentPosition });
+        this.spriteStatusList.push({
+          name: this.sprites[index].name,
+          action: 'moveObject',
+          timestamp: Date.now(),
+          currentPosition
+        });
         releaseBlock();
         this.sprites = this.sp.getAllSprites(this.activity);
         try {
@@ -356,7 +361,12 @@ export class GameStageService {
     sprite.instance.set('left', left);
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
-    this.spriteStatusList.push({ currentPosition });
+    this.spriteStatusList.push({
+      name: sprite.name,
+      action: 'moveObject',
+      timestamp: Date.now(),
+      currentPosition
+    });
     setTimeout(() => {
       releaseBlock();
     }, 0);
@@ -418,7 +428,11 @@ export class GameStageService {
         this.sprites[obj.spriteIndex].isHidden = true;
       }
       if (this.spriteStatusList) {
-        this.spriteStatusList.push({ visibility: obj });
+        this.spriteStatusList.push({
+          name: this.sprites[obj.spriteIndex].name,
+          action: 'visibility', 
+          visibility: obj.visibility ? true: false
+        });
       }
     } else if (obj.hasOwnProperty('buttonIndex')) {
       if (obj.visibility) {
@@ -475,7 +489,13 @@ export class GameStageService {
 
   changeSpriteAvatar(obj) {
     const sprite = this.sprites[obj.spriteIndex];
-    this.spriteStatusList.push({ previousLook: sprite.looks[sprite.currentLookIdx] });
+    this.spriteStatusList.push({
+      name: sprite.name,
+      action: 'changeLook',
+      timestamp: Date.now(),
+      lookIdx: obj.avatarIndex ? parseInt(obj.avatarIndex) : sprite.currentLookIdx ? parseInt(sprite.currentLookIdx) + 1 : 1,
+      previousLook: sprite.looks[sprite.currentLookIdx]
+    });
     let avatar = new Image();
     const drawSprite = (index) => {
       this.fabricCanvas.remove(sprite.instance);

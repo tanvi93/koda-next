@@ -77,7 +77,7 @@ export const selectActivityContent = {
             id: 0,
             name: 'storyline/to-the-hills-storyline',
             title: 'To the hills',
-            activityImage: './assets/images/activities/to_the_hills/bg_storyline.jpg',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg',
             status: {
                 lock: {
                     imageStatus: false,
