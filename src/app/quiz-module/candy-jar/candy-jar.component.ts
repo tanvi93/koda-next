@@ -69,7 +69,7 @@ export class CandyJarComponent {
   }
 
   reward(val, data) {
-    this.showError = true;
+    this.displayError();
     this.success = false;
     this.currentRewardValue = Number(val.key);
 
@@ -79,7 +79,7 @@ export class CandyJarComponent {
       } else if (this.currentPenaltyValue) {
         this.error = this.quizObj.commonErrormsg;
       } else {
-        this.showError = false;
+        setTimeout(() => { this.showError = false; }, 200);
       }
     } else {
       if (this.currentRewardValue > this.previousRewardValue[this.count]) {
@@ -93,16 +93,17 @@ export class CandyJarComponent {
   }
 
   penalty(val, data) {
-    this.showError = true;
+    this.displayError();
     this.success = false;
     this.currentPenaltyValue = Number(val.key);
+
     if (this.currentPenaltyValue === data.optionY.correctValue) {
       if (this.currentRewardValue === data.optionX.correctValue) {
         this.correctAnswer(data);
       } else if (this.currentRewardValue) {
         this.error = this.quizObj.commonErrormsg;
       } else {
-        this.showError = false;
+        setTimeout(() => { this.showError = false; }, 200);
       }
     } else {
       if (this.currentPenaltyValue > this.previousPenaltyValue[this.count]) {
@@ -119,7 +120,7 @@ export class CandyJarComponent {
     this.success = true;
     this.error = data.successMsg;
     if (this.error == '') {
-      this.showError = false;
+      setTimeout(() => { this.showError = false; }, 200);
       this.dialogRef = this.dialog.open(SuccessModalComponent, {
         hasBackdrop: true,
         panelClass: 'app-full-bleed-dialog'
@@ -132,7 +133,13 @@ export class CandyJarComponent {
       document.getElementById('Id' + (this.count + 1)).style.visibility = 'visible';
       this.currentRewardValue = '';
       this.currentPenaltyValue = '';
-    } 
+    }
   }
 
+  displayError() {
+    this.showError = false;
+    setTimeout(() => {
+      this.showError = true;
+    }, 200);
+  }
 }
