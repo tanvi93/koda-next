@@ -58,6 +58,19 @@ export class ChangeLookBlockService {
       },
 
       onchange: function (event) {
+        if (event.type === Blockly.Events.BLOCK_CREATE) {
+          Object.keys(myBlock).forEach(key => {
+            classInstance.spriteIndex = myBlock[key].getFieldValue('sprite');
+            if (classInstance.spriteIndex >= 0) {
+              const tmp = myBlock[key].getFieldValue('avatar');
+              myBlock[key].getInput('look_dummy_input').removeField('avatar');
+              myBlock[key].getInput('look_dummy_input').appendField(new Blockly.FieldDropdown(getAvatars(key)), "avatar");
+              if (tmp >= 0) {
+                myBlock[key].setFieldValue(tmp, 'avatar');
+              }
+            }
+          });
+        }
         if (event.blockId && myBlock[event.blockId] && event.name === 'sprite') {
           classInstance.spriteIndex = event.newValue;
           myBlock[event.blockId].getInput('look_dummy_input').removeField('avatar');
