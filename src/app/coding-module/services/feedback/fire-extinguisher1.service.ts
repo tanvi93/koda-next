@@ -3,10 +3,7 @@ import { checkSequence } from './utility-functions.service';
 
 @Injectable()
 export class FireExtinguisher1Service {
-  private codes: Array<any>;
   private characterIndex;
-  private isPinRemoved: boolean;
-  private isLunarCorrect: boolean;
 
   constructor() { 
     this.characterIndex = {};
@@ -16,30 +13,17 @@ export class FireExtinguisher1Service {
     if (blockList.indexOf('charClickEventBind') === -1) {
       return callback('No character clicked blocks found, hint for the rescue');
     }
-    this.isPinRemoved = false;
-    this.isLunarCorrect = false;
     sprites.forEach((v, i) => {
       this.characterIndex[v.name.toLowerCase()] = i;
     });
     let safetyPin = sprites[this.characterIndex.safety_pin];
     const lever = sprites[this.characterIndex.lever];   
     if (safetyPin.instance.intersectsWithObject(lever.instance, null, true)) {
-      return callback('Remove safety pin from lever and throw it on left side');
-    } else if (safetyPin.currentOffset.x >= (lever.currentOffset.x + 2) || safetyPin.currentOffset.y > (lever.currentOffset.y - 2)) {
-      return callback('Remove safety pin from lever and throw it on left side');
+      return callback('Remove safety pin from lever and throw it away');
     }
-    this.isPinRemoved = true;
-  }
-
-  checkForSuccess() {
-    if (this.isLunarCorrect && this.isPinRemoved) {
-      const successObj = {
-        success: true,
-        title: 'Kudos!',
-        msg: 'You successfully used code blocks to move the monkey.'
-      }
-      return successObj;
-    }
+    // else if (safetyPin.currentOffset.x >= (lever.currentOffset.x + 2) || safetyPin.currentOffset.y > (lever.currentOffset.y - 2)) {
+    //   return callback('Remove safety pin from lever and throw it on left side');
+    // }
   }
 
   on_lever_press(codes, sprites, spriteStatus, callback) {
@@ -50,6 +34,13 @@ export class FireExtinguisher1Service {
     let yDiff = extinguisherCoords.y - fireCoords.y;
     if ((xDiff < 20 || xDiff > 24) || (yDiff < 3 || yDiff > 6)) {
       return callback('Extinguisher should be near fire');
+    }
+
+    const sprayCoords = sprites[this.characterIndex.spray].currentOffset;
+    xDiff = sprayCoords.x - extinguisherCoords.x;
+    yDiff = sprayCoords.y - extinguisherCoords.y;
+    if (xDiff !== 14 || yDiff !== -5) {
+      return callback('Spray should come out from extinguisher pipe only.');
     }
     /*---- Coordinates part ends here ----*/
 
@@ -164,6 +155,12 @@ export class FireExtinguisher1Service {
     const result = checkSequence(sequence, spriteStatus);
     if (result === 'success') {
       console.log('success');
+      const successObj = {
+        success: true,
+        title: 'Kudos!',
+        msg: 'You successfully used code blocks to move the monkey.'
+      }
+      return successObj;
     } else {
       return callback(result);
     }

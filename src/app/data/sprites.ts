@@ -1037,7 +1037,7 @@ export const sprites: any = [
         "aspect_ratio": 1.33,
         "width": 11,
         //"height": 3,
-        "initialVisibility": true,
+        "initialVisibility": false,
         "looks": [
             "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray1.png"
         ],
@@ -1119,7 +1119,7 @@ export const sprites: any = [
         "aspect_ratio": 1.016,
         "width": 10,
         //"height": 3,
-        "initialVisibility": true,
+        "initialVisibility": false,
         "looks": [
             "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray2.png"
         ],

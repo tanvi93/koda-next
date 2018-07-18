@@ -60,8 +60,8 @@ export class ChangeLookBlockService {
       onchange: function (event) {
         if (event.type === Blockly.Events.BLOCK_CREATE) {
           Object.keys(myBlock).forEach(key => {
-            classInstance.spriteIndex = myBlock[key].getFieldValue('sprite');
-            if (classInstance.spriteIndex >= 0) {
+            if (myBlock[key].getFieldValue('sprite') >= 0) {
+              classInstance.spriteIndex = myBlock[key].getFieldValue('sprite');
               const tmp = myBlock[key].getFieldValue('avatar');
               myBlock[key].getInput('look_dummy_input').removeField('avatar');
               myBlock[key].getInput('look_dummy_input').appendField(new Blockly.FieldDropdown(getAvatars(key)), "avatar");
