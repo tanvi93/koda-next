@@ -361,14 +361,12 @@ export class GameStageService {
     sprite.instance.set('left', left);
     sprite.instance.set('top', top);
     const currentPosition = this.sp.setSpriteOffsets(this.activity, { x, y }, index);
-    console.log(currentPosition, x, y);
     this.spriteStatusList.push({
       name: sprite.name,
       action: 'moveObject',
       timestamp: Date.now(),
       currentPosition
     });
-    console.log(this.spriteStatusList);
     setTimeout(() => {
       releaseBlock();
     }, 0);
