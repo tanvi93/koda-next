@@ -52,7 +52,7 @@ export class EclipseService {
       '-2': [2]
     }
     if (!acceptableCoords.hasOwnProperty(`${coords.moon.x}`) || acceptableCoords[`${coords.moon.x}`].indexOf(coords.moon.y) === -1) {
-      return callback('Moon should be on its orbit and in middle of Sun and Earth');
+      return callback('For Solar eclipse to occur, make sure that the Moon never leaves the orbit and the Moon is in between the Sun and the Earth. Check the preview.');
     } else {
       this.isSolarCorrect = true;
       const obj = this.checkForSuccess();
@@ -89,7 +89,7 @@ export class EclipseService {
       28: [5]
     }
     if (!acceptableCoords.hasOwnProperty(`${coords.moon.x}`) || acceptableCoords[`${coords.moon.x}`].indexOf(coords.moon.y) === -1) {
-      return callback('Moon should be on its orbit and in right of Sun and Earth');
+      return callback('For Lunar eclipse to occur, make sure that the Moon never leaves the orbit and the Moon to the right of both the Sun and the Earth. Check the preview.');
     } else {
       this.isLunarCorrect = true;
       const obj = this.checkForSuccess();

@@ -2256,7 +2256,7 @@ export const blocksData: any = {
         "categories": [{
             "name": "",
             "colour": 0,
-            "block_list": ["say", "showCoordinates", "coordinates", "showHideChar", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
+            "block_list": ["say", "showCoordinates", "coordinates", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
         }],
         "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
           <variables></variables>
@@ -2264,7 +2264,7 @@ export const blocksData: any = {
             <field name="button">0</field>
             <statement name="button_clicked">
               <block type="say" id="say">
-                <field name="sprite">0</field>
+                <field name="sprite">1</field>
                 <field name="message">Solar Eclipse</field>
               </block>
             </statement>
@@ -2273,7 +2273,7 @@ export const blocksData: any = {
             <field name="button">1</field>
             <statement name="button_clicked">
               <block type="say" id="7ERfBxLR)LWnGUQlB.}!">
-                <field name="sprite">0</field>
+                <field name="sprite">1</field>
                 <field name="message">Lunar Eclipse</field>
               </block>
             </statement>
