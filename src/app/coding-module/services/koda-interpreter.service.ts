@@ -35,7 +35,7 @@ export class KodaInterpreterService {
         v = JSON.parse(arr[i]);
       } catch (e) {
         eval(arr[i]);
-        return;
+        return callback ? callback() : null;
       }
       if (v.type && v.type === 'input') {
         return this.bundle.input[v.method](v.params);
