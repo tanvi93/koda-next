@@ -10,7 +10,7 @@ export class EclipseService {
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
     if (blockList.indexOf('buttonClickEventBind') === -1) {
-      return callback('No button blocks found, hint for the rescue');
+      return callback('Add block that shows the solar and lunar eclipse animation only when their respective buttons are clicked. Check the preview.');
     }
     this.isSolarCorrect = false;
     this.isLunarCorrect = false;
@@ -21,8 +21,8 @@ export class EclipseService {
     if (this.isLunarCorrect && this.isSolarCorrect) {
       const successObj = {
         success: true,
-        title: 'Kudos!',
-        msg: 'You successfully used code blocks to move the monkey.'
+        title: 'Thanks for your help!',
+        msg: 'You helped me make a great animation.'
       }
       return successObj;
     }
@@ -38,7 +38,7 @@ export class EclipseService {
     });
 
     if (coords.earth.y !== 0 || coords.earth.x !== 10) {
-      return callback('Earth should be in its right position')
+      return callback('Earth should be in its right position in universe')
     }
 
     //key is x coordinate and value is array of y coordinates
@@ -72,7 +72,7 @@ export class EclipseService {
     });
 
     if (coords.earth.y !== 0 || coords.earth.x !== 10) {
-      return callback('Earth should be in its right position')
+      return callback('Earth should be in its right position in universe')
     }
     
     //key is x coordinate and value is array of y coordinates
