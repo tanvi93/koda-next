@@ -379,8 +379,8 @@ export const sprites: any = [
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
                 "handPositions": {
-                    "x": -5,
-                    "y": -4
+                    "x": -3,
+                    "y": -5
                 },
                 "disappearCoordinates": {
                     "x1": -37,
@@ -1159,7 +1159,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire1.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,

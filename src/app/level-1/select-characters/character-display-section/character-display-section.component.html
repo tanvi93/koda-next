@@ -6,12 +6,9 @@
             <img class="fruit-position"  src="{{ imageDetail.fruitImage.path  }}" alt="">
             <img class="cap-position"  src="{{ imageDetail.capImage.path }}" alt="">
         </div>
-        <div class="action-zone" [style.background-color]="errorMsgFlag ? '#c75c5c': '#36323f'">
+        <div class="action-zone">
             <div class="action-button" *ngIf='!errorMsgFlag' (click)="selectionList()">
-                <img src="assets/icons/white_tick.png" alt="">
-                <span>
-                    DONE
-                </span>
+                <img src="assets/images/done-btn.png" alt="">
             </div>
             <app-error-msg class="error" *ngIf="errorMsgFlag" [error]="contentData.errorMsg"></app-error-msg>
         </div>

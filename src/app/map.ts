@@ -353,7 +353,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'To the hills storyline',
-                        path: 'to-the-hills-storyline',
+                        path: 'storyline/to-the-hills',
                         order: 1,
                         image: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg.jpg',
                         type: 'activity-narration'
@@ -369,7 +369,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Venus flytrap storyline',
-                        path: 'venus-fly-trap',
+                        path: 'storyline/venus_flytrap',
                         order: 3,
                         image: './assets/images/activities/venus_flytrap/venus-fly_bg-class.jpg',
                         type: 'activity-narration'

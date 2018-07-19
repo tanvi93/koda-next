@@ -92,7 +92,7 @@ export class SpriteService {
     } else {
       arr[index].currentOffset = data;
     }
-    return arr[index].currentOffset;
+    return { ...arr[index].currentOffset };
   }
 
 }

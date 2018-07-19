@@ -27,15 +27,16 @@ export const CaptchaActivityContent = {
         "inputValue": ['', '', ''],
         "textDisableFlag": [false, false, false]
     },
-    headerContent: 'Let\'s see if you can solve some of these captchas. You need to identify the pattern being repeated and the number of times it\'s repeated to form the whole captcha.',
+    instructionBarContent: 'Let\'s see if you can solve some of these captchas. You need to identify the pattern being repeated and the number of times it\'s repeated to form the whole captcha.',
     inputTextHeader: 'Fill in the fields below as per the captcha (the wavy text displayed on the computer screen) on the right.',
     inputParaContent: [
         'Type the letters in the captcha on the right',
         'Type the pattern that is repeated to form the whole captcha',
         'Number of times the pattern is repeated'
     ],
-    captchaMascot: 'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/mascot_head.png',
-    actionbutton: 'assets/images/move_button.png',
+    mascotHead: 'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/mascot_head.png',
+    BackgroundColor: '#ecd45c',
+    mascotBg: '#ecd45c',
     backgroundImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/captcha/bg_activity_screen.jpg',
     errorMsg: [
         'The captcha typed by you is incorrect. Recheck the captcha on the right and try again.', // incorrect input
