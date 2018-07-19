@@ -55,7 +55,6 @@ export class RepeatPredefinedService {
       json.times = parseInt(json.times);
       const code = atob(json.linesOfCode);
       const repeat = (i) => {
-        console.log(i, json.times);
         if (i === json.times) return callback();
         interpreter.executeCommands(code, () => { 
           repeat(++i);
