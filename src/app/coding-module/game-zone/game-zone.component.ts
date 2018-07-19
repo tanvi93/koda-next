@@ -141,16 +141,18 @@ export class GameZoneComponent implements OnInit, OnChanges {
       }
       this.feedbackStatement.emit(obj);
     });
-    this.buttonStatus = 'reset';
-    let json = null;
-    codes.forEach(v => {
-      json = JSON.parse(v);
-      if (json.type && json.type === 'event') {
-        this.buttonStatus = 'stop';
+    if (!eventId) {
+      this.buttonStatus = 'reset';
+      let json = null;
+      codes.forEach(v => {
+        json = JSON.parse(v);
+        if (json.type && json.type === 'event') {
+          this.buttonStatus = 'stop';
+        }
+      });
+      if (this.buttonStatus === 'reset') {
+        this.stageService.stopExecution();
       }
-    });
-    if (this.buttonStatus === 'reset' && !eventId) {
-      this.stageService.stopExecution();
     }
   }
 
