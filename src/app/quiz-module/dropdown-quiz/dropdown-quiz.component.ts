@@ -92,6 +92,7 @@ export class DropdownQuizComponent implements OnInit {
 
   submitAnswer = () => {
     this.showError = false;
+    this.hideButtonFlag = true;
     this.dialogRef = this.dialog.open(SuccessModalComponent, {
       hasBackdrop: true,
       panelClass: 'app-full-bleed-dialog'

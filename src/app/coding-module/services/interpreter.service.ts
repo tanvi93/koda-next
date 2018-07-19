@@ -211,13 +211,13 @@ export class InterpreterService {
             minScale: 0.3,
             scaleSpeed: 1.2
           },
-        grid:
-          {
-            spacing: 20,
-            length: 3,
-            colour: '#ccc',
-            snap: true
-          },
+        // grid:
+        //   {
+        //     spacing: 20,
+        //     length: 3,
+        //     colour: '#ccc',
+        //     snap: true
+        //   },
         disable: true,
         collapse: true
       }
@@ -332,7 +332,8 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    // this.getXml(true);
+    this.getXml(true);
+
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);

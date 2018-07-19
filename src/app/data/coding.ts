@@ -2789,7 +2789,65 @@ export const blocksData: any = {
             "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
             }],
         "isParallel": true,
-        "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="go_to" id="go_to" x="14" y="21">
+    <field name="sprite">0</field>
+    <value name="input_x">
+      <shadow type="number" id="~BIp%YX-0tOu.bE,V^g/">
+        <field name="n">0</field>
+      </shadow>
+      <block type="random_number" id="random_number">
+        <value name="from">
+          <shadow type="number" id="isH!L@CHDf[h-26@,rUD">
+            <field name="n">0</field>
+          </shadow>
+        </value>
+        <value name="to">
+          <shadow type="number" id="B9#8tmkB{Ws-csLb7?h">
+            <field name="n">0</field >
+        </shadow>
+        </value>
+        </block>
+        </value>
+        <value name="input_y" >
+        <shadow type="number" id = "Vo~_TJ/J6K{{lS+)!:d{" >
+            <field name="n"> 0 </field>
+                </shadow>
+                <block type="random_number" id="1cTU@ZPiH#MWjvLU)DT" >
+                <value name="from">
+                    <shadow type="number" id = "Revd8r8/tJ^Ag|/}R;$" >
+                        <field name="n"> 0 </field>
+                            </shadow>
+                            </value>
+                            <value name="to">
+                            <shadow type="number" id = "hX;H$S,%OtR!jx;[S}aM" >
+                                <field name="n">0</field>
+                                    </shadow>
+                                    </value>
+                                    </block>
+                                    </value>
+                                    <next>
+                                    <block type="controls_if_else" id = "controls_if_else" >
+                                        <value name="condition">
+                                            <block type="relational_operators" id = "relational_operators">
+                                                <field name="operator">2</field>
+                                                    <value name="input1" >
+                                                    <shadow type="number" id = "yR#v,WYbBIMd0HesSys" >
+                                                        <field name="n"> 0 </field>
+                                                            </shadow>
+                                                            </value>
+                                                            <value name="input2">
+                                                            <shadow type="number" id = "Tmxz!YB3-/j$u^/16*Y5" >
+                                                                <field name="n"> -1 </field>
+                                                                    </shadow>
+                                                                    </value>
+                                                                    </block>
+                                                                    </value>
+                                                                    </block>
+                                                                    </next>
+                                                                    </block>
+                                                                    </xml>`,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2798,15 +2856,32 @@ export const blocksData: any = {
             "name": "preview",
             "isVisible": true,
             "content": "./../assets/images/activities/talking_parrot/preview.gif"
-        }, {
-            "name": "hint",
-            "isVisible": false,
-            "content": ""
-        }, {
-            "name": "checklist",
-            "isVisible": true,
-            "content": []
-        }],
+            }, {
+                "name": "hint",
+                "isVisible": true,
+                "content": [
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/talking_parrot/hint1.png',
+                        "hintActive": false,
+                        "hintDisable": false
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/talking_parrot/hint2.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/talking_parrot/hint3.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    }
+                ],
+                "totalHintAvailable": 3,
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/talking_parrot/hint1.png"
+            }],
         "backgrounds": [
             {
                 "name": "bg_coding",
