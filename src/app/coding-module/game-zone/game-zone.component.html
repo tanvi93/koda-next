@@ -20,6 +20,9 @@
 </div>
  <!--modal starts here-->
   <div class="canvas-full-screen">
+      <div id="game">
+        <canvas id="gameCanvas" fxFlex> </canvas>
+      </div>
       <div class="full-screen-controls controls" fxLayout="row" fxLayoutAlign="space-around center">
           <div fxFlex="50">
             <img mat-button (click)="onButtonClick()" [src]="buttonSrcs[buttonStatus]">
@@ -32,7 +35,7 @@
                 <span>Y: {{yCoordinate}}</span>
               </div>
               <img class="gridImg m-r-10 m-l-10" [src]="gridButtonSrc" alt="" (click)="stageService.drawGrid()">
-              <img class="gridImg" [src]="zoomtab" alt="" (click)="openDialog()">
+              <img class="gridImg" [src]="zoomtab1" alt="" (click)="openDialog()">
             </div>
           </div>
         </div>

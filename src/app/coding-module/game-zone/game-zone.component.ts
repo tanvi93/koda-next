@@ -63,6 +63,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
 
   private gridButtonSrc: any;
   private zoomtab: any;
+  private zoomtab1: any;
   private buttonSrcs: any;
   private buttonStatus: String;
   private pageId: String;
@@ -84,6 +85,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
     this.yCoordinate = 0;
     this.gridButtonSrc = './../../../assets/icons/grid_toggle.svg';
     this.zoomtab = './../../../assets/icons/enter_full_screen.svg';
+    this.zoomtab1 = './../../../assets/icons/exit_full_screen.svg';
     
     this.buttonStatus = 'run';
     let buttonLoadCount = 0;
