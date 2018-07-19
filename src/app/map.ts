@@ -353,7 +353,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'To the hills storyline',
-                        path: 'to-the-hills-storyline',
+                        path: 'storyline/to-the-hills',
                         order: 1,
                         image: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg.jpg',
                         type: 'activity-narration'
