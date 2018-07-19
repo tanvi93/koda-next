@@ -40,6 +40,14 @@ export const stories = {
             './assets/images/activities/seasons/season-storyline.jpg',
         ]
     },
+    medicine_box: {
+        backgroundImgs: [
+            './assets/images/activities/medicine_box/medicine-box-storyline.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline2.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline3.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline4.jpg'
+        ]
+    },
     challenge_dragon_capture: {
         backgroundImgs: [
             './assets/images/activities/dragon_capture/dragon-activity.jpg',
