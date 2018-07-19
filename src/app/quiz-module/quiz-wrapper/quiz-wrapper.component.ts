@@ -31,6 +31,8 @@ import { blocksData } from './../../data/coding';
 
 export class QuizWrapperComponent {
   @Input() quizData;
+  @Input() flexLeft: String;
+  @Input() flexRight: String;
   @Input() pageId;
   hintDialogRef: MatDialogRef<GeneralHintModalComponent>;
   previewDialogRef: MatDialogRef<PreviewModalComponent>;
@@ -41,6 +43,8 @@ export class QuizWrapperComponent {
     private interpreter: InterpreterService,
     private stageService: GameStageService,
     private audio: AudioService) {
+    this.flexLeft = '60';
+    this.flexRight = '40';
     this.pageId = 'mm_play';
     this.pageData = blocksData[`${this.pageId}`];
     this.sp = new SpriteService();

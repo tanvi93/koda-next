@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BubbleMsgComponent } from './bubble-msg.component';
+import { CandyJarComponent } from './candy-jar.component';
 
-describe('BubbleMsgComponent', () => {
-  let component: BubbleMsgComponent;
-  let fixture: ComponentFixture<BubbleMsgComponent>;
+describe('CandyJarComponent', () => {
+  let component: CandyJarComponent;
+  let fixture: ComponentFixture<CandyJarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BubbleMsgComponent ]
+      declarations: [ CandyJarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BubbleMsgComponent);
+    fixture = TestBed.createComponent(CandyJarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -53,7 +53,6 @@ export class SpriteService {
 
   getAllButtons = (pageId) => {
     if (!pageId) return [];
-    console.log(blocksData[pageId]);
     this.buttonArr[pageId] = blocksData[pageId].buttons;
     return this.buttonArr[pageId];
   }
@@ -93,7 +92,7 @@ export class SpriteService {
     } else {
       arr[index].currentOffset = data;
     }
-    return arr[index].currentOffset;
+    return { ...arr[index].currentOffset };
   }
 
 }
