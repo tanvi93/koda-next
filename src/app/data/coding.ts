@@ -2259,25 +2259,16 @@ export const blocksData: any = {
             "block_list": ["say", "showCoordinates", "coordinates", "goTo", "moveBy", "moveTo", "changeLook", "nextLook", "repeat", "repeatForever", "randomNumber", "arithmeticOperator", "wait", "whenKeyPressed", "whenButtonClicked"],
         }],
         "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
-          <variables></variables>
-          <block type="button_click_event" id="button_click_event" x="30" y="50">
+        <variables></variables>
+        <block type="button_click_event" id="button_click_event" x="50" y="70">
             <field name="button">0</field>
             <statement name="button_clicked">
-              <block type="say" id="say">
-                <field name="sprite">1</field>
-                <field name="message">Solar Eclipse</field>
-              </block>
+            <block type="say" id="say">
+                <field name="sprite">0</field>
+                <field name="message">It is Solar Eclipse!</field>
+            </block>
             </statement>
-          </block>
-          <block type="button_click_event" x="30" y="130">
-            <field name="button">1</field>
-            <statement name="button_clicked">
-              <block type="say" id="7ERfBxLR)LWnGUQlB.}!">
-                <field name="sprite">1</field>
-                <field name="message">Lunar Eclipse</field>
-              </block>
-            </statement>
-          </block>
+        </block>
         </xml>`,
         "isParallel": true,
         "icons": [{
@@ -2288,15 +2279,32 @@ export const blocksData: any = {
             "name": "preview",
             "isVisible": true,
             "content": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/preview.gif"
-        }, {
-            "name": "hint",
-            "isVisible": false,
-            "content": ""
-        }, {
-            "name": "checklist",
-            "isVisible": true,
-            "content": []
-        }],
+            }, {
+                "name": "hint",
+                "isVisible": true,
+                "content": [
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/hint1.png',
+                        "hintActive": false,
+                        "hintDisable": false
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/hint2.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/hint3.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    }
+                ],
+                "totalHintAvailable": 3,
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/hint1.png"
+            }],
         "backgrounds": [
             {
                 "name": "Space",
@@ -2359,7 +2367,7 @@ export const blocksData: any = {
              }],
          "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
   <variables></variables>
-  <block type="change_look" id="change_look" x="30" y="50">
+  <block type="change_look" id="change_look" x="38" y="36">
     <field name="sprite">1</field>
     <field name="avatar">1</field>
     <next>
@@ -2368,7 +2376,7 @@ export const blocksData: any = {
         <field name="direction">D</field>
         <value name="steps">
           <shadow type="number" id="ZPi{uxhc!cTc^i}Q.l1">
-            <field name="n">3</field>
+            <field name="n">2</field>
           </shadow>
         </value>
         <next>
@@ -2404,16 +2412,17 @@ export const blocksData: any = {
                               </block>
                             </statement>
                             <next>
-                              <block type="wait" id="Sr!|GpjnE9l^$e(Sr]k">
-                                <field name="wait_time">0.5</field>
+                              <block type="show_hide" id="rpUEB6#zMznO3GmCFM?+">
+                                <field name="sprite">4</field>
+                                <field name="visibility_status">0</field>
                                 <next>
                                   <block type="show_hide" id="vx3SA4gKF3*Z%Qj[ASC">
                                     <field name="sprite">5</field>
                                     <field name="visibility_status">1</field>
                                     <next>
-                                      <block type="show_hide" id="rpUEB6#zMznO3GmCFM?+">
-                                        <field name="sprite">4</field>
-                                        <field name="visibility_status">0</field>
+                                      <block type="change_look" id="e#TK7*g1_0X*qE%u78?%">
+                                        <field name="sprite">1</field>
+                                        <field name="avatar">1</field>
                                       </block>
                                     </next>
                                   </block>
@@ -2433,115 +2442,21 @@ export const blocksData: any = {
       </block>
     </next>
   </block>
-  <block type="click_event" id="click_event" x="370" y="50">
+  <block type="click_event" id="click_event" x="386" y="36">
     <field name="sprite">1</field>
     <statement name="sprite_clicked">
       <block type="move_to" id="move_to">
         <field name="sprite">0</field>
         <value name="input_x">
           <shadow type="number" id="oeH(hXo!a0nx}jll)81">
-            <field name="n">0</field>
+            <field name="n">-22</field>
           </shadow>
         </value>
         <value name="input_y">
           <shadow type="number" id="mOM|J!iJ;@G2:1LVTVE(">
-            <field name="n">0</field>
+            <field name="n">-15</field>
           </shadow>
         </value>
-      </block>
-    </statement>
-  </block>
-</xml>`,
-         "initialCode1": `<xml>
-  <variables></variables>
-  <block type="move_to" id="move_to" x="50" y="10">
-    <field name="sprite">0</field>
-    <value name="input_x">
-      <shadow type="number" id="IY~f%Y^g.qZALPyAaP0O">
-        <field name="n">-20</field>
-      </shadow>
-    </value>
-    <value name="input_y">
-      <shadow type="number" id="AQ{~kr:c^@8ij-@mG#Hn">
-        <field name="n">-5</field>
-      </shadow>
-    </value>
-  </block>
-  <block type="click_event" id="click_event" x="50" y="70">
-    <field name="sprite">1</field>
-    <statement name="sprite_clicked">
-      <block type="change_look" id="change_look">
-        <field name="sprite">1</field>
-        <field name="avatar">1</field>
-        <next>
-          <block type="move_by" id="move_by">
-            <field name="sprite">3</field>
-            <field name="direction">D</field>
-            <value name="steps">
-              <shadow type="number" id="q!zbob=1%W-vqL@wRmcO">
-                <field name="n">10</field>
-              </shadow>
-            </value>
-            <next>
-              <block type="change_look" id="Iq)QIP0-L-yczRuP!pWa">
-                <field name="sprite">2</field>
-                <field name="avatar">1</field>
-                <next>
-                  <block type="show_hide" id="3eX+kWvu(Vw@;O?+^#+R">
-                    <field name="sprite">4</field>
-                    <field name="visibility_status">1</field>
-                    <next>
-                      <block type="change_look" id="^bAnW:c[|1f~]rl-?D}a">
-                        <field name="sprite">5</field>
-                        <field name="avatar">1</field>
-                        <next>
-                          <block type="next_look" id="next_look">
-                            <field name="sprite">5</field>
-                            <next>
-                              <block type="change_look" id=":r/v9=y)tvSWSV}hra$P">
-                                <field name="sprite">2</field>
-                                <field name="avatar">2</field>
-                                <next>
-                                  <block type="show_hide" id="g3Tcl!+p:3%tXck)GDD]">
-                                    <field name="sprite">5</field>
-                                    <field name="visibility_status">0</field>
-                                    <next>
-                                      <block type="show_hide" id="oHlyA?:Eob8fBtILbaa^">
-                                        <field name="sprite">4</field>
-                                        <field name="visibility_status">0</field>
-                                        <next>
-                                          <block type="move_by" id="=eL)M*;r;!57kYBF{:.^">
-                                            <field name="sprite">3</field>
-                                            <field name="direction">U</field>
-                                            <value name="steps">
-                                              <shadow type="number" id="k1KBBZ8FKBIRUYWCEHbr">
-                                                <field name="n">10</field>
-                                              </shadow>
-                                            </value>
-                                            <next>
-                                              <block type="change_look" id="AlybkHj$XqdM-O1:7ezn">
-                                                <field name="sprite">1</field>
-                                                <field name="avatar">0</field>
-                                              </block>
-                                            </next>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </next>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
       </block>
     </statement>
   </block>
@@ -2555,15 +2470,32 @@ export const blocksData: any = {
             "name": "preview",
             "isVisible": true,
             "content": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/preview1.gif"
-        }, {
-            "name": "hint",
-            "isVisible": false,
-            "content": ""
-        }, {
-            "name": "checklist",
-            "isVisible": true,
-            "content": []
-        }],
+            }, {
+                "name": "hint",
+                "isVisible": true,
+                "content": [
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code1/hint1.png',
+                        "hintActive": false,
+                        "hintDisable": false
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code1/hint2.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code1/hint3.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    }
+                ],
+                "totalHintAvailable": 3,
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code1/hint1.png"
+            }],
         "backgrounds": [
             {
                 "name": "BG1",
