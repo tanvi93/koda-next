@@ -13,8 +13,28 @@
           <span>Y: {{yCoordinate}}</span>
         </div>
         <img class="gridImg m-r-10 m-l-10" [src]="gridButtonSrc" alt="" (click)="stageService.drawGrid()">
-        <!-- <img class="gridImg" [src]="zoomtab" alt="" (click)="openDialog()"> -->
+        <img class="gridImg" [src]="zoomtab" alt="" (click)="openDialog()">
       </div>
     </div>
-  </div>
+  </div> 
 </div>
+ <!--modal starts here-->
+  <div class="canvas-full-screen">
+      <div class="full-screen-controls controls" fxLayout="row" fxLayoutAlign="space-around center">
+          <div fxFlex="50">
+            <img mat-button (click)="onButtonClick()" [src]="buttonSrcs[buttonStatus]">
+            <!-- <button mat-button (click)="tmpButton()">Get XML</button> -->
+          </div>
+          <div fxFlex="50" fxLayout="row">
+            <div class="xy">
+              <div class="coordinates" fxLayout="column" fxFlex="50px">
+                <span>X: {{xCoordinate}}</span>
+                <span>Y: {{yCoordinate}}</span>
+              </div>
+              <img class="gridImg m-r-10 m-l-10" [src]="gridButtonSrc" alt="" (click)="stageService.drawGrid()">
+              <img class="gridImg" [src]="zoomtab" alt="" (click)="openDialog()">
+            </div>
+          </div>
+        </div>
+  </div><!--canvas-full-screen -->
+  <!--modal ends here-->
