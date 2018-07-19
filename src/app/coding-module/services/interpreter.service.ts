@@ -157,7 +157,7 @@ export class InterpreterService {
     this.characterTouch = new TouchEventService(activityname);
     this.wsOnChange = new WorkspaceOnChangeService(pageId);
     this.mouseCoordinates = new MouseCoordinatesBlockService();
-    this.playSound = new PlaySoundBlockService();
+    this.playSound = new PlaySoundBlockService(pageId);
     this.rotateSprite = new RotateSpriteBlockService(activityname);
     this.flipSprite = new FlipSpriteBlockService(activityname);
     this.moveWithSpeed = new MoveWithSpeedService(activityname);
@@ -297,6 +297,9 @@ export class InterpreterService {
     this.rotateSprite.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'rotateSprite', data: obj });
     });
+    this.playSound.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'playSound', data: obj });
+    })
 
     this.wait.interpret(this.kodaInterpreter);
 
