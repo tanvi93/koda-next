@@ -369,7 +369,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Venus flytrap storyline',
-                        path: 'venus-fly-trap',
+                        path: 'storyline/venus_flytrap',
                         order: 3,
                         image: './assets/images/activities/venus_flytrap/venus-fly_bg-class.jpg',
                         type: 'activity-narration'

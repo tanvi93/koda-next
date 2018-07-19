@@ -2850,7 +2850,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",

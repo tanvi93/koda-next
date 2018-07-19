@@ -332,7 +332,7 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    this.getXml(true);
+    // this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
@@ -350,7 +350,7 @@ export class InterpreterService {
         setTimeout(() => {
           this.stopExecution();
         }, 500);
-      }, 1000 * 30);
+      }, 1000 * 3);
     }
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
       if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
