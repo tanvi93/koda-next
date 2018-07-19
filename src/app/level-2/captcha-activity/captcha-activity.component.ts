@@ -40,8 +40,10 @@ export class CaptchaActivityComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.contentData);
+    
     this.route.params.subscribe(params => {
-      this.pageId = this.route.snapshot.paramMap.get('pageId');
+      this.pageId = params.pageId;
       this.patternData = CaptchaActivityContent[`${this.pageId}`];
     });
     this.invalidErrorHidden = true;

@@ -8,7 +8,6 @@ import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.compo
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.component';
-import { CaptchaActivityComponent } from './captcha-activity/captcha-activity.component';
 
 const routes: Routes = [
   {
@@ -32,9 +31,6 @@ const routes: Routes = [
   }, {
     path: 'challenge-dragon-capture-activity',
     component: DragonCapture1Component
-  }, {
-    path: 'captcha-activity/:pageId',
-    component: CaptchaActivityComponent
   }
 ];
 

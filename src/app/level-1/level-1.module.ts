@@ -23,8 +23,7 @@ import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
 import { TreasureActivitySectionComponent } from './treasure-hunt/treasure-activity-section/treasure-activity-section.component';
 import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.component';
 import { DragonCaptureOutputComponent } from './dragon-capture1/dragon-capture-output/dragon-capture-output.component';
-import { CaptchaActivityComponent } from './captcha-activity/captcha-activity.component';
-import { CaptchaInputComponent } from './captcha-activity/captcha-input/captcha-input.component';
+
 
 
 @NgModule({
@@ -46,7 +45,7 @@ import { CaptchaInputComponent } from './captcha-activity/captcha-input/captcha-
     CharacterDisplaySectionComponent,
     MarsRoverComponent, MarsOutputSectionComponent, 
     DragonCapture2Component, DragonOutputSectionComponent,
-    TreasureHuntComponent, TreasureActivitySectionComponent, DragonCapture1Component,  DragonCaptureOutputComponent, CaptchaActivityComponent, CaptchaInputComponent,
+    TreasureHuntComponent, TreasureActivitySectionComponent, DragonCapture1Component,  DragonCaptureOutputComponent,
   ]
  
 })

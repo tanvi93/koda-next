@@ -1,5 +1,5 @@
 .captcha-input {
-    background: white;
+    background: #5c5962;
     font-family: 'Quicksand';
     position: absolute;
     height: 100%;
@@ -54,9 +54,9 @@
             }
         }
         & .error-msg {
-            top: 80%;
+            bottom: 0%;
             position: absolute;
-            height: 20%;
+            height: 15%;
             width: 100%;
             background-color: green;
             & .submit-button { 
@@ -67,7 +67,7 @@
                 font-weight: 900;
                 background-color: #97cc44;
                 margin-left: 40%;
-                height: 40%;
+                height: 60%;
                 width: 12%;
                 cursor: pointer;
                 outline: none;

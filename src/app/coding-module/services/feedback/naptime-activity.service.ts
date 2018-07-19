@@ -35,9 +35,14 @@ export class NaptimeActivityService {
       let roxyLookPosition = 0;
       
       spriteStatus.forEach((element, index) => {
-        spriteStatusValue.push(Object.values(element)[0]);
+        if (Object.values(element)[4] === undefined) {
+          spriteStatusValue.push('not a look block');
+        } else {
+          spriteStatusValue.push(Object.values(element)[4]);
+        }       
       });
 
+      
       
       oreoLookPosition = spriteStatusValue.indexOf(sprites[2].looks[0]);
       graceLookPosition = spriteStatusValue.indexOf(sprites[0].looks[0]);
@@ -47,6 +52,7 @@ export class NaptimeActivityService {
         
         if (sprites[0].currentLookIdx == 1 && sprites[1].currentLookIdx == 1 && sprites[2].currentLookIdx == 1) {
           // oreo goto correct condition
+          
           if (spriteStatus[oreoLookPosition - 7].currentPosition.x <= -27 && spriteStatus[oreoLookPosition - 7].currentPosition.x >= -30 && (spriteStatus[oreoLookPosition - 7].currentPosition.y >= 18 && spriteStatus[oreoLookPosition - 7].currentPosition.y <= 21)) {
             
             // grace goto correct condition
