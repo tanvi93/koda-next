@@ -356,9 +356,9 @@ export class InterpreterService {
       if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
     const loop = i => {
+      if (i === codes.length) return;
       this.kodaInterpreter.executeCommands(codes[i], () => {
         if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
-        if (i === codes.length - 1) return;
         loop(++i);
       });
     }
