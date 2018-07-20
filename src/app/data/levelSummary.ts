@@ -1,6 +1,12 @@
 export const summary = [
     {
         "LEVEL 1 SUMMARY": {
+            "header": "You successfully built the algorithm of Monkey Menace game.",
+            "image": "assets/images/quick_summary/level1.png"
+        }
+    },
+    {
+        "LEVEL 2 SUMMARY": {
             "header": "You discovered your Maker’s Lab where you built your game. You also set up your Stage by selecting and positioning the characters of Monkey Menace.",
             "steps": [
                 "Stage is where you see your game's setup and the game in action.",
@@ -10,7 +16,7 @@ export const summary = [
                 "Hovering over any point on the Stage displays its coordinates in the Stage controls panel."
             ],
             "image": "assets/images/quick_summary/Intro to coordinates.PNG",
-            "topicsCovered":{}
+            "topicsCovered": {}
         },
         "COORDINATES": {
             "header": "Coordinates represent the position of a point on the screen.",
@@ -46,23 +52,18 @@ export const summary = [
                         "Negative inputs to rover’s Y coordinate moved it down whereas positive inputs moved it up."
                     ],
                     "image": "assets/images/quick_summary/Mars Rover.PNG"
-                },
-                "Learning": {
-                    "header": "",
-                    "steps": [],
-                    "image": ""
                 }
             }
         }
     },
     {
-        "LEVEL 2 SUMMARY": {
+        "LEVEL 3 SUMMARY": {
             "header": "You have successfully completed the second step of your Monkey Menace algorithm using Code Blocks",
             "steps": [
-                "Blocks are sets of instructions that the computer follows.", 
-                "To create your code, drag the required blocks from Blocks Box to Code Zone, connect them in the correct sequence, and click <Run> to see the output.", 
-                "The blocks are executed in the sequence in which they are connected (from top to bottom).", 
-                "Blocks like <show images repeat(n) and repeat forever> make the repetitive code readable, easy to understand and reduces the code length."
+                "Blocks are sets of instructions that the computer follows.",
+                "To create your code, drag the required blocks from Blocks Box to Code Zone, connect them in the correct sequence, and click <img width='70px' src='./assets/images/run_button.svg'> to see the output.",
+                "The blocks are executed in the sequence in which they are connected (from top to bottom).",
+                "Blocks like  <img width='100px' src='./assets/images/block_images/repeat_n_times_block.png'> and  <img width='100px' src='./assets/images/block_images/repeat_forever.png'>  make the repetitive code readable, easy to understand and reduces the code length."
             ],
             "image": "assets/images/quick_summary/pasted image 0.png"
         },
@@ -114,7 +115,7 @@ export const summary = [
             "steps": [
                 "If a set of blocks needs to be repeated throughout, one can use the repeat forever block.",
                 "If a set of blocks needs to be repeated for a specific number of times, then repeat (n) times block can be used.",
-                "Code length can be reduced by placing the repeated pattern within the repeat or repeat forever block <show images>."
+                "Code length can be reduced by placing the repeated pattern within the <img width='100px' src='./assets/images/block_images/repeat_n_times_block.png'> or <img width='100px' src='./assets/images/block_images/repeat_forever.png'>  ."
             ],
             "image": "assets/images/quick_summary/pasted image 0 (2).png"
         },

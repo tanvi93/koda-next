@@ -1,4 +1,4 @@
-<app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" >
+<app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" [dropEnabled]="dropEnabled" [dragEnabled]="dragEnabled">
   <div fxlayout="row" fxLayoutAlign="center start" class="correct-step-container" >
       <div fxLayoutAlign="center center" class="step-number" *ngIf="!step.icon">{{number}}
   </div>
