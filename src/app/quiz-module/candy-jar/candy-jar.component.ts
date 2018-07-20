@@ -69,9 +69,10 @@ export class CandyJarComponent {
   }
 
   reward(val, data) {
-    this.displayError();
+    console.log(val);
+    this.displayError(val.srcElement.value);
     this.success = false;
-    this.currentRewardValue = Number(val.key);
+    this.currentRewardValue = Number(val.srcElement.value);
 
     if (this.currentRewardValue === data.optionX.correctValue) {
       if (this.currentPenaltyValue === data.optionY.correctValue) {
@@ -88,14 +89,14 @@ export class CandyJarComponent {
         this.error = data.optionX.equalToPreviousValue;
       } else if (this.currentRewardValue < this.previousRewardValue[this.count]) {
         this.error = data.optionX.lessthanPreviousValue;
-      }
+      } 
     }
   }
 
   penalty(val, data) {
-    this.displayError();
+    this.displayError(val.srcElement.value);
     this.success = false;
-    this.currentPenaltyValue = Number(val.key);
+    this.currentPenaltyValue = Number(val.srcElement.value);
 
     if (this.currentPenaltyValue === data.optionY.correctValue) {
       if (this.currentRewardValue === data.optionX.correctValue) {
@@ -136,10 +137,11 @@ export class CandyJarComponent {
     }
   }
 
-  displayError() {
+  displayError(val) {
     this.showError = false;
-    setTimeout(() => {
-      this.showError = true;
-    }, 200);
+    if (val) {
+      setTimeout(() => {this.showError = true; }, 200);
+    }
+
   }
 }
