@@ -63,6 +63,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
 
   private gridButtonSrc: any;
   private zoomtab: any;
+  private zoomtab1: any;
   private buttonSrcs: any;
   private buttonStatus: String;
   private pageId: String;
@@ -71,6 +72,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
   private yCoordinate: Number;
   private showGrid: Boolean;
   private loading: Boolean;
+  private display: Boolean;
 
   constructor(private sp: SpriteService,
     private route: ActivatedRoute,
@@ -80,10 +82,12 @@ export class GameZoneComponent implements OnInit, OnChanges {
     private stageService: GameStageService) {
     this.showGrid = false;
     this.loading = true;
+    this.display = false;
     this.xCoordinate = 0;
     this.yCoordinate = 0;
     this.gridButtonSrc = './../../../assets/icons/grid_toggle.svg';
     this.zoomtab = './../../../assets/icons/enter_full_screen.svg';
+    this.zoomtab1 = './../../../assets/icons/exit_full_screen.svg';
     
     this.buttonStatus = 'run';
     let buttonLoadCount = 0;
@@ -210,4 +214,11 @@ export class GameZoneComponent implements OnInit, OnChanges {
     this.interpreter.getXml();
   }
 
+  openDialog(){
+    this.display = true;
+  }
+
+  closeDialog(){
+    this.display = false;
+  }
 }
