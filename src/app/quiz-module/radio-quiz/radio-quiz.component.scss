@@ -10,9 +10,13 @@
     font-weight: 500;
     font-size: 22px;
     padding-left: 20px;
+    vertical-align: middle;
   }
 }
-
+.mat-radio-button {
+  display: table-cell;
+  vertical-align: middle;
+}
 mat-card-footer {
   margin: 0;
 }

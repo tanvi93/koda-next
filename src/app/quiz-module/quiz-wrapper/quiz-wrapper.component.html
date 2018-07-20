@@ -1,4 +1,4 @@
-<div fxLayout="column" style="overflow-x: hidden;">
+<div fxLayout="column" style="overflow: hidden;">
   <div class="icon-wrap">
     <app-instruction-bar [mascotImage]="quizData.mascotImage" [mascotBgColor]="quizData.mascotBg" [instructions]="quizData.instructionBarContent"></app-instruction-bar>
     <button mat-fab *ngIf="quizData.hint" (click)="hintDialog($event)" class="button">

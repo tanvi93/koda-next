@@ -1,7 +1,14 @@
 .hunt-wrapper {
     display: table;
+    position: relative;
 }
-
+.hint-icon{
+    position: absolute;
+    width: 35px;
+    right: 0;
+    top: -50px;
+    display: block;
+}
 .input-div {
     display: table-cell;
     width: 44%;

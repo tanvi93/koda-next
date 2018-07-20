@@ -36,17 +36,17 @@ export class AlgoStepsComponent implements OnInit {
       }, {
         step: 3,
         stepText: 'Make the hat move when player presses the keys',
-        speech: `Let's proceed to the second step of our algorithm!`,
+        speech: `Moving on to the next step of our algorithm!`,
         image: `${assetsLink}monkey_menace/make_the_cap_move.png`
       }, {
         step: 4,
         stepText: 'Increase the score if player catches a fruit',
-        speech: `Let's proceed to the second step of our algorithm!`,
+        speech: `Now that we've coded for all the game characters, let's move on to the rules of the game.`,
         image: `${assetsLink}monkey_menace/step4.png`
       }, {
         step: 5,
         stepText: 'End game if player misses more than five fruits',
-        speech: `Let's proceed to the second step of our algorithm!`,
+        speech: `Tremendous progress! Let’s move on to the last step of your algorithm.`,
         image: `${assetsLink}monkey_menace/game_over.png`
       }
     ];
@@ -60,9 +60,9 @@ export class AlgoStepsComponent implements OnInit {
   }
 
   fillData(stepId) {
-    const stepName = ['first', 'second', 'third', 'forth', 'fifth'];
-    this.step = stepName[stepId - 1];
-    this.audio.loader([`./assets/audio/algo_steps/step_${stepId}.mp3`]);
+    // const stepName = ['first', 'second', 'third', 'forth', 'fifth'];
+    // this.step = stepName[stepId - 1];
+    this.audio.loader([`./assets/audio/algo_steps/step_${stepId > 2 ? 2 : stepId}.mp3`]);
     this.audio.play();
   }
 

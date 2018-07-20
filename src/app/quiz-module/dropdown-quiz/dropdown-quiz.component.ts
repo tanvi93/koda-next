@@ -92,6 +92,7 @@ export class DropdownQuizComponent implements OnInit {
 
   submitAnswer = () => {
     this.showError = false;
+    this.hideButtonFlag = true;
     this.dialogRef = this.dialog.open(SuccessModalComponent, {
       hasBackdrop: true,
       panelClass: 'app-full-bleed-dialog'
@@ -99,27 +100,39 @@ export class DropdownQuizComponent implements OnInit {
     this.dialogRef.componentInstance.modalData = this.quizObj;
   }
 
-  selectResult = ($event) => {
-    this.error = $event.message;
+  selectResult = (event) => {
     this.hideButtonFlag = true;
-    this.currentMsgStatus = $event.answerStatus;
-    if ($event.answerValue === 'Choose From') {
-      this.error = this.quizObj.options[$event.id].ifEmpty;
-    }
-    this.option[$event.id] = $event.answerStatus;
+    this.error = event.message;
+    this.currentMsgStatus = event.answerStatus;
     this.showErrorMsg();
+    this.option[event.id] = event.answerStatus;
+
+    // auto hide condition if success option comes
+    if (this.currentMsgStatus) {
+      setTimeout(() => {
+        this.showError = false;
+        this.hideButtonFlag = false;
+      }, 2000);
+    }
+
+    // testing whether all option is correctly added or not
     if (this.option.indexOf(false) === -1) {
-      this.showError = false;
       this.allCorrectFlag = true;
-      this.hideButtonFlag = false;
     } else {
       this.allCorrectFlag = false;
+    }
+
+    // default error condition whenever user choose default option
+    if (event.answerValue === 'Select') {
+      this.error = this.quizObj.options[event.id].ifEmpty;
+      this.option[event.id] = false;
     }
   }
 
   showErrorMsg = () => {
+    this.showError = false;
     setTimeout(() => {
       this.showError = true;
-    }, 200);
+    }, 100);
   }
 }

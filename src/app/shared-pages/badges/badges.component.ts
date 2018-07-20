@@ -21,7 +21,7 @@ export class BadgesComponent {
     this.badgeBGColor = "#22c36a";
     this.pageData = badges[this.activeRoute.snapshot.paramMap.get('pageId')];
     let userData = JSON.parse(localStorage.getItem('userProgress'));
-    this.avatarImg = userData ? userData.avatar : this.pageData.avatarImg;
+    this.avatarImg = userData ? userData.avatar : this.pageData.mascotImg;
     this.audio.stopForeverPlayingAudio();
     this.audio.badgeSound.play();
   }

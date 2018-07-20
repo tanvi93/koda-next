@@ -204,6 +204,142 @@ export const selectActivityContent = {
 
             }
         }]
+    },
+    events: {
+        instructions: 'Complete all activities to earn your badge.',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
+        mascotBgColor: '#ffe655',
+        activities: [{
+            id: 0,
+            name: 'storyline/identical_twins',
+            title: 'Identical Twins',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/identical-twins-step1.jpg',
+            status: {
+                lock: {
+                    imageStatus: false,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: true,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 1,
+            name: 'storyline/lambent_app',
+            title: 'Lambent App',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/shop.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 2,
+            name: 'storyline/eclipse',
+            title: 'Eclipse',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_school_park.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        }]
+    },
+    conditions: {
+        instructions: 'Complete all activities to earn your badge.',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
+        mascotBgColor: '#ffe655',
+        activities: [{
+            id: 0,
+            name: 'storyline/ride_scanner',
+            title: 'Ride Scanner',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/identical-twins-step1.jpg',
+            status: {
+                lock: {
+                    imageStatus: false,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: true,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 1,
+            name: 'storyline/talking_parrot',
+            title: 'Talking Parrot',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/shop.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 2,
+            name: 'storyline/seasons',
+            title: 'Seasons',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_school_park.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        }]
     }
 };
 
