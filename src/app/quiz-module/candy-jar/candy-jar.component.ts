@@ -69,7 +69,6 @@ export class CandyJarComponent {
   }
 
   reward(val, data) {
-    console.log(val);
     this.displayError(val.srcElement.value);
     this.success = false;
     this.currentRewardValue = Number(val.srcElement.value);
