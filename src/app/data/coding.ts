@@ -2921,10 +2921,95 @@ export const blocksData: any = {
         }, {
             "name": "Others",
             "colour": "#42b4bd",
-            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
+            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates"]
             }],
         "isParallel": true,
-        "initialCode": "<some XML>",
+        "initialCode": `<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="click_event" id="click_event" x="50" y="20">
+    <field name="sprite">2</field>
+    <statement name="sprite_clicked">
+      <block type="go_to" id="go_to">
+        <field name="sprite">1</field>
+        <value name="input_x">
+          <shadow type="number" id="1lGp1Fl,}_tVti_viECZ">
+            <field name="n">0</field>
+          </shadow>
+          <block type="mouse_coordinates" id="mouse_coordinates">
+            <field name="axis">0</field>
+          </block>
+        </value>
+        <value name="input_y">
+          <shadow type="number" id="u5Y6BU$|zgBfI)pC)h0L">
+            <field name="n">0</field>
+          </shadow>
+          <block type="mouse_coordinates" id=")nG-KWvb*AY;WUXHUfb[">
+            <field name="axis">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if_else" id="controls_if_else">
+            <value name="condition">
+              <block type="logical_operators" id="logical_operators">
+                <field name="operator">0</field>
+                <value name="input1">
+                  <block type="relational_operators" id="relational_operators">
+                    <field name="operator">2</field>
+                    <value name="input1">
+                      <shadow type="number" id="yJn:ZR?z;H0fCw$5co+X">
+                        <field name="n">0</field>
+                      </shadow>
+                      <block type="mouse_coordinates" id="At040PEdw;j@LaQDm@dN">
+                        <field name="axis">0</field>
+                      </block>
+                    </value>
+                    <value name="input2">
+                      <shadow type="number" id="C|X{p$WXMfx;m;IO9*93">
+                        <field name="n">0</field>
+                      </shadow>
+                      <block type="get_coordinates" id="get_coordinates">
+                        <field name="sprite">0</field>
+                        <field name="axis">0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="input2">
+                  <block type="relational_operators" id="Eo[zFx*OM3b=zQ-!)(#F">
+                    <field name="operator">4</field>
+                    <value name="input1">
+                      <shadow type="number" id=")Yu?PxTJ2,b*/LQo,y!-">
+                        <field name="n">0</field>
+                      </shadow>
+                      <block type="mouse_coordinates" id="F}oG(slerY(3ABb4Z4ql">
+                        <field name="axis">1</field>
+                      </block>
+                    </value>
+                    <value name="input2">
+                      <shadow type="number" id="9v0:$qys2?/2pa~[od]">
+            <field name="n">0</field>
+            </shadow>
+            <block type="get_coordinates" id="!Y,{|g1R2kk;Pm?m!BdI">
+            <field name="sprite">0</field>
+                <field name="axis">1</field>
+                </block>
+                </value>
+                </block>
+                </value>
+                </block>
+                </value>
+                <statement name="in_if">
+                <block type="say" id = "say">
+                    <field name="sprite">1</field>
+                        <field name="message">Spring</field>
+                        </block>
+                        </statement>
+                        </block>
+                        </next>
+                        </block>
+                        </statement>
+                        </block>
+                        </xml>`,
         "icons": [{
             "name": "algo",
             "isVisible": false,
@@ -2933,15 +3018,32 @@ export const blocksData: any = {
             "name": "preview",
             "isVisible": true,
             "content": "./../assets/images/activities/seasons/preview.gif"
-        }, {
-            "name": "hint",
-            "isVisible": true,
-            "content": "./../assets/images/activities/seasons/hint.jpg"
-        }, {
-            "name": "checklist",
-            "isVisible": true,
-            "content": []
-        }],
+            }, {
+                "name": "hint",
+                "isVisible": true,
+                "content": [
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/seasons/hint1.png',
+                        "hintActive": false,
+                        "hintDisable": false
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/seasons/hint2.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/seasons/hint3.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    }
+                ],
+                "totalHintAvailable": 3,
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/seasons/hint1.png"
+            }],
         "backgrounds": [
             {
                 "name": "Space",
