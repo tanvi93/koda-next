@@ -5,6 +5,7 @@ import { SharedModuleModule } from './../shared-module/shared-module.module';
 import { Level3RoutingModule } from './level-3-routing.module';
 import { IntroToEventsComponent } from './intro-to-events/intro-to-events.component';
 import { IntroToConditionalsComponent } from './intro-to-conditionals/intro-to-conditionals.component';
+import { MascotTalkingComponent } from './mascot-talking/mascot-talking.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { IntroToConditionalsComponent } from './intro-to-conditionals/intro-to-c
     SharedModuleModule,
     Level3RoutingModule
   ],
-  declarations: [IntroToEventsComponent, IntroToConditionalsComponent]
+  declarations: [IntroToEventsComponent, IntroToConditionalsComponent, MascotTalkingComponent]
 })
 export class Level3Module { }

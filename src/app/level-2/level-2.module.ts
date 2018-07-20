@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { Level2RoutingModule } from './level-2-routing.module';
 import { SharedModuleModule } from './../shared-module/shared-module.module';
@@ -12,13 +13,16 @@ import { DragContainerComponent } from './to-the-hills/drag-container/drag-conta
 import { DropContainerComponent } from './to-the-hills/drop-container/drop-container.component';
 import { StepDragComponent } from './to-the-hills/drag-container/step-drag/step-drag.component';
 import { StepDropComponent } from './to-the-hills/drop-container/step-drop/step-drop.component';
+import { CaptchaActivityComponent } from './captcha-activity/captcha-activity.component';
+import { CaptchaInputComponent } from './captcha-activity/captcha-input/captcha-input.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModuleModule,
-    Level2RoutingModule
+    Level2RoutingModule,
+    FormsModule
   ],
-  declarations: [IntroToBlocksComponent,  ReletivePositionLearningComponent, RepetitiveCodeComponent, ToTheHillsComponent, DragContainerComponent, DropContainerComponent, StepDragComponent, StepDropComponent]
+  declarations: [IntroToBlocksComponent, ReletivePositionLearningComponent, RepetitiveCodeComponent, ToTheHillsComponent, DragContainerComponent, DropContainerComponent, StepDragComponent, StepDropComponent, CaptchaActivityComponent, CaptchaInputComponent]
 })
 export class Level2Module { }
