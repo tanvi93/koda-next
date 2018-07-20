@@ -55,7 +55,7 @@ export class HintModalComponent implements OnInit {
   }
 
   optionChoosen(ev) {
-    this.utility.deductPointsForHint();
+    // this.utility.deductPointsForHint();
     this.codingScreenData.icons[2].currentHintValue = this.codingScreenData.icons[2].content[ev.target.id - 1].unlockHint;
     this.codingScreenData.icons[2].content[ev.target.id - 1].hintActive = true;
     if (this.codingScreenData.icons[2].totalHintAvailable !== 1) {

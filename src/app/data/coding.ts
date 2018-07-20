@@ -2542,14 +2542,31 @@ export const blocksData: any = {
             "name": "preview",
             "isVisible": true,
             "content": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/preview2.gif"
-        }, {
-            "name": "hint",
-            "isVisible": false,
-            "content": ""
-        }, {
-            "name": "checklist",
-            "isVisible": true,
-            "content": []
+            }, {
+                "name": "hint",
+                "isVisible": true,
+                "content": [
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'assets/images/activities/fire_extinguisher/code2/hint1.png',
+                        "hintActive": false,
+                        "hintDisable": false
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code2/hint2.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    },
+                    {
+                        "lockText": 'Unlock for 25 points',
+                        "unlockHint": 'http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code2/hint3.png',
+                        "hintActive": false,
+                        "hintDisable": true
+                    }
+                ],
+                "totalHintAvailable": 3,
+                "currentHintValue": "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/code2/hint1.png"
         }],
         "backgrounds": [
             {
