@@ -72,6 +72,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
   private yCoordinate: Number;
   private showGrid: Boolean;
   private loading: Boolean;
+  private display: Boolean;
 
   constructor(private sp: SpriteService,
     private route: ActivatedRoute,
@@ -81,6 +82,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
     private stageService: GameStageService) {
     this.showGrid = false;
     this.loading = true;
+    this.display = false;
     this.xCoordinate = 0;
     this.yCoordinate = 0;
     this.gridButtonSrc = './../../../assets/icons/grid_toggle.svg';
@@ -210,4 +212,11 @@ export class GameZoneComponent implements OnInit, OnChanges {
     this.interpreter.getXml();
   }
 
+  openDialog(){
+    this.display = true;
+  }
+
+  closeDialog(){
+    this.display = false;
+  }
 }
