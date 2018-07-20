@@ -157,7 +157,7 @@ export class InterpreterService {
     this.characterTouch = new TouchEventService(activityname);
     this.wsOnChange = new WorkspaceOnChangeService(pageId);
     this.mouseCoordinates = new MouseCoordinatesBlockService();
-    this.playSound = new PlaySoundBlockService();
+    this.playSound = new PlaySoundBlockService(pageId);
     this.rotateSprite = new RotateSpriteBlockService(activityname);
     this.flipSprite = new FlipSpriteBlockService(activityname);
     this.moveWithSpeed = new MoveWithSpeedService(activityname);
@@ -297,6 +297,9 @@ export class InterpreterService {
     this.rotateSprite.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'rotateSprite', data: obj });
     });
+    this.playSound.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'playSound', data: obj });
+    })
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -317,7 +320,7 @@ export class InterpreterService {
 
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.whenMouseClicked.interpret(this.kodaInterpreter);
-    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
+    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites, feedbackCall);
     this.whenButtonClicked.interpret(this.kodaInterpreter, buttons, feedbackCall);
 
     this.getVar.interpret(this.kodaInterpreter);
@@ -350,16 +353,19 @@ export class InterpreterService {
         setTimeout(() => {
           this.stopExecution();
         }, 500);
-      }, 1000 * 30);
+      }, 1000 * 3);
     }
-    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null) => {
-      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites);
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
-    codes.forEach((code, i) => {
-      this.kodaInterpreter.executeCommands(code, () => {
+    const loop = i => {
+      if (i === codes.length) return;
+      this.kodaInterpreter.executeCommands(codes[i], () => {
         if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
+        loop(++i);
       });
-    });
+    }
+    loop(0);
   }
 
   stopExecution = () => {

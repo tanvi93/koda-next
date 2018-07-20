@@ -1,5 +1,5 @@
-<div fxLayout="row" class="error-wrap">
+<div fxLayout="row" class="error-wrap" [ngClass]="{'success-background': success}">
   <div fxFlex="100">
-    <p class="error-container" [innerHTML]="error"></p>
+    <p class="error-container" fxLayoutAlign="space-around center" [innerHTML]="error"></p>
   </div>
 </div>

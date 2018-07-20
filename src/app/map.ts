@@ -353,13 +353,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'To the hills storyline',
-                        path: 'to-the-hills-storyline',
+                        path: 'storyline/to_the_hills',
                         order: 1,
-                        image: './assets/images/activities/to_the_hills/bg_storyline.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'To the hills activity',
-                        path: 'drag-n-drop/to_the_hills_q1',
+                        path: 'level-3/drag-n-drop/to_the_hills_q1',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -369,7 +369,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Venus flytrap storyline',
-                        path: 'venus-fly-trap',
+                        path: 'storyline/venus_flytrap',
                         order: 3,
                         image: './assets/images/activities/venus_flytrap/venus-fly_bg-class.jpg',
                         type: 'activity-narration'
@@ -507,12 +507,12 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Captcha activity pattern1',
-                        path: 'captcha-activity/pattern1',
+                        path: 'level-3/captcha-activity/pattern1',
                         order: 2,
                         type: 'activity_coding'
                     }, {
                         name: 'Captcha activity pattern2',
-                        path: 'captcha-activity/pattern2',
+                        path: 'level-3/captcha-activity/pattern2',
                         order: 3,
                         type: 'activity_coding'
                     }, {

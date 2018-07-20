@@ -119,7 +119,7 @@ td {
 }
 pre.content {
   border: 1px solid #ccc;
-  overflow: scroll;
+  overflow: hidden;
 }
 #content_blocks {
   padding: 0;

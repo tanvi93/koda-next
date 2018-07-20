@@ -10,9 +10,10 @@ let code, spriteData;
 export class CharacterClickEventService {
   private sp: SpriteService;
   private keyCodePair;
-  private scope;
+  private keySpritePair;
+  private feedback;
   private code;
-  private instance;
+  private instanceList;
   private myInterpreter;
   public xml: String;
 
@@ -20,6 +21,7 @@ export class CharacterClickEventService {
     let myBlock = {};
     let self = this;
     this.myInterpreter = [];
+    this.instanceList = [];
     this.xml = `<block type="click_event" id="click_event"></block>`;
     this.sp = new SpriteService();
     spriteData = this.sp.getAllSprites(activity);
@@ -57,23 +59,29 @@ export class CharacterClickEventService {
   }
 
   mouseClickEvent = e => {
-    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keySpritePair[e.target.cacheKey]);
+    });
   }
 
-  interpret = (interpreter, sprites) => {
+  interpret = (interpreter, sprites, feedback) => {
     const wrapper = ({ spriteIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.myInterpreter = interpreter;
-      this.instance = sprites[spriteIndex].instance;
-      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
-      this.instance.on('mousedown', this.mouseClickEvent);
+      this.feedback = feedback;
+      const instance = sprites[spriteIndex].instance;
+      this.instanceList.push(instance);
+      this.keySpritePair = { ...this.keySpritePair, [`${instance.cacheKey}`]: sprites[spriteIndex].eventId };
+      this.keyCodePair = { ...this.keyCodePair, [`${instance.cacheKey}`]: atob(linesOfCode) };
+      instance.on('mousedown', this.mouseClickEvent);
     };
     interpreter.setProperty('charClickEventBind', wrapper);
   }
 
   unregister = () => {
     this.myInterpreter = null;
-    if (this.instance) {
-      this.instance.off('mousedown', this.mouseClickEvent);
+    for (let i = 0; i < this.instanceList.length; i++) {
+      this.instanceList[i].off('mousedown', this.mouseClickEvent);
     }  
   }
 

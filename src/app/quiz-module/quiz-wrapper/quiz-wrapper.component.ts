@@ -2,6 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { GeneralHintModalComponent } from '../../shared-module/general-hint-modal/general-hint-modal.component';
 import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
+import { SpriteService } from '../../coding-module/services/sprite.service';
+import { InterpreterService } from '../../coding-module/services/interpreter.service';
+import { GameStageService } from '../../coding-module/services/game-stage.service';
+import { AudioService } from './../../shared-services/audio.service';
+import { blocksData } from './../../data/coding';
 
 @Component({
   selector: 'app-quiz-wrapper',
@@ -26,10 +31,28 @@ import { PreviewModalComponent } from '../../shared-module/preview-modal/preview
 
 export class QuizWrapperComponent {
   @Input() quizData;
+  @Input() flexLeft: String;
+  @Input() flexRight: String;
+  @Input() pageId;
   hintDialogRef: MatDialogRef<GeneralHintModalComponent>;
   previewDialogRef: MatDialogRef<PreviewModalComponent>;
+  private count: number;
+  private pageData;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private sp: SpriteService,
+    private interpreter: InterpreterService,
+    private stageService: GameStageService,
+    private audio: AudioService) {
+    this.flexLeft = '60';
+    this.flexRight = '40';
+    this.pageId = 'mm_play';
+    this.pageData = blocksData[`${this.pageId}`];
+    this.sp = new SpriteService();
+    this.interpreter = new InterpreterService();
+    this.stageService = new GameStageService();
+    this.stageService.init(this.sp, this.interpreter, this.audio, this.pageData, this.pageId, () => {
+      this.stageService.runCode(this.pageData.gameScript);
+    });
   }
 
   hintDialog(ev) {

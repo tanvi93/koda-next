@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { blocksData } from './../../../data/coding';
+import { checkSequence } from './utility-functions.service';
 
 
 let initialLoadFlag = true;
@@ -175,4 +176,75 @@ export class ThrowFruitsForeverService {
       return callback(null)
     }
   }
+
+  validateCode1(blockList, codes, sprites, spriteStatus, callback) {
+    const monkey = sprites[0];
+    const fruit = sprites[1];
+
+    /* sequencing part starts here */
+    codes = JSON.parse(codes[0]);
+    const codeInLoop = atob(codes.params.linesOfCode);
+    const blocksInLoop = codeInLoop.split(';\n').length - 1;
+    const subsetOfSpriteStatus = spriteStatus.slice(0, blocksInLoop);
+
+    const sequence = [
+      {
+        name: 'monkey',
+        action: 'moveObject',
+        getValue: 'currentPosition'
+      }, {
+        name: 'fruit',
+        action: 'moveObject',
+        getValue: 'currentPosition',
+        compare: {
+          compareWith: 'monkey',
+          compareValues: 'currentPosition',
+          difference: {
+            x: {
+              operator: 'equal',
+              value: -monkey.handPositions.x
+            },
+            y: {
+              operator: 'equal',
+              value: -monkey.handPositions.y
+            }
+          },
+          error: 'Fruit should fall from hand of monkey.'
+        }
+      }, {
+        name: 'fruit',
+        action: 'moveObject',
+        compare: {
+          compareWith: 'fruit',
+          compareValues: 'currentPosition',
+          difference: {
+            x: {
+              operator: 'equal',
+              value: 0
+            },
+            y: {
+              operator: 'range',
+              value: [22, 25]
+            }
+          },
+          error: `Fruit should fall straight from monkey's hand to the ground in one go/move.`
+        }
+      }
+    ]
+
+    const result = checkSequence(sequence, subsetOfSpriteStatus);
+    if (result === 'success') {
+      console.log('success');
+      const successObj = {
+        success: true,
+        title: 'Kudos!',
+        msg: 'You successfully used code blocks to move the monkey.'
+      }
+      // return successObj;
+    } else {
+      return callback(result);
+    }
+    /* sequencing part ends here */
+  }
+
 }

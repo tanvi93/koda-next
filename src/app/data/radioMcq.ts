@@ -207,7 +207,7 @@ export const quiz = {
         "mediaType": "",
         
         "mediaLink": "",
-        "question": "In what ways can the <img src='./../assets/misc_images/mm3_1_q2_quest_img1.png'> and <img src='./../assets/misc_images/mm3_1_q2_quest_img2.png'> blocks be connected to other blocks?",
+        "question": "In what ways can the <img height='50px' src='./../assets/images/block_images/left_key_pressed.png'> and <img height='50px' src='./../assets/images/block_images/right_key_pressed.png'> blocks be connected to other blocks?",
         "options": [
             {
                 "option": "Below a block like <img src='./../assets/misc_images/mm3_1_q2_opt1.png'>",
@@ -219,7 +219,7 @@ export const quiz = {
                 "isCorrect": true
             },
             {
-                "option": "Inside a block like <img src='./../assets/misc_images/mm3_1_q2_opt3.png'>",
+                "option": "Inside a block like <img src='./../assets/images/block_images/repeat_forever.png'>",
                 "msg": "Observe the shape of these blocks. They don't have a notch at the top that can let them be connected inside a loop block.",
                 "isCorrect": false
             },
@@ -231,34 +231,6 @@ export const quiz = {
         ],
         "successPopupHeading": "That's right!",
         "successPopupText": "Event blocks cannot be connected below any other block as they don't have a notch at the top.",
-        "actionButtonText": 'Continue'
-    },
-    "mm3_1_q3": {
-        "instructionBarContent": "Here you have your code for moving the cap and the monkey throwing fruits. Run the code and answer the question based on the output.",
-        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
-        "mascotBg": "#13BCE4",
-        "mediaType": "image",
-        
-        "mediaLink": "./../assets/misc_images/mm3_1_q3_ref_img.png",
-        "question": "When does the code under the <img src: './../assets/misc_images/mm3_1_q3_quest_img1.png'> get executed?",
-        "options": [
-            {
-                "option": "After the execution of the code for monkey throwing fruits",
-                "msg": "Are you sure? The monkey keeps throwing fruits forever! The code for monkey throwing fruits never stops running.",
-                "isCorrect": false
-            },
-            {
-                "option": "As soon as you run the code",
-                "msg": "That doesn't seem right. The cap doesn't start moving when the Run button is clicked. Click Run and see it for yourself.",
-                "isCorrect": false
-            },
-            {
-                "option": "Whenever the left arrow key is pressed",
-                "isCorrect": true
-            }
-        ],
-        "successPopupHeading": "That's right!",
-        "successPopupText": "The code for moving the cap left is executed whenever the left arrow key is pressed.",
         "actionButtonText": 'Continue'
     },
     "mm4_1_q1": {

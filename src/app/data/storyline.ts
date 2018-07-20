@@ -17,6 +17,36 @@ export const stories = {
             'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline4.jpg',
             'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline5.jpg',
         ]
+    },    
+    to_the_hills: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg'
+        ]
+    },
+    rider_scanner: {
+        backgroundImgs: [
+            './assets/images/activities/ride_scanner/storyline-step1.jpg',
+            './assets/images/activities/ride_scanner/storyline-step2.jpg'
+        ]
+    },
+    talking_parrot: {
+        backgroundImgs: [
+            './assets/images/activities/talking_parrot/storyline-step1.jpg',
+            './assets/images/activities/talking_parrot/storyline-step2.jpg'
+        ]
+    },
+    seasons: {
+        backgroundImgs: [
+            './assets/images/activities/seasons/season-storyline.jpg',
+        ]
+    },
+    medicine_box: {
+        backgroundImgs: [
+            './assets/images/activities/medicine_box/medicine-box-storyline.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline2.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline3.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline4.jpg'
+        ]
     },
     challenge_dragon_capture: {
         backgroundImgs: [
