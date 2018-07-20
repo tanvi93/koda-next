@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SuccessModalComponent } from '../../../shared-module/success-modal/success-modal.component';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
 
 @Component({
   selector: 'app-drop-container',
@@ -36,7 +37,7 @@ export class DropContainerComponent {
   private extraStepObj: any;
   private extraStepPresent: Boolean;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
     this.success = true;
     this.extraStepPresent = false;
     this.correctAlgo = {};
@@ -101,6 +102,7 @@ export class DropContainerComponent {
         this.errorMsg = this.algo.hillAfterReachingHotel;
       } else {
         this.errorShow = false;
+        this.tracker.setContent('sequencing', 0);
         this.dialogRef = this.dialog.open(SuccessModalComponent, {
           disableClose: true,
           hasBackdrop: true,

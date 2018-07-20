@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { blocksData } from './../../../data/coding';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
 
 declare var Blockly: any;
 let blockPresentOnWorkspace = [];
@@ -17,6 +18,7 @@ export class MagicalCaveService {
   private thirdCheckDone: any;
   private oldXml: string;
   private localData: any;
+  private tracker: ActivityTrackerService;
 
   constructor() {
     this.blockdata = {};
@@ -24,8 +26,8 @@ export class MagicalCaveService {
     this.firstCheckDone = 0;
     this.secondCheckDone = 0;
     this.thirdCheckDone = 0;
-    this.localData = JSON.parse(localStorage.getItem('sequencing'));
     this.oldXml = '';
+    this.tracker = new ActivityTrackerService();
   }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
@@ -48,14 +50,10 @@ export class MagicalCaveService {
         if (this.blockdata[1].name === 'say' && Number(this.blockdata[1].spriteIndex) === 0 && unescape(this.blockdata[1].textName).toLowerCase().indexOf('petros mobilios') >= 0) {
           if (this.blockList[2] === 'moveBy' && (Number(this.blockdata[2].spriteIndex) === 1) && ((rockPosition.x >= 6 || rockPosition.x <= -17) && rockPosition.y === sprites[1].initialOffset.y)) {
             if (this.blockList[3] === 'say' && Number(this.blockdata[3].spriteIndex) === 2 && unescape(this.blockdata[3].textName).toLowerCase().indexOf('thank') >= 0) {
+              this.tracker.setContent('sequencing', 2);
               this.successObj['success'] = true;
               this.successObj['title'] = 'You did it!';
               this.successObj['msg'] = 'The genie will make sure that there’s a whole lot of magic in store for you.';
-              // this.successObj['mascotImage'] = 'assets/images/activities/magical_cave/mascot_head.png';
-              // this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-              // this.localData[2].status.complete.imageStatus = true;
-              // this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
-              // localStorage.setItem('sequencing', JSON.stringify(this.localData));
               return callback(this.successObj);
             }
           }

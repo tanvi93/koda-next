@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
 
 @Injectable()
 export class VenusFlytrapService {
@@ -8,11 +9,13 @@ export class VenusFlytrapService {
   private success: Boolean;
   private successObj: any;
   private localData: any;
+  private tracker: ActivityTrackerService;
+
   constructor() {
     this.success = false;
     this.successObj = {};
     this.blockObj = {};
-    this.localData = JSON.parse(localStorage.getItem('sequencing'));
+    this.tracker = new ActivityTrackerService();
   }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
@@ -74,13 +77,7 @@ export class VenusFlytrapService {
             this.successObj['success'] = this.success;
             this.successObj['title'] = 'Thank you!';
             this.successObj['msg'] = 'That animation looks great.';
-            // this.successObj['mascotImage'] = 'assets/images/activities/venus_flytrap/mascot_head.png';
-            // this.successObj['backgroundColor'] = 'rgb(255, 230, 85)';
-            // this.localData[1].status.complete.imageStatus = true;
-            // this.localData[1].status.unlock.imageStatus = !this.localData[1].status.complete.imageStatus;
-            // this.localData[2].status.lock.imageStatus = !this.localData[1].status.complete.imageStatus;
-            // this.localData[2].status.unlock.imageStatus = this.localData[1].status.complete.imageStatus;
-            // localStorage.setItem('sequencing', JSON.stringify(this.localData));
+            this.tracker.setContent('sequencing', 1);
             return callback(this.successObj);
           } else {
             return;
