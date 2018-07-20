@@ -190,8 +190,8 @@ export class GameStageService {
       if (!v.height) {
         v.height = v.width / v.aspect_ratio;
       }
-      left = parseInt(left) - (v.width / 2);
-      top = parseInt(top) + (v.height / 2);
+      left = parseFloat(left) - (v.width / 2);
+      top = parseFloat(top) + (v.height / 2);
       left = ((this.totalX / 2) + left) * this.xAxisUnit;
       top = ((this.totalY / 2) - top) * this.yAxisUnit;
       const index = isReset ? v.initialLookIdx : v.currentLookIdx;
