@@ -8,11 +8,15 @@
 }
 
 .step-image {
-  height: 80px;
+  height: 100%;
   width: 130px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  
+
 }
 
 .algoSteps{
   width:100%;
+  position: relative;
 }

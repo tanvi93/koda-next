@@ -336,6 +336,7 @@ export class InterpreterService {
 
   compileCode = (pageId, callback) => {
     // this.getXml(true);
+
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
