@@ -17,6 +17,8 @@ import { QuizQuestionComponent } from './quiz-question/quiz-question.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
 import { SuccessModalComponent } from './success-modal/success-modal.component';
 import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.component';
+import { GeneralHintModalComponent } from './general-hint-modal/general-hint-modal.component';
+import { ObjNgFor } from './header/level-progress/level-progress.component';
 
 @NgModule({
   imports: [
@@ -26,7 +28,25 @@ import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.
   ],
 
   // tslint:disable-next-line:max-line-length
-  declarations: [HeaderComponent, LevelProgressComponent, ProfileStatusComponent, InstructionBarComponent, SpeechBubbleComponent, ClickToContinueButtonComponent, NarrationContainerComponent, ContinueButtonComponent, LoadingComponent, HintModalComponent, PreviewModalComponent, QuizQuestionComponent, ErrorMsgComponent, SuccessModalComponent, DragDropWrapperComponent],
+  declarations: [
+    HeaderComponent,
+    LevelProgressComponent,
+    ProfileStatusComponent,
+    InstructionBarComponent,
+    SpeechBubbleComponent,
+    ClickToContinueButtonComponent,
+    NarrationContainerComponent,
+    ContinueButtonComponent,
+    LoadingComponent,
+    HintModalComponent,
+    PreviewModalComponent,
+    QuizQuestionComponent,
+    ErrorMsgComponent,
+    SuccessModalComponent,
+    DragDropWrapperComponent,
+    GeneralHintModalComponent,
+    ObjNgFor
+  ],
   exports: [
     CommonModule,
     HeaderComponent,
@@ -40,8 +60,10 @@ import { DragDropWrapperComponent } from './drag-drop-wrapper/drag-drop-wrapper.
     QuizQuestionComponent,
     ErrorMsgComponent,
     SuccessModalComponent,
-    DragDropWrapperComponent
+    DragDropWrapperComponent,
+    GeneralHintModalComponent,
+    ObjNgFor
   ],
-  entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent]
+  entryComponents: [HintModalComponent, PreviewModalComponent, SuccessModalComponent, GeneralHintModalComponent]
 })
 export class SharedModuleModule { }

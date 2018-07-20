@@ -1,0 +1,14 @@
+<div class="output-div">
+  <img class="background-image" [src]="backgroundImage" alt="">
+  <div class="{{'waterDrop' + (i+1)}}" [ngStyle]="{'top': droplet.top*(contentData.yTotalArea / contentData.noOfYLine) + '%', 'left': droplet.left*(contentData.xTotalArea / contentData.noOfXLine) + '%'}"
+    *ngFor="let droplet of contentData.waterSourceCoordinates; let i = index;">
+    <img class="waterDroplet" [hidden]='waterDropletFlag[i]' [src]="contentData.waterImage" alt="">
+  </div>
+  <img class="rover-image" [src]="roverImage" [hidden]='roverStandingHide' [ngStyle]="{'top': topShift, 'left': leftShift, 'transition': transitionTime}"
+    alt="">
+  <img class="rover-image" [src]="roverSittingImage" [hidden]='!roverStandingHide' [ngStyle]="{'top': topShift, 'left': leftShift, 'transition': transitionTime}"
+    alt="">
+  <app-speech-bubble [speechContent]="speechCss">
+    {{message}}
+  </app-speech-bubble>
+</div>

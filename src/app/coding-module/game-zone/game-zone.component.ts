@@ -133,17 +133,39 @@ export class GameZoneComponent implements OnInit, OnChanges {
     }
   }
 
-  getFeedback = (code, xml, sprites) => {
+  mergeSameSpriteStatusList() {
+    let v, u = null;
+    for (let i = 0; i < this.stageService.spriteStatusList.length-1; i++) {
+      v = this.stageService.spriteStatusList[i];
+      u = this.stageService.spriteStatusList[i+1];
+      if (v.name === u.name && v.action === u.action && v.action === 'moveObject') {
+        this.stageService.spriteStatusList.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  getFeedback = (codes, xml, sprites, eventId = null) => {
     const bg = this.pageData.backgrounds[this.pageData.currentBackgroundIdx];
-    this.feedback.setBlockList(this.pageId, code, sprites, this.stageService.spriteStatusList, bg, obj => {
+    // this.mergeSameSpriteStatusList();
+    this.feedback.setBlockList(this.pageId, codes, sprites, this.stageService.spriteStatusList, bg, eventId, obj => {
       if (typeof (obj) == 'object' && obj.success && this.pageData.activity_name === 'monkey_menace') {
         localStorage.setItem('lastCodeXml', xml);
       }
-      this.stageService.stopExecution();
       this.feedbackStatement.emit(obj);
     });
-    if (code.indexOf('EventBind(') === -1) {
+    if (!eventId) {
       this.buttonStatus = 'reset';
+      let json = null;
+      codes.forEach(v => {
+        json = JSON.parse(v);
+        if (json.type && json.type === 'event' || json.method === 'playSound') {
+          this.buttonStatus = 'stop';
+        }
+      });
+      if (this.buttonStatus === 'reset') {
+        this.stageService.stopExecution();
+      }
     }
   }
 
@@ -176,6 +198,8 @@ export class GameZoneComponent implements OnInit, OnChanges {
         this.feedbackStatement.emit('');
         break;
       case 'stop':
+        console.log(this.audio);
+        this.audio.stop();
         this.stageService.stopExecution();
         this.buttonStatus = 'reset';
         break;

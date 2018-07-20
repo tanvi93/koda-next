@@ -6,22 +6,56 @@ export const stories = {
     },
     treasure_hunt: {
         backgroundImgs: [
-            './assets/images/activities/treasure_hunt/bg_storyline.jpg'
+            'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/bg_storyline.jpg'
         ]
     },
     mars_rover: {
         backgroundImgs: [
-            './assets/images/activities/mars_rover/mars-storyline.jpg',
-            './assets/images/activities/mars_rover/mars-storyline2.jpg',
-            './assets/images/activities/mars_rover/mars-storyline3.jpg',
-            './assets/images/activities/mars_rover/mars-storyline4.jpg',
-            './assets/images/activities/mars_rover/mars-storyline5.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline2.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline3.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline4.jpg',
+            'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars-storyline5.jpg',
+        ]
+    },    
+    to_the_hills: {
+        backgroundImgs: [
+            'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg'
         ]
     },
-    dragon_capture_activity: {
+    rider_scanner: {
+        backgroundImgs: [
+            './assets/images/activities/ride_scanner/storyline-step1.jpg',
+            './assets/images/activities/ride_scanner/storyline-step2.jpg'
+        ]
+    },
+    talking_parrot: {
+        backgroundImgs: [
+            './assets/images/activities/talking_parrot/storyline-step1.jpg',
+            './assets/images/activities/talking_parrot/storyline-step2.jpg'
+        ]
+    },
+    seasons: {
+        backgroundImgs: [
+            './assets/images/activities/seasons/season-storyline.jpg',
+        ]
+    },
+    medicine_box: {
+        backgroundImgs: [
+            './assets/images/activities/medicine_box/medicine-box-storyline.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline2.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline3.jpg',
+            './assets/images/activities/medicine_box/medicine-box-storyline4.jpg'
+        ]
+    },
+    challenge_dragon_capture: {
         backgroundImgs: [
             './assets/images/activities/dragon_capture/dragon-activity.jpg',
             './assets/images/activities/dragon_capture/dragon-activity2.jpg'
+        ]
+    }, venus_flytrap: {
+        backgroundImgs: [
+            './assets/images/activities/venus_flytrap/storyline.jpg'
         ]
     }, magical_cave: {
         backgroundImgs: [

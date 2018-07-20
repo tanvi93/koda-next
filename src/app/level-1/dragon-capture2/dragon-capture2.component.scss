@@ -1,0 +1,20 @@
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+.dragon-capture2-main-wrap{
+    display: table;
+}
+.input-div {
+    background-color:rgba(87, 83, 95, 1);
+    display: table-cell;
+    width: 40%;
+    vertical-align: top;
+    position: relative;
+}
+.dragon-capture2-wrap{
+    display: table-cell;
+    width: 59%;
+    padding-left: 1%;
+    vertical-align: top;
+}

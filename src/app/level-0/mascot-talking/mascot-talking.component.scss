@@ -1,18 +1,17 @@
 .avatar-wrap {
-    width: 30%;
+    width: 25%;
     margin: 0 auto;
-    height: 90vh;
+    height: 80vh;
     position: relative;
 }
 figure.img-div{
     padding: 0;
     position: absolute;
     width: 90%;
-    // height: 532px;
     left:0;
     right: 0;
     margin: 0 auto;
-    bottom: 10.5%;
+    bottom: 0;
 }
 
 .img-div img{
@@ -21,41 +20,30 @@ figure.img-div{
 
 .speechbubble-position {
     position: absolute;
-    bottom: 80%;
+    top: 20%;
     text-align: center;
-    right: -130px;
+    right: -70px;
     left: 0;
     width: 460px;
     margin: 0 auto;
 }
 
-@media(min-height:620px) and (max-height:720px) {
-    .avatar-wrap {
-        width: 25%;
-    }
-
-    figure.img-div {
-        bottom:30px;
-    }
-
-    .speechbubble-position{
-        bottom: 460px;
+@media(max-height:800px) {
+    .avatar-wrap{
+        height: 90vh;
     }
 }
 
-@media(min-height:720px) and (max-height:870px) {
-    
-    figure.img-div {
-        bottom:30px;
-    }
-
+@media(max-width:1875px){
     .speechbubble-position{
-        bottom: 560px;
+        top: 15%;
+    }
+    .avatar-wrap{
+        width: 350px;
     }
 }
-
-@media(min-width:1700px) {
+@media(max-height:755px) {
     .avatar-wrap {
-        width: 25%;
+        width: 280px;
     }
 }

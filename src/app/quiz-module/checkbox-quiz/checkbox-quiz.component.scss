@@ -1,36 +1,31 @@
-.quiz-container {
-    width: auto;
-    padding: 0%;
-    height: 100%;
-    background-color: white;
-    font-family: 'Quicksand';
-    text-align: left;
-    & .checkbox {
-        display: table;
-        margin-top: 5%;
-        margin-left: 5%;
-        width: 100%;
-        font-size: 18px; 
-         & mat-checkbox {
-             display: table-cell;
-         }
-         & p{
-             display: table-cell;
-         }
-    }
-    & mat-card-actions {
-        display: table;
-        width: 100%;
-        margin-top: 5%;
-        text-align: center;
-        & button{
-            display: table-cell;
-        }
-    }
-
-    & mat-card-footer {
-        width: 100%;
-        min-height: 60px;
-        margin: 0%;
-    }
+.checkbox {
+  display: table;
+  margin-top: 5%;
+  width: 100%;
+  font-size: 18px;
+  & mat-checkbox {
+    display: table-cell;
+  }
+  & p {
+    display: table-cell;
+    font-weight: 500;
+    padding-left: 20px;
+  }
 }
+
+mat-card-actions {
+  margin: 5% 0 0 0;
+  text-align: center;
+  & img {
+    width:24%;
+    cursor: pointer;
+  }
+}
+
+.error-msg{
+  margin: 0;
+}
+.mat-card-content{
+  margin: 50px 30px 0 30px;
+}
+

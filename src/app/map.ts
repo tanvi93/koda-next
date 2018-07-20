@@ -44,7 +44,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'MM0_1_Q2 (MM algorithm)',
-                        path: 'level-1/drag-n-drop/mm0_1_q2',
+                        path: 'level-1/algo-arrangement/mm0_1_q2',
                         order: 7,
                         type: 'activity'
                     }, {
@@ -123,13 +123,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Fox & Grapes_Storyline',
-                        path: 'storyline/fox-grape',
+                        path: 'storyline/fox_n_grapes',
                         order: 1,
                         image: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Fox & Grapes_Activity',
-                        path: 'fox-grape-activity',
+                        path: 'level-2/fox-grape',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -139,13 +139,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Treasure Hunt_Storyline',
-                        path: 'storyline/treasure-hunt',
+                        path: 'storyline/treasure_hunt',
                         order: 3,
-                        image: './assets/images/activities/treasure_hunt/bg_island.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/bg_island.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Treasure Hunt_Activity',
-                        path: 'treasure-hunt',
+                        path: 'level-2/treasure-hunt',
                         order: 4,
                         type: 'activity'
                     }, {
@@ -155,13 +155,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Mars Rover_Storyline',
-                        path: 'storyline/mars-rover',
+                        path: 'storyline/mars_rover',
                         order: 5,
-                        image: './assets/images/activities/mars_rover/bg_mars.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/bg_mars.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Mars Rover_Activity',
-                        path: 'mars-rover-activity',
+                        path: 'level-2/mars-rover',
                         order: 6,
                         type: 'activity'
                     }, {
@@ -178,18 +178,18 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Dragon Capture_Storyline',
-                        path: 'storyline/challenge-dragon',
+                        path: 'storyline/challenge_dragon_capture',
                         order: 0,
                         image: './assets/images/activities/dragon_capture/bg_intro1.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'Dragon Capture_Activity1',
-                        path: 'challenge-dragon-capture-activity',
+                        path: 'level-2/challenge-dragon-capture-activity',
                         order: 1,
                         type: 'challenge'
                     }, {
                         name: 'Dragon Capture_Activity2',
-                        path: 'challenge-dragon-capture-activity1',
+                        path: 'level-2/challenge-dragon-capture-activity1',
                         order: 2,
                         type: 'challenge'
                     }, {
@@ -304,7 +304,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'mm2_2_q2 (input quiz for relative positioning)',
-                        path: 'mm2_2_q2',
+                        path: 'quiz/formula/mm2_2_q2',
                         order: 5,
                         type: 'activity'
                     }, {
@@ -353,13 +353,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'To the hills storyline',
-                        path: 'to-the-hills-storyline',
+                        path: 'storyline/to_the_hills',
                         order: 1,
-                        image: './assets/images/activities/to_the_hills/bg_storyline.jpg',
+                        image: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'To the hills activity',
-                        path: 'drag-n-drop/to_the_hills_q1',
+                        path: 'level-3/drag-n-drop/to_the_hills_q1',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -369,7 +369,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Venus flytrap storyline',
-                        path: 'venus-fly-trap',
+                        path: 'storyline/venus_flytrap',
                         order: 3,
                         image: './assets/images/activities/venus_flytrap/venus-fly_bg-class.jpg',
                         type: 'activity-narration'
@@ -442,7 +442,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm2_6_RepetitiveCode',
-                        path: 'mm2_6_RepetitiveCode',
+                        path: 'level-3/repetitive-code-learning',
                         order: 1,
                         type: 'narration'
                     }, {
@@ -507,12 +507,12 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Captcha activity pattern1',
-                        path: 'captcha-activity/pattern1',
+                        path: 'level-3/captcha-activity/pattern1',
                         order: 2,
                         type: 'activity_coding'
                     }, {
                         name: 'Captcha activity pattern2',
-                        path: 'captcha-activity/pattern2',
+                        path: 'level-3/captcha-activity/pattern2',
                         order: 3,
                         type: 'activity_coding'
                     }, {

@@ -70,9 +70,9 @@ export const quiz = {
         "instructionBarContent": "To make the cap move when the player presses a key, you have to know the actions performed by each of the keys used in the game.",
         "mascotHead": "./../assets/monkey_menace/mascot_arms_folded_head.png",
          "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
-        "mediaType": "game",
+         "mediaType": "game",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
          "mascotBg": "#13BCE4",
-         "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mm_image.png",
         "question": "Play Monkey Menace again on your left and select what happens when each of the keys below is pressed.",
         "options": [
             {
@@ -209,9 +209,10 @@ export const quiz = {
     
     ride_scanner_q1: {
         "instructionBarContent": "Help me decide which people to allow on the roller coaster according to the rules mentioned.",
-        "mascotHead": "./../assets/images/activities/ride_scanner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/ride_scanner/mascot_head.png",
         "mediaType": "image",
-        "mediaLink": "./../assets/images/activities/ride_scanner/left_image.png",
+        "mascotBg": '#ffad34',
+        "mediaLink": "./../assets/images/activities/ride_scanner/rules_zoomed.jpg",
         "question": "Choose the right option from the dropdown based on the person's description.",
         "options": [
             {
@@ -509,10 +510,11 @@ export const quiz = {
     
     "air_conditioner_q2": {
         "instructionBarContent": "We need to give appropriate names to these variables to make it easier to use them.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "",
-        //"mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        // "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
         "mediaLink": "",
+        "mascotBg": '#ffad34',
         "question": "Select an appropriate name for these variables.",
         "options": [
             {
@@ -598,9 +600,10 @@ export const quiz = {
     
     "air_conditioner_q3": {
         "instructionBarContent": "Help me fill this so that I can understand this better.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "gif",
         "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        "mascotBg": '#ffad34',
         "question": "The room temperature is 28 right now and I want it to be 16.",
         "options": [
             {
@@ -681,9 +684,10 @@ export const quiz = {
     
      "air_conditioner_q4": {
         "instructionBarContent": "Help me fill this so that I can understand this better.",
-        "mascotHead": "./../assets/images/activities/air_conditioner/mascot_head.png",
+        "mascotImage": "./../assets/images/activities/air_conditioner/mascot_head.png",
         "mediaType": "gif",
         "mediaLink": "./../assets/images/activities/air_conditioner/preview.gif",
+        "mascotBg": '#ffad34',
         "question": "Now the room temperature is 16 and I want it to be 23.",
         "options": [
             {

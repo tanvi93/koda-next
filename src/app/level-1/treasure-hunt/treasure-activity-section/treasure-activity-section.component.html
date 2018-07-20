@@ -1,0 +1,21 @@
+<div class="output-div">
+  <img class="background-image" [src]="contentData.backgroundImage" alt="">
+  <div class="hidden-box" *ngFor="let list of contentData.taskList; let i = index;" [hidden]="hiddenTreasureFlag[i]" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
+    <img class="hidden-container-image" [src]="list.containerImage" [ngStyle]="{'margin-top': treasureMargin[i] + '%', 'transition': '1s'}"
+      alt="">
+  </div>
+  <img class="character-image" [ngStyle]="{'top': topPos,'left': leftPos}" [src]="contentData.characterImage" (load)="getPirateDetail($event)"
+    (change)="changes($event)" alt="">
+  <div class="background-cover-shield" (click)="failedAttemptFunction($event)">
+  </div>
+  <div class="treasure-dot"  *ngFor="let list of contentData.taskList; let i = index;" [hidden]="!hiddenTreasureFlag[i]"
+    [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) 
+  + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}" (click)="firstClickedFunction(i)">
+  </div>
+  <div class="over-the-shield"  *ngFor="let list of contentData.taskList; let i = index;"
+    [hidden]="hiddenTreasureFlag[i]" (click)="repeatedClickedFunction(i)" [ngStyle]="{'top': ((normalizeYValue-list.yCoord)*yGridPerUnitScale) + '%', 'left': ((list.xCoord+normalizeXValue)*xGridPerUnitScale) + '%'}">
+  </div>
+  <app-speech-bubble [speechContent]="speechCss">
+    {{message}}
+  </app-speech-bubble>
+</div>

@@ -1,0 +1,37 @@
+// mixns and colors breakpoints
+@import 'mixins.scss';
+@import 'color.scss';
+@import 'breakpoints.scss';
+
+
+.mars-rover-act-wrap {
+    display: table;
+    position: relative;
+}
+
+.input-div {
+    display: table-cell;
+    width: 44%;
+    vertical-align: middle;
+    background-color:rgba(87, 83, 95, 1);
+    position: absolute;
+    height: 100%;
+
+}
+
+.mars-output-sec-wrap {
+    display: table-cell;
+    width: 55%;
+    padding-left: 1%;
+    vertical-align: middle;
+}
+
+.input-section-inner-div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+}

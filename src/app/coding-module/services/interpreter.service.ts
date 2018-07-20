@@ -44,10 +44,9 @@ import { ShowHideAllButtonsService } from './blocks/show-hide-all-buttons.servic
   
 import { WorkspaceOnChangeService } from './workspace-on-change.service';
 import { CompilerService } from './compiler.service';
+import { KodaInterpreterService } from './koda-interpreter.service';
 
 declare var Blockly: any;
-declare let Interpreter: any;
-
 
 @Injectable()
 export class InterpreterService {
@@ -101,11 +100,14 @@ export class InterpreterService {
   private rawCodes: String;
   private wsOnChange: any;
   private compiler: CompilerService;
+  private kodaInterpreter: KodaInterpreterService;
 
+  private timer;
   private blocksList: Array<String>;
 
   constructor() {
     workspacePlayground = null;
+    this.kodaInterpreter = new KodaInterpreterService();
     this.createBlockInstances();
     this.createVariable = {
       xml: `<button text="Create variable" callbackKey="open"> </button>`
@@ -155,7 +157,7 @@ export class InterpreterService {
     this.characterTouch = new TouchEventService(activityname);
     this.wsOnChange = new WorkspaceOnChangeService(pageId);
     this.mouseCoordinates = new MouseCoordinatesBlockService();
-    this.playSound = new PlaySoundBlockService();
+    this.playSound = new PlaySoundBlockService(pageId);
     this.rotateSprite = new RotateSpriteBlockService(activityname);
     this.flipSprite = new FlipSpriteBlockService(activityname);
     this.moveWithSpeed = new MoveWithSpeedService(activityname);
@@ -197,6 +199,7 @@ export class InterpreterService {
 
   init = (blocksData, pageId, feedbackCallback, callback) => {
     this.createBlockInstances(blocksData.activity_name, pageId);
+    try { Blockly.getMainWorkspace().clear(); } catch(e) {}
     workspacePlayground = Blockly.inject('blocklyDiv',
       {
         toolbox: this.getToolbox(blocksData), trashcan: true, 
@@ -242,148 +245,132 @@ export class InterpreterService {
     });
   }
 
-  initCompiling = (interpreter, scope, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    this.say.initInterpreterSay(interpreter, scope, (text, spriteIndex, duration) => {
-      callback({ name: 'say', data: { text, spriteIndex, duration } });
+  interpretBlocks = (sprites, buttons, coordinatesJson, callback, feedbackCall) => {
+    this.say.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'say', data: obj });
     });
-    this.showCoordinates.initInterpreterShowCoords(interpreter, scope, (spriteIndex, duration) => {
-      callback({ name: 'showCoordinates', data: { spriteIndex, duration } });
+    this.showCoordinates.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'showCoordinates', data: obj });
     });
-    this.goTo.initInterpreter(interpreter, scope, obj => {
+    this.goTo.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'goTo', data: obj });
     });
-    this.moveBy.initInterpreter(interpreter, scope, coordinatesJson, obj => {
+    this.moveBy.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveBy', data: obj });
     });
-    this.moveTo.initInterpreter(interpreter, scope, sprites, coordinatesJson, obj => {
+    this.moveTo.interpret(this.kodaInterpreter, sprites, coordinatesJson, obj => {
       callback({ name: 'moveTo', data: obj });
     });
-    this.moveWithSpeed.initInterpreter(interpreter, scope, coordinatesJson, obj => {
+    this.moveWithSpeed.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveWithSpeed', data: obj });
     });
-    this.showHideChar.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'show', data: obj });
-    });
-    this.showHideButton.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'show', data: obj });
-    });
-    this.showHideAllChar.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'allHideShow', data: obj });
-    });
-    this.showHideAllButtons.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'allHideShowButtons', data: obj });
-    });
-    this.changeLook.initInterpreter(interpreter, scope, obj => {
+    this.changeLook.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'changeLook', data: obj });
     });
-    this.changeBG.initInterpreter(interpreter, scope, obj => {
+    this.changeBG.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'changeBG', data: obj });
     });
-    this.nextLook.initInterpreter(interpreter, scope, obj => {
+    this.nextLook.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'nextLook', data: obj });
     });
-    this.changeButton.initInterpreter(interpreter, scope, obj => {
+    this.changeButton.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'changeButton', data: obj });
     });
-    this.rotateSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'rotateSprite', data: obj });
+    this.showHideChar.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'show', data: obj });
     });
-    this.flipSprite.initInterpreter(interpreter, scope, obj => {
-      callback({ name: 'flipSprite', data: obj });
+    this.showHideAllChar.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'allHideShow', data: obj });
     });
-    this.ifBlock.initInterpreter(interpreter, scope);
-    this.ifElseBlock.initInterpreter(interpreter, scope);
-    this.wait.initInterpreter(interpreter, scope);
-    this.whenKeyPressed.initInterpreter(interpreter, scope, feedbackCall);
-    this.whenCharacterClicked.initInterpreter(interpreter, scope, sprites);
-    this.whenButtonClicked.initInterpreter(interpreter, scope, buttons);
-    this.whenMouseClicked.initInterpreter(interpreter, scope);
-    this.characterTouch.initInterpreter(interpreter, scope, sprites);
-    this.coordinates.initInterpreter(interpreter, scope, sprites);
-    this.randomNumber.initInterpreter(interpreter, scope);
-    this.arithmeticOperator.initInterpreter(interpreter, scope);
-    this.relationalOperator.initInterpreter(interpreter, scope);
-    this.logicalOperator.initInterpreter(interpreter, scope);
-    this.mouseCoordinates.initInterpreter(interpreter, scope, coordinatesJson);
-    this.getVar.initInterpreter(interpreter, scope);
-
-    this.setVar.initInterpreter(interpreter, scope, arr => {
-      callback({ name: 'setVar', data: arr });
+    this.showHideButton.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'show', data: obj });
     });
-    this.changeVar.initInterpreter(interpreter, scope, arr => {
+    this.showHideAllButtons.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'allHideShowButtons', data: obj });
+    });
+    this.changeVar.interpret(this.kodaInterpreter, arr => {
       callback({ name: 'changeVar', data: arr });
     });
+    this.flipSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'flipSprite', data: obj });
+    });
+    this.rotateSprite.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'rotateSprite', data: obj });
+    });
+    this.playSound.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'playSound', data: obj });
+    })
 
+    this.wait.interpret(this.kodaInterpreter);
+
+    this.coordinates.interpret(this.kodaInterpreter, sprites);
+    this.characterTouch.interpret(this.kodaInterpreter, sprites);
+    this.arithmeticOperator.interpret(this.kodaInterpreter);
+    this.randomNumber.interpret(this.kodaInterpreter);
+    this.relationalOperator.interpret(this.kodaInterpreter);
+    this.trueFalse.interpret(this.kodaInterpreter);
+    this.logicalOperator.interpret(this.kodaInterpreter);
+    this.notOperator.interpret(this.kodaInterpreter);
+    this.mouseCoordinates.interpret(this.kodaInterpreter, coordinatesJson);
+
+    this.repeat.interpret(this.kodaInterpreter);
+    this.repeatForever.interpret(this.kodaInterpreter);
+    this.ifBlock.interpret(this.kodaInterpreter);
+    this.ifElseBlock.interpret(this.kodaInterpreter);
+
+    this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
+    this.whenMouseClicked.interpret(this.kodaInterpreter);
+    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites, feedbackCall);
+    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons, feedbackCall);
+
+    this.getVar.interpret(this.kodaInterpreter);
+    this.setVar.interpret(this.kodaInterpreter, arr => {
+      callback({ name: 'setVar', data: arr });
+    });
     if (this.hideShowVar) {
-      this.hideShowVar.initInterpreter(interpreter, scope, obj => {
+      this.hideShowVar.interpret(this.kodaInterpreter, obj => {
         callback({ name: 'hideShowVar', data: obj });
       });
     }
-    let wrapper = (id) => {
-      return interpreter.createPrimitive(this.highlightBlock(id));
-    };
-    interpreter.setProperty(scope, 'highlightBlock',
-      interpreter.createNativeFunction(wrapper));
-  }
-
-  highlightBlock = (id) => {
-    workspacePlayground.highlightBlock(id);
   }
 
   compileCode = (pageId, callback) => {
-    // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-    // Blockly.JavaScript.addReservedWords('highlightBlock');
+    // this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
-    this.getXml(true);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
     });
   }
 
   runCode = (rawCodes, sprites, buttons, coordinatesJson, feedbackCall, callback) => {
-    const codes = rawCodes.split('\n\n');
-    this.myInterpreter = {};
-
-    const runner = (intrp, i) => {
-      if (!this.myInterpreter) return;
-      if (intrp) {
-        const hasMore = intrp.step();
-        if (hasMore) {
-          // Execution is currently blocked by some async call.
-          // Try again later.
-          setTimeout(() => {
-            runner(intrp, i);
-          }, 0);
-        } else if (i === (codes.length - 1)) {
-          if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        }
-      }
-    };
-
-    codes.forEach((code, i) => {
-      this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
-        this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
-          if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-        }, callback);
-      });
-
-      if (this.myInterpreter) {
-        runner(this.myInterpreter[i], i);
-      }  
-    });
-
-    if (feedbackCall && rawCodes.indexOf('while(true)') !== -1) {
-      setTimeout(() => {
-        feedbackCall(rawCodes, this.getXml(false), sprites);
+    // console.log(performance.now());
+    const codes = rawCodes.split(';\n\n');
+    const list = rawCodes.split(';\n');
+    this.timer = null;
+    if (feedbackCall && rawCodes.indexOf('repeatForever') !== -1) {
+      this.timer = setTimeout(() => {
+        feedbackCall(list, this.getXml(false), sprites);
         setTimeout(() => {
           this.stopExecution();
         }, 500);
-      }, 1000 * 30);
+      }, 1000 * 3);
     }
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
+    });
+    const loop = i => {
+      if (i === codes.length) return;
+      this.kodaInterpreter.executeCommands(codes[i], () => {
+        if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
+        loop(++i);
+      });
+    }
+    loop(0);
   }
 
   stopExecution = () => {
-    this.myInterpreter = null;
+    clearTimeout(this.timer);
+    this.kodaInterpreter.stopExecution();
     this.whenKeyPressed.unregister();
     this.whenCharacterClicked.unregister();
     this.whenButtonClicked.unregister();

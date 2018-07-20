@@ -1,21 +1,16 @@
 <app-quiz-wrapper [quizData]="quizObj">
-  <mat-card class="quiz-container">
-    <app-quiz-question [question]='quizObj.question' [style]="stylingObj"></app-quiz-question>
-    <mat-card-content>
-      <div class="formula" *ngFor="let data of quizObj.options; let i = index;">
-        <span [innerHTML]="data.question"></span>
-        <select #selectInput (click)="selectValue($event, i, inputText.value)">
-          <option value="+"> + </option>
-          <option value="-"> - </option>
-        </select>
-        <input type="text" #inputText (click)="clearData($event, i)" (input)="inputValue($event, i, selectInput.value)">
-      </div>
-    </mat-card-content>
-    <mat-card-footer class="error-msg" [ngClass]="{'success-background': showError && errorStatus}"
-      [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
-      <app-error-msg class="error" *ngIf="showError" [success]="errorStatus" [error]="error" [success]='currentMsgStatus'></app-error-msg>
-      <button mat-raised-button *ngIf="!showError" class="submit-button" 
-       (click)="submitAnswer()">SUBMIT</button>
-    </mat-card-footer>
-  </mat-card>
+  <mat-card-content>
+    <div class="formula" *ngFor="let data of quizObj.options; let i = index;">
+      <span [innerHTML]="data.question"></span>
+      <select #selectInput (click)="selectValue($event, i, inputText.value)">
+        <option value="+"> + </option>
+        <option value="-"> - </option>
+      </select>
+      <input type="text" #inputText (click)="clearData($event, i)" (keypress)="inputValue($event, i, selectInput.value)">
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="error-msg" [ngClass]="{'success-background': showError && errorStatus}" [ngStyle]="{'background-color': showError ? '#EE5862' : 'white' }">
+    <app-error-msg class="error" *ngIf="showError" [success]="errorStatus" [error]="error" [success]='currentMsgStatus'></app-error-msg>
+    <button mat-raised-button *ngIf="!showError" class="submit-button" (click)="submitAnswer()">SUBMIT</button>
+  </mat-card-footer>
 </app-quiz-wrapper>

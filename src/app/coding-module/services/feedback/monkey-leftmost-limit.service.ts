@@ -25,7 +25,7 @@ export class MonkeyLeftmostLimit {
       this.codes = codes;
      
       const leftRange = [{ 'x1': -28, 'x2': -30 }, { 'x1': -28, 'x2': -30 }, { 'x1': -28, 'x2': -31 }, { 'x1': -28, 'x2': -30 }];
-      const firstBlockObj = JSON.parse(this.codes[0].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
+      const firstBlockObj = JSON.parse(this.codes[0]).params;
       const spriteIndex = Number(firstBlockObj.spriteIndex);
 
       // check 1: Monkey moves off Stage?(completely off the stage)
@@ -49,7 +49,7 @@ export class MonkeyLeftmostLimit {
         return callback(`Great! The monkey is moving to the left end but note that the monkey moves only sideways, not up or down. Keep the Y coordinate of the monkey same as its initial Y coordinate (${sprites[firstBlockObj.spriteIndex].initialOffset.y}).`);
       }
 
-      const secondBlockObj = JSON.parse(this.codes[1].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
+      const secondBlockObj = JSON.parse(this.codes[1]).params;
       const offsetOfFruit = sprites[secondBlockObj.spriteIndex].currentOffset ? sprites[secondBlockObj.spriteIndex].currentOffset : sprites[secondBlockObj.spriteIndex].initialOffset;
 
       // check 5: Fruit goes off the Stage?
@@ -75,7 +75,7 @@ export class MonkeyLeftmostLimit {
 
   workSpaceOnChange(e, cb, workSpace) {
     const json = e.toJson();
-    console.log(json);
+
     if (json.type === 'create') {
       for (let i = 0; i < json.ids.length; i++) {
         this.arrayOfIds.push(json.ids[i]);

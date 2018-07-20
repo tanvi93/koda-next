@@ -41,20 +41,21 @@ export class RotateSpriteBlockService {
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const degree = Blockly.JavaScript.valueToCode(block, 'degree');
       let json = {
-        degree,
-        spriteIndex
+        method: 'rotate',
+        params: {
+          degree,
+          spriteIndex
+        }
       }
-      return `rotate('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      obj = JSON.parse(obj.replace(/[']/g, ''));
       obj.degree = obj.degree ? obj.degree : '0';
       cb(obj);
-      return obj;
     };
-    interpreter.setProperty(scope, 'rotate', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('rotate', wrapper);
   }
 }

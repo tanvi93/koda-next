@@ -28,17 +28,24 @@ export class HideShowVarBlockService {
 
     Blockly.JavaScript['show_hide_var'] = function (block) {
       const selectedVariable = block.getFieldValue('variable');
-      const visibility = block.getFieldValue('visibility');      
-      return `variableDisplayToggle('${selectedVariable}', '${visibility}');\n`;
+      const visibility = block.getFieldValue('visibility');
+      let json = {
+        method: 'variableDisplayToggle',
+        params: {
+          selectedVariable,
+          visibility
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
-    const wrapper = function (variable, visibility) {
-      variableList[variable].isHidden = visibility === "hide" ? true : false;
+  interpret = (interpreter, cb) => {
+    const wrapper = function ({ selectedVariable, visibility }) {
+      variableList[selectedVariable].isHidden = visibility === "hide" ? true : false;
       cb(null);
     };
-    interpreter.setProperty(scope, 'variableDisplayToggle', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('variableDisplayToggle', wrapper);
   }
 
 }

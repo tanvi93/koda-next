@@ -34,22 +34,37 @@ export class LogicalOperatorsService {
       const operator = block.getFieldValue('operator');
       const input1 = Blockly.JavaScript.valueToCode(block, 'input1');
       const input2 = Blockly.JavaScript.valueToCode(block, 'input2');
-      return [`getLogicalResult(${input1}, ${input2}, ${operator})`];
+      let json = {
+        method: 'getLogicalResult',
+        type: 'input',
+        params: {
+          input1,
+          input2,
+          operator
+        }
+      }
+      return [JSON.stringify(json)];
     };
 
   }
 
-  initInterpreter = (interpreter, scope) => {
+  interpret = interpreter => {
     let operatorArr = ['and', 'or'];
-    const wrapper = function (input1, input2, operator) {
+    const wrapper = function ({ input1, input2, operator }) {
+      if (isNaN(Number(input1))) {
+        input1 = interpreter.executeCommands(input1);
+      }
+      if (isNaN(Number(input2))) {
+        input2 = interpreter.executeCommands(input2);
+      }
       switch (operatorArr[operator]) {
         case "and":
-          return [input1 && input2];
+          return input1 && input2;
         case "or":
-          return [input1 || input2];
+          return input1 || input2;
       }
     };
-    interpreter.setProperty(scope, 'getLogicalResult', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('getLogicalResult', wrapper, 'input');
   }
 
 }
