@@ -124,10 +124,12 @@ export class GameStageService {
       }
       return v;
     });
-    const soundSrcs = this.pageData.sounds.map(v => {
-      return v.src;
-    });
-    this.audio.loader(soundSrcs);
+    if (this.pageData.sounds) {
+      const soundSrcs = this.pageData.sounds.map(v => {
+        return v.src;
+      });
+      this.audio.loader(soundSrcs);
+    }
   }
 
   drawBackground = (isReset = false) => {
