@@ -41,12 +41,12 @@ export class WaitSecBlockService {
 
   interpret = interpreter => {
     const wrapper = (json, callback) => {
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
       const secs = Number(json.wait_secs);
       setTimeout(() => {
-        if (this.blocks) {
+        if (this.blocks && this.blocks.length) {
           this.blocks[json.blockIndex].removeSelect();
         } 
         callback();

@@ -1,23 +1,22 @@
 .checkbox {
   font-size: 24px;
   display: table;
-  width: 100%;
   margin-top: 5%;
   & mat-checkbox {
     display: table-cell;
   }
   & p {
     display: table-cell;
+    font-weight: 500;
+    font-size: 22px;
+    padding-left: 20px;
   }
 }
 
 mat-card-footer {
-  width: 100%;
-  min-height: 60px;
-  margin-left: 0%;
-  float: bottom;
+  margin: 0;
 }
 
 mat-card-content {
-  padding: 10px 20px;
+  padding: 40px 20px 10px 20px;
 }

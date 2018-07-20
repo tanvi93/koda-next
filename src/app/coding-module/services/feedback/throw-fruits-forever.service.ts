@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { blocksData } from './../../../data/coding';
+import { checkSequence } from './utility-functions.service';
 
 
 let initialLoadFlag = true;
@@ -10,7 +11,6 @@ let repeatForeverCount = 0;
 let repeatNTimesCount = 1;
 let noOfBlocks = 0;
 let surroundParentName = '';
-let initialNumberOFBlocks = 0;
 
 declare var Blockly: any;
 @Injectable()
@@ -19,7 +19,6 @@ export class ThrowFruitsForeverService {
 
   private blockList: any;
   private codes: Array<any>;
-  private spriteIndex: any;
   private flowChartMsg: string;
   private success: Boolean;
   private successObj: any;
@@ -31,11 +30,6 @@ export class ThrowFruitsForeverService {
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
 
-    this.spriteIndex = [];
-
-    codes.forEach(element => {
-      this.spriteIndex.push(element[element.indexOf('spriteIndex') + 13]);
-    });
     // tslint:disable-next-line:prefer-const
     this.blockList = blockList;
     this.codes = codes;
@@ -51,17 +45,13 @@ export class ThrowFruitsForeverService {
       // check-0(b): to detect if more than 1 repeat forever / repeat n times block present
       // code for this case is written compiler case as this case comes under pre-running condition test
 
-      if (blockList.indexOf('var repeat_end = ') !== -1) {
-        let y = codes[blockList.indexOf('var repeat_end = ')].match(/\d/g);
-        y = y.join("");
+      if (repeatNTimesCount === 1) {
+        let y = Number(JSON.parse(codes).params.times)
         // check-1(a): to detect whether repeat n times block is still present and also no. of block present in workspace? 
-        if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) <= 10) {
+        if (repeatForeverCount === 0 && Number(y) <= 10) {
           this.flowChartMsg = 'That doesn’t look right. Look for a block that lets you repeat your code for throwing a fruit forever.';
           return callback(this.flowChartMsg);
         }
-        
-        // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
-        // code for this case is written compiler case as this case comes under pre-running condition test
       }
 
       // check-2: to detect whether no of block exceed the limit then required with repeat forever block present in stack.
@@ -173,19 +163,88 @@ export class ThrowFruitsForeverService {
     if ((repeatForeverCount + repeatNTimesCount) > 1) {
       return callback(this.flowChartMsg = 'You need only one repeat block to make the monkey keep throwing fruits forever.');
     }
-
-
-    if (blockList.indexOf('var repeat_end = ') !== -1) {
-      let y = list[blockList.indexOf('var repeat_end = ')].match(/\d/g);
-      y = y.join("");
-      // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
-      if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) > 10) {
-       return callback('That doesn’t look right. The repeat block that you are using will let you repeat your code only ' + y + ' times. Look for a block that lets you repeat your code for throwing a fruit forever.');
-      } else {
-       return callback(null);
-      }
+    let y; 
+    
+    if (repeatNTimesCount === 1) {
+      y = Number(JSON.parse(list).params.times)
+    }    
+      
+    // check-1(b):to detect whether repeat n times block is still present and also no. of block present in workspace?
+    if ((repeatForeverCount + repeatNTimesCount === 1) && repeatForeverCount === 0 && Number(y) > 10) {
+      return callback('That doesn’t look right. The repeat block that you are using will let you repeat your code only ' + y + ' times. Look for a block that lets you repeat your code for throwing a fruit forever.');
     } else {
       return callback(null)
     }
   }
+
+  validateCode1(blockList, codes, sprites, spriteStatus, callback) {
+    const monkey = sprites[0];
+    const fruit = sprites[1];
+
+    /* sequencing part starts here */
+    codes = JSON.parse(codes[0]);
+    const codeInLoop = atob(codes.params.linesOfCode);
+    const blocksInLoop = codeInLoop.split(';\n').length - 1;
+    const subsetOfSpriteStatus = spriteStatus.slice(0, blocksInLoop);
+
+    const sequence = [
+      {
+        name: 'monkey',
+        action: 'moveObject',
+        getValue: 'currentPosition'
+      }, {
+        name: 'fruit',
+        action: 'moveObject',
+        getValue: 'currentPosition',
+        compare: {
+          compareWith: 'monkey',
+          compareValues: 'currentPosition',
+          difference: {
+            x: {
+              operator: 'equal',
+              value: -monkey.handPositions.x
+            },
+            y: {
+              operator: 'equal',
+              value: -monkey.handPositions.y
+            }
+          },
+          error: 'Fruit should fall from hand of monkey.'
+        }
+      }, {
+        name: 'fruit',
+        action: 'moveObject',
+        compare: {
+          compareWith: 'fruit',
+          compareValues: 'currentPosition',
+          difference: {
+            x: {
+              operator: 'equal',
+              value: 0
+            },
+            y: {
+              operator: 'range',
+              value: [22, 25]
+            }
+          },
+          error: `Fruit should fall straight from monkey's hand to the ground in one go/move.`
+        }
+      }
+    ]
+
+    const result = checkSequence(sequence, subsetOfSpriteStatus);
+    if (result === 'success') {
+      console.log('success');
+      const successObj = {
+        success: true,
+        title: 'Kudos!',
+        msg: 'You successfully used code blocks to move the monkey.'
+      }
+      // return successObj;
+    } else {
+      return callback(result);
+    }
+    /* sequencing part ends here */
+  }
+
 }

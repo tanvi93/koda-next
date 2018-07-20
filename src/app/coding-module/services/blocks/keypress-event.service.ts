@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 let thread;
 
@@ -71,13 +71,14 @@ export class KeypressEventService {
       this.lock = true;
       this.interpreter.executeCommands(this.keyCodePair[event.which], () => {
         this.lock = false;
-        // this.feedback();
+        this.feedback();
       });
     }
   }
 
   interpret = (interpreter, feedback) => {
     const wrapper = ({ dropdown_keys, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.lock = false;
       this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: atob(linesOfCode) };
       this.feedback = feedback;

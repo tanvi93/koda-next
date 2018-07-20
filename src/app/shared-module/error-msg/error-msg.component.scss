@@ -5,6 +5,20 @@
   font-style: normal;
   font-size: 18px;
   padding:0 25px;
+  
+}
+
+.error-wrap{
+  background: #EE5862;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 9;
+  
+}
+
+.success-background {
+  background-color: green;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -12,3 +26,4 @@
     font-size: 14px;
   }
 }
+

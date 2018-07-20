@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SpriteService } from './../sprite.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 let code, buttonData;
 
@@ -50,6 +50,7 @@ export class MouseClickEventService {
 
   interpret = interpreter => {
     const wrapper = ({ linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.interpreter = interpreter;
       this.code = linesOfCode;
       document.getElementById('game').addEventListener('click', this.mouseClickEvent);

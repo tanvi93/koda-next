@@ -47,8 +47,6 @@ import { CompilerService } from './compiler.service';
 import { KodaInterpreterService } from './koda-interpreter.service';
 
 declare var Blockly: any;
-declare let Interpreter: any;
-
 
 @Injectable()
 export class InterpreterService {
@@ -104,6 +102,7 @@ export class InterpreterService {
   private compiler: CompilerService;
   private kodaInterpreter: KodaInterpreterService;
 
+  private timer;
   private blocksList: Array<String>;
 
   constructor() {
@@ -158,7 +157,7 @@ export class InterpreterService {
     this.characterTouch = new TouchEventService(activityname);
     this.wsOnChange = new WorkspaceOnChangeService(pageId);
     this.mouseCoordinates = new MouseCoordinatesBlockService();
-    this.playSound = new PlaySoundBlockService();
+    this.playSound = new PlaySoundBlockService(pageId);
     this.rotateSprite = new RotateSpriteBlockService(activityname);
     this.flipSprite = new FlipSpriteBlockService(activityname);
     this.moveWithSpeed = new MoveWithSpeedService(activityname);
@@ -256,13 +255,13 @@ export class InterpreterService {
     this.goTo.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'goTo', data: obj });
     });
-    this.moveBy.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+    this.moveBy.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveBy', data: obj });
     });
     this.moveTo.interpret(this.kodaInterpreter, sprites, coordinatesJson, obj => {
       callback({ name: 'moveTo', data: obj });
     });
-    this.moveWithSpeed.interpret(this.kodaInterpreter, coordinatesJson, obj => {
+    this.moveWithSpeed.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'moveWithSpeed', data: obj });
     });
     this.changeLook.interpret(this.kodaInterpreter, obj => {
@@ -298,6 +297,9 @@ export class InterpreterService {
     this.rotateSprite.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'rotateSprite', data: obj });
     });
+    this.playSound.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'playSound', data: obj });
+    })
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -318,8 +320,8 @@ export class InterpreterService {
 
     this.whenKeyPressed.interpret(this.kodaInterpreter, feedbackCall);
     this.whenMouseClicked.interpret(this.kodaInterpreter);
-    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites);
-    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons);
+    this.whenCharacterClicked.interpret(this.kodaInterpreter, sprites, feedbackCall);
+    this.whenButtonClicked.interpret(this.kodaInterpreter, buttons, feedbackCall);
 
     this.getVar.interpret(this.kodaInterpreter);
     this.setVar.interpret(this.kodaInterpreter, arr => {
@@ -333,8 +335,7 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    // Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
-    // Blockly.JavaScript.addReservedWords('highlightBlock');
+    // this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
@@ -345,139 +346,30 @@ export class InterpreterService {
     // console.log(performance.now());
     const codes = rawCodes.split(';\n\n');
     const list = rawCodes.split(';\n');
-    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, () => {
-      if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
+    this.timer = null;
+    if (feedbackCall && rawCodes.indexOf('repeatForever') !== -1) {
+      this.timer = setTimeout(() => {
+        feedbackCall(list, this.getXml(false), sprites);
+        setTimeout(() => {
+          this.stopExecution();
+        }, 500);
+      }, 1000 * 3);
+    }
+    this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
+      if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
-    codes.forEach(code => {
-      this.kodaInterpreter.executeCommands(code, () => {
-        if (feedbackCall) feedbackCall(list, this.getXml(false), sprites);
-      });
-    });
-
-    // const runner = (intrp, i) => {
-    //   if (!this.myInterpreter) return;
-    //   if (intrp) {
-    //     const hasMore = intrp.step();
-    //     if (hasMore) {
-    //       // Execution is currently blocked by some async call.
-    //       // Try again later.
-    //       setTimeout(() => {
-    //         runner(intrp, i);
-    //       }, 0);
-    //     } else if (i === (codes.length - 1)) {
-    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     }
-    //   }
-    // };
-
-    // codes.forEach((code, i) => {
-    //   this.myInterpreter[i] = new Interpreter(code, (intrp, scope) => {
-    //     this.initCompiling(intrp, scope, sprites, buttons, coordinatesJson, () => {
-    //       if (feedbackCall) feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     }, callback);
-    //   });
-
-    //   if (this.myInterpreter) {
-    //     runner(this.myInterpreter[i], i);
-    //   }  
-    // });
-
-    // if (feedbackCall && rawCodes.indexOf('while(true)') !== -1) {
-    //   setTimeout(() => {
-    //     feedbackCall(rawCodes, this.getXml(false), sprites);
-    //     setTimeout(() => {
-    //       this.stopExecution();
-    //     }, 500);
-    //   }, 1000 * 30);
-    // }
-  }
-
-  compileRawCode(cb) {
-    const getX = () => {
-      return 1;
-    }
-    const changeLook = (params, callback) => {
-      callback(params);
-    };
-    const goTo = (params, cb1, callback) => {
-
-      cb({ name: 'goTo', data: params });
-      setTimeout(() => {
-        cb1();
-      }, 20);
-    }
-    const say = (params, cb1, callback) => {
-      callback(params);
-      setTimeout(() => {
-        cb1();
-      }, 2000);
-    }
-
-    return {
-      async: {
-        goTo: goTo,//function (params, callback) {
-        //   goTo(params, callback, (obj) => {
-        //     console.log(obj);
-        //     cb({ name: 'goTo', data: obj });
-        //   })
-        // },
-        say: function (params, callback) {
-          say(params, callback, (obj) => {
-            console.log(obj);
-            cb({ name: 'say', data: obj });
-          })
-        }
-      },
-      native: {
-        changeLook: function (params) {
-          changeLook(params, (obj) => {
-            console.log('changeLook', obj);
-            cb({ name: 'changeLook', data: obj });
-          })
-        },
-        getX: getX
-      }
-    }
-  }
-
-  tmpRunCode(cb) {
-    const arr = ["goTo", 'changeLook'];
-    const arr1 = ["say"];
-    const compiler = this.compileRawCode(cb);
-    const params = [{
-      x: compiler.native.getX(), y: -10, spriteIndex: 0
-    }, { spriteIndex: 0, avatarIndex: 1 }];
-    const loop = (i) => {
-      if (i === arr.length) return;
-      const v = arr[i];
-      console.log(v);
-      if (compiler.async.hasOwnProperty(v)) {
-        compiler.async[v](params[i], () => {
-          loop(++i);
-        });
-      } else {
-        compiler.native[v](params[i]);
+    const loop = i => {
+      if (i === codes.length) return;
+      this.kodaInterpreter.executeCommands(codes[i], () => {
+        if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
         loop(++i);
-      }
-    }
-    const loop1 = (i) => {
-      if (i === arr1.length) return;
-      const v = arr1[i];
-      console.log(v);
-      if (compiler.async.hasOwnProperty(v)) {
-        compiler.async[v](() => {
-          loop1(++i);
-        });
-      } else {
-        compiler.native[v]();
-        loop1(++i);
-      }
+      });
     }
     loop(0);
-    // loop1(0);
   }
 
   stopExecution = () => {
+    clearTimeout(this.timer);
     this.kodaInterpreter.stopExecution();
     this.whenKeyPressed.unregister();
     this.whenCharacterClicked.unregister();

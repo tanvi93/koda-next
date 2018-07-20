@@ -125,12 +125,12 @@ export class FormulaQuizComponent implements OnInit {
     this.showError = false;
     this.optionValueGetter(input, ev.target.value, index);
     this.validationFunction(index); 
-
   }
 
   inputValue = (ev, index, selectInput) => {
-    this.optionValueGetter(ev.target.value, selectInput, index);
+    this.optionValueGetter(ev.key, selectInput, index);
     this.validationFunction(index); 
+    
   }
   
   validationFunction = (index) => {

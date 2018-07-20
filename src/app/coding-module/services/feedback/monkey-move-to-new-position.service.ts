@@ -15,6 +15,7 @@ export class MonkeyMoveToNewPositionService {
   }
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
+
     setTimeout(() => {
       this.blockList = blockList;
       this.codes = codes;
@@ -55,7 +56,6 @@ export class MonkeyMoveToNewPositionService {
     }
 
     // Check #6:Monkey’s Y coord changed?
-      console.log(Number(blockObj.y), sprites[spriteIndex].initialOffset.y);
       if (Number(blockObj.y) !== sprites[spriteIndex].initialOffset.y) {
       // tslint:disable-next-line:max-line-length
         return callback(`The monkey is now moving to a new position but remember, only its X coordinate should change. Don’t change monkey’s Y coordinate from its initial value (${sprites[spriteIndex].initialOffset.y}).`);

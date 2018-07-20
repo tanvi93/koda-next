@@ -25,6 +25,7 @@ export class StorylineScreenComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.pageId = params.pageId;
+      console.log(this.pageId);
       this.story = stories[`${this.pageId}`];
       if (this.story.backgroundAudio) {
         this.audio.loader([this.story.backgroundAudio]);

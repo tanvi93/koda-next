@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { SpriteService } from './../sprite.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
 
 // let buttonData;
 
@@ -10,12 +9,15 @@ declare let Interpreter: any;
 export class ButtonClickEventService {
   private sp: SpriteService;
   private keyCodePair;
-  private instance;
+  private keyButtonIdPair;
+  private instanceList;
   private myInterpreter;
+  private feedback;
   public xml: String;
 
   constructor(pageId = null) {
     this.myInterpreter = [];
+    this.instanceList = [];
     let self = this;
     this.xml = `<block type="button_click_event" id="button_click_event"></block>`;
     this.sp = new SpriteService();
@@ -53,23 +55,28 @@ export class ButtonClickEventService {
   }
 
   mouseClickEvent = e => {
-    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey]);
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keyButtonIdPair[e.target.cacheKey]);
+    });
   }
 
-  interpret = (interpreter, buttonData) => {
+  interpret = (interpreter, buttonData, feedback) => {
     const wrapper = ({ buttonIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.myInterpreter = interpreter;
-      this.instance = buttonData[buttonIndex].instance;
-      this.keyCodePair = { ...this.keyCodePair, [`${this.instance.cacheKey}`]: atob(linesOfCode) };
-      this.instance.on('mousedown', this.mouseClickEvent);
+      const instance = buttonData[buttonIndex].instance;
+      this.instanceList.push(instance);
+      this.keyButtonIdPair = { ...this.keyButtonIdPair, [`${instance.cacheKey}`]: buttonData[buttonIndex].id };
+      this.keyCodePair = { ...this.keyCodePair, [`${instance.cacheKey}`]: atob(linesOfCode) };
+      this.feedback = feedback;
+      instance.on('mousedown', this.mouseClickEvent);
     };
     interpreter.setProperty('buttonClickEventBind', wrapper);
   }
 
   unregister = () => {
-    this.myInterpreter = [];
-    if (this.instance) {
-      this.instance.off('mousedown', this.mouseClickEvent);
+    for (let i = 0; i < this.instanceList.length; i++) {
+      this.instanceList[i].off('mousedown', this.mouseClickEvent);
     }  
   }
 
