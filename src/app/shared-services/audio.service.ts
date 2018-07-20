@@ -45,6 +45,7 @@ export class AudioService {
   }
 
   play(index = 0, callback = null) {
+    this.stop();
     this.currentAudio = this.audios[index];
     this.currentAudio.play();
     this.readyToGoNext = false;

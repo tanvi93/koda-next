@@ -834,6 +834,10 @@ export const blocksData: any = {
                 "height": 3,
                 "initialVisibility": true
             }],
+        "sounds": [{
+            name: 'wrong',
+            src: './assets/audio/wrong_answer.ogg'
+        }],
         "isParallel": true
     }, //end of  all_blocks
     
@@ -2202,6 +2206,100 @@ export const blocksData: any = {
         "buttons": []
     }, //end of  mm3_1_c2
 
+    mm3_1_c3: {
+        "mascotBgColor": '#00bae2',
+        "activity_name": "monkey_menace",
+        "instructionBarContent": "Test your code to ensure that the cap moves across the Stage when the left or right arrow key is pressed.",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+        "categories": [{
+            "name": "",
+            "colour": 0,
+            "block_list": ["say", "showHideChar", "showCoordinates", "coordinates", "goTo", "moveBy", "changeLook", "arithmeticOperator", "randomNumber", "repeat", "repeatForever", "moveTo", "wait", "whenKeyPressed"],
+        }],
+        "initialCode": "",
+        "icons": [{
+            "name": "algo",
+            "isVisible": true,
+            "content": ["Select and position background and characters",
+                "Make the monkey throw fruits",
+                "Make the hat move when player presses the keys",
+                "Increase the score if player catches a fruit",
+                "End game if player misses more than five fruits"]
+        }, {
+            "name": "preview",
+            "isVisible": true,
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
+        }, {
+            "name": "hint",
+            "isVisible": false,
+            "content": ""
+        }, {
+            "name": "checklist",
+            "isVisible": false,
+            "content": []
+        }],
+        "backgrounds": [
+            {
+                "name": "Jungle",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
+                "groundLevel": {
+                    "lowerLimit": -20,
+                    "upperLimit": -5
+                }
+            }
+        ],
+        "initialBackgroundIdx": 0,
+        "currentBackgroundIdx": 0,
+        "buttons": []
+    }, //end of  mm3_1_c2
+
+    mm3_1_c4: {
+        "mascotBgColor": '#00bae2',
+        "activity_name": "monkey_menace",
+        "instructionBarContent": "Replace < fruit move down by x steps > with this < fruit move down by x steps speed n > block. Also update the speed with which you are comfortable to play.",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+        "categories": [{
+            "name": "",
+            "colour": 0,
+            "block_list": ["say", "showHideChar", "showCoordinates", "coordinates", "goTo", "moveBy", "changeLook", "arithmeticOperator", "randomNumber", "repeat", "repeatForever", "moveTo", "wait", "whenKeyPressed"],
+        }],
+        "initialCode": "",
+        "icons": [{
+            "name": "algo",
+            "isVisible": true,
+            "content": ["Select and position background and characters",
+                "Make the monkey throw fruits",
+                "Make the hat move when player presses the keys",
+                "Increase the score if player catches a fruit",
+                "End game if player misses more than five fruits"]
+        }, {
+            "name": "preview",
+            "isVisible": true,
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
+        }, {
+            "name": "hint",
+            "isVisible": false,
+            "content": ""
+        }, {
+            "name": "checklist",
+            "isVisible": false,
+            "content": []
+        }],
+        "backgrounds": [
+            {
+                "name": "Jungle",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
+                "groundLevel": {
+                    "lowerLimit": -20,
+                    "upperLimit": -5
+                }
+            }
+        ],
+        "initialBackgroundIdx": 0,
+        "currentBackgroundIdx": 0,
+        "buttons": []
+    }, //end of  mm3_1_c2
+
     lambent_app_coding: {
         "activity_name": "lambent_app",
         "mascotBgColor": '#ECD452',
@@ -2623,13 +2721,17 @@ export const blocksData: any = {
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
-        "buttons": []
+        "buttons": [],
+        "sounds": [{
+            name: 'fire alarm',
+            src: './assets/audio/fire_extinguisher/fire_alarm.wav'
+        }]
     }, //end of fire_extinguisher_coding2
 
     mm3_5_c1: {
         "mascotBgColor": '#00bae2',
         "activity_name": "monkey_menace",
-        "instructionBarContent": "Look for a block that helps you in doing something only if a condition happens. Drag it to the Code Zone.",
+        "instructionBarContent": "Use the block available on your Code Zone to find the cap's leftmost X coordinate such that the cap remains completely visible on the Stage.",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
         "categories": [{
             "name": "Game Elements",
@@ -2829,6 +2931,69 @@ export const blocksData: any = {
         "currentBackgroundIdx": 0,
         "buttons": []
     }, //end of  mm3_5_c3
+
+    mm3_5_c4: {
+        "mascotBgColor": '#00bae2',
+        "activity_name": "monkey_menace",
+        "instructionBarContent": "Now test your code to ensure that the cap never moves out of the Stage.",
+        "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
+        "categories": [{
+            "name": "Game Elements",
+            "colour": "#800080",
+            "block_list": ["say", "showHideChar", "showCoordinates", "changeLook", "nextLook", "goTo", "moveBy", "moveTo", "coordinates"],
+        }, {
+            "name": "Events",
+            "colour": "#F69D16",
+            "block_list": ["whenKeyPressed", "whenCharacterClicked", "whenMouseClicked"],
+        }, {
+            "name": "Loops",
+            "colour": "#6bbd53",
+            "block_list": ["repeat", "repeatForever"],
+        }, {
+            "name": "Conditions",
+            "colour": "210",
+            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+        }, {
+            "name": "Others",
+            "colour": "#42b4bd",
+            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
+        }],
+        "initialCode": "",
+        "icons": [{
+            "name": "algo",
+            "isVisible": true,
+            "content": ["Select and position background and characters",
+                "Make the monkey throw fruits",
+                "Make the hat move when player presses the keys",
+                "Increase the score if player catches a fruit",
+                "End game if player misses more than five fruits"]
+        }, {
+            "name": "preview",
+            "isVisible": true,
+            "content": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/MM_With Play.gif"
+        }, {
+            "name": "hint",
+            "isVisible": false,
+            "content": ""
+        }, {
+            "name": "checklist",
+            "isVisible": false,
+            "content": []
+        }],
+        "backgrounds": [
+            {
+                "name": "Jungle",
+                "src": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/bg_jungle1.jpg",
+                "groundLevel": {
+                    "lowerLimit": -20,
+                    "upperLimit": -5
+                }
+            }
+        ],
+        "initialBackgroundIdx": 0,
+        "currentBackgroundIdx": 0,
+        "buttons": []
+    }, //end of  mm3_5_c4
     
     talking_parrot_coding: {
         "activity_name": "talking_parrot",
@@ -2850,7 +3015,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
@@ -2906,11 +3071,11 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
-            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
+            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates"]
             }],
         "isParallel": true,
         "initialCode": "<some XML>",
@@ -2962,7 +3127,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
@@ -2995,7 +3160,23 @@ export const blocksData: any = {
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
-        "buttons": []
+         "buttons": [{
+             "id": "check_health_button",
+             "name": "Check Health Button",
+             "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/medicine_box/check_health_button.png"],
+             "buttonLookIdx": 0,
+             "offset": {
+                 "x": -22,
+                 "y": -9
+             },
+             "aspect_ratio": 1,
+             "width": 10,
+             "initialVisibility": true
+         }],
+         "sounds": [{
+             name: 'wrong',
+             src: './assets/audio/wrong_answer.ogg'
+         }]
     }, //end of medicine_box_coding1
     
      medicine_box_coding2: {
@@ -3018,7 +3199,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",

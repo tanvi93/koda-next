@@ -4,6 +4,7 @@ import { IntroToBlocksComponent } from './intro-to-blocks/intro-to-blocks.compon
 import { ReletivePositionLearningComponent } from './reletive-position-learning/reletive-position-learning.component';
 import { RepetitiveCodeComponent } from './repetitive-code/repetitive-code.component';
 import { ToTheHillsComponent } from './to-the-hills/to-the-hills.component';
+import { CaptchaActivityComponent } from './captcha-activity/captcha-activity.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
   }, {
     path: 'drag-n-drop/:pageId',
     component: ToTheHillsComponent
+  }, {
+    path: 'captcha-activity/:pageId',
+    component: CaptchaActivityComponent
   }
 ];
 

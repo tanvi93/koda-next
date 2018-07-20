@@ -353,13 +353,13 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'To the hills storyline',
-                        path: 'to-the-hills-storyline',
+                        path: 'storyline/to_the_hills',
                         order: 1,
                         image: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg.jpg',
                         type: 'activity-narration'
                     }, {
                         name: 'To the hills activity',
-                        path: 'drag-n-drop/to_the_hills_q1',
+                        path: 'level-3/drag-n-drop/to_the_hills_q1',
                         order: 2,
                         type: 'activity'
                     }, {
@@ -369,7 +369,7 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'Venus flytrap storyline',
-                        path: 'venus-fly-trap',
+                        path: 'storyline/venus_flytrap',
                         order: 3,
                         image: './assets/images/activities/venus_flytrap/venus-fly_bg-class.jpg',
                         type: 'activity-narration'
@@ -507,12 +507,12 @@ export const map: any = [
                         type: 'activity-narration'
                     }, {
                         name: 'Captcha activity pattern1',
-                        path: 'captcha-activity/pattern1',
+                        path: 'level-3/captcha-activity/pattern1',
                         order: 2,
                         type: 'activity_coding'
                     }, {
                         name: 'Captcha activity pattern2',
-                        path: 'captcha-activity/pattern2',
+                        path: 'level-3/captcha-activity/pattern2',
                         order: 3,
                         type: 'activity_coding'
                     }, {
@@ -608,12 +608,12 @@ export const map: any = [
                 resources: [
                     {
                         name: 'MM_Algo_Step3 (Not ready yet)',
-                        path: '',
+                        path: 'algo-steps/3',
                         order: 0,
                         type: 'narration'
                     }, {
                         name: 'mm3_1_q1 (dropdown quiz)',
-                        path: 'dropdown-quiz/mm3_1_q1',
+                        path: 'quiz/dropdown/mm3_1_q1',
                         order: 1,
                         type: 'activity'
                     }, {
@@ -628,7 +628,7 @@ export const map: any = [
                         type: 'coding'
                     }, {
                         name: 'Intro to events (Not ready yet)',
-                        path: 'learning_intro_to_events',
+                        path: 'level-4/intro-to-events',
                         order: 4,
                         type: 'narration'
                     }, {
@@ -638,17 +638,27 @@ export const map: any = [
                         type: 'activity'
                     }, {
                         name: 'mm3_1_q3 (Radio button MCQ)',
-                        path: 'quiz/radio/mm3_1_q3',
+                        path: 'quiz/checkbox/mm3_1_q3',
                         order: 6,
                         type: 'activity'
                     }, {
+                        name: 'mm3_1_c3 (Test the code)',
+                        path: 'coding/game/mm3_1_c3',
+                        order: 3,
+                        type: 'coding'
+                    }, {
+                        name: 'mm3_1_c4 (reduce speed)',
+                        path: 'coding/game/mm3_1_c4',
+                        order: 3,
+                        type: 'coding'
+                    }, {
                         name: 'mm3_1_q4 (Checkbox MCQ)',
-                        path: 'checklist-quiz/mm3_1_q4',
+                        path: 'quiz/checkbox/mm3_1_q4',
                         order: 7,
                         type: 'activity'
                     }, {
                         name: 'Badge Puppeteer (Not ready yet)',
-                        path: '',
+                        path: 'badge/puppeteer',
                         order: 8,
                         type: 'badge'
                     }, {
@@ -665,7 +675,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Events_Learning (Christmas Cupcakes) (Not ready yet)',
-                        path: 'video/events_learning',
+                        path: 'learning/events_learning',
                         order: 0,
                         type: 'narration'
                     }, {
@@ -681,38 +691,43 @@ export const map: any = [
                 name: 'Module: Events activities',
                 resources: [
                     {
-                        name: 'Activities gallery (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/events',
                         order: 0,
                         type: 'activity'
                     }, {
-                        name: 'Identical twins storyline (not ready yet)',
-                        path: '',
+                        name: 'Identical twins storyline',
+                        path: 'storyline/identical_twins',
                         order: 1,
                         type: 'narration'
                     }, {
                         name: 'Identical twins Q1',
-                        path: 'quiz/identical_twins_q1',
+                        path: 'quiz/radio/identical_twins_q1',
                         order: 2,
                         type: 'activity'
                     }, {
                         name: 'Identical twins Q2',
-                        path: 'quiz/identical_twins_q2',
+                        path: 'quiz/radio/identical_twins_q2',
                         order: 3,
                         type: 'activity'
                     }, {
                         name: 'Identical twins Q3',
-                        path: 'quiz/identical_twins_q3',
+                        path: 'quiz/radio/identical_twins_q3',
                         order: 4,
                         type: 'activity'
                     }, {
                         name: 'Identical twins Q4',
-                        path: 'quiz/identical_twins_q4',
+                        path: 'quiz/radio/identical_twins_q4',
                         order: 5,
                         type: 'activity'
                     }, {
-                        name: 'Lambent app storyline (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/events',
+                        order: 0,
+                        type: 'activity'
+                    }, {
+                        name: 'Lambent app storyline',
+                        path: 'storyline/lambent_app',
                         order: 6,
                         type: 'narration'
                     }, {
@@ -721,8 +736,13 @@ export const map: any = [
                         order: 7,
                         type: 'coding'
                     }, {
-                        name: 'Eclipse storyline (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/events',
+                        order: 0,
+                        type: 'activity'
+                    }, {
+                        name: 'Eclipse storyline',
+                        path: 'storyline/eclipse',
                         order: 8,
                         type: 'narration'
                     }, {
@@ -731,10 +751,11 @@ export const map: any = [
                         order: 9,
                         type: 'coding',
                     }, {
-                        name: 'Badge Events - Path A (Not ready yet)',
-                        path: '',
+                        name: 'Badge Events - Path A',
+                        path: 'badge/event_maestro',
                         order: 10,
-                        type: 'badge'
+                        type: 'badge',
+                        nextPage: 'level-4/mascot_taking'
                     }
                 ]
             }, // End of Module 3.3
@@ -743,8 +764,8 @@ export const map: any = [
                 name: 'Module: Events challenge',
                 resources: [
                     {
-                        name: 'Fire extinguisher storyline1 (not ready yet)',
-                        path: '',
+                        name: 'Fire extinguisher storyline1',
+                        path: 'storyline/fire_exinguisher1',
                         order: 0,
                         type: 'narration'
                     }, {
@@ -753,8 +774,8 @@ export const map: any = [
                         order: 1,
                         type: 'coding'
                     }, {
-                        name: 'Fire extinguisher storyline2 (not ready yet)',
-                        path: '',
+                        name: 'Fire extinguisher storyline2',
+                        path: 'storyline/fire_exinguisher2',
                         order: 2,
                         type: 'narration'
                     }, {
@@ -763,8 +784,8 @@ export const map: any = [
                         order: 3,
                         type: 'coding'
                     }, {
-                        name: 'Badge Events - Path B (Not ready yet)',
-                        path: '',
+                        name: 'Badge Events - Path B',
+                        path: 'badge/event_maestro',
                         order: 4,
                         type: 'badge'
                     }
@@ -775,43 +796,43 @@ export const map: any = [
                 name: 'Module: keep the cap on Stage',
                 resources: [
                     {
-                        name: 'Motivation (not ready yet)',
-                        path: '',
+                        name: 'Motivation',
+                        path: 'level-4/mascot_taking',
                         order: 0,
                         type: 'narration'
                     }, {
-                        name: 'mm3_5_q1 (Fox type quiz) - to be added',
-                        path: 'mm3_5_q1',
-                        order: 1,
-                        type: 'activity'
-                    }, {
-                        name: 'mm3_5_q2 (Dropdown quiz)',
-                        path: 'dropdown-quiz/mm3_5_q2',
-                        order: 2,
-                        type: 'activity'
-                    }, {
-                        name: 'Add condition for left limit (mm3_5_c1)',
+                        name: 'Find left & right limit (mm3_5_c1)',
                         path: 'coding/game/mm3_5_c1',
                         order: 3,
                         type: 'coding'
                     }, {
-                        name: 'mm3_5_c2 (Add condition for right limit)',
+                        name: 'mm3_5_q2 (Dropdown quiz)',
+                        path: 'quiz/dropdown/mm3_5_q2',
+                        order: 2,
+                        type: 'activity'
+                    }, {
+                        name: 'Add condition for left limit (mm3_5_c2)',
                         path: 'coding/game/mm3_5_c2',
+                        order: 3,
+                        type: 'coding'
+                    }, {
+                        name: 'mm3_5_c3 (Add condition for right limit)',
+                        path: 'coding/game/mm3_5_c3',
                         order: 4,
                         type: 'coding'
                     }, {
-                        name: 'mm3_5_c3 (Test the code)',
-                        path: 'coding/game/mm3_5_c3',
+                        name: 'mm3_5_c4 (Test the code)',
+                        path: 'coding/game/mm3_5_c4',
                         order: 5,
                         type: 'coding'
                     }, {
-                        name: 'Intro to conditionals (Not ready yet)',
-                        path: 'learning_intro_to_events',
+                        name: 'Intro to conditionals',
+                        path: 'level-4/intro-to-conditionals',
                         order: 6,
                         type: 'narration'
                     }, {
-                        name: 'Badge Player-controlled (Not ready yet)',
-                        path: '',
+                        name: 'Badge Player-controlled',
+                        path: 'badge/custodian',
                         order: 7,
                         type: 'badge'
                     }, {
@@ -828,7 +849,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Conditionals_Learning (Paragliding) (Not ready yet)',
-                        path: 'video/conditionals_learning',
+                        path: 'learning/conditionals_learning',
                         order: 0,
                         type: 'narration'
                     }, {
@@ -844,13 +865,13 @@ export const map: any = [
                 name: 'Module: Conditionals activities',
                 resources: [
                     {
-                        name: 'Activities gallery (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/conditions',
                         order: 0,
                         type: 'activity'
                     }, {
-                        name: 'Ride scanner storyline (not ready yet)',
-                        path: '',
+                        name: 'Ride scanner storyline',
+                        path: 'storyline/ride_scanner',
                         order: 1,
                         type: 'narration'
                     }, {
@@ -859,8 +880,13 @@ export const map: any = [
                         order: 2,
                         type: 'activity'
                     }, {
-                        name: 'Talking parrot storyline (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/conditions',
+                        order: 0,
+                        type: 'activity'
+                    }, {
+                        name: 'Talking parrot storyline',
+                        path: 'storyline/talking_parrot',
                         order: 3,
                         type: 'narration'
                     }, {
@@ -869,8 +895,13 @@ export const map: any = [
                         order: 4,
                         type: 'coding'
                     }, {
-                        name: 'Seasons storyline (not ready yet)',
-                        path: '',
+                        name: 'Activities gallery',
+                        path: 'select-activity/conditions',
+                        order: 0,
+                        type: 'activity'
+                    }, {
+                        name: 'Seasons storyline',
+                        path: 'storyline/seasons',
                         order: 5,
                         type: 'narration'
                     }, {
@@ -879,8 +910,8 @@ export const map: any = [
                         order: 6,
                         type: 'coding',
                     }, {
-                        name: 'Badge Conditionals - Path A (Not ready yet)',
-                        path: '',
+                        name: 'Badge Conditionals - Path A',
+                        path: 'badge/executive',
                         order: 7,
                         type: 'badge'
                     }
@@ -892,7 +923,7 @@ export const map: any = [
                 resources: [
                     {
                         name: 'Medicine Box storyline1 (not ready yet)',
-                        path: '',
+                        path: 'storyline/medicine_box',
                         order: 0,
                         type: 'narration'
                     }, {
@@ -907,17 +938,17 @@ export const map: any = [
                         type: 'coding'
                     }, {
                         name: 'Quiz1',
-                        path: 'dropdown-quiz/medicine_box_q1',
+                        path: 'quiz/dropdown/medicine_box_q1',
                         order: 3,
                         type: 'activity'
                     }, {
                         name: 'Quiz2',
-                        path: 'dropdown-quiz/medicine_box_q2',
+                        path: 'quiz/dropdown/medicine_box_q2',
                         order: 4,
                         type: 'activity'
                     }, {
-                        name: 'Badge Conditionals - Path B (Not ready yet)',
-                        path: '',
+                        name: 'Badge Conditionals - Path B',
+                        path: 'badge/executive',
                         order: 5,
                         type: 'badge'
                     }
@@ -1004,7 +1035,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Candy jar activity',
-                        path: 'quiz/candy_jar_q1',
+                        path: 'quiz/candy_jar_activity',
                         order: 2,
                         type: 'activity'
                     }, {
