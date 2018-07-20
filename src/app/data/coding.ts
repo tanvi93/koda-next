@@ -2627,7 +2627,11 @@ export const blocksData: any = {
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
-        "buttons": []
+        "buttons": [],
+        "sounds": [{
+            name: 'fire alarm',
+            src: './assets/audio/fire_extinguisher/fire_alarm.wav'
+        }]
     }, //end of fire_extinguisher_coding2
 
     mm3_5_c1: {
@@ -2914,7 +2918,7 @@ export const blocksData: any = {
         }, {
             "name": "Others",
             "colour": "#42b4bd",
-            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates", "playSound"]
+            "block_list": ["randomNumber", "arithmeticOperator", "wait", "mouseCoordinates"]
             }],
         "isParallel": true,
         "initialCode": "<some XML>",
@@ -2999,7 +3003,23 @@ export const blocksData: any = {
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
-        "buttons": []
+         "buttons": [{
+             "id": "check_health_button",
+             "name": "Check Health Button",
+             "looks": ["http://dqfevutdn6sxd.cloudfront.net/activities/medicine_box/check_health_button.png"],
+             "buttonLookIdx": 0,
+             "offset": {
+                 "x": -22,
+                 "y": -9
+             },
+             "aspect_ratio": 1,
+             "width": 10,
+             "initialVisibility": true
+         }],
+         "sounds": [{
+             name: 'wrong',
+             src: './assets/audio/wrong_answer.ogg'
+         }]
     }, //end of medicine_box_coding1
     
      medicine_box_coding2: {

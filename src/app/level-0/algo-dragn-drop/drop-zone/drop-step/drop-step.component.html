@@ -1,4 +1,4 @@
-<app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" >
+<app-drag-drop-wrapper [seq]="number" (dropData)="dropData($event)" (displayError)="hideErrorMsg($event)" [dropEnabled]="dropEnabled" [dragEnabled]="dragEnabled">
   <div fxlayout="row" fxLayoutAlign="center start" class="correct-step-container" [style.background-color]="changeStyle?'#00CAFE':'white'">
       <div fxLayoutAlign="center center" class="step-number" [style.background-color]="changeStyle?'white':'#73dcff'"
       [style.color]="changeStyle?'#73dcff':'white'">{{number}}

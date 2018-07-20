@@ -21,10 +21,15 @@ export class StepDropComponent {
   @Input() number;
   @Output() correctSequence = new EventEmitter();
   @Output() displayError = new EventEmitter();
+
   private step;
+  private dropEnabled: Boolean;
+  private dragEnabled: Boolean;
 
   constructor() {
     this.step = {};
+    this.dropEnabled = true;
+    this.dragEnabled = false;
    }
 
   dropData(event) {

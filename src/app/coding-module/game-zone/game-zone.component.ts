@@ -163,7 +163,7 @@ export class GameZoneComponent implements OnInit, OnChanges {
       let json = null;
       codes.forEach(v => {
         json = JSON.parse(v);
-        if (json.type && json.type === 'event') {
+        if (json.type && json.type === 'event' || json.method === 'playSound') {
           this.buttonStatus = 'stop';
         }
       });
@@ -202,6 +202,8 @@ export class GameZoneComponent implements OnInit, OnChanges {
         this.feedbackStatement.emit('');
         break;
       case 'stop':
+        console.log(this.audio);
+        this.audio.stop();
         this.stageService.stopExecution();
         this.buttonStatus = 'reset';
         break;
