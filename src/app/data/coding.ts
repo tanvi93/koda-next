@@ -834,6 +834,10 @@ export const blocksData: any = {
                 "height": 3,
                 "initialVisibility": true
             }],
+        "sounds": [{
+            name: 'wrong',
+            src: './assets/audio/wrong_answer.ogg'
+        }],
         "isParallel": true
     }, //end of  all_blocks
     
@@ -2913,7 +2917,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
@@ -2969,7 +2973,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
@@ -3025,7 +3029,7 @@ export const blocksData: any = {
         }, {
             "name": "Conditions",
             "colour": "210",
-            "block_list": ["ifBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
+                "block_list": ["ifBlock", "ifElseBlock", "relationalOperator", "logicalOperator", "notOperator", "trueFalse"],
         }, {
             "name": "Others",
             "colour": "#42b4bd",
