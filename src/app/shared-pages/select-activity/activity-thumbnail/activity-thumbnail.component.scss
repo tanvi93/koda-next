@@ -28,6 +28,11 @@
     -webkit-transform: translateY(-50%);
     z-index: 9;
 }
+.select-option-Caption{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
 .select-option-caption-content{
     font-weight: 400;
     font-style: normal;
@@ -42,6 +47,7 @@
 .activity-inner{
     position: relative;
     margin-top: 5%;
+    border: 1px solid red;
 }
 .select-option-disable {
     position: absolute;

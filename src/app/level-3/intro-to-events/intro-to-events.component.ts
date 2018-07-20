@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UtilitiesService } from './../../shared-services/utilities.service';
+import { AudioService } from './../../shared-services/audio.service';
 import { assetsLink } from './../../shared-services/config';
 
 /**
@@ -37,7 +40,7 @@ export class IntroToEventsComponent implements OnInit {
   private image: string;
   private showBlockImage: Boolean;
 
-  constructor() {
+  constructor(private audio: AudioService, private utility: UtilitiesService, private router: Router) {
     this.msgIndex = 0;
     this.loading = true;
     this.changeCss = false;
@@ -82,10 +85,13 @@ export class IntroToEventsComponent implements OnInit {
         this.showBlockImage = true;
         this.changeCss = true;
       } else {
-          this.image = `${assetsLink}block_images/event_block_2.png`;
-          this.changeImage = true;
+        this.image = `${assetsLink}block_images/event_block_2.png`;
+        this.changeImage = true;
       }
       this.msgIndex++;
-      }
+    } else {
+      this.utility.nextPage(this.router.url.substr(1));
+      return;
+    }
   }
 }
