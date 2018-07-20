@@ -11,6 +11,7 @@ export class GameStageService {
   private sprites: any;
   private buttons: any;
   private audio: any;
+  private sounds: any;
   private bgImages: Array<any>;
   private bgImgInstance: any;
   private buttonSrcs: any;
@@ -123,6 +124,10 @@ export class GameStageService {
       }
       return v;
     });
+    const soundSrcs = this.pageData.sounds.map(v => {
+      return v.src;
+    });
+    this.audio.loader(soundSrcs);
   }
 
   drawBackground = (isReset = false) => {
@@ -534,6 +539,10 @@ export class GameStageService {
     this.fabricCanvas.renderAll();
   }
 
+  playSound(obj) {
+    this.audio.play(obj.soundindex);
+  }
+
   changeButtonAvatar(obj) {
     const button = this.buttons[obj.buttonIndex];
     this.spriteStatusList.push({ previousLookSrc: this.pageData.buttons[obj.buttonIndex].currentLookIdx });
@@ -666,6 +675,9 @@ export class GameStageService {
           break;
         case 'flipSprite':
           this.flipSprite(data);
+          break;
+        case 'playSound':
+          this.playSound(data);
           break;
         case 'setVar':
         case 'changeVar':
