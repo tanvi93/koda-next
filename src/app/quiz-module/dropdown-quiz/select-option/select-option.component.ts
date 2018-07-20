@@ -50,7 +50,7 @@ export class SelectOptionComponent  {
       }
   }
 
-  data = new FormControl('Choose From', [
+  data = new FormControl('Select', [
   ]);
 
   clickOption = () => {
@@ -66,7 +66,7 @@ export class SelectOptionComponent  {
   }
 
   defaultValue = () => {
-    this.actionObj.answerValue = 'Choose From';
+    this.actionObj.answerValue = 'Select';
     this.actionObj.answerStatus = false;
     this.actionObj.message = '';
     this.actionObj.id = this.currentIndex;
