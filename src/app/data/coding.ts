@@ -2432,7 +2432,7 @@ export const blocksData: any = {
            ]
     }, //end of eclipse_coding
     
-     fire_extinguisher_coding1: {
+    fire_extinguisher_coding1: {
          "activity_name": "fire_extinguisher1",
          "mascotBgColor": '#ECD452',
         "instructionBarContent": "I have already coded to show how a fire extinguisher works but something seems to be going wrong. Help me correct my code. You can refer to the algorithm and preview.",

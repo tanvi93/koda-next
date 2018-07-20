@@ -59,6 +59,9 @@ export class CharacterClickEventService {
   }
 
   mouseClickEvent = e => {
+    // if (!this.keyCodePair[e.target.cacheKey].length) {
+    //   return this.feedback('', this.keySpritePair[e.target.cacheKey]);
+    // }
     this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
       this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keySpritePair[e.target.cacheKey]);
     });

@@ -9,6 +9,7 @@ let thread;
 export class KeypressEventService {
   public xml: String;
   private keyCodePair;
+  private keyNamePair;
   private scope;
   private lock;
   private feedback;
@@ -71,12 +72,19 @@ export class KeypressEventService {
       this.lock = true;
       this.interpreter.executeCommands(this.keyCodePair[event.which], () => {
         this.lock = false;
-        this.feedback();
+        this.feedback(this.keyCodePair[event.which].split(';\n'), `${this.keyNamePair[event.which]}_press`);
       });
     }
   }
 
   interpret = (interpreter, feedback) => {
+    this.keyNamePair = {
+      32: 'space_bar',
+      38: 'up_arrow',
+      40: 'down_arrow',
+      37: 'left_arrow',
+      39: 'right_arrow',
+    }
     const wrapper = ({ dropdown_keys, linesOfCode }) => {
       if (!linesOfCode.length) return;
       this.lock = false;
