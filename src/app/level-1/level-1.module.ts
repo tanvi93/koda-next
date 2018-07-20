@@ -25,6 +25,7 @@ import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.compo
 import { DragonCaptureOutputComponent } from './dragon-capture1/dragon-capture-output/dragon-capture-output.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

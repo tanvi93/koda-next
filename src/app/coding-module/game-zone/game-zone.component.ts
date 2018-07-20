@@ -133,8 +133,21 @@ export class GameZoneComponent implements OnInit, OnChanges {
     }
   }
 
+  mergeSameSpriteStatusList() {
+    let v, u = null;
+    for (let i = 0; i < this.stageService.spriteStatusList.length-1; i++) {
+      v = this.stageService.spriteStatusList[i];
+      u = this.stageService.spriteStatusList[i+1];
+      if (v.name === u.name && v.action === u.action && v.action === 'moveObject') {
+        this.stageService.spriteStatusList.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
   getFeedback = (codes, xml, sprites, eventId = null) => {
     const bg = this.pageData.backgrounds[this.pageData.currentBackgroundIdx];
+    // this.mergeSameSpriteStatusList();
     this.feedback.setBlockList(this.pageId, codes, sprites, this.stageService.spriteStatusList, bg, eventId, obj => {
       if (typeof (obj) == 'object' && obj.success && this.pageData.activity_name === 'monkey_menace') {
         localStorage.setItem('lastCodeXml', xml);

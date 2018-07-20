@@ -33,7 +33,9 @@ export class UtilitiesService {
     for (let i = 0; i < map.length; i++) {
       for (let j = 0; j < map[i].modules.length; j++) {
         for (let k = 0; k < map[i].modules[j].resources.length; k++) {
+          // console.log(currentPath,' === ',map[i].modules[j].resources[k].path);
           if (currentPath === map[i].modules[j].resources[k].path) {
+            // console.log('------------------------------------------');
             this.currentPageDetails = map[i].modules[j].resources[k];
             this.currentPageDetails.currentLevel = i;
             this.currentPageDetails.currentModule = j;
