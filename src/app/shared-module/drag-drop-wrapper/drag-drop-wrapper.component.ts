@@ -27,11 +27,11 @@ export class DragDropWrapperComponent {
 
   @Input() dropAlgoStepObj;
   @Input() seq;
+  @Input() dropEnabled: Boolean;
+  @Input() dragEnabled: Boolean;
   @Output() dropData = new EventEmitter();
   @Output() stepAtDropZone = new EventEmitter();
   @Output() displayError = new EventEmitter();
-  private dropEnabled: Boolean = true;
-  private dragEnabled: Boolean= true;
 
   constructor() {
     this.dropAlgoStepObj = {};
@@ -62,7 +62,7 @@ export class DragDropWrapperComponent {
 
    isEmpty(dropAlgoStepObj) {
     for(var key in dropAlgoStepObj) {
-        if(dropAlgoStepObj.hasOwnProperty(key))
+        if (dropAlgoStepObj.hasOwnProperty(key))
             return false;
     }
     return true;
