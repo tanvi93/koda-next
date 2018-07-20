@@ -1004,7 +1004,7 @@ export const map: any = [
                         type: 'narration'
                     }, {
                         name: 'Candy jar activity',
-                        path: 'quiz/candy_jar_q1',
+                        path: 'quiz/candy_jar_activity',
                         order: 2,
                         type: 'activity'
                     }, {
