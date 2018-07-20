@@ -3,9 +3,9 @@ export const quiz = {
         "instructionBarContent": "So the fruit is always at the same distance from the monkey when the monkey is holding it.",
         "mascotBg": "#13BCE4",
         "mascotImage": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png",
-        "mediaType": "video",
+        "mediaType": "image",
         //"mediaLink": "https://s3.bucket.com/koda/567"
-        "mediaLink": "assets/images/monkey_menace/screen-for-formula-for-relative.png",
+        "mediaLink": "http://dqfevutdn6sxd.cloudfront.net/monkey_menace/screen-for-formula-for-relative.png",
         "question": 'Here are the examples again:<br>When monkey is at(0, 13), the fruit is at(-5, 8),<br> When monkey is at(15, 13), the fruit is at(10, 8).<br><br>What can you conclude from these examples?',
         "options": [
             {

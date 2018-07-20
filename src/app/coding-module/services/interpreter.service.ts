@@ -157,7 +157,7 @@ export class InterpreterService {
     this.characterTouch = new TouchEventService(activityname);
     this.wsOnChange = new WorkspaceOnChangeService(pageId);
     this.mouseCoordinates = new MouseCoordinatesBlockService();
-    this.playSound = new PlaySoundBlockService();
+    this.playSound = new PlaySoundBlockService(pageId);
     this.rotateSprite = new RotateSpriteBlockService(activityname);
     this.flipSprite = new FlipSpriteBlockService(activityname);
     this.moveWithSpeed = new MoveWithSpeedService(activityname);
@@ -297,6 +297,9 @@ export class InterpreterService {
     this.rotateSprite.interpret(this.kodaInterpreter, obj => {
       callback({ name: 'rotateSprite', data: obj });
     });
+    this.playSound.interpret(this.kodaInterpreter, obj => {
+      callback({ name: 'playSound', data: obj });
+    })
 
     this.wait.interpret(this.kodaInterpreter);
 
@@ -332,7 +335,7 @@ export class InterpreterService {
   }
 
   compileCode = (pageId, callback) => {
-    this.getXml(true);
+    // this.getXml(true);
     let rawCodes = Blockly.JavaScript.workspaceToCode(workspacePlayground);
     this.compiler.compileCode(rawCodes, workspacePlayground, pageId, err => {
       callback(err, rawCodes);
@@ -350,15 +353,15 @@ export class InterpreterService {
         setTimeout(() => {
           this.stopExecution();
         }, 500);
-      }, 1000 * 30);
+      }, 1000 * 3);
     }
     this.interpretBlocks(sprites, buttons, coordinatesJson, callback, (localList = null, eventId = null) => {
       if (feedbackCall) feedbackCall(localList ? localList : list, this.getXml(false), sprites, eventId);
     });
     const loop = i => {
+      if (i === codes.length) return;
       this.kodaInterpreter.executeCommands(codes[i], () => {
         if (feedbackCall && i === codes.length-1) feedbackCall(list, this.getXml(false), sprites);
-        if (i === codes.length - 1) return;
         loop(++i);
       });
     }

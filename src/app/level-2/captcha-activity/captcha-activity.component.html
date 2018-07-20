@@ -1,0 +1,15 @@
+<div class="captcha-pattern-div h100" fxLayout="column">
+  <app-instruction-bar [mascotImage]="contentData.mascotHead" [mascotBgColor]="contentData.mascotBg" [instructions]="contentData.instructionBarContent"></app-instruction-bar>
+  <div class="captcha-wrapper">
+    <div class="input-div">
+      <app-captcha-input [contentData]="contentData"[patternData]="patternData" (validationContent)="patternValidation($event)" (hideErrorFlag)="invalidErrorHiddenFunction($event)" ></app-captcha-input>
+    </div>
+    <div class="captcha-output-wrap">
+      <img class="background-image" [src]="contentData.backgroundImage" alt="">
+        <img class="pattern-screen" [src]="patternData.patternScreenImage" alt="">
+        <p class="error-statement" *ngIf="!invalidErrorHidden">Invalid Captcha!</p>
+        <input type="text" class="{{ 'input' + (i)}}" *ngFor="let x of contentData.inputParaContent; let i = index" name="" [(ngModel)]="inputValue[i]"
+          [disabled]="true">
+    </div>
+  </div>
+</div>

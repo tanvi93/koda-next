@@ -1,0 +1,62 @@
+.captcha-wrapper {
+    display: table;
+}
+
+.input-div {
+    display: table-cell;
+    width: 46%;
+    vertical-align: middle;
+    position: relative;
+    background-color: rgba(215, 215, 215, 0.3);
+}
+
+.captcha-output-wrap {
+    display: table-cell;
+    width: 46%;
+    padding-left: 1%;
+    vertical-align: middle;
+    position: relative;
+    & .background-image {
+        display: block;
+        width: 100%;
+    }
+    & .pattern-screen {
+        position: absolute;
+        height: 52%;
+        width: 59.5%;
+        top: 11%;
+        left: 22%;
+    }
+        & .input0, .input1, .input2 {
+            background-color: #c2ddec;
+            border: none;
+            position: absolute;
+            left: 42%;
+            height: 2.2%;
+        }
+        & .error-statement {
+            position: absolute;
+            color: red;
+            font-family: 'Quicksand';
+            font-weight: 500;
+            font-size: 0.5vw;
+            top: 52.5%;
+            left: 48%;
+        }
+}
+
+
+.input0 {
+    width: 20%;
+    top: 41.5%;
+}
+
+.input1 {
+    width: 10%;
+    top: 47%;
+}
+
+.input2 {
+    width: 2%;
+    top: 52%;
+}

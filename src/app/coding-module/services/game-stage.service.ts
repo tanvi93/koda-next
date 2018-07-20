@@ -11,6 +11,7 @@ export class GameStageService {
   private sprites: any;
   private buttons: any;
   private audio: any;
+  private sounds: any;
   private bgImages: Array<any>;
   private bgImgInstance: any;
   private buttonSrcs: any;
@@ -123,6 +124,12 @@ export class GameStageService {
       }
       return v;
     });
+    if (this.pageData.sounds) {
+      const soundSrcs = this.pageData.sounds.map(v => {
+        return v.src;
+      });
+      this.audio.loader(soundSrcs);
+    }
   }
 
   drawBackground = (isReset = false) => {
@@ -183,8 +190,8 @@ export class GameStageService {
       if (!v.height) {
         v.height = v.width / v.aspect_ratio;
       }
-      left = parseInt(left) - (v.width / 2);
-      top = parseInt(top) + (v.height / 2);
+      left = parseFloat(left) - (v.width / 2);
+      top = parseFloat(top) + (v.height / 2);
       left = ((this.totalX / 2) + left) * this.xAxisUnit;
       top = ((this.totalY / 2) - top) * this.yAxisUnit;
       const index = isReset ? v.initialLookIdx : v.currentLookIdx;
@@ -534,6 +541,10 @@ export class GameStageService {
     this.fabricCanvas.renderAll();
   }
 
+  playSound(obj) {
+    this.audio.play(obj.soundindex);
+  }
+
   changeButtonAvatar(obj) {
     const button = this.buttons[obj.buttonIndex];
     this.spriteStatusList.push({ previousLookSrc: this.pageData.buttons[obj.buttonIndex].currentLookIdx });
@@ -666,6 +677,9 @@ export class GameStageService {
           break;
         case 'flipSprite':
           this.flipSprite(data);
+          break;
+        case 'playSound':
+          this.playSound(data);
           break;
         case 'setVar':
         case 'changeVar':

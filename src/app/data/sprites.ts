@@ -379,8 +379,8 @@ export const sprites: any = [
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
                 "handPositions": {
-                    "x": -5,
-                    "y": -4
+                    "x": -3,
+                    "y": -5
                 },
                 "disappearCoordinates": {
                     "x1": -37,
@@ -1037,7 +1037,7 @@ export const sprites: any = [
         "aspect_ratio": 1.33,
         "width": 11,
         //"height": 3,
-        "initialVisibility": true,
+        "initialVisibility": false,
         "looks": [
             "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray1.png"
         ],
@@ -1058,9 +1058,9 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png",
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png",
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire1.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire2.png",
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire3.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1119,7 +1119,7 @@ export const sprites: any = [
         "aspect_ratio": 1.016,
         "width": 10,
         //"height": 3,
-        "initialVisibility": true,
+        "initialVisibility": false,
         "looks": [
             "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/spray2.png"
         ],
@@ -1159,7 +1159,7 @@ export const sprites: any = [
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire.png"
+            "http://dqfevutdn6sxd.cloudfront.net/activities/fire_extinguisher/fire1.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,
@@ -1289,33 +1289,14 @@ export const sprites: any = [
      // Start 14: medicine box
     {
         "id": "sprite14_1",
-        "name": "check_health",
-        "activityName": "medicine_box",
-        "initialOffset": {
-            "x": 0,
-            "y": 0
-        },
-        "aspect_ratio": 1.0,
-        "width": 15,
-        //"height": 3,
-        "initialVisibility": true,
-        "looks": [
-            "./assets/images/activities/medicine_box/check_health_button.png"
-        ],
-        "currentLookIdx": 0,
-        "initialLookIdx": 0,
-        "zIndex": "1",
-        "trayOrder": "1"
-    }, {
-        "id": "sprite14_2",
         "name": "temperature_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": -26,
-            "y": 0
+            "x": -8,
+            "y": 12
         },
         "aspect_ratio": 1.0,
-        "width": 7,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
@@ -1326,15 +1307,15 @@ export const sprites: any = [
         "zIndex": "3",
         "trayOrder": "2"
     }, {
-        "id": "sprite14_3",
+        "id": "sprite14_2",
         "name": "bp_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": 0,
-            "y": 0
+            "x": 5,
+            "y": 3
         },
-        "aspect_ratio": 2.382,
-        "width": 54,
+        "aspect_ratio": 1,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
@@ -1345,19 +1326,119 @@ export const sprites: any = [
         "zIndex": "2",
         "trayOrder": "3"
     }, {
-        "id": "sprite14_4",
+        "id": "sprite14_3",
         "name": "sugar_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": 0,
-            "y": 0
+            "x": 1,
+            "y": -9
         },
-        "aspect_ratio": 2.382,
-        "width": 54,
+        "aspect_ratio": 1,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
-            "./assets/images/activities/medicine_box/indicator2.png"
+            "./assets/images/activities/medicine_box/indicator.png"
+        ],
+        "currentLookIdx": 0,
+        "initialLookIdx": 0,
+        "zIndex": "2",
+        "trayOrder": "4"
+    }, {
+        "id": "sprite14_4",
+        "name": "tablet_1",
+        "activityName": "medicine_box",
+        "initialOffset": {
+            "x": 20,
+            "y": 13.7
+        },
+        "aspect_ratio": 2.382,
+        "width": 7,
+        //"height": 3,
+        "initialVisibility": true,
+        "looks": [
+            "./assets/images/activities/medicine_box/tablet1_off.png",
+            "./assets/images/activities/medicine_box/tab1.png"
+        ],
+        "currentLookIdx": 0,
+        "initialLookIdx": 0,
+        "zIndex": "2",
+        "trayOrder": "4"
+    }, {
+        "id": "sprite14_5",
+        "name": "tablet_2",
+        "activityName": "medicine_box",
+        "initialOffset": {
+            "x": 20,
+            "y": 8
+        },
+        "aspect_ratio": 2.382,
+        "width": 7,
+        //"height": 3,
+        "initialVisibility": true,
+        "looks": [
+            "./assets/images/activities/medicine_box/tablet2_off.png",
+            "./assets/images/activities/medicine_box/tab2.png"
+        ],
+        "currentLookIdx": 0,
+        "initialLookIdx": 0,
+        "zIndex": "2",
+        "trayOrder": "4"
+    }, {
+        "id": "sprite14_6",
+        "name": "tablet_3",
+        "activityName": "medicine_box",
+        "initialOffset": {
+            "x": 20,
+            "y": 3
+        },
+        "aspect_ratio": 2.382,
+        "width": 7,
+        //"height": 3,
+        "initialVisibility": true,
+        "looks": [
+            "./assets/images/activities/medicine_box/tablet3_off.png",
+            "./assets/images/activities/medicine_box/tab3.png"
+        ],
+        "currentLookIdx": 0,
+        "initialLookIdx": 0,
+        "zIndex": "2",
+        "trayOrder": "4"
+    }, {
+        "id": "sprite14_7",
+        "name": "tablet_4",
+        "activityName": "medicine_box",
+        "initialOffset": {
+            "x": 20,
+            "y": -2.8
+        },
+        "aspect_ratio": 2.382,
+        "width": 7,
+        //"height": 3,
+        "initialVisibility": true,
+        "looks": [
+            "./assets/images/activities/medicine_box/tablet4_off.png",
+            "./assets/images/activities/medicine_box/tab4.png"
+        ],
+        "currentLookIdx": 0,
+        "initialLookIdx": 0,
+        "zIndex": "2",
+        "trayOrder": "4"
+    }, {
+        "id": "sprite14_8",
+        "name": "tablet_5",
+        "activityName": "medicine_box",
+        "initialOffset": {
+            "x": 20,
+            "y": -8
+        },
+        "aspect_ratio": 2.382,
+        "width": 7,
+        //"height": 3,
+        "initialVisibility": true,
+        "looks": [
+            "./assets/images/activities/medicine_box/tablet5_off.png",
+            "./assets/images/activities/medicine_box/tab5.png"
         ],
         "currentLookIdx": 0,
         "initialLookIdx": 0,

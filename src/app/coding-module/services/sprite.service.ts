@@ -8,11 +8,13 @@ export class SpriteService {
   private spriteArr;
   private bgArr;
   private buttonArr;
+  private soundArr;
 
   constructor() { 
     this.spriteArr = {};
     this.bgArr = {};
     this.buttonArr = {};
+    this.soundArr = {};
   }
 
   getAllSprites = (activityName = 'monkey_menace') => {
@@ -53,9 +55,14 @@ export class SpriteService {
 
   getAllButtons = (pageId) => {
     if (!pageId) return [];
-    console.log(blocksData[pageId]);
     this.buttonArr[pageId] = blocksData[pageId].buttons;
     return this.buttonArr[pageId];
+  }
+
+  getAllSounds = (pageId) => {
+    if (!pageId) return [];
+    this.soundArr[pageId] = blocksData[pageId].sounds;
+    return this.soundArr[pageId];
   }
 
   spriteDropdown = (activity) => {
@@ -82,6 +89,17 @@ export class SpriteService {
     return [['Choose a button...', '-1'], ...finalArr]; 
   }
 
+  soundDropdown = (pageId) => {
+    let arr = this.soundArr[pageId] ? this.soundArr[pageId] : this.getAllSounds(pageId);
+    let finalArr = [];
+    if (arr) {
+      finalArr = arr.map((v, i) => {
+        return [v.name, i + ''];
+      });
+    }
+    return [['Choose a Sound...', '-1'], ...finalArr];
+  }
+
   setSpriteOffsets = (activityName, data, index) => {
     let arr = this.spriteArr[activityName];
     if (!arr[index].currentOffset) {
@@ -93,7 +111,7 @@ export class SpriteService {
     } else {
       arr[index].currentOffset = data;
     }
-    return arr[index].currentOffset;
+    return { ...arr[index].currentOffset };
   }
 
 }

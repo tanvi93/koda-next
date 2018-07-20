@@ -12,16 +12,20 @@ import { Component, OnInit, Input } from '@angular/core';
  * which defines the dragging and dropping methods.
  * @param { object } stepObj contains data of the each step that is image and text within it.
  * @method stepDragData This method is called when the step is dropped in the drag zone.
- * Here the data is applied to stepObj. 
+ * Here the data is applied to stepObj.
  */
 
 export class DragStepComponent {
   @Input() stepObj;
   private changeStyle;
+  private dropEnabled: Boolean;
+  private dragEnabled: Boolean;
 
   constructor() {
     this.stepObj = {};
     this.changeStyle = false;
+    this.dropEnabled = false;
+    this.dragEnabled = true;
   }
 
   stepDragData(event) {
