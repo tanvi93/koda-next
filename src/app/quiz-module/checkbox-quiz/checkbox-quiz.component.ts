@@ -51,8 +51,10 @@ export class CheckboxQuizComponent implements OnInit {
   private pageId: string;
   private errorMsgDetail: any;
   private error: string;
+  private submitBtn: string;
   constructor(public dialog: MatDialog, private route: ActivatedRoute) { 
     this.checkData = [];
+    this.submitBtn ="../assets/images/submit.png";
   }
 
   ngOnInit() {
@@ -115,7 +117,7 @@ export class CheckboxQuizComponent implements OnInit {
 
   checkboxFunction = (ev, index) => {
     this.showError = false;
-    this.checkData[index] = ev.target.checked;
+    this.checkData[index] = ev.checked;
   }
 
   showErrorMsg = () => {

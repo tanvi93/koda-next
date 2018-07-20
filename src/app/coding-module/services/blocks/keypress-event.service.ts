@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 let thread;
 
@@ -12,12 +12,12 @@ export class KeypressEventService {
   private scope;
   private lock;
   private feedback;
-  private myInterpreter;
+  private interpreter;
 
   constructor() {
     let myBlock = {};
     let self = this;
-    this.myInterpreter = [];
+    this.interpreter = null;
     this.xml = `<block type="when_key_pressed" id="when_key_pressed"></block>`;
     Blockly.Blocks['when_key_pressed'] = {
       init: function () {
@@ -54,48 +54,42 @@ export class KeypressEventService {
       block.startHat = true;
       const dropdown_keys = Number(block.getFieldValue('keys'));
       let code = Blockly.JavaScript.statementToCode(block, 'when_key_pressed');
-      return `keydownEventBind('${dropdown_keys}', "${btoa(code)}");\n`
+      const json = {
+        method: 'keydownEventBind',
+        type: 'event',
+        params: {
+          dropdown_keys,
+          linesOfCode: btoa(code)
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
   keydownEvent = event => {
     if (this.keyCodePair[event.which] && !this.lock) {
       this.lock = true;
-      this.myInterpreter.push(new Interpreter(''));
-      let index = this.myInterpreter.length - 1;
-      this.myInterpreter[index].stateStack[0].scope = this.scope;
-      this.myInterpreter[index].appendCode(this.keyCodePair[event.which]);
-      const runner = () => {
-        if (this.myInterpreter[index]) {
-          const hasMore = this.myInterpreter[index].step();
-          if (hasMore) {
-            // Execution is currently blocked by some async call.
-            // Try again later.
-            setTimeout(runner, 0);
-          } else {
-            this.lock = false;
-            this.feedback();
-          }
-        }
-      };
-      runner();
+      this.interpreter.executeCommands(this.keyCodePair[event.which], () => {
+        this.lock = false;
+        this.feedback();
+      });
     }
   }
 
-  initInterpreter = (interpreter, scope, feedback) => {
-    const wrapper = (dropdown_keys, code) => {
+  interpret = (interpreter, feedback) => {
+    const wrapper = ({ dropdown_keys, linesOfCode }) => {
+      if (!linesOfCode.length) return;
       this.lock = false;
-      this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: atob(code) };
-      this.scope = scope;
+      this.keyCodePair = { ...this.keyCodePair, [`${dropdown_keys}`]: atob(linesOfCode) };
       this.feedback = feedback;
+      this.interpreter = interpreter;
       window.addEventListener("keydown", this.keydownEvent);
     };
-    interpreter.setProperty(scope, 'keydownEventBind', interpreter.createNativeFunction(wrapper));
-
+    interpreter.setProperty('keydownEventBind', wrapper);
   }
 
   unregister = () => {
-    this.myInterpreter = [];
+    this.interpreter = null;
     window.removeEventListener("keydown", this.keydownEvent);
   }
 

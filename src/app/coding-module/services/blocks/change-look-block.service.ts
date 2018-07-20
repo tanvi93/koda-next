@@ -58,6 +58,19 @@ export class ChangeLookBlockService {
       },
 
       onchange: function (event) {
+        if (event.type === Blockly.Events.BLOCK_CREATE) {
+          Object.keys(myBlock).forEach(key => {
+            if (myBlock[key].getFieldValue('sprite') >= 0) {
+              classInstance.spriteIndex = myBlock[key].getFieldValue('sprite');
+              const tmp = myBlock[key].getFieldValue('avatar');
+              myBlock[key].getInput('look_dummy_input').removeField('avatar');
+              myBlock[key].getInput('look_dummy_input').appendField(new Blockly.FieldDropdown(getAvatars(key)), "avatar");
+              if (tmp >= 0) {
+                myBlock[key].setFieldValue(tmp, 'avatar');
+              }
+            }
+          });
+        }
         if (event.blockId && myBlock[event.blockId] && event.name === 'sprite') {
           classInstance.spriteIndex = event.newValue;
           myBlock[event.blockId].getInput('look_dummy_input').removeField('avatar');
@@ -70,18 +83,22 @@ export class ChangeLookBlockService {
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
       const avatar = block.getFieldValue('avatar');
-      const json = {
+      const params = {
         spriteIndex,
         avatarIndex: avatar
       }
-      return `changeAvatar('${JSON.stringify(json)}');\n`;
+      const json = {
+        method: 'changeAvatar',
+        params
+      }
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'changeAvatar', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('changeAvatar', wrapper);
   }
 }

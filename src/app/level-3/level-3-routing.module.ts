@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IntroToEventsComponent } from './intro-to-events/intro-to-events.component';
 import { IntroToConditionalsComponent } from './intro-to-conditionals/intro-to-conditionals.component';
+import { MascotTalkingComponent } from './mascot-talking/mascot-talking.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'intro-to-conditionals',
     component: IntroToConditionalsComponent
+  },
+  {
+    path: 'mascot-talking',
+    component: MascotTalkingComponent
   }
 ];
 

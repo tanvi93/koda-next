@@ -33,7 +33,9 @@ export class UtilitiesService {
     for (let i = 0; i < map.length; i++) {
       for (let j = 0; j < map[i].modules.length; j++) {
         for (let k = 0; k < map[i].modules[j].resources.length; k++) {
+          // console.log(currentPath,' === ',map[i].modules[j].resources[k].path);
           if (currentPath === map[i].modules[j].resources[k].path) {
+            // console.log('------------------------------------------');
             this.currentPageDetails = map[i].modules[j].resources[k];
             this.currentPageDetails.currentLevel = i;
             this.currentPageDetails.currentModule = j;
@@ -71,7 +73,7 @@ export class UtilitiesService {
             if (page) {
               this.currentPageDetails.nextPath = page.path;
               this.currentPageDetails.atLevel = i;
-              this.currentPageDetails.atModule = j + 1;
+              this.currentPageDetails.atModule = j;
               this.currentPageDetails.atResource = k + 1;
             } else {
               this.currentPageDetails.path = null;

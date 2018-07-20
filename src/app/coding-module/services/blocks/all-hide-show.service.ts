@@ -26,17 +26,20 @@ export class AllHideShowService {
     Blockly.JavaScript['show_hide_all'] = function (block) {
       const visibility = Number(block.getFieldValue('visibility_status'));
       const json = {
-        visibility
+        method: 'visiblityToggleForAll',
+        params: {
+          visibility
+        }
       }
-      return `visiblityToggleForAll('${JSON.stringify(json)}');\n`;
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope, cb) => {
+  interpret = (interpreter, cb) => {
     const wrapper = function (obj) {
-      cb(JSON.parse(obj));
+      cb(obj);
     };
-    interpreter.setProperty(scope, 'visiblityToggleForAll', interpreter.createNativeFunction(wrapper));
+    interpreter.setProperty('visiblityToggleForAll', wrapper);
   }
 
 }

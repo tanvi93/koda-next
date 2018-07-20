@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 declare let Blockly: any;
-declare let Interpreter: any;
+
 
 @Injectable()
 export class IfElseBlockService {
@@ -35,38 +35,31 @@ export class IfElseBlockService {
       let condition = Blockly.JavaScript.valueToCode(block, 'condition');
       const ifCode = Blockly.JavaScript.statementToCode(block, 'in_if');
       const elseCode = Blockly.JavaScript.statementToCode(block, 'in_else');
-      return `kodaIfElse(${condition}, "${btoa(ifCode)}", "${btoa(elseCode)}");\n`;
+      const json = {
+        method: 'kodaIfElse',
+        params: {
+          condition,
+          ifCode: btoa(ifCode),
+          elseCode: btoa(elseCode)
+        }
+      }
+      return `${JSON.stringify(json)};\n`;
     }
   }
 
-  initInterpreter = (interpreter, scope) => {
-    const wrapper = function (condition, ifCode, elseCode, callback) {
-      const executeFn = code => {
-        let intrp = new Interpreter('');
-        intrp.stateStack[0].scope = scope;
-        intrp.appendCode(atob(code));
-        const runner = function () {
-          if (intrp) {
-            const hasMore = intrp.step();
-            if (hasMore) {
-              // Execution is currently blocked by some async call.
-              // Try again later.
-              setTimeout(runner, 0);
-            } else {
-              callback();
-            }
-          } else {
-            callback();
-          }
-        };
-        runner();
-      }
+  interpret = interpreter => {
+    const wrapper = function ({ condition, ifCode, elseCode }, callback) {
+      condition = interpreter.executeCommands(condition);
       if (condition) {
-        executeFn(ifCode);
+        interpreter.executeCommands(atob(ifCode), () => {
+          callback();
+        });
       } else {
-        executeFn(elseCode);
+        interpreter.executeCommands(atob(elseCode), () => {
+          callback();
+        });
       }
     };
-    interpreter.setProperty(scope, 'kodaIfElse', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('kodaIfElse', wrapper, 'async');
   }
 }

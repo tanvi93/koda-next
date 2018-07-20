@@ -1,0 +1,22 @@
+<div class="captcha-input">
+  <div class="input-head-section">
+    <app-quiz-question [question]='contentData.question'></app-quiz-question>
+  </div>
+  <div class="input-body-section">
+    <div class="input-text-div">
+      <div class="inner-content" *ngFor="let x of contentData.inputParaContent; let i = index">
+        <p>{{x}}</p>
+        <input type="text" class="{{ 'input' + (i)}}" id="{{ 'input' + (i)}}" [disabled]="textDisableFlag[i]" (keydown)="setData($event)"
+          [ngStyle]="{'color': textDisableFlag[i] ? 'green':'black', 'border-color': errorIndex[i] ? 'red' : 'transparent'}" [maxlength]="stringLengthValue[i]"
+          (mousedown)='inputClicked()' (click)='inputClicked()' [(ngModel)]="inputValue[i]">
+      </div>
+    </div>
+    <div class="error-msg" [ngStyle]="{'background-color': showError ? '#EE5862' : '#5c5962' }">
+      <input type="button" *ngIf="!showError" class="submit-button" (click)="answerSubmitted()" value="DONE" name="" id="">
+      <app-error-msg class="error" *ngIf="showError" [error]="errorMsg"></app-error-msg>
+    </div>
+  </div>
+</div>
+
+<mat-card-content>
+</mat-card-content>

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SuccessModalComponent } from './../../../shared-module/success-modal/success-modal.component';
+import { ActivityTrackerService } from './../../../shared-services/activity-tracker.service';
+
 @Component({
   selector: 'app-mars-output-section',
   templateUrl: './mars-output-section.component.html',
@@ -44,21 +46,20 @@ export class MarsOutputSectionComponent implements OnInit {
   private hideMsg: boolean;
   private waterDropletFlag: Array<boolean>;
   private inputValueTracker = { 'left': 0, 'top': 0 };
-  private msgPos: any;
   private roverStandingHide: boolean;
   private xContent: number;
   private yContent: number;
-  private localData: any;
+  private speechCss: any;
 
-  constructor(public dialog: MatDialog) {
-    this.localData = JSON.parse(localStorage.getItem('coordinates'));
-    this.msgPos = { 'msgTop': null, 'msgLeft': null, 'msgTailLeft': null, 'msgTailTop': null };
+  constructor(public dialog: MatDialog, private tracker: ActivityTrackerService) {
+    this.speechCss = { position: 'left', width: '20%', autoHideMsg: true, top: '0px', left: '0px' };
   }
 
   ngOnInit() {
     this.backgroundImage = this.contentData.mapImage;
-    this.msgPos = this.contentData.initialMsgPos;
-    this.hideMsg = true;
+    this.speechCss.top = this.contentData.initialMsgPos.msgTop;
+    this.speechCss.left = this.contentData.initialMsgPos.msgLeft;
+    this.speechCss.autoHideMsg = true;
     this.waterDropletFlag = [false, false, false];
     this.roverImage = this.contentData.roverImage[0];
     this.roverSittingImage = this.contentData.roverImage[1];
@@ -73,36 +74,41 @@ export class MarsOutputSectionComponent implements OnInit {
     this.roverStandingHide = false;
   }
   hideMsgFunc(flag: boolean) {
-    this.hideMsg = flag;
+    this.speechCss.autoHideMsg = flag;
   }
+
+  clearMsgFunction = () => {
+    this.speechCss.autoHideMsg = false;
+    this.clearInputFlag.emit(true);
+  }
+
+
+
   activityFunction(x: number, y: number) {
-   
     this.xContent = Number(x);
     this.yContent = Number(y);
-    this.hideMsg = true;
+    this.speechCss.autoHideMsg = true;
     // condition to showing warning msg at proper position
     if (this.inputValueTracker.left > 6) {
-      this.msgPos.msgTailLeft = '103%';
-      this.msgPos.msgTop = (this.inputValueTracker.top * 0.95 * this.contentData.yPerUnitValue) + '%';
-      this.msgPos.msgLeft = ((this.inputValueTracker.left - 2.5) * this.contentData.xPerUnitValue) + '%';
+      this.speechCss.position = 'right';
+      this.speechCss.top = (this.inputValueTracker.top * this.contentData.yPerUnitValue)  + '%';
+      this.speechCss.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) - 21 + '%';
     } else {
-      this.msgPos.msgTailLeft = '7%';
-      this.msgPos.msgTop = ((this.inputValueTracker.top * 0.95) * this.contentData.yPerUnitValue) + '%';
-      this.msgPos.msgLeft = ((this.inputValueTracker.left + 1.5) * this.contentData.xPerUnitValue) + '%';
+      this.speechCss.position = 'left';
+      this.speechCss.top = ((this.inputValueTracker.top) * this.contentData.yPerUnitValue) + '%';
+      this.speechCss.left = ((this.inputValueTracker.left) * this.contentData.xPerUnitValue) + 17 + '%';
     }
 
     if (this.xContent === 0 && this.yContent === 0) {
       this.message = this.contentData.errorMsg[1];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else if (((this.inputValueTracker.left + Number(this.xContent)) > this.contentData.xHigherLimitValue)
       || ((this.inputValueTracker.left + Number(this.xContent)) < this.contentData.xLowerLimitValue)
       || ((this.inputValueTracker.top - Number(this.yContent)) > this.contentData.yHigherLimitValue)
       || ((this.inputValueTracker.top - Number(this.yContent)) < this.contentData.yLowerLimitValue)) {
       this.message = this.contentData.errorMsg[0];
-      this.hideMsg = false;
-      this.clearInputFlag.emit(true);
+      this.clearMsgFunction();
       return;
     } else {
       if (this.xContent === undefined) {
@@ -179,16 +185,14 @@ export class MarsOutputSectionComponent implements OnInit {
 
   checkSuccessCondition(count) {
     if (count === 3) {
-      this.hideMsg = true;
+      this.speechCss.autoHideMsg = true;
       this.dialogRef = this.dialog.open(SuccessModalComponent, {
         hasBackdrop: true,
         disableClose: true,
         panelClass: 'app-full-bleed-dialog'
       });
       this.dialogRef.componentInstance.modalData = this.contentData;
-      this.localData[2].status.complete.imageStatus = true;
-      this.localData[2].status.unlock.imageStatus = !this.localData[2].status.complete.imageStatus;
-      localStorage.setItem('coordinates', JSON.stringify(this.localData));
+      this.tracker.setContent('coordinates', 2);
     }
   }
 }

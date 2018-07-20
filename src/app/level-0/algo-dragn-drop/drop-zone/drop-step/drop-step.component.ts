@@ -22,10 +22,14 @@ export class DropStepComponent {
   @Output() displayError = new EventEmitter();
   private step;
   private changeStyle;
+  private dropEnabled: Boolean;
+  private dragEnabled: Boolean;
 
   constructor() {
     this.step = {};
     this.changeStyle = false;
+    this.dropEnabled = true;
+    this.dragEnabled = false;
   }
 
   dropData(event) {

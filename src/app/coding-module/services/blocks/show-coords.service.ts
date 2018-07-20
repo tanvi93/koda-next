@@ -33,32 +33,31 @@ constructor(activity = null) {
       this.blocks.push(block);
       let spriteIndex = block.getFieldValue('sprite');
       spriteIndex = spriteIndex.length === 0 ? -1 : spriteIndex;
-      let json = {
+    let json = {
+      method: 'showCoo',
+      params: {
         spriteIndex,
         blockIndex: this.blocks.length - 1
       }
-      return `showCoo('${JSON.stringify(json)}');\n`;
-      // return `showCoo(${spriteIndex});\n`;
+    }
+      return `${JSON.stringify(json)};\n`;
     };
   }
 
-  initInterpreterShowCoords = (interpreter, scope, cb) => {
-    // Ensure function name does not conflict with variable names.
-    Blockly.JavaScript.addReservedWords('showCoo');
+  interpret = (interpreter, cb) => {
     const wrapper = (json, callback) => {
-      json = JSON.parse(json);
-      if (this.blocks) {
+      if (this.blocks && this.blocks.length) {
         this.blocks[json.blockIndex].addSelect();
       } 
-      cb(json.spriteIndex, 2000);
+      cb({ spriteIndex: json.spriteIndex, duration: 2000 });
       setTimeout(() => {
-        if (this.blocks) {
+        if (this.blocks && this.blocks.length) {
           this.blocks[json.blockIndex].removeSelect();
         } 
-        callback(json.spriteIndex);
+        callback();
       }, 2000);
     };
-    interpreter.setProperty(scope, 'showCoo', interpreter.createAsyncFunction(wrapper));
+    interpreter.setProperty('showCoo', wrapper, 'async');
   }
 
 }

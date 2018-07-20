@@ -7,6 +7,7 @@ import { FoxGrapeComponent } from './fox-grape/fox-grape.component';
 import { DragonCapture2Component } from './dragon-capture2/dragon-capture2.component';
 import { MarsRoverComponent } from './mars-rover/mars-rover.component';
 import { TreasureHuntComponent } from './treasure-hunt/treasure-hunt.component';
+import { DragonCapture1Component } from './dragon-capture1/dragon-capture1.component';
 
 const routes: Routes = [
   {
@@ -22,11 +23,14 @@ const routes: Routes = [
     path: 'mars-rover',
     component: MarsRoverComponent
   }, {
-    path: 'dragon-capture-2',
+    path: 'challenge-dragon-capture-activity1',
     component: DragonCapture2Component
   }, {
     path: 'treasure-hunt',
     component: TreasureHuntComponent
+  }, {
+    path: 'challenge-dragon-capture-activity',
+    component: DragonCapture1Component
   }
 ];
 

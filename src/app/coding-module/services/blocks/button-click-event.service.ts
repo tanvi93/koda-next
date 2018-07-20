@@ -2,21 +2,22 @@ import { Injectable } from '@angular/core';
 import { SpriteService } from './../sprite.service';
 
 declare let Blockly: any;
-declare let Interpreter: any;
 
 // let buttonData;
 
 @Injectable()
 export class ButtonClickEventService {
   private sp: SpriteService;
-  private scope;
-  private code;
-  private instance;
+  private keyCodePair;
+  private keyButtonIdPair;
+  private instanceList;
   private myInterpreter;
+  private feedback;
   public xml: String;
 
   constructor(pageId = null) {
     this.myInterpreter = [];
+    this.instanceList = [];
     let self = this;
     this.xml = `<block type="button_click_event" id="button_click_event"></block>`;
     this.sp = new SpriteService();
@@ -40,42 +41,42 @@ export class ButtonClickEventService {
       block.startHat_ = true;
       let buttonIndex = block.getFieldValue('button');
       buttonIndex = buttonIndex.length === 0 ? 0 : buttonIndex;
-      let codeTmp = Blockly.JavaScript.statementToCode(block, 'button_clicked');
-      return `buttonClickEventBind('${buttonIndex}', "${btoa(codeTmp)}");\n`;
-    };
-  }
-
-  mouseClickEvent = (code, e) => {
-    this.myInterpreter.push(new Interpreter(''));
-    let index = this.myInterpreter.length - 1;
-    this.myInterpreter[index].stateStack[0].scope = this.scope;
-    this.myInterpreter[index].appendCode(code);
-    const runner = () => {
-      if (this.myInterpreter && this.myInterpreter[index]) {
-        const hasMore = this.myInterpreter[index].step();
-        if (hasMore) {
-          setTimeout(runner, 0);
+      const code = Blockly.JavaScript.statementToCode(block, 'button_clicked');
+      const json = {
+        method: 'buttonClickEventBind',
+        type: 'event',
+        params: {
+          buttonIndex,
+          linesOfCode: btoa(code)
         }
       }
+      return `${JSON.stringify(json)};\n`;
     };
-    runner();
   }
 
-  initInterpreter = (interpreter, scope, buttonData) => {
-    const wrapper = (buttonIndex, tmp) => {
-      this.scope = scope;
-      let code = atob(tmp);
-      this.instance = buttonData[buttonIndex].instance;
-      this.instance.on('mousedown', this.mouseClickEvent.bind(this, code));
-    };
-    interpreter.setProperty(scope, 'buttonClickEventBind', interpreter.createNativeFunction(wrapper));
+  mouseClickEvent = e => {
+    this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
+      this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keyButtonIdPair[e.target.cacheKey]);
+    });
+  }
 
+  interpret = (interpreter, buttonData, feedback) => {
+    const wrapper = ({ buttonIndex, linesOfCode }) => {
+      if (!linesOfCode.length) return;
+      this.myInterpreter = interpreter;
+      const instance = buttonData[buttonIndex].instance;
+      this.instanceList.push(instance);
+      this.keyButtonIdPair = { ...this.keyButtonIdPair, [`${instance.cacheKey}`]: buttonData[buttonIndex].id };
+      this.keyCodePair = { ...this.keyCodePair, [`${instance.cacheKey}`]: atob(linesOfCode) };
+      this.feedback = feedback;
+      instance.on('mousedown', this.mouseClickEvent);
+    };
+    interpreter.setProperty('buttonClickEventBind', wrapper);
   }
 
   unregister = () => {
-    this.myInterpreter = [];
-    if (this.instance) {
-      this.instance.off('mousedown', this.mouseClickEvent);
+    for (let i = 0; i < this.instanceList.length; i++) {
+      this.instanceList[i].off('mousedown', this.mouseClickEvent);
     }  
   }
 

@@ -1,7 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="start" class="koda-body h100" fxFlex>
 
   <app-header *ngIf="showToolbar" [gameDetails]="gameDetails"></app-header>
-  
   <app-dashboard-toolbar *ngIf="page === 'dashboard'"></app-dashboard-toolbar>
   <div [ngClass]="{'main-container': showToolbar}">
     <router-outlet class="w100" fxFlex></router-outlet>

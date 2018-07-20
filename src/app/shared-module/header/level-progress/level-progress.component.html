@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <!-- <div class="drop-down-content" *ngIf="showHide">
+  <div class="drop-down-content" *ngIf="showHide">
     <div fxLayout="row" fxLayoutAlign="start stretch">
       <div fxFlex="30" class="grey-bg">
         <mat-accordion>
@@ -42,7 +42,7 @@
         <div fxFlex="100" fxLayoutAlign="space-between start" class="level-main-content">
           <div fxFlex="50">
             <h1>{{levelObj.header}}</h1>
-            <p *ngFor="let step of levelObj.steps">{{step}}</p>
+            <p *ngFor="let step of levelObj.steps" [innerHTML]="step"></p>
           </div>
           <div fxFlex="45">
             <app-loading *ngIf="loading" class="image-load"></app-loading>
@@ -55,6 +55,6 @@
     </div>
   </div>
   <div class="modal" *ngIf="showHide" (click)="hideModal()">
-  </div> -->
+  </div>
 
 </div>

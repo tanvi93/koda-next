@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+declare var Blockly: any;
 let initialblockArray: string[] = [];
 let initialLoadFlag = true;
 
@@ -10,10 +11,10 @@ export class MakeFruitFallService {
   private blockList: any;
   private codes: Array<any>;
   private spriteIndex: any;
-  private flowChartMsg: string;
   private success: Boolean;
   private successObj: any;
-
+  
+  private flowChartMsg: string;
   constructor() {
     this.success = false;
     this.successObj = {};
@@ -27,8 +28,6 @@ export class MakeFruitFallService {
 
     this.boundaryCondition.x = sprites[1].boundaryCondition.x;
     this.boundaryCondition.y = sprites[1].boundaryCondition.y;
-    console.log(sprites);
-    console.log(spriteStatus);
     
     this.spriteIndex = [];
 
@@ -64,41 +63,65 @@ export class MakeFruitFallService {
         this.flowChartMsg = 'Oops! That doesn\'t look right. Make sure you select the correct character from the dropdown in the block.';
         return callback(this.flowChartMsg);
       }
-
-      // condition to check boundary condition
-      if (((Math.abs(spriteStatus[2].currentPosition.x) >= this.boundaryCondition.x)
-        || (Math.abs(spriteStatus[2].currentPosition.y) >= this.boundaryCondition.y))) {
-        this.flowChartMsg = 'Looks like the fruit has moved out of the Stage. Recheck your input values.';
-        return callback(this.flowChartMsg);
-      }
-
-      // condition to check whether fruit moves at all
-      if ((spriteStatus[1].currentPosition.x === spriteStatus[2].currentPosition.x)
-        && (spriteStatus[1].currentPosition.y === spriteStatus[2].currentPosition.y)) {
-        this.flowChartMsg = 'Try changing your input values so that the fruit moves from its current position.';
-        return callback(this.flowChartMsg);
-      }
-      console.log(spriteStatus[2].currentPosition.y >= -19);
-      console.log(spriteStatus[2].currentPosition.y, sprites[2]);
       
-      // condition to check whether fruit is moving down or not along with fixed x value
-      if (spriteStatus[2].currentPosition.y > sprites[2].currentOffset.y || spriteStatus[2].currentPosition.y <= -19) {
-        this.flowChartMsg = 'The fruit is moving but it needs to reach as low as the cap so that the player can try to catch it. Recheck the input values to your block.';
-        return callback(this.flowChartMsg);
+      // condition due to goto block as movement for fruit to fell down
+      if (this.blockList[2] === 'goTo') {
+
+        // condition to check whether fruits goes beyond boudary
+        if (((Math.abs(spriteStatus[2].currentPosition.x) >= this.boundaryCondition.x)
+          || (Math.abs(spriteStatus[2].currentPosition.y) >= this.boundaryCondition.y))) {
+            this.flowChartMsg = 'Looks like the fruit has moved out of the Stage. Recheck your input values.';
+            return callback(this.flowChartMsg);
+        }
+        
+        // condition to check whether fruit moves at all
+        if ((spriteStatus[1].currentPosition.x === spriteStatus[2].currentPosition.x)
+          && (spriteStatus[1].currentPosition.y === spriteStatus[2].currentPosition.y)) {
+          this.flowChartMsg = 'Try changing your input values so that the fruit moves from its current position.';
+          return callback(this.flowChartMsg);
+        }
+        
+          // condition to check whether fruit is moving down or not.
+        if (spriteStatus[2].currentPosition.y > sprites[2].currentOffset.y || spriteStatus[2].currentPosition.y <= -19) {
+            this.flowChartMsg = 'The fruit is moving but it needs to reach as low as the cap so that the player can try to catch it. Recheck the input values to your block.';
+            return callback(this.flowChartMsg);
+        } else {
+            this.flowChartMsg = 'Hmm... that didn\'t quite happen the way it should have. The fruit should fall down slowly from monkey\'s hand instead of just appearing on the ground. Try another block.';
+            return callback(this.flowChartMsg);
+        }
       }
 
-      // condition to check whether correct sequence have been acheived using goto block or not
-      if (this.blockList[2] !== 'moveBy') {
-        this.flowChartMsg = 'Hmm... that didn\'t quite happen the way it should have. The fruit should fall down slowly from monkey\'s hand instead of just appearing on the ground. Try another block.';
-        return callback(this.flowChartMsg);
-      } else {
-          this.success = true;
-          this.successObj['success'] = this.success;
-          this.successObj['title'] = 'This looks great!';
-          this.successObj['msg'] = 'You made the monkey throw a fruit on the ground! Congrats on writing your first piece of code!';
-    
-          return callback(this.successObj);
+      if (this.blockList[2] === 'moveBy') {
+        
+        let thirdBlockDetail = JSON.parse(this.codes[2]).params;
+
+        // condition to check whether fruits goes beyond boudary
+        if (((Math.abs(spriteStatus[2].currentPosition.x) >= this.boundaryCondition.x)
+          || (Math.abs(spriteStatus[1].currentPosition.y) >= this.boundaryCondition.y))) {
+          this.flowChartMsg = 'Looks like the fruit has moved out of the Stage. Recheck your input values.';
+          return callback(this.flowChartMsg);
         }
+
+
+         // condition to check whether fruit moves at all
+        if (thirdBlockDetail.x === 0 &&  thirdBlockDetail.y === 0) {
+          this.flowChartMsg = 'Try changing your input values so that the fruit moves from its current position.';
+          return callback(this.flowChartMsg);
+        }
+        
+        // condition to check whether fruit is moving down or not.
+        if (spriteStatus[2].currentPosition.y > sprites[2].currentOffset.y || spriteStatus[2].currentPosition.y <= -19) {
+          this.flowChartMsg = 'The fruit is moving but it needs to reach as low as the cap so that the player can try to catch it. Recheck the input values to your block.';
+          return callback(this.flowChartMsg);
+        } else {
+            this.success = true;
+            this.successObj['success'] = this.success;
+            this.successObj['title'] = 'This looks great!';
+            this.successObj['msg'] = 'You made the monkey throw a fruit on the ground! Congrats on writing your first piece of code!';
+
+            return callback(this.successObj);
+        }
+      }
     }, 500);
   }
   // condition to check whether previous block has been disturbed
@@ -119,7 +142,6 @@ export class MakeFruitFallService {
           return;
       }
     }
-    
     
     if (e.type === 'delete' && initialblockArray.indexOf(e.blockId) >= 0) {
       this.flowChartMsg = 'Don’t make any changes to your previous code. Just add a new block to make the fruit fall on the ground.';

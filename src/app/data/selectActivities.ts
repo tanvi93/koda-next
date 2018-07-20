@@ -6,7 +6,7 @@ export const selectActivityContent = {
         activities: [
             {
                 id: 0,
-                name: 'fox-grape-storyline',
+                name: 'storyline/fox_n_grapes',
                 title: 'Fox and Grape',
                 activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/fox_and_grapes/setting_reference.jpg',
                 status: {
@@ -27,9 +27,9 @@ export const selectActivityContent = {
             },
             {
                 id: 1,
-                name: 'treasure-hunt-storyline',
+                name: 'storyline/treasure_hunt',
                 title: 'Treasure Hunt',
-                activityImage: './assets/images/activities/treasure_hunt/island-bg.jpg',
+                activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/treasure_hunt/island-bg.jpg',
                 status: {
                     lock: {
                         imageStatus: true,
@@ -48,9 +48,9 @@ export const selectActivityContent = {
             },
             {
                 id: 2,
-                name: 'mars-rover-storyline',
+                name: 'storyline/mars_rover',
                 title: 'Mars Rover',
-                activityImage: './assets/images/activities/mars_rover/mars_rover_bg.png',
+                activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/mars_rover/mars_rover_bg.png',
                 status: {
                     lock: {
                         imageStatus: true,
@@ -75,9 +75,9 @@ export const selectActivityContent = {
         mascotBgColor: '#ffe655',
         activities: [{
             id: 0,
-            name: 'to-the-hills-storyline',
+            name: 'storyline/to-the-hills-storyline',
             title: 'To the hills',
-            activityImage: './assets/images/activities/to_the_hills/bg_storyline.jpg',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/to_the_hills/bg_storyline.jpg',
             status: {
                 lock: {
                     imageStatus: false,
@@ -188,6 +188,142 @@ export const selectActivityContent = {
             name: 'storyline/naptime',
             title: 'Nap Time',
             activityImage: './assets/images/activities/naptime/naptime_bg.png',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        }]
+    },
+    events: {
+        instructions: 'Complete all activities to earn your badge.',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
+        mascotBgColor: '#ffe655',
+        activities: [{
+            id: 0,
+            name: 'storyline/identical_twins',
+            title: 'Identical Twins',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/identical-twins-step1.jpg',
+            status: {
+                lock: {
+                    imageStatus: false,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: true,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 1,
+            name: 'storyline/lambent_app',
+            title: 'Lambent App',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/shop.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 2,
+            name: 'storyline/eclipse',
+            title: 'Eclipse',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_school_park.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        }]
+    },
+    conditions: {
+        instructions: 'Complete all activities to earn your badge.',
+        mascotImage: 'http://dqfevutdn6sxd.cloudfront.net/monkey_menace/mascot_arms_folded_head.png',
+        mascotBgColor: '#ffe655',
+        activities: [{
+            id: 0,
+            name: 'storyline/ride_scanner',
+            title: 'Ride Scanner',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/identical_twins/identical-twins-step1.jpg',
+            status: {
+                lock: {
+                    imageStatus: false,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: true,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 1,
+            name: 'storyline/talking_parrot',
+            title: 'Talking Parrot',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/lambent_app/shop.jpg',
+            status: {
+                lock: {
+                    imageStatus: true,
+                    imageData: './assets/images/lock_icon.png'
+                },
+                unlock: {
+                    imageStatus: false,
+                    imageData: '',
+                },
+                complete: {
+                    imageStatus: false,
+                    imageData: './assets/images/done_icon.png'
+                }
+
+            }
+        },
+        {
+            id: 2,
+            name: 'storyline/seasons',
+            title: 'Seasons',
+            activityImage: 'http://dqfevutdn6sxd.cloudfront.net/activities/eclipse/bg_school_park.jpg',
             status: {
                 lock: {
                     imageStatus: true,

@@ -5,7 +5,7 @@ import { blocksData } from './../../data/coding';
 import { SpriteService } from './../services/sprite.service';
 import { AlgoModalComponent } from './algo-modal/algo-modal.component';
 import { PreviewModalComponent } from '../../shared-module/preview-modal/preview-modal.component';
-// import { SuccessModalComponent } from './../../shared-module/success-modal/modal.component';
+import { SuccessModalComponent } from '../../shared-module/success-modal/success-modal.component';
 import { HintModalComponent } from '../../shared-module/hint-modal/hint-modal.component';
 import { AudioService } from './../../shared-services/audio.service';
 
@@ -70,7 +70,7 @@ export class CodingScreenComponent implements OnInit {
 
   algoDialog: MatDialogRef<AlgoModalComponent>;
   previewDialog: MatDialogRef<PreviewModalComponent>;
-  // successValidationDialog: MatDialogRef<SuccessModalComponent>;
+  successValidationDialog: MatDialogRef<SuccessModalComponent>;
   hintDialog: MatDialogRef<HintModalComponent>;
 
 
@@ -146,13 +146,13 @@ export class CodingScreenComponent implements OnInit {
       this.pageData['successPopupText'] = event.msg;
       this.pageData['popupMascotImage'] = event.mascotImage;
       this.pageData['BackgroundColor'] = event.backgroundColor;
-      // setTimeout(() => {
-      //   this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
-      //     disableClose: true,
-      //     hasBackdrop: true
-      //   });
-      //   this.successValidationDialog.componentInstance.modalData = this.pageData;
-      // }, this.successModalAppeartime);
+      setTimeout(() => {
+        this.successValidationDialog = this.dialog.open(SuccessModalComponent, {
+          disableClose: true,
+          hasBackdrop: true
+        });
+        this.successValidationDialog.componentInstance.modalData = this.pageData;
+      }, this.successModalAppeartime);
       return;
     } else {
       this.feedback = event;
@@ -194,6 +194,7 @@ export class CodingScreenComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(result => {
       flag = false;
+      this.hintDailogFlag = false;
     });
     dialog.componentInstance.codingScreenData = this.pageData;
   }

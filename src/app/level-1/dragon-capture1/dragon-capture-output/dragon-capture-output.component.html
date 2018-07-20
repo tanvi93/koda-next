@@ -1,0 +1,17 @@
+<div class="output-div">
+  <img class="background-image" [src]="backgroundImage" alt="">
+  <div class="temp" [hidden]="!coordVisibility">(0,0)</div>
+  <div class="{{ 'hidden-box' }}" *ngFor="let list of contentData.coordinates; let i = index;" [hidden]="articleHidden[i]" [ngStyle]="{'top': contentData.yGridCoord.indexOf(list.y)*contentData.yGridPerUnitScale + '%', 'left': contentData.xGridCoord.indexOf(list.x) * contentData.xGridPerUnitScale + '%'}">
+    <img class="{{ 'hidden-container-image'+ (i+1)}}" [src]="list.image" [ngStyle]="{'top': articleTopShift[i] + '%', 'transition': '0.5s'}" alt="">
+  </div>
+  <div class="background-shield-cover" [hidden]='!gridEnabled' (click)="wrongAttempt($event)">
+  </div>
+  <div class="clickable-article" (click)="successfulAttempt($event)" *ngFor="let list of contentData.coordinates; let i = index;" [ngStyle]="{'top': contentData.yGridCoord.indexOf(list.y)*contentData.yGridPerUnitScale + '%', 'left': contentData.xGridCoord.indexOf(list.x) * contentData.xGridPerUnitScale + '%', 'display': clickableContentFlag[i] ? 'none': 'block'}" id="{{i}}">
+  </div>
+
+  <img class="gems-stone" [src]="contentData.gemsImage[0]" *ngFor="let item of contentData.gemsCoordData" [ngStyle]="{'top': contentData.yGridCoord.indexOf(item.y)*contentData.yGridPerUnitScale +   '%', 'left': contentData.xGridCoord.indexOf(item.x)*contentData.xGridPerUnitScale  + '%', 'transition': '1s', 'opacity': gemOpacity}" alt="">
+
+  <app-speech-bubble [speechContent]="speechCss">
+    {{message}}
+  </app-speech-bubble>
+</div>

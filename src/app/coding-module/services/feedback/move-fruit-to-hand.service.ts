@@ -35,7 +35,6 @@ export class MoveFruitToHandService {
     this.codes = codes;
    
     setTimeout(() => {
-
       // condition to check whether block is greater than 2
       if (this.codes.length > 2) {
         // tslint:disable-next-line:max-line-length
@@ -55,8 +54,7 @@ export class MoveFruitToHandService {
         return callback(this.flowChartMsg);
       }
 
-      const blockObj = JSON.parse(this.codes[1].match(/\(([^)]+)\)/)[1].replace(/[']/g, ''));
-
+      const blockObj = JSON.parse(this.codes[1]).params;
       // condition to check whether the block added have fruit as character
       if (Number(blockObj.spriteIndex) !== 1) {
         // tslint:disable-next-line:max-line-length
@@ -91,7 +89,7 @@ export class MoveFruitToHandService {
         this.successObj['msg'] = `You made the monkey take its fruit along. You're surely getting a hang of code blocks!`;
         return callback(this.successObj);
       }
-    }, 500);
+    }, 600);
   }
   workSpaceOnChange(e, cb, workspace) {
     const json = e.toJson();
@@ -123,6 +121,7 @@ export class MoveFruitToHandService {
     }
 
 // Check 1. Were the earlier blocks changed?
+    console.log(e.type, json.blockId, initialblockArray);
     if ((e.type === 'change') && (json.blockId === initialblockArray[0] || json.blockId === initialblockArray[1] || json.blockId === initialblockArray[2])) {
       initialLoadFlag = true;
       cb('Don’t make any changes to your previous code. Just add a new block to make the fruit move to monkey’s hand.');
