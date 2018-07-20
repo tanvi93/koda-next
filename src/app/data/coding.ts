@@ -2627,7 +2627,11 @@ export const blocksData: any = {
         ],
         "initialBackgroundIdx": 0,
         "currentBackgroundIdx": 0,
-        "buttons": []
+        "buttons": [],
+        "sounds": [{
+            name: 'fire alarm',
+            src: './assets/audio/fire_extinguisher/fire_alarm.wav'
+        }]
     }, //end of fire_extinguisher_coding2
 
     mm3_5_c1: {
