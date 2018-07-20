@@ -83,23 +83,23 @@ export class SelectElementsZoneComponent implements OnInit {
             if (this.elementsObj[j] === event.target.id) {
               this.isCharClickedOnce = true;
               this.success = true;
-                this.clickedImageId.emit(event.target.id);
-                this.error = this.presentQuestionData.options[i].correctMsg;
+              this.clickedImageId.emit(event.target.id);
+              this.error = this.presentQuestionData.options[i].correctMsg;
               this.isCorrect = true;
               const index = this.elementsObj.indexOf(event.target.id);
               if (index > -1) {
                 this.elementsObj.splice(index, 1);
               }
               if (this.elementsObj.length <= 1) {
-                  this.questionCount++;
-                  this.switchQuestion(event);
-                }
+                this.questionCount++;
+                this.switchQuestion(event, 'game-elements');
               }
             }
+          }
           if (!this.isCharClickedOnce) {
             this.isCorrect = false;
             this.error = this.presentQuestionData.options[i].errorMsg;
-         }
+          }
         } else {
           this.isCorrect = false;
           this.error = this.presentQuestionData.options[i].errorMsg;
@@ -117,7 +117,7 @@ export class SelectElementsZoneComponent implements OnInit {
         this.isCorrect = true;
         this.error = value.correctMsg;
         this.questionCount++;
-        this.switchQuestion(value);
+        this.switchQuestion(value, 'rule-board');
         this.clickedImageId.emit('img5');
       } else {
         this.clickedImageId.emit('img6');
@@ -146,13 +146,15 @@ export class SelectElementsZoneComponent implements OnInit {
     }, 100);
   }
 
-  switchQuestion(event) {
+  switchQuestion(event, id) {
+    document.getElementById(id).style.pointerEvents = 'none';
     setTimeout(() => {
       this.showElementsZone = false;
       this.showError = false;
       setTimeout(() => {
         this.showElementsZone = true;
         this.presentQuestionData = this.gameInfo.validation[this.questionCount];
+        document.getElementById(id).style.pointerEvents = 'auto';
         if (event.target && this.elementsObj.length == 0) {
           this.showRules = true;
         }
