@@ -19,10 +19,14 @@ export class StepDragComponent {
 
   @Input() stepObj;
   private changeStyle;
+  private dropEnabled: Boolean;
+  private dragEnabled: Boolean;
 
   constructor() {
     this.stepObj = {};
     this.changeStyle = false;
+    this.dropEnabled = false;
+    this.dragEnabled = true;
    }
 
   stepDragData(event) {
