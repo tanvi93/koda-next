@@ -45,7 +45,9 @@
             <p *ngFor="let step of levelObj.steps" [innerHTML]="step"></p>
           </div>
           <div fxFlex="45">
-            <app-loading *ngIf="loading" class="image-load"></app-loading>
+            <div class="image-load" *ngIf="loading">
+              <app-loading></app-loading>
+            </div>
             <div *ngIf="!loading" class="img-video-sec">
               <img src="{{levelObj.image}}">
             </div>
