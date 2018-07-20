@@ -1292,11 +1292,11 @@ export const sprites: any = [
         "name": "temperature_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": -26,
-            "y": 0
+            "x": -8,
+            "y": 12
         },
         "aspect_ratio": 1.0,
-        "width": 4,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
@@ -1311,11 +1311,11 @@ export const sprites: any = [
         "name": "bp_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": -10,
-            "y": 0
+            "x": 5,
+            "y": 3
         },
         "aspect_ratio": 1,
-        "width": 4,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
@@ -1330,11 +1330,11 @@ export const sprites: any = [
         "name": "sugar_indicator",
         "activityName": "medicine_box",
         "initialOffset": {
-            "x": 10,
-            "y": 0
+            "x": 1,
+            "y": -9
         },
         "aspect_ratio": 1,
-        "width": 4,
+        "width": 3,
         //"height": 3,
         "initialVisibility": true,
         "looks": [
@@ -1350,7 +1350,7 @@ export const sprites: any = [
         "activityName": "medicine_box",
         "initialOffset": {
             "x": 20,
-            "y": 14
+            "y": 13.7
         },
         "aspect_ratio": 2.382,
         "width": 7,
