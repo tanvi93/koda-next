@@ -72,7 +72,7 @@ export class KeypressEventService {
       this.lock = true;
       this.interpreter.executeCommands(this.keyCodePair[event.which], () => {
         this.lock = false;
-        this.feedback(this.keyCodePair[event.which].split(';\n'), `${this.keyNamePair[event.which]}_press`);
+        this.feedback(this.keyCodePair[event.which].split(';\n'), `${this.keyNamePair[event.which]}_keypress`);
       });
     }
   }
