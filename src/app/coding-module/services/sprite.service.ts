@@ -91,9 +91,12 @@ export class SpriteService {
 
   soundDropdown = (pageId) => {
     let arr = this.soundArr[pageId] ? this.soundArr[pageId] : this.getAllSounds(pageId);
-    let finalArr = arr.map((v, i) => {
-      return [v.name, i + ''];
-    });
+    let finalArr = [];
+    if (arr) {
+      finalArr = arr.map((v, i) => {
+        return [v.name, i + ''];
+      });
+    }
     return [['Choose a Sound...', '-1'], ...finalArr];
   }
 
