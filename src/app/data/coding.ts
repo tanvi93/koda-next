@@ -2464,6 +2464,100 @@ export const blocksData: any = {
     </statement>
   </block>
 </xml>`,
+         "initialCode1": `<xml>
+  <variables></variables>
+  <block type="move_to" id="move_to" x="50" y="10">
+    <field name="sprite">0</field>
+    <value name="input_x">
+      <shadow type="number" id="IY~f%Y^g.qZALPyAaP0O">
+        <field name="n">-20</field>
+      </shadow>
+    </value>
+    <value name="input_y">
+      <shadow type="number" id="AQ{~kr:c^@8ij-@mG#Hn">
+        <field name="n">-5</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="click_event" id="click_event" x="50" y="70">
+    <field name="sprite">1</field>
+    <statement name="sprite_clicked">
+      <block type="change_look" id="change_look">
+        <field name="sprite">1</field>
+        <field name="avatar">1</field>
+        <next>
+          <block type="move_by" id="move_by">
+            <field name="sprite">3</field>
+            <field name="direction">D</field>
+            <value name="steps">
+              <shadow type="number" id="q!zbob=1%W-vqL@wRmcO">
+                <field name="n">10</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="change_look" id="Iq)QIP0-L-yczRuP!pWa">
+                <field name="sprite">2</field>
+                <field name="avatar">1</field>
+                <next>
+                  <block type="show_hide" id="3eX+kWvu(Vw@;O?+^#+R">
+                    <field name="sprite">4</field>
+                    <field name="visibility_status">1</field>
+                    <next>
+                      <block type="change_look" id="^bAnW:c[|1f~]rl-?D}a">
+                        <field name="sprite">5</field>
+                        <field name="avatar">1</field>
+                        <next>
+                          <block type="next_look" id="next_look">
+                            <field name="sprite">5</field>
+                            <next>
+                              <block type="change_look" id=":r/v9=y)tvSWSV}hra$P">
+                                <field name="sprite">2</field>
+                                <field name="avatar">2</field>
+                                <next>
+                                  <block type="show_hide" id="g3Tcl!+p:3%tXck)GDD]">
+                                    <field name="sprite">5</field>
+                                    <field name="visibility_status">0</field>
+                                    <next>
+                                      <block type="show_hide" id="oHlyA?:Eob8fBtILbaa^">
+                                        <field name="sprite">4</field>
+                                        <field name="visibility_status">0</field>
+                                        <next>
+                                          <block type="move_by" id="=eL)M*;r;!57kYBF{:.^">
+                                            <field name="sprite">3</field>
+                                            <field name="direction">U</field>
+                                            <value name="steps">
+                                              <shadow type="number" id="k1KBBZ8FKBIRUYWCEHbr">
+                                                <field name="n">10</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="change_look" id="AlybkHj$XqdM-O1:7ezn">
+                                                <field name="sprite">1</field>
+                                                <field name="avatar">0</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>`,
          "isParallel": true,
         "icons": [{
             "name": "algo",
