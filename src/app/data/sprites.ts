@@ -379,8 +379,8 @@ export const sprites: any = [
                 "currentLookIdx": 0,
                 "initialLookIdx": 0,
                 "handPositions": {
-                    "x": -5,
-                    "y": -4
+                    "x": -3,
+                    "y": -5
                 },
                 "disappearCoordinates": {
                     "x1": -37,

@@ -83,6 +83,12 @@ export class InputCoordinateComponent implements OnInit, OnChanges {
   }
 
   fetchInput(inputx, inputy) {
+    if (inputx === '-') {
+      inputx = '';
+    }
+    if (inputy === '-') {
+      inputy = '';
+    }
     this.inputCoordinateValue[0] = inputx;
     this.inputCoordinateValue[1] = inputy;
     this.inputFlag = [true, true, true];
@@ -90,12 +96,10 @@ export class InputCoordinateComponent implements OnInit, OnChanges {
   }
 
 
-  onKeydown($event) {
-    const allowedValue = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', 'Tab', 'Enter', 'Backspace',
-      'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Shift'];
-    if (allowedValue.indexOf($event.key) === -1) {
-      $event.preventDefault();
-    }
+  onKeypress(event, data) {
+    const pattern = /^[-|+]?[0-9]\d{0,1}?$/;
+    if (!pattern.test(data) && data.length > 1) {
+      event.target.value = data.slice(0, -1); 
+     }
   }
-
 }

@@ -121,6 +121,7 @@ export class MoveFruitToHandService {
     }
 
 // Check 1. Were the earlier blocks changed?
+    console.log(e.type, json.blockId, initialblockArray);
     if ((e.type === 'change') && (json.blockId === initialblockArray[0] || json.blockId === initialblockArray[1] || json.blockId === initialblockArray[2])) {
       initialLoadFlag = true;
       cb('Don’t make any changes to your previous code. Just add a new block to make the fruit move to monkey’s hand.');
