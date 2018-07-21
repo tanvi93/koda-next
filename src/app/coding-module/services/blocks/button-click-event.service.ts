@@ -55,6 +55,10 @@ export class ButtonClickEventService {
   }
 
   mouseClickEvent = e => {
+    // console.log(this.keyCodePair[e.target.cacheKey]);
+    // if (!this.keyCodePair[e.target.cacheKey].length) {
+    //   return this.feedback('', this.keyButtonIdPair[e.target.cacheKey]);
+    // }
     this.myInterpreter.executeCommands(this.keyCodePair[e.target.cacheKey], () => {
       this.feedback(this.keyCodePair[e.target.cacheKey].split(';\n'), this.keyButtonIdPair[e.target.cacheKey]);
     });

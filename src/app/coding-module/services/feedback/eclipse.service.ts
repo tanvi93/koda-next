@@ -10,11 +10,11 @@ export class EclipseService {
 
   validateCode(blockList, codes, sprites, spriteStatus, callback) {
     if (blockList.indexOf('buttonClickEventBind') === -1) {
-      return callback('Add block that shows the solar and lunar eclipse animation only when their respective buttons are clicked. Check the preview.');
+      return callback('Look for the blocks that shows the eclipse animation only when the solar eclipse and lunar eclipse buttons are clicked. Recheck the preview.');
     }
     this.isSolarCorrect = false;
     this.isLunarCorrect = false;
-    return callback('Click on Buttons!');
+    // return callback('Click on Buttons!');
   }
 
   checkForSuccess() {
@@ -25,10 +25,15 @@ export class EclipseService {
         msg: 'You helped me make a great animation.'
       }
       return successObj;
+    } else if (this.isLunarCorrect) {
+      return 'Good! The Lunar eclipse animation seems perfect. But we also need to show the Solar eclipse animation.'
+    } else if (this.isSolarCorrect) {
+      return 'Good! The Solar eclipse animation seems perfect. But we also need to show the Lunar eclipse animation.'
     }
   }
 
   on_solar_eclipse_button(codes, sprites, spriteStatus, callback) {
+
     let coords: any = { };
     sprites.forEach(v => {
       const name = v.name.toLowerCase();
@@ -52,7 +57,7 @@ export class EclipseService {
       '-2': [2]
     }
     if (!acceptableCoords.hasOwnProperty(`${coords.moon.x}`) || acceptableCoords[`${coords.moon.x}`].indexOf(coords.moon.y) === -1) {
-      return callback('For Solar eclipse to occur, make sure that the Moon never leaves the orbit and the Moon is in between the Sun and the Earth. Check the preview.');
+      return callback('For Solar eclipse to occur, the Moon should be in between the Sun and the Earth. Make sure that the moon remains on the orbit.');
     } else {
       this.isSolarCorrect = true;
       const obj = this.checkForSuccess();
@@ -89,7 +94,7 @@ export class EclipseService {
       28: [5]
     }
     if (!acceptableCoords.hasOwnProperty(`${coords.moon.x}`) || acceptableCoords[`${coords.moon.x}`].indexOf(coords.moon.y) === -1) {
-      return callback('For Lunar eclipse to occur, make sure that the Moon never leaves the orbit and the Moon to the right of both the Sun and the Earth. Check the preview.');
+      return callback('For Lunar eclipse to occur, the Moon should be to the right the Earth. Make sure the moon remains on the orbit.');
     } else {
       this.isLunarCorrect = true;
       const obj = this.checkForSuccess();
