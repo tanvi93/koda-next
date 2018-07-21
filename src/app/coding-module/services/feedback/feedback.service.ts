@@ -104,6 +104,7 @@ export class FeedbackService {
     });
     const spritesData = [...sprites, { id: 'background', ...bgDetails }];
     if (this[`${pageId}`]) {
+      console.log(this[pageId], eventId);
       if (eventId) {
         this[pageId][`on_${eventId}`](this.codes, spritesData, spriteStatus, callback);
       } else {
